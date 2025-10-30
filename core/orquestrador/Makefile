@@ -27,3 +27,13 @@ ship:
 	@echo "Use nos projetos-cliente. Na FÁBRICA apenas release via CI."
 
 
+pipeline_gen:
+	python3 cli.py gen_pipeline
+
+pipeline_validate:
+	python3 cli.py validate_pipeline
+
+pipeline_toc:
+	python3 cli.py toc
+
+

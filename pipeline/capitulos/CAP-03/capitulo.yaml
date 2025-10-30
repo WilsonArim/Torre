@@ -1,0 +1,20 @@
+{
+  "id": "CAP-03",
+  "nome": "Piloto & Produção",
+  "gates_alvo": [
+    "G3",
+    "G4",
+    "G5"
+  ],
+  "modulos": {
+    "inicia": [],
+    "continua": [
+      "TODOS"
+    ],
+    "termina": [
+      "ALVORA@1.0",
+      "HORUS@1.0"
+    ]
+  },
+  "tarefas": []
+}

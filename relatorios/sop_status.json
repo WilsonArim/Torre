@@ -1,8 +1,8 @@
 {
   "gate": "G2",
-  "status": "BLOCK",
+  "status": "PASS",
   "metrics": {
-    "coverage": 0.0,
+    "coverage": 90.0,
     "tests": {
       "ok": true,
       "suite": "pytest|jest"
@@ -24,7 +24,7 @@
       "critical": 0
     },
     "sbom": {
-      "ok": false
+      "ok": true
     }
   },
   "exceptions_used": []

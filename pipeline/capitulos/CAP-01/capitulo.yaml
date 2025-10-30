@@ -1,0 +1,21 @@
+{
+  "id": "CAP-01",
+  "nome": "Fundação & Bootstrap",
+  "gates_alvo": [
+    "G0",
+    "G1"
+  ],
+  "modulos": {
+    "inicia": [
+      "IDENTIDADE",
+      "DEVSECOPS"
+    ],
+    "continua": [
+      "OBSERVABILIDADE"
+    ],
+    "termina": [
+      "DEVSECOPS"
+    ]
+  },
+  "tarefas": []
+}

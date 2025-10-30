@@ -1,0 +1,41 @@
+versao: 1
+gates_ordem: [G0, G1, G2, G3, G4, G5]
+
+modulos:
+  - id: IDENTIDADE
+    tipo: fundacao
+    depende: []
+  - id: DEVSECOPS
+    tipo: fundacao
+    depende: []
+  - id: OBSERVABILIDADE
+    tipo: suporte
+    depende: [DEVSECOPS]
+  - id: ALVORA
+    tipo: executor
+    depende: [IDENTIDADE, DEVSECOPS, OBSERVABILIDADE]
+  - id: HORUS
+    tipo: executor
+    depende: [IDENTIDADE, DEVSECOPS, OBSERVABILIDADE]
+
+capitulos:
+  - id: CAP-01
+    nome: "Fundação & Bootstrap"
+    inicia: [IDENTIDADE, DEVSECOPS]
+    continua: [OBSERVABILIDADE]
+    termina: [DEVSECOPS]
+    gates_alvo: [G0, G1]
+  - id: CAP-02
+    nome: "MVPs executores"
+    inicia: []
+    continua: [ALVORA, HORUS, OBSERVABILIDADE]
+    termina: [ALVORA@MVP, HORUS@MVP]
+    gates_alvo: [G2]
+  - id: CAP-03
+    nome: "Piloto & Produção"
+    inicia: []
+    continua: [TODOS]
+    termina: [ALVORA@1.0, HORUS@1.0]
+    gates_alvo: [G3, G4, G5]
+
+

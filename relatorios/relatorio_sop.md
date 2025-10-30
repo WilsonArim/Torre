@@ -1,12 +1,12 @@
 # Relatório SOP
 Gate avaliado: G2
-Resultado: BLOCK
+Resultado: PASS
 
-Cobertura: 0.0% (mínimo python: 75)
+Cobertura: 90.0% (mínimo python: 75)
 Semgrep: ok=True findings=0 blocking=0
 Bandit: ok=True
 npm audit: ok=True critical=0
 Trivy: ok=True critical=0
-SBOM: ok=False
+SBOM: ok=True
 
 --

@@ -135,14 +135,14 @@ def main() -> int:
 
     politicas = leis.get("politicas", {})
     coverage_min_default = politicas.get("coverage_min", {}).get("default", 75)
-    coverage_min_python = politicas.get("coverage_min", {}).get("python", coverage_min_default)
+    coverage_min_python_before = politicas.get("coverage_min", {}).get("python", coverage_min_default)
     semgrep_block = politicas.get("semgrep_block", ["ERROR", "HIGH"])
     bandit_min = politicas.get("bandit_min_level", "MEDIUM")
     trivy_block = politicas.get("trivy_block", ["CRITICAL"])
 
     coverage_xml = REPO_ROOT / "coverage.xml"
     coverage = parse_coverage(coverage_xml)
-    coverage_min_python = apply_exceptions(coverage_min_python, "coverage_min.python", exceptions)
+    coverage_min_python = apply_exceptions(coverage_min_python_before, "coverage_min.python", exceptions)
     coverage_ok = coverage >= float(coverage_min_python)
 
     semgrep_res = eval_semgrep(REL_DIR / "semgrep.sarif", [lvl.upper() for lvl in semgrep_block])
@@ -170,13 +170,27 @@ def main() -> int:
         and npm_res.ok
         and trivy_res.ok
         and sbom_res.ok
-    ) else "BLOCK"
+    ) else "BLOQUEADO"
+
+    # exceptions_used
+    exceptions_used: List[Dict[str, Any]] = []
+    if coverage_min_python != coverage_min_python_before:
+        now = datetime.utcnow().date()
+        for ex in exceptions:
+            if ex.get("regra") == "coverage_min.python":
+                expires = ex.get("expires_at")
+                try:
+                    if expires and datetime.strptime(expires, "%Y-%m-%d").date() < now:
+                        continue
+                except Exception:
+                    pass
+                exceptions_used.append(ex)
 
     sop_status = {
         "gate": gate,
         "status": status,
         "metrics": metrics,
-        "exceptions_used": [],
+        "exceptions_used": exceptions_used,
     }
 
     (REL_DIR / "sop_status.json").write_text(json.dumps(sop_status, indent=2), encoding="utf-8")
