@@ -39,4 +39,15 @@ pipeline_toc:
 gatekeeper_prep:
 	python3 cli.py gatekeeper_prep
 
+gatekeeper_run:
+	@echo "🔎 Running automated Gatekeeper (Composer Edition)..."
+	make -C core/orquestrador gatekeeper_prep
+	bash ordem/gatekeeper.sh
+	@echo "✅ Gatekeeper completed. See relatorios/parecer_gatekeeper.md"
+
+review_codex:
+	@echo "🧠 Running ethical review with Codex (GPT-4o)..."
+	python3 core/orquestrador/cli.py review_codex
+	@echo "✅ Codex review completed. See relatorios/parecer_gatekeeper_codex.md"
+
 

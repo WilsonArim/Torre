@@ -23,4 +23,16 @@ Validar SLAs/SLOs, plano de DR, on-call, formação e rollback.
 - TOC: pipeline/PIPELINE_TOC.md
 ```
 
+## Automação (Composer Edition)
+O Gatekeeper técnico é executado automaticamente após o SOP.
+Se o relatório indicar "PASS" e a pipeline estiver válida, o parecer
+`relatorios/parecer_gatekeeper.md` é gerado com "DECISÃO: APROVADO".
+
+## Revisão Ética (Codex Edition)
+Para auditorias éticas ou de veracidade, executar:
+
+    make -C core/orquestrador review_codex
+
+Gera `relatorios/parecer_gatekeeper_codex.md` com análise ética detalhada.
+
 

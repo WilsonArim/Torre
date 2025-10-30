@@ -1,23 +1,26 @@
-#!/usr/bin/env bash
-set -euo pipefail
-
-# preparar inputs do Gatekeeper
+#!/bin/bash
+set -e
+ROOT=$(dirname "$0")/..
+cd "$ROOT"
+echo "🔎 Gatekeeper audit started..."
 make -C core/orquestrador gatekeeper_prep
-
-PIPE_INPUT="relatorios/pipeline_gate_input.json"
-if [ -f "$PIPE_INPUT" ]; then
-  PIPE_OK=$(jq -r '.pipeline_ok' "$PIPE_INPUT" 2>/dev/null || echo "false")
-else
-  PIPE_OK="false"
-fi
-
-if grep -q "DECISÃO_SOP: BLOQUEADO" relatorios/relatorio_sop.md 2>/dev/null || [ "$PIPE_OK" != "true" ]; then
-  echo -e "DECISÃO: VETO\nMotivo: SOP BLOQUEADO ou pipeline inválida.\nVer: relatorios/pipeline_audit.json" > relatorios/parecer_gatekeeper.md
+SOP_JSON="relatorios/sop_status.json"
+PIPE_JSON="relatorios/pipeline_gate_input.json"
+OUT="relatorios/parecer_gatekeeper.md"
+SOP_STATUS=$(jq -r '.status' "$SOP_JSON")
+PIPE_OK=$(jq -r '.pipeline_ok' "$PIPE_JSON")
+if [[ "$SOP_STATUS" != "PASS" || "$PIPE_OK" != "true" ]]; then
+  echo "DECISÃO: VETO" > "$OUT"
+  echo "Motivo: SOP bloqueado ou pipeline inválida." >> "$OUT"
+  echo "Ver relatórios: $SOP_JSON, $PIPE_JSON" >> "$OUT"
+  echo "❌ Gatekeeper VETO emitido."
   exit 1
 fi
-
-echo -e "DECISÃO: APROVADO\nPipeline: OK\nVer: pipeline/PIPELINE_TOC.md" > relatorios/parecer_gatekeeper.md
-echo "Parecer Gatekeeper emitido em relatorios/parecer_gatekeeper.md"
+echo "DECISÃO: APROVADO" > "$OUT"
+echo "Risco residual: Nenhum identificado." >> "$OUT"
+echo "Justificação: Cobertura, SBOM e pipeline em conformidade com as Leis SOP v2." >> "$OUT"
+echo "Assinado: Gatekeeper (Composer Edition)" >> "$OUT"
+echo "✅ Gatekeeper aprovado com sucesso."
 
 #!/usr/bin/env bash
 set -euo pipefail

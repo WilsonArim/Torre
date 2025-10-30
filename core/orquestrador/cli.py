@@ -11,6 +11,10 @@ try:
     import yaml  # type: ignore
 except Exception:  # pragma: no cover
     yaml = None
+try:
+    import openai  # type: ignore
+except Exception:  # pragma: no cover
+    openai = None
 
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
@@ -310,6 +314,68 @@ def gatekeeper_prep() -> None:
     print("Gatekeeper input gerado em", gk_path)
 
 
+def review_codex() -> None:
+    """Revisão ética e factual com GPT-4o (Codex Edition)."""
+    sop_path = REPO_ROOT / "relatorios" / "relatorio_sop.md"
+    sbom_path = REPO_ROOT / "relatorios" / "sbom.json"
+    pipe_path = REPO_ROOT / "relatorios" / "pipeline_gate_input.json"
+    out_path = REPO_ROOT / "relatorios" / "parecer_gatekeeper_codex.md"
+
+    sop_text = sop_path.read_text(encoding="utf-8") if sop_path.exists() else ""
+    sbom_text = sbom_path.read_text(encoding="utf-8") if sbom_path.exists() else ""
+    pipe_json = {}
+    if pipe_path.exists():
+        try:
+            pipe_json = json.loads(pipe_path.read_text(encoding="utf-8"))
+        except Exception:
+            pipe_json = {}
+
+    prompt = f"""
+Atua como Gatekeeper Ético (Codex Edition) da FÁBRICA 2.0.
+Analisa os seguintes artefactos e emite parecer humano detalhado.
+
+### SOP
+{sop_text}
+
+### SBOM
+{sbom_text}
+
+### Pipeline
+{json.dumps(pipe_json, indent=2)}
+
+Tarefa:
+- Avalia coerência ética, factual e técnica.
+- Classifica: DECISÃO ÉTICA: APROVADO | VETO.
+- Lista riscos residuais, inconsistências ou omissões.
+- Recomenda melhorias ou pontos de revisão futura.
+Gera o parecer em formato Markdown.
+"""
+
+    print("🧠 Connecting to GPT-4o Codex...")
+    api_key = os.getenv("OPENAI_API_KEY", "")
+    if not api_key or openai is None:
+        out_path.write_text(
+            "OPENAI_API_KEY não configurada ou SDK indisponível. Skipping Codex review.",
+            encoding="utf-8",
+        )
+        print("⚠️ Chave API não configurada ou SDK ausente.")
+        return
+    openai.api_key = api_key
+    try:
+        response = openai.ChatCompletion.create(
+            model="gpt-4o",
+            messages=[
+                {"role": "system", "content": "És o Gatekeeper Ético e Factual da FÁBRICA 2.0."},
+                {"role": "user", "content": prompt},
+            ],
+        )
+        output = response["choices"][0]["message"]["content"]
+    except Exception as e:
+        output = f"Falha ao contactar Codex: {e}"
+    out_path.write_text(output, encoding="utf-8")
+    print(f"✅ Parecer ético gerado em {out_path}")
+
+
 def main(argv: list[str]) -> int:
     parser = argparse.ArgumentParser(prog="factory", description="FÁBRICA CLI")
     sub = parser.add_subparsers(dest="cmd", required=True)
@@ -331,6 +397,7 @@ def main(argv: list[str]) -> int:
     sub.add_parser("validate_pipeline", help="Valida consistência da superpipeline")
     sub.add_parser("toc", help="Gera pipeline/PIPELINE_TOC.md")
     sub.add_parser("gatekeeper_prep", help="Prepara inputs do Gatekeeper (audit + TOC)")
+    sub.add_parser("review_codex", help="Revisão ética (GPT-4o)")
 
     args = parser.parse_args(argv)
     if args.cmd == "init":
@@ -354,6 +421,9 @@ def main(argv: list[str]) -> int:
         return 0
     if args.cmd == "gatekeeper_prep":
         gatekeeper_prep()
+        return 0
+    if args.cmd == "review_codex":
+        review_codex()
         return 0
     return 0
 

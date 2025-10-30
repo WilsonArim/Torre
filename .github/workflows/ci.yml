@@ -26,6 +26,14 @@ jobs:
       - name: SOP validation
         run: |
           python3 core/scripts/validator.py
+      - name: 🛡️ Run Gatekeeper (Composer Edition)
+        run: make -C core/orquestrador gatekeeper_run
+      - name: 📄 Upload Gatekeeper report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gatekeeper-report
+          path: relatorios/parecer_gatekeeper.md
       - name: Gatekeeper prep (pipeline audit)
         run: |
           make -C core/orquestrador gatekeeper_prep
