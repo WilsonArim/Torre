@@ -1,0 +1,9 @@
+{
+  "name": "project-skeleton",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "lint": "echo 'run linter' && exit 0",
+    "test": "echo 'run tests' && exit 0"
+  }
+}

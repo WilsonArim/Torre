@@ -1,0 +1,1 @@
+Parecer do Gatekeeper: pendente de revisão.

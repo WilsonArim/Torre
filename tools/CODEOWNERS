@@ -1,0 +1,7 @@
+# Áreas críticas exigem revisão de SOP & Gatekeeper
+/core/sop/*            @SOP @Gatekeeper
+/core/orquestrador/*   @SOP
+/.github/workflows/*   @SOP @EstadoMaior
+/tools/*               @SOP
+
+

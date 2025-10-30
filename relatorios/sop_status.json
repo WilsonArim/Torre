@@ -1,0 +1,31 @@
+{
+  "gate": "G2",
+  "status": "BLOCK",
+  "metrics": {
+    "coverage": 0.0,
+    "tests": {
+      "ok": true,
+      "suite": "pytest|jest"
+    },
+    "semgrep": {
+      "ok": true,
+      "findings": 0,
+      "blocking": 0
+    },
+    "bandit": {
+      "ok": true
+    },
+    "npm_audit": {
+      "ok": true,
+      "critical": 0
+    },
+    "trivy": {
+      "ok": true,
+      "critical": 0
+    },
+    "sbom": {
+      "ok": false
+    }
+  },
+  "exceptions_used": []
+}

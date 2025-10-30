@@ -1,0 +1,35 @@
+name: Factory CI
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Pre-commit
+        run: |
+          pip install pre-commit
+          make -C core/orquestrador precommit || true
+      - name: Security and SBOM
+        run: |
+          pip install bandit coverage
+          npm --version || true
+          make -C core/orquestrador security sbom || true
+      - name: SOP validation
+        run: |
+          python3 core/scripts/validator.py
+      - name: Upload reports
+        uses: actions/upload-artifact@v4
+        with:
+          name: relatorios
+          path: relatorios
+
+

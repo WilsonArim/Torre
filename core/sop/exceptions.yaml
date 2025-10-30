@@ -1,0 +1,4 @@
+versao: 1
+excecoes: []  # itens: {regra: "coverage_min.python", alvo: "modulo_X", novo_valor: 70, owner: "nome", motivo: "...", expires_at: "2026-01-31"}
+
+

@@ -1,0 +1,20 @@
+name: Project CI
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate SOP
+        run: |
+          make -C core/orquestrador sop || true
+      - name: Upload reports
+        uses: actions/upload-artifact@v4
+        with:
+          name: relatorios
+          path: relatorios
