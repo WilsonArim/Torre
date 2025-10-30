@@ -26,6 +26,12 @@ jobs:
       - name: SOP validation
         run: |
           python3 core/scripts/validator.py
+      - name: Gatekeeper prep (pipeline audit)
+        run: |
+          make -C core/orquestrador gatekeeper_prep
+      - name: Fail if pipeline invalid
+        run: |
+          jq -e '.pipeline_ok == true' relatorios/pipeline_gate_input.json
       - name: Upload reports
         uses: actions/upload-artifact@v4
         with:

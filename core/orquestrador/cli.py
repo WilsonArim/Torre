@@ -287,6 +287,29 @@ def cmd_gen_toc() -> None:
     PIPE_TOC.write_text("\n".join(lines) + "\n", encoding="utf-8")
 
 
+def gatekeeper_prep() -> None:
+    # 1) validar pipeline
+    _ = cmd_validate_pipeline()  # escreve relatorios/pipeline_audit.json
+    # 2) gerar TOC
+    cmd_gen_toc()
+    # 3) produzir resumo Gatekeeper
+    audit_path = PIPE_AUDIT
+    gk_path = REPO_ROOT / "relatorios" / "pipeline_gate_input.json"
+    audit = {}
+    if audit_path.exists():
+        try:
+            audit = json.loads(audit_path.read_text(encoding="utf-8"))
+        except Exception:
+            audit = {}
+    payload = {
+        "pipeline_ok": (not audit.get("deps_missing") and not audit.get("not_covered_modules") and not audit.get("cycles")),
+        "issues": audit,
+        "toc_path": "pipeline/PIPELINE_TOC.md",
+    }
+    gk_path.write_text(json.dumps(payload, indent=2), encoding="utf-8")
+    print("Gatekeeper input gerado em", gk_path)
+
+
 def main(argv: list[str]) -> int:
     parser = argparse.ArgumentParser(prog="factory", description="FÁBRICA CLI")
     sub = parser.add_subparsers(dest="cmd", required=True)
@@ -307,6 +330,7 @@ def main(argv: list[str]) -> int:
     sub.add_parser("gen_pipeline", help="Gera capítulos a partir da superpipeline")
     sub.add_parser("validate_pipeline", help="Valida consistência da superpipeline")
     sub.add_parser("toc", help="Gera pipeline/PIPELINE_TOC.md")
+    sub.add_parser("gatekeeper_prep", help="Prepara inputs do Gatekeeper (audit + TOC)")
 
     args = parser.parse_args(argv)
     if args.cmd == "init":
@@ -327,6 +351,9 @@ def main(argv: list[str]) -> int:
         return cmd_validate_pipeline()
     if args.cmd == "toc":
         cmd_gen_toc()
+        return 0
+    if args.cmd == "gatekeeper_prep":
+        gatekeeper_prep()
         return 0
     return 0
 

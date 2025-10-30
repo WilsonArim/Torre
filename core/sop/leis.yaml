@@ -4,8 +4,8 @@ gates:
   G1: {desc: "Arquitetura Base", req: ["dag_aprovado","fundacao_pronta","threat_model_v1"]}
   G2: {desc: "Build/Integração", req: ["ci_verde","coverage_ok","lint_ok","semgrep_ok","bandit_ok","sbom_ok"]}
   G3: {desc: "Sistémico (E2E)", req: ["e2e_ok","latencia<=alvo","trivy_ok","observ_min_ok"]}
-  G4: {desc: "Piloto", req: ["okr_piloto_ok","runbooks_v1","rollback_testado"]}
-  G5: {desc: "Produção", req: ["slos_definidos","alertas_ok","dr_plan","oncall","formacao_ok"]}
+  G4: {desc: "Piloto", req: ["okr_piloto_ok","runbooks_v1","rollback_testado","pipeline_ok"]}
+  G5: {desc: "Produção", req: ["slos_definidos","alertas_ok","dr_plan","oncall","formacao_ok","pipeline_ok"]}
 politicas:
   coverage_min:
     default: 75

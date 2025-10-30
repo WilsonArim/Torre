@@ -1,0 +1,14 @@
+{
+  "pipeline_ok": true,
+  "issues": {
+    "deps_missing": [],
+    "not_covered_modules": [],
+    "cycles": [],
+    "chapters": [
+      "CAP-01",
+      "CAP-02",
+      "CAP-03"
+    ]
+  },
+  "toc_path": "pipeline/PIPELINE_TOC.md"
+}

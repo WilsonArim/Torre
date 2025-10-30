@@ -36,4 +36,7 @@ pipeline_validate:
 pipeline_toc:
 	python3 cli.py toc
 
+gatekeeper_prep:
+	python3 cli.py gatekeeper_prep
+
 
