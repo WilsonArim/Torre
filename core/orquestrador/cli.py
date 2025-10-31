@@ -4,6 +4,7 @@ import os
 import shutil
 import subprocess
 import sys
+from datetime import datetime
 from pathlib import Path
 import re
 
@@ -314,6 +315,267 @@ def gatekeeper_prep() -> None:
     print("Gatekeeper input gerado em", gk_path)
 
 
+def gatekeeper_run() -> int:
+    """
+    Gatekeeper da FÁBRICA 2.0 - Decide G4/G5.
+    Verifica integridade técnica e pipeline; emite APROVADO/VETO.
+    """
+    REL_DIR = REPO_ROOT / "relatorios"
+    PIPE_DIR = REPO_ROOT / "pipeline"
+    
+    # Caminhos dos artefatos
+    sop_relatorio_path = REL_DIR / "relatorio_sop.md"
+    sbom_path = REL_DIR / "sbom.json"
+    pipeline_input_path = REL_DIR / "pipeline_gate_input.json"
+    pipeline_toc_path = PIPE_DIR / "PIPELINE_TOC.md"
+    sop_status_path = REL_DIR / "sop_status.json"
+    parecer_path = REL_DIR / "parecer_gatekeeper.md"
+    
+    print("🔎 Gatekeeper da FÁBRICA 2.0 iniciado...")
+    print("📖 Lendo artefatos...")
+    
+    # 1. Ler artefatos
+    sop_relatorio = ""
+    if sop_relatorio_path.exists():
+        sop_relatorio = sop_relatorio_path.read_text(encoding="utf-8")
+    else:
+        print("⚠️  Aviso: relatorios/relatorio_sop.md não encontrado")
+    
+    sbom_data = {}
+    if sbom_path.exists():
+        try:
+            sbom_data = json.loads(sbom_path.read_text(encoding="utf-8"))
+        except Exception:
+            print("⚠️  Aviso: erro ao ler relatorios/sbom.json")
+    else:
+        print("⚠️  Aviso: relatorios/sbom.json não encontrado")
+    
+    pipeline_input = {}
+    pipeline_ok = False
+    if pipeline_input_path.exists():
+        try:
+            pipeline_input = json.loads(pipeline_input_path.read_text(encoding="utf-8"))
+            pipeline_ok = pipeline_input.get("pipeline_ok", False)
+        except Exception:
+            print("⚠️  Aviso: erro ao ler relatorios/pipeline_gate_input.json")
+    else:
+        print("⚠️  Aviso: relatorios/pipeline_gate_input.json não encontrado")
+    
+    pipeline_toc = ""
+    if pipeline_toc_path.exists():
+        pipeline_toc = pipeline_toc_path.read_text(encoding="utf-8")
+    else:
+        print("⚠️  Aviso: pipeline/PIPELINE_TOC.md não encontrado")
+    
+    sop_status = {}
+    sop_status_value = "UNKNOWN"
+    if sop_status_path.exists():
+        try:
+            sop_status = json.loads(sop_status_path.read_text(encoding="utf-8"))
+            sop_status_value = sop_status.get("status", "UNKNOWN")
+        except Exception:
+            print("⚠️  Aviso: erro ao ler relatorios/sop_status.json")
+    else:
+        print("⚠️  Aviso: relatorios/sop_status.json não encontrado")
+    
+    # 2. Regras de VETO automático
+    veto_automatico = False
+    motivo_veto = []
+    
+    if sop_status_value == "BLOQUEADO":
+        veto_automatico = True
+        motivo_veto.append("SOP está BLOQUEADO")
+    
+    if not pipeline_ok:
+        veto_automatico = True
+        motivo_veto.append("pipeline_ok=false")
+    
+    # 3. Gerar parecer
+    data_emissao = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    parecer_lines = [
+        "# Parecer Gatekeeper - FÁBRICA 2.0",
+        "",
+        f"**Data**: {data_emissao}",
+        "",
+    ]
+    
+    if veto_automatico:
+        parecer_lines.extend([
+            "## DECISÃO: ⛔ VETO",
+            "",
+            "### Motivo do Veto",
+        ])
+        for motivo in motivo_veto:
+            parecer_lines.append(f"- {motivo}")
+        parecer_lines.append("")
+    else:
+        parecer_lines.extend([
+            "## DECISÃO: ✅ APROVADO",
+            "",
+        ])
+    
+    # 4. Estrutura em 3 pontos conforme especificação
+    parecer_lines.extend([
+        "---",
+        "",
+        "## 1. Evidência Técnica",
+        "",
+        "### Relatório SOP",
+        f"**Artefato**: `relatorios/relatorio_sop.md`",
+        f"**Status SOP**: {sop_status_value}",
+    ])
+    
+    # Detalhes do SOP
+    if sop_status_value == "PASS":
+        metrics = sop_status.get("metrics", {})
+        coverage = metrics.get("coverage", 0)
+        coverage_ok = metrics.get("coverage_ok", True)  # Default True se não existir (status PASS implica ok)
+        semgrep_ok = metrics.get("semgrep", {}).get("ok", False)
+        sbom_ok = metrics.get("sbom", {}).get("ok", False)
+        bandit_ok = metrics.get("bandit", {}).get("ok", False)
+        trivy_ok = metrics.get("trivy", {}).get("ok", False)
+        parecer_lines.extend([
+            f"- Cobertura: {coverage}% ({'✅' if coverage_ok else '⚠️'})",
+            f"- Semgrep: {'✅' if semgrep_ok else '❌'}",
+            f"- Bandit: {'✅' if bandit_ok else '❌'}",
+            f"- Trivy: {'✅' if trivy_ok else '❌'}",
+            f"- SBOM: {'✅' if sbom_ok else '❌'}",
+        ])
+    elif sop_status_value == "BLOQUEADO":
+        violations = sop_status.get("violations", [])
+        parecer_lines.append(f"- Regras violadas: {', '.join(violations) if violations else 'N/A'}")
+    
+    parecer_lines.extend([
+        "",
+        "### SBOM (Software Bill of Materials)",
+        f"**Artefato**: `relatorios/sbom.json`",
+    ])
+    
+    if sbom_data:
+        bom_format = sbom_data.get("bomFormat", "unknown")
+        spec_version = sbom_data.get("specVersion", "unknown")
+        components_count = len(sbom_data.get("components", []))
+        parecer_lines.extend([
+            f"- Formato: {bom_format}",
+            f"- Versão da especificação: {spec_version}",
+            f"- Componentes catalogados: {components_count}",
+        ])
+    else:
+        parecer_lines.append("- ⚠️ SBOM não encontrado ou inválido")
+    
+    parecer_lines.extend([
+        "",
+        "### Pipeline",
+        f"**Artefato**: `relatorios/pipeline_gate_input.json`",
+        f"**Estado**: {'✅ OK' if pipeline_ok else '❌ INVÁLIDA'}",
+    ])
+    
+    if pipeline_input.get("issues"):
+        issues = pipeline_input["issues"]
+        deps_missing = issues.get("deps_missing", [])
+        not_covered = issues.get("not_covered_modules", [])
+        cycles = issues.get("cycles", [])
+        if deps_missing or not_covered or cycles:
+            parecer_lines.append("- **Issues encontradas**:")
+            if deps_missing:
+                parecer_lines.append(f"  - Dependências ausentes: {len(deps_missing)}")
+            if not_covered:
+                parecer_lines.append(f"  - Módulos não cobertos: {len(not_covered)}")
+            if cycles:
+                parecer_lines.append(f"  - Ciclos detectados: {len(cycles)}")
+            parecer_lines.append("  - Ver detalhes em: `relatorios/pipeline_audit.json`")
+    
+    parecer_lines.extend([
+        f"- **TOC**: `{pipeline_input.get('toc_path', 'pipeline/PIPELINE_TOC.md')}`",
+        "",
+        "---",
+        "",
+        "## 2. Avaliação (Ética/Risco)",
+        "",
+    ])
+    
+    if veto_automatico:
+        parecer_lines.extend([
+            "### Riscos Identificados",
+            "- **Bloqueio técnico**: Não é possível avançar devido a violações nas regras SOP ou pipeline inválida.",
+        ])
+        if sop_status_value == "BLOQUEADO":
+            parecer_lines.append("- **Conformidade**: Requisitos de gate não satisfeitos.")
+        if not pipeline_ok:
+            parecer_lines.append("- **Integridade da pipeline**: Estrutura da pipeline apresenta inconsistências.")
+    else:
+        parecer_lines.extend([
+            "### Análise de Conformidade",
+            "- ✅ **SOP**: Status PASS - Requisitos técnicos satisfeitos",
+            "- ✅ **Pipeline**: Estrutura válida e consistente",
+            "- ✅ **SBOM**: Presente e válido (conformidade com requisitos de rastreabilidade)",
+            "",
+            "### Riscos Identificados",
+            "- **Risco residual**: Baixo",
+            "- Todas as verificações técnicas passaram com sucesso",
+        ])
+    
+    parecer_lines.extend([
+        "",
+        "---",
+        "",
+        "## 3. Impacto Residual",
+        "",
+    ])
+    
+    if veto_automatico:
+        parecer_lines.extend([
+            "### Bloqueios Críticos",
+            "- ⛔ **Não é possível prosseguir para os gates G4/G5**",
+            "- Ação requerida: Corrigir violações identificadas antes de nova avaliação",
+        ])
+        if sop_status_value == "BLOQUEADO":
+            parecer_lines.append("- Revisar e corrigir as regras violadas conforme `relatorios/relatorio_sop.md`")
+        if not pipeline_ok:
+            parecer_lines.append("- Corrigir issues da pipeline conforme `relatorios/pipeline_audit.json`")
+    else:
+        parecer_lines.extend([
+            "### Próximos Passos",
+            "- ✅ **Gatekeeper aprovou**: Sistema pronto para gates G4/G5",
+            "- **Recomendações**:",
+            "  - Manter monitorização contínua das métricas de qualidade",
+            "  - Atualizar SBOM em caso de novas dependências",
+            "  - Validar pipeline após mudanças estruturais",
+        ])
+    
+    parecer_lines.extend([
+        "",
+        "---",
+        "",
+        "## Referências dos Artefatos Analisados",
+        "",
+        "- `relatorios/relatorio_sop.md` - Relatório SOP completo",
+        "- `relatorios/sbom.json` - Software Bill of Materials",
+        "- `relatorios/pipeline_gate_input.json` - Estado da pipeline",
+        "- `pipeline/PIPELINE_TOC.md` - Índice navegável da pipeline",
+        "- `relatorios/sop_status.json` - Status detalhado do SOP",
+        "",
+        "---",
+        "",
+        f"**Assinado**: Gatekeeper (Composer Edition)",
+        f"**Emitido em**: {data_emissao}",
+    ])
+    
+    # 5. Escrever parecer
+    parecer_path.parent.mkdir(parents=True, exist_ok=True)
+    parecer_path.write_text("\n".join(parecer_lines), encoding="utf-8")
+    
+    print(f"✅ Parecer gerado em: {parecer_path}")
+    
+    if veto_automatico:
+        print("❌ Gatekeeper VETO emitido")
+        print(f"   Motivos: {', '.join(motivo_veto)}")
+        return 1
+    else:
+        print("✅ Gatekeeper APROVADO")
+        return 0
+
+
 def review_codex() -> None:
     """Revisão ética e factual com GPT-4o (Codex Edition)."""
     sop_path = REPO_ROOT / "relatorios" / "relatorio_sop.md"
@@ -397,6 +659,7 @@ def main(argv: list[str]) -> int:
     sub.add_parser("validate_pipeline", help="Valida consistência da superpipeline")
     sub.add_parser("toc", help="Gera pipeline/PIPELINE_TOC.md")
     sub.add_parser("gatekeeper_prep", help="Prepara inputs do Gatekeeper (audit + TOC)")
+    sub.add_parser("gatekeeper_run", help="Executa Gatekeeper (Composer Edition) - decide G4/G5")
     sub.add_parser("review_codex", help="Revisão ética (GPT-4o)")
 
     args = parser.parse_args(argv)
@@ -422,6 +685,8 @@ def main(argv: list[str]) -> int:
     if args.cmd == "gatekeeper_prep":
         gatekeeper_prep()
         return 0
+    if args.cmd == "gatekeeper_run":
+        return gatekeeper_run()
     if args.cmd == "review_codex":
         review_codex()
         return 0

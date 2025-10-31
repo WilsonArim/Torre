@@ -20,7 +20,11 @@ security:
 sbom:
 	cyclonedx-bom -o ../../relatorios/sbom.json || true
 
-sop: test lint security sbom
+validate_constituicao:
+	@echo "🔒 Validando imutabilidade da Constituição..."
+	@bash validate_constituicao.sh || exit 1
+
+sop: validate_constituicao test lint security sbom
 	python3 ../scripts/validator.py
 
 ship:
@@ -42,7 +46,7 @@ gatekeeper_prep:
 gatekeeper_run:
 	@echo "🔎 Running automated Gatekeeper (Composer Edition)..."
 	make -C core/orquestrador gatekeeper_prep
-	bash ordem/gatekeeper.sh
+	python3 cli.py gatekeeper_run
 	@echo "✅ Gatekeeper completed. See relatorios/parecer_gatekeeper.md"
 
 review_codex:
