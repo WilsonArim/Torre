@@ -3,5 +3,10 @@
 /core/orquestrador/*   @SOP
 /.github/workflows/*   @SOP @EstadoMaior
 /tools/*               @SOP
+/pipeline/**            @SOP @Gatekeeper
+/core/orquestrador/**   @SOP @Gatekeeper
+/ordem/**               @Gatekeeper
+/deprecated/ordem/**    @Gatekeeper
+/torre/**   @SOP @Gatekeeper
 
 
