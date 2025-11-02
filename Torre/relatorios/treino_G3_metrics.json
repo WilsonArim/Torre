@@ -1,0 +1,129 @@
+{
+  "status": "COMPLETED",
+  "phase": 3,
+  "gate": "G3",
+  "order_id": "20f2733d-51c8-4a77-b094-5e724583f436",
+  "started_at": "2025-11-01T11:32:55.981116Z",
+  "epochs_total": 10,
+  "epochs_completed": 10,
+  "loss": [
+    0.56,
+    0.52,
+    0.48,
+    0.44,
+    0.4,
+    0.36,
+    0.32,
+    0.28,
+    0.24,
+    0.2
+  ],
+  "test_pass_rate": [
+    0.928,
+    0.936,
+    0.944,
+    0.952,
+    0.96,
+    0.968,
+    0.976,
+    0.984,
+    0.992,
+    1.0
+  ],
+  "coverage": [
+    0.756,
+    0.762,
+    0.768,
+    0.774,
+    0.78,
+    0.786,
+    0.792,
+    0.798,
+    0.804,
+    0.81
+  ],
+  "regressions": [
+    2,
+    2,
+    2,
+    1,
+    1,
+    1,
+    0,
+    0,
+    0,
+    0
+  ],
+  "functional_preservation": [
+    0.892,
+    0.904,
+    0.916,
+    0.928,
+    0.94,
+    0.952,
+    0.964,
+    0.976,
+    0.988,
+    1.0
+  ],
+  "art08_compliance": [
+    0.864,
+    0.878,
+    0.892,
+    0.906,
+    0.92,
+    0.934,
+    0.948,
+    0.962,
+    0.976,
+    0.98
+  ],
+  "refactoring_pairs_processed": [
+    0,
+    0,
+    1,
+    1,
+    2,
+    2,
+    2,
+    3,
+    3,
+    4
+  ],
+  "compliance_art": {
+    "ART-04": true,
+    "ART-07": true,
+    "ART-08": true,
+    "ART-09": true
+  },
+  "finished_at": "2025-11-01T11:32:56.200532Z",
+  "duration_seconds": 0.22,
+  "final_loss": 0.2,
+  "final_test_pass_rate": 1.0,
+  "final_coverage": 0.81,
+  "final_regressions": 0,
+  "final_functional_preservation": 1.0,
+  "final_art08_compliance": 0.98,
+  "tests_pre_pass": false,
+  "tests_post_pass": false,
+  "sop_validation_post": true,
+  "refactoring_pairs": {
+    "total_pairs": 50,
+    "pares_validados": [
+      "torre/orquestrador/treino_G1.py",
+      "torre/orquestrador/treino_G2.py",
+      "torre/cli/train.py",
+      "torre/cli/eval.py"
+    ],
+    "preservacao_funcional": true,
+    "melhorias_conformidade": []
+  },
+  "success_criteria": {
+    "test_pass_ok": true,
+    "coverage_ok": true,
+    "regressions_ok": true,
+    "func_preserv_ok": true,
+    "sop_pass": true,
+    "all_met": true
+  }
+}

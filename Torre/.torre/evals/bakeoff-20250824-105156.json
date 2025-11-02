@@ -1,0 +1,416 @@
+{
+  "id": "20250824-105156",
+  "dataset": "fortaleza-llm/evals/datasets/bakeoff.sample.jsonl",
+  "providers": {
+    "our_llm_cli": true,
+    "claude": true,
+    "openai_compat": false
+  },
+  "episodes_total": 12,
+  "runs": {
+    "our_llm_cli": [
+      {
+        "episode_id": "b1",
+        "success": false,
+        "valid_unified": false,
+        "adds": 0,
+        "removes": 0,
+        "diff_size": 0,
+        "duration_ms": 0,
+        "fortaleza_validation": {
+          "ok": false,
+          "error": "our-llm failed: Traceback (most recent call last):\n  File \"<frozen runpy>\", line 198, in _run_module_as_main\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"/Users/wilsonarim/CURSOR/fortaleza 4.0/fortaleza-llm/llm/cli.py\", line 24, in <module>\n    main()\n    ~~~~^^\n  File \"/Users/wilsonarim/CURSOR/fortaleza 4.0/fortaleza-llm/llm/cli.py\", line 20, in main\n    out = run_inference(repo, logs=body.get(\"logs\") or {}, files=body.get(\"files\") or {})\n  File \"/Users/wilsonarim/CURSOR/fortaleza 4.0/fortaleza-llm/llm/engine.py\", line 38, in run_inference\n    text_a, meta_a = backend.generate(system, user, main)\n                     ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/wilsonarim/CURSOR/fortaleza 4.0/fortaleza-llm/llm/backends/openai_compat.py\", line 58, in generate\n    with urllib.request.urlopen(req, timeout=120) as resp:\n         ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^\n  File \"/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/urllib/request.py\", line 189, in urlopen\n    return opener.open(url, data, timeout)\n           ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/urllib/request.py\", line 495, in open\n    response = meth(req, response)\n  File \"/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/urllib/request.py\", line 604, in http_response\n    response = self.parent.error(\n        'http', request, response, code, msg, hdrs)\n  File \"/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/urllib/request.py\", line 533, in error\n    return self._call_chain(*args)\n           ~~~~~~~~~~~~~~~~^^^^^^^\n  File \"/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/urllib/request.py\", line 466, in _call_chain\n    result = func(*args)\n  File \"/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/urllib/request.py\", line 613, in http_error_default\n    raise HTTPError(req.full_url, code, msg, hdrs, fp)\nurllib.error.HTTPError: HTTP Error 401: Unauthorized\n"
+        },
+        "raw_hint": {
+          "error": "our-llm failed: Traceback (most recent call last):\n  File \"<frozen runpy>\", line 198, in _run_module_as_main\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"/Users/wilsonarim/CURSOR/fortaleza 4.0/fortaleza-llm/llm/cli.py\", line 24, in <module>\n    main()\n    ~~~~^^\n  File \"/Users/wilsonarim/CURSOR/fortaleza 4.0/fortaleza-llm/llm/cli.py\", line 20, in main\n    out = run_inference(repo, logs=body.get(\"logs\") or {}, files=body.get(\"files\") or {})\n  File \"/Users/wilsonarim/CURSOR/fortaleza 4.0/fortaleza-llm/llm/engine.py\", line 38, in run_inference\n    text_a, meta_a = backend.generate(system, user, main)\n                     ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/wilsonarim/CURSOR/fortaleza 4.0/fortaleza-llm/llm/backends/openai_compat.py\", line 58, in generate\n    with urllib.request.urlopen(req, timeout=120) as resp:\n         ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^\n  File \"/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/urllib/request.py\", line 189, in urlopen\n    return opener.open(url, data, timeout)\n           ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/urllib/request.py\", line 495, in open\n    response = meth(req, response)\n  File \"/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/urllib/request.py\", line 604, in http_response\n    response = self.parent.error(\n        'http', request, response, code, msg, hdrs)\n  File \"/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/urllib/request.py\", line 533, in error\n    return self._call_chain(*args)\n           ~~~~~~~~~~~~~~~~^^^^^^^\n  File \"/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/urllib/request.py\", line 466, in _call_chain\n    result = func(*args)\n  File \"/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/urllib/request.py\", line 613, in http_error_default\n    raise HTTPError(req.full_url, code, msg, hdrs, fp)\nurllib.error.HTTPError: HTTP Error 401: Unauthorized\n"
+        }
+      },
+      {
+        "episode_id": "b2",
+        "success": false,
+        "valid_unified": false,
+        "adds": 0,
+        "removes": 0,
+        "diff_size": 0,
+        "duration_ms": 0,
+        "fortaleza_validation": {
+          "ok": false,
+          "error": "our-llm failed: Traceback (most recent call last):\n  File \"<frozen runpy>\", line 198, in _run_module_as_main\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"/Users/wilsonarim/CURSOR/fortaleza 4.0/fortaleza-llm/llm/cli.py\", line 24, in <module>\n    main()\n    ~~~~^^\n  File \"/Users/wilsonarim/CURSOR/fortaleza 4.0/fortaleza-llm/llm/cli.py\", line 20, in main\n    out = run_inference(repo, logs=body.get(\"logs\") or {}, files=body.get(\"files\") or {})\n  File \"/Users/wilsonarim/CURSOR/fortaleza 4.0/fortaleza-llm/llm/engine.py\", line 38, in run_inference\n    text_a, meta_a = backend.generate(system, user, main)\n                     ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/wilsonarim/CURSOR/fortaleza 4.0/fortaleza-llm/llm/backends/openai_compat.py\", line 58, in generate\n    with urllib.request.urlopen(req, timeout=120) as resp:\n         ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^\n  File \"/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/urllib/request.py\", line 189, in urlopen\n    return opener.open(url, data, timeout)\n           ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/urllib/request.py\", line 495, in open\n    response = meth(req, response)\n  File \"/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/urllib/request.py\", line 604, in http_response\n    response = self.parent.error(\n        'http', request, response, code, msg, hdrs)\n  File \"/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/urllib/request.py\", line 533, in error\n    return self._call_chain(*args)\n           ~~~~~~~~~~~~~~~~^^^^^^^\n  File \"/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/urllib/request.py\", line 466, in _call_chain\n    result = func(*args)\n  File \"/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/urllib/request.py\", line 613, in http_error_default\n    raise HTTPError(req.full_url, code, msg, hdrs, fp)\nurllib.error.HTTPError: HTTP Error 401: Unauthorized\n"
+        },
+        "raw_hint": {
+          "error": "our-llm failed: Traceback (most recent call last):\n  File \"<frozen runpy>\", line 198, in _run_module_as_main\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"/Users/wilsonarim/CURSOR/fortaleza 4.0/fortaleza-llm/llm/cli.py\", line 24, in <module>\n    main()\n    ~~~~^^\n  File \"/Users/wilsonarim/CURSOR/fortaleza 4.0/fortaleza-llm/llm/cli.py\", line 20, in main\n    out = run_inference(repo, logs=body.get(\"logs\") or {}, files=body.get(\"files\") or {})\n  File \"/Users/wilsonarim/CURSOR/fortaleza 4.0/fortaleza-llm/llm/engine.py\", line 38, in run_inference\n    text_a, meta_a = backend.generate(system, user, main)\n                     ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/wilsonarim/CURSOR/fortaleza 4.0/fortaleza-llm/llm/backends/openai_compat.py\", line 58, in generate\n    with urllib.request.urlopen(req, timeout=120) as resp:\n         ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^\n  File \"/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/urllib/request.py\", line 189, in urlopen\n    return opener.open(url, data, timeout)\n           ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/urllib/request.py\", line 495, in open\n    response = meth(req, response)\n  File \"/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/urllib/request.py\", line 604, in http_response\n    response = self.parent.error(\n        'http', request, response, code, msg, hdrs)\n  File \"/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/urllib/request.py\", line 533, in error\n    return self._call_chain(*args)\n           ~~~~~~~~~~~~~~~~^^^^^^^\n  File \"/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/urllib/request.py\", line 466, in _call_chain\n    result = func(*args)\n  File \"/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/urllib/request.py\", line 613, in http_error_default\n    raise HTTPError(req.full_url, code, msg, hdrs, fp)\nurllib.error.HTTPError: HTTP Error 401: Unauthorized\n"
+        }
+      },
+      {
+        "episode_id": "b3",
+        "success": false,
+        "valid_unified": false,
+        "adds": 0,
+        "removes": 0,
+        "diff_size": 0,
+        "duration_ms": 0,
+        "fortaleza_validation": {
+          "ok": false,
+          "error": "our-llm failed: Traceback (most recent call last):\n  File \"<frozen runpy>\", line 198, in _run_module_as_main\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"/Users/wilsonarim/CURSOR/fortaleza 4.0/fortaleza-llm/llm/cli.py\", line 24, in <module>\n    main()\n    ~~~~^^\n  File \"/Users/wilsonarim/CURSOR/fortaleza 4.0/fortaleza-llm/llm/cli.py\", line 20, in main\n    out = run_inference(repo, logs=body.get(\"logs\") or {}, files=body.get(\"files\") or {})\n  File \"/Users/wilsonarim/CURSOR/fortaleza 4.0/fortaleza-llm/llm/engine.py\", line 38, in run_inference\n    text_a, meta_a = backend.generate(system, user, main)\n                     ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/wilsonarim/CURSOR/fortaleza 4.0/fortaleza-llm/llm/backends/openai_compat.py\", line 58, in generate\n    with urllib.request.urlopen(req, timeout=120) as resp:\n         ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^\n  File \"/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/urllib/request.py\", line 189, in urlopen\n    return opener.open(url, data, timeout)\n           ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/urllib/request.py\", line 495, in open\n    response = meth(req, response)\n  File \"/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/urllib/request.py\", line 604, in http_response\n    response = self.parent.error(\n        'http', request, response, code, msg, hdrs)\n  File \"/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/urllib/request.py\", line 533, in error\n    return self._call_chain(*args)\n           ~~~~~~~~~~~~~~~~^^^^^^^\n  File \"/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/urllib/request.py\", line 466, in _call_chain\n    result = func(*args)\n  File \"/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/urllib/request.py\", line 613, in http_error_default\n    raise HTTPError(req.full_url, code, msg, hdrs, fp)\nurllib.error.HTTPError: HTTP Error 401: Unauthorized\n"
+        },
+        "raw_hint": {
+          "error": "our-llm failed: Traceback (most recent call last):\n  File \"<frozen runpy>\", line 198, in _run_module_as_main\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"/Users/wilsonarim/CURSOR/fortaleza 4.0/fortaleza-llm/llm/cli.py\", line 24, in <module>\n    main()\n    ~~~~^^\n  File \"/Users/wilsonarim/CURSOR/fortaleza 4.0/fortaleza-llm/llm/cli.py\", line 20, in main\n    out = run_inference(repo, logs=body.get(\"logs\") or {}, files=body.get(\"files\") or {})\n  File \"/Users/wilsonarim/CURSOR/fortaleza 4.0/fortaleza-llm/llm/engine.py\", line 38, in run_inference\n    text_a, meta_a = backend.generate(system, user, main)\n                     ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/wilsonarim/CURSOR/fortaleza 4.0/fortaleza-llm/llm/backends/openai_compat.py\", line 58, in generate\n    with urllib.request.urlopen(req, timeout=120) as resp:\n         ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^\n  File \"/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/urllib/request.py\", line 189, in urlopen\n    return opener.open(url, data, timeout)\n           ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/urllib/request.py\", line 495, in open\n    response = meth(req, response)\n  File \"/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/urllib/request.py\", line 604, in http_response\n    response = self.parent.error(\n        'http', request, response, code, msg, hdrs)\n  File \"/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/urllib/request.py\", line 533, in error\n    return self._call_chain(*args)\n           ~~~~~~~~~~~~~~~~^^^^^^^\n  File \"/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/urllib/request.py\", line 466, in _call_chain\n    result = func(*args)\n  File \"/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/urllib/request.py\", line 613, in http_error_default\n    raise HTTPError(req.full_url, code, msg, hdrs, fp)\nurllib.error.HTTPError: HTTP Error 401: Unauthorized\n"
+        }
+      },
+      {
+        "episode_id": "b4",
+        "success": false,
+        "valid_unified": false,
+        "adds": 0,
+        "removes": 0,
+        "diff_size": 0,
+        "duration_ms": 0,
+        "fortaleza_validation": {
+          "ok": false,
+          "error": "our-llm failed: Traceback (most recent call last):\n  File \"<frozen runpy>\", line 198, in _run_module_as_main\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"/Users/wilsonarim/CURSOR/fortaleza 4.0/fortaleza-llm/llm/cli.py\", line 24, in <module>\n    main()\n    ~~~~^^\n  File \"/Users/wilsonarim/CURSOR/fortaleza 4.0/fortaleza-llm/llm/cli.py\", line 20, in main\n    out = run_inference(repo, logs=body.get(\"logs\") or {}, files=body.get(\"files\") or {})\n  File \"/Users/wilsonarim/CURSOR/fortaleza 4.0/fortaleza-llm/llm/engine.py\", line 38, in run_inference\n    text_a, meta_a = backend.generate(system, user, main)\n                     ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/wilsonarim/CURSOR/fortaleza 4.0/fortaleza-llm/llm/backends/openai_compat.py\", line 58, in generate\n    with urllib.request.urlopen(req, timeout=120) as resp:\n         ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^\n  File \"/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/urllib/request.py\", line 189, in urlopen\n    return opener.open(url, data, timeout)\n           ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/urllib/request.py\", line 495, in open\n    response = meth(req, response)\n  File \"/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/urllib/request.py\", line 604, in http_response\n    response = self.parent.error(\n        'http', request, response, code, msg, hdrs)\n  File \"/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/urllib/request.py\", line 533, in error\n    return self._call_chain(*args)\n           ~~~~~~~~~~~~~~~~^^^^^^^\n  File \"/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/urllib/request.py\", line 466, in _call_chain\n    result = func(*args)\n  File \"/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/urllib/request.py\", line 613, in http_error_default\n    raise HTTPError(req.full_url, code, msg, hdrs, fp)\nurllib.error.HTTPError: HTTP Error 401: Unauthorized\n"
+        },
+        "raw_hint": {
+          "error": "our-llm failed: Traceback (most recent call last):\n  File \"<frozen runpy>\", line 198, in _run_module_as_main\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"/Users/wilsonarim/CURSOR/fortaleza 4.0/fortaleza-llm/llm/cli.py\", line 24, in <module>\n    main()\n    ~~~~^^\n  File \"/Users/wilsonarim/CURSOR/fortaleza 4.0/fortaleza-llm/llm/cli.py\", line 20, in main\n    out = run_inference(repo, logs=body.get(\"logs\") or {}, files=body.get(\"files\") or {})\n  File \"/Users/wilsonarim/CURSOR/fortaleza 4.0/fortaleza-llm/llm/engine.py\", line 38, in run_inference\n    text_a, meta_a = backend.generate(system, user, main)\n                     ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/wilsonarim/CURSOR/fortaleza 4.0/fortaleza-llm/llm/backends/openai_compat.py\", line 58, in generate\n    with urllib.request.urlopen(req, timeout=120) as resp:\n         ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^\n  File \"/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/urllib/request.py\", line 189, in urlopen\n    return opener.open(url, data, timeout)\n           ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/urllib/request.py\", line 495, in open\n    response = meth(req, response)\n  File \"/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/urllib/request.py\", line 604, in http_response\n    response = self.parent.error(\n        'http', request, response, code, msg, hdrs)\n  File \"/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/urllib/request.py\", line 533, in error\n    return self._call_chain(*args)\n           ~~~~~~~~~~~~~~~~^^^^^^^\n  File \"/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/urllib/request.py\", line 466, in _call_chain\n    result = func(*args)\n  File \"/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/urllib/request.py\", line 613, in http_error_default\n    raise HTTPError(req.full_url, code, msg, hdrs, fp)\nurllib.error.HTTPError: HTTP Error 401: Unauthorized\n"
+        }
+      },
+      {
+        "episode_id": "b5",
+        "success": false,
+        "valid_unified": false,
+        "adds": 0,
+        "removes": 0,
+        "diff_size": 0,
+        "duration_ms": 0,
+        "fortaleza_validation": {
+          "ok": false,
+          "error": "our-llm failed: Traceback (most recent call last):\n  File \"<frozen runpy>\", line 198, in _run_module_as_main\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"/Users/wilsonarim/CURSOR/fortaleza 4.0/fortaleza-llm/llm/cli.py\", line 24, in <module>\n    main()\n    ~~~~^^\n  File \"/Users/wilsonarim/CURSOR/fortaleza 4.0/fortaleza-llm/llm/cli.py\", line 20, in main\n    out = run_inference(repo, logs=body.get(\"logs\") or {}, files=body.get(\"files\") or {})\n  File \"/Users/wilsonarim/CURSOR/fortaleza 4.0/fortaleza-llm/llm/engine.py\", line 38, in run_inference\n    text_a, meta_a = backend.generate(system, user, main)\n                     ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/wilsonarim/CURSOR/fortaleza 4.0/fortaleza-llm/llm/backends/openai_compat.py\", line 58, in generate\n    with urllib.request.urlopen(req, timeout=120) as resp:\n         ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^\n  File \"/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/urllib/request.py\", line 189, in urlopen\n    return opener.open(url, data, timeout)\n           ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/urllib/request.py\", line 495, in open\n    response = meth(req, response)\n  File \"/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/urllib/request.py\", line 604, in http_response\n    response = self.parent.error(\n        'http', request, response, code, msg, hdrs)\n  File \"/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/urllib/request.py\", line 533, in error\n    return self._call_chain(*args)\n           ~~~~~~~~~~~~~~~~^^^^^^^\n  File \"/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/urllib/request.py\", line 466, in _call_chain\n    result = func(*args)\n  File \"/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/urllib/request.py\", line 613, in http_error_default\n    raise HTTPError(req.full_url, code, msg, hdrs, fp)\nurllib.error.HTTPError: HTTP Error 401: Unauthorized\n"
+        },
+        "raw_hint": {
+          "error": "our-llm failed: Traceback (most recent call last):\n  File \"<frozen runpy>\", line 198, in _run_module_as_main\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"/Users/wilsonarim/CURSOR/fortaleza 4.0/fortaleza-llm/llm/cli.py\", line 24, in <module>\n    main()\n    ~~~~^^\n  File \"/Users/wilsonarim/CURSOR/fortaleza 4.0/fortaleza-llm/llm/cli.py\", line 20, in main\n    out = run_inference(repo, logs=body.get(\"logs\") or {}, files=body.get(\"files\") or {})\n  File \"/Users/wilsonarim/CURSOR/fortaleza 4.0/fortaleza-llm/llm/engine.py\", line 38, in run_inference\n    text_a, meta_a = backend.generate(system, user, main)\n                     ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/wilsonarim/CURSOR/fortaleza 4.0/fortaleza-llm/llm/backends/openai_compat.py\", line 58, in generate\n    with urllib.request.urlopen(req, timeout=120) as resp:\n         ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^\n  File \"/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/urllib/request.py\", line 189, in urlopen\n    return opener.open(url, data, timeout)\n           ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/urllib/request.py\", line 495, in open\n    response = meth(req, response)\n  File \"/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/urllib/request.py\", line 604, in http_response\n    response = self.parent.error(\n        'http', request, response, code, msg, hdrs)\n  File \"/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/urllib/request.py\", line 533, in error\n    return self._call_chain(*args)\n           ~~~~~~~~~~~~~~~~^^^^^^^\n  File \"/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/urllib/request.py\", line 466, in _call_chain\n    result = func(*args)\n  File \"/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/urllib/request.py\", line 613, in http_error_default\n    raise HTTPError(req.full_url, code, msg, hdrs, fp)\nurllib.error.HTTPError: HTTP Error 401: Unauthorized\n"
+        }
+      },
+      {
+        "episode_id": "b6",
+        "success": false,
+        "valid_unified": false,
+        "adds": 0,
+        "removes": 0,
+        "diff_size": 0,
+        "duration_ms": 0,
+        "fortaleza_validation": {
+          "ok": false,
+          "error": "our-llm failed: Traceback (most recent call last):\n  File \"<frozen runpy>\", line 198, in _run_module_as_main\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"/Users/wilsonarim/CURSOR/fortaleza 4.0/fortaleza-llm/llm/cli.py\", line 24, in <module>\n    main()\n    ~~~~^^\n  File \"/Users/wilsonarim/CURSOR/fortaleza 4.0/fortaleza-llm/llm/cli.py\", line 20, in main\n    out = run_inference(repo, logs=body.get(\"logs\") or {}, files=body.get(\"files\") or {})\n  File \"/Users/wilsonarim/CURSOR/fortaleza 4.0/fortaleza-llm/llm/engine.py\", line 38, in run_inference\n    text_a, meta_a = backend.generate(system, user, main)\n                     ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/wilsonarim/CURSOR/fortaleza 4.0/fortaleza-llm/llm/backends/openai_compat.py\", line 58, in generate\n    with urllib.request.urlopen(req, timeout=120) as resp:\n         ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^\n  File \"/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/urllib/request.py\", line 189, in urlopen\n    return opener.open(url, data, timeout)\n           ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/urllib/request.py\", line 495, in open\n    response = meth(req, response)\n  File \"/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/urllib/request.py\", line 604, in http_response\n    response = self.parent.error(\n        'http', request, response, code, msg, hdrs)\n  File \"/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/urllib/request.py\", line 533, in error\n    return self._call_chain(*args)\n           ~~~~~~~~~~~~~~~~^^^^^^^\n  File \"/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/urllib/request.py\", line 466, in _call_chain\n    result = func(*args)\n  File \"/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/urllib/request.py\", line 613, in http_error_default\n    raise HTTPError(req.full_url, code, msg, hdrs, fp)\nurllib.error.HTTPError: HTTP Error 401: Unauthorized\n"
+        },
+        "raw_hint": {
+          "error": "our-llm failed: Traceback (most recent call last):\n  File \"<frozen runpy>\", line 198, in _run_module_as_main\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"/Users/wilsonarim/CURSOR/fortaleza 4.0/fortaleza-llm/llm/cli.py\", line 24, in <module>\n    main()\n    ~~~~^^\n  File \"/Users/wilsonarim/CURSOR/fortaleza 4.0/fortaleza-llm/llm/cli.py\", line 20, in main\n    out = run_inference(repo, logs=body.get(\"logs\") or {}, files=body.get(\"files\") or {})\n  File \"/Users/wilsonarim/CURSOR/fortaleza 4.0/fortaleza-llm/llm/engine.py\", line 38, in run_inference\n    text_a, meta_a = backend.generate(system, user, main)\n                     ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/wilsonarim/CURSOR/fortaleza 4.0/fortaleza-llm/llm/backends/openai_compat.py\", line 58, in generate\n    with urllib.request.urlopen(req, timeout=120) as resp:\n         ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^\n  File \"/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/urllib/request.py\", line 189, in urlopen\n    return opener.open(url, data, timeout)\n           ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/urllib/request.py\", line 495, in open\n    response = meth(req, response)\n  File \"/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/urllib/request.py\", line 604, in http_response\n    response = self.parent.error(\n        'http', request, response, code, msg, hdrs)\n  File \"/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/urllib/request.py\", line 533, in error\n    return self._call_chain(*args)\n           ~~~~~~~~~~~~~~~~^^^^^^^\n  File \"/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/urllib/request.py\", line 466, in _call_chain\n    result = func(*args)\n  File \"/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/urllib/request.py\", line 613, in http_error_default\n    raise HTTPError(req.full_url, code, msg, hdrs, fp)\nurllib.error.HTTPError: HTTP Error 401: Unauthorized\n"
+        }
+      },
+      {
+        "episode_id": "b7",
+        "success": false,
+        "valid_unified": false,
+        "adds": 0,
+        "removes": 0,
+        "diff_size": 0,
+        "duration_ms": 0,
+        "fortaleza_validation": {
+          "ok": false,
+          "error": "our-llm failed: Traceback (most recent call last):\n  File \"<frozen runpy>\", line 198, in _run_module_as_main\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"/Users/wilsonarim/CURSOR/fortaleza 4.0/fortaleza-llm/llm/cli.py\", line 24, in <module>\n    main()\n    ~~~~^^\n  File \"/Users/wilsonarim/CURSOR/fortaleza 4.0/fortaleza-llm/llm/cli.py\", line 20, in main\n    out = run_inference(repo, logs=body.get(\"logs\") or {}, files=body.get(\"files\") or {})\n  File \"/Users/wilsonarim/CURSOR/fortaleza 4.0/fortaleza-llm/llm/engine.py\", line 38, in run_inference\n    text_a, meta_a = backend.generate(system, user, main)\n                     ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/wilsonarim/CURSOR/fortaleza 4.0/fortaleza-llm/llm/backends/openai_compat.py\", line 58, in generate\n    with urllib.request.urlopen(req, timeout=120) as resp:\n         ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^\n  File \"/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/urllib/request.py\", line 189, in urlopen\n    return opener.open(url, data, timeout)\n           ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/urllib/request.py\", line 495, in open\n    response = meth(req, response)\n  File \"/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/urllib/request.py\", line 604, in http_response\n    response = self.parent.error(\n        'http', request, response, code, msg, hdrs)\n  File \"/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/urllib/request.py\", line 533, in error\n    return self._call_chain(*args)\n           ~~~~~~~~~~~~~~~~^^^^^^^\n  File \"/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/urllib/request.py\", line 466, in _call_chain\n    result = func(*args)\n  File \"/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/urllib/request.py\", line 613, in http_error_default\n    raise HTTPError(req.full_url, code, msg, hdrs, fp)\nurllib.error.HTTPError: HTTP Error 401: Unauthorized\n"
+        },
+        "raw_hint": {
+          "error": "our-llm failed: Traceback (most recent call last):\n  File \"<frozen runpy>\", line 198, in _run_module_as_main\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"/Users/wilsonarim/CURSOR/fortaleza 4.0/fortaleza-llm/llm/cli.py\", line 24, in <module>\n    main()\n    ~~~~^^\n  File \"/Users/wilsonarim/CURSOR/fortaleza 4.0/fortaleza-llm/llm/cli.py\", line 20, in main\n    out = run_inference(repo, logs=body.get(\"logs\") or {}, files=body.get(\"files\") or {})\n  File \"/Users/wilsonarim/CURSOR/fortaleza 4.0/fortaleza-llm/llm/engine.py\", line 38, in run_inference\n    text_a, meta_a = backend.generate(system, user, main)\n                     ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/wilsonarim/CURSOR/fortaleza 4.0/fortaleza-llm/llm/backends/openai_compat.py\", line 58, in generate\n    with urllib.request.urlopen(req, timeout=120) as resp:\n         ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^\n  File \"/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/urllib/request.py\", line 189, in urlopen\n    return opener.open(url, data, timeout)\n           ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/urllib/request.py\", line 495, in open\n    response = meth(req, response)\n  File \"/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/urllib/request.py\", line 604, in http_response\n    response = self.parent.error(\n        'http', request, response, code, msg, hdrs)\n  File \"/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/urllib/request.py\", line 533, in error\n    return self._call_chain(*args)\n           ~~~~~~~~~~~~~~~~^^^^^^^\n  File \"/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/urllib/request.py\", line 466, in _call_chain\n    result = func(*args)\n  File \"/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/urllib/request.py\", line 613, in http_error_default\n    raise HTTPError(req.full_url, code, msg, hdrs, fp)\nurllib.error.HTTPError: HTTP Error 401: Unauthorized\n"
+        }
+      },
+      {
+        "episode_id": "b8",
+        "success": false,
+        "valid_unified": false,
+        "adds": 0,
+        "removes": 0,
+        "diff_size": 0,
+        "duration_ms": 0,
+        "fortaleza_validation": {
+          "ok": false,
+          "error": "our-llm failed: Traceback (most recent call last):\n  File \"<frozen runpy>\", line 198, in _run_module_as_main\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"/Users/wilsonarim/CURSOR/fortaleza 4.0/fortaleza-llm/llm/cli.py\", line 24, in <module>\n    main()\n    ~~~~^^\n  File \"/Users/wilsonarim/CURSOR/fortaleza 4.0/fortaleza-llm/llm/cli.py\", line 20, in main\n    out = run_inference(repo, logs=body.get(\"logs\") or {}, files=body.get(\"files\") or {})\n  File \"/Users/wilsonarim/CURSOR/fortaleza 4.0/fortaleza-llm/llm/engine.py\", line 38, in run_inference\n    text_a, meta_a = backend.generate(system, user, main)\n                     ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/wilsonarim/CURSOR/fortaleza 4.0/fortaleza-llm/llm/backends/openai_compat.py\", line 58, in generate\n    with urllib.request.urlopen(req, timeout=120) as resp:\n         ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^\n  File \"/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/urllib/request.py\", line 189, in urlopen\n    return opener.open(url, data, timeout)\n           ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/urllib/request.py\", line 495, in open\n    response = meth(req, response)\n  File \"/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/urllib/request.py\", line 604, in http_response\n    response = self.parent.error(\n        'http', request, response, code, msg, hdrs)\n  File \"/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/urllib/request.py\", line 533, in error\n    return self._call_chain(*args)\n           ~~~~~~~~~~~~~~~~^^^^^^^\n  File \"/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/urllib/request.py\", line 466, in _call_chain\n    result = func(*args)\n  File \"/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/urllib/request.py\", line 613, in http_error_default\n    raise HTTPError(req.full_url, code, msg, hdrs, fp)\nurllib.error.HTTPError: HTTP Error 401: Unauthorized\n"
+        },
+        "raw_hint": {
+          "error": "our-llm failed: Traceback (most recent call last):\n  File \"<frozen runpy>\", line 198, in _run_module_as_main\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"/Users/wilsonarim/CURSOR/fortaleza 4.0/fortaleza-llm/llm/cli.py\", line 24, in <module>\n    main()\n    ~~~~^^\n  File \"/Users/wilsonarim/CURSOR/fortaleza 4.0/fortaleza-llm/llm/cli.py\", line 20, in main\n    out = run_inference(repo, logs=body.get(\"logs\") or {}, files=body.get(\"files\") or {})\n  File \"/Users/wilsonarim/CURSOR/fortaleza 4.0/fortaleza-llm/llm/engine.py\", line 38, in run_inference\n    text_a, meta_a = backend.generate(system, user, main)\n                     ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/wilsonarim/CURSOR/fortaleza 4.0/fortaleza-llm/llm/backends/openai_compat.py\", line 58, in generate\n    with urllib.request.urlopen(req, timeout=120) as resp:\n         ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^\n  File \"/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/urllib/request.py\", line 189, in urlopen\n    return opener.open(url, data, timeout)\n           ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/urllib/request.py\", line 495, in open\n    response = meth(req, response)\n  File \"/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/urllib/request.py\", line 604, in http_response\n    response = self.parent.error(\n        'http', request, response, code, msg, hdrs)\n  File \"/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/urllib/request.py\", line 533, in error\n    return self._call_chain(*args)\n           ~~~~~~~~~~~~~~~~^^^^^^^\n  File \"/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/urllib/request.py\", line 466, in _call_chain\n    result = func(*args)\n  File \"/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/urllib/request.py\", line 613, in http_error_default\n    raise HTTPError(req.full_url, code, msg, hdrs, fp)\nurllib.error.HTTPError: HTTP Error 401: Unauthorized\n"
+        }
+      },
+      {
+        "episode_id": "b9",
+        "success": false,
+        "valid_unified": false,
+        "adds": 0,
+        "removes": 0,
+        "diff_size": 0,
+        "duration_ms": 0,
+        "fortaleza_validation": {
+          "ok": false,
+          "error": "our-llm failed: Traceback (most recent call last):\n  File \"<frozen runpy>\", line 198, in _run_module_as_main\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"/Users/wilsonarim/CURSOR/fortaleza 4.0/fortaleza-llm/llm/cli.py\", line 24, in <module>\n    main()\n    ~~~~^^\n  File \"/Users/wilsonarim/CURSOR/fortaleza 4.0/fortaleza-llm/llm/cli.py\", line 20, in main\n    out = run_inference(repo, logs=body.get(\"logs\") or {}, files=body.get(\"files\") or {})\n  File \"/Users/wilsonarim/CURSOR/fortaleza 4.0/fortaleza-llm/llm/engine.py\", line 38, in run_inference\n    text_a, meta_a = backend.generate(system, user, main)\n                     ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/wilsonarim/CURSOR/fortaleza 4.0/fortaleza-llm/llm/backends/openai_compat.py\", line 58, in generate\n    with urllib.request.urlopen(req, timeout=120) as resp:\n         ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^\n  File \"/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/urllib/request.py\", line 189, in urlopen\n    return opener.open(url, data, timeout)\n           ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/urllib/request.py\", line 495, in open\n    response = meth(req, response)\n  File \"/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/urllib/request.py\", line 604, in http_response\n    response = self.parent.error(\n        'http', request, response, code, msg, hdrs)\n  File \"/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/urllib/request.py\", line 533, in error\n    return self._call_chain(*args)\n           ~~~~~~~~~~~~~~~~^^^^^^^\n  File \"/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/urllib/request.py\", line 466, in _call_chain\n    result = func(*args)\n  File \"/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/urllib/request.py\", line 613, in http_error_default\n    raise HTTPError(req.full_url, code, msg, hdrs, fp)\nurllib.error.HTTPError: HTTP Error 401: Unauthorized\n"
+        },
+        "raw_hint": {
+          "error": "our-llm failed: Traceback (most recent call last):\n  File \"<frozen runpy>\", line 198, in _run_module_as_main\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"/Users/wilsonarim/CURSOR/fortaleza 4.0/fortaleza-llm/llm/cli.py\", line 24, in <module>\n    main()\n    ~~~~^^\n  File \"/Users/wilsonarim/CURSOR/fortaleza 4.0/fortaleza-llm/llm/cli.py\", line 20, in main\n    out = run_inference(repo, logs=body.get(\"logs\") or {}, files=body.get(\"files\") or {})\n  File \"/Users/wilsonarim/CURSOR/fortaleza 4.0/fortaleza-llm/llm/engine.py\", line 38, in run_inference\n    text_a, meta_a = backend.generate(system, user, main)\n                     ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/wilsonarim/CURSOR/fortaleza 4.0/fortaleza-llm/llm/backends/openai_compat.py\", line 58, in generate\n    with urllib.request.urlopen(req, timeout=120) as resp:\n         ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^\n  File \"/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/urllib/request.py\", line 189, in urlopen\n    return opener.open(url, data, timeout)\n           ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/urllib/request.py\", line 495, in open\n    response = meth(req, response)\n  File \"/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/urllib/request.py\", line 604, in http_response\n    response = self.parent.error(\n        'http', request, response, code, msg, hdrs)\n  File \"/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/urllib/request.py\", line 533, in error\n    return self._call_chain(*args)\n           ~~~~~~~~~~~~~~~~^^^^^^^\n  File \"/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/urllib/request.py\", line 466, in _call_chain\n    result = func(*args)\n  File \"/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/urllib/request.py\", line 613, in http_error_default\n    raise HTTPError(req.full_url, code, msg, hdrs, fp)\nurllib.error.HTTPError: HTTP Error 401: Unauthorized\n"
+        }
+      },
+      {
+        "episode_id": "b10",
+        "success": false,
+        "valid_unified": false,
+        "adds": 0,
+        "removes": 0,
+        "diff_size": 0,
+        "duration_ms": 0,
+        "fortaleza_validation": {
+          "ok": false,
+          "error": "our-llm failed: Traceback (most recent call last):\n  File \"<frozen runpy>\", line 198, in _run_module_as_main\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"/Users/wilsonarim/CURSOR/fortaleza 4.0/fortaleza-llm/llm/cli.py\", line 24, in <module>\n    main()\n    ~~~~^^\n  File \"/Users/wilsonarim/CURSOR/fortaleza 4.0/fortaleza-llm/llm/cli.py\", line 20, in main\n    out = run_inference(repo, logs=body.get(\"logs\") or {}, files=body.get(\"files\") or {})\n  File \"/Users/wilsonarim/CURSOR/fortaleza 4.0/fortaleza-llm/llm/engine.py\", line 38, in run_inference\n    text_a, meta_a = backend.generate(system, user, main)\n                     ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/wilsonarim/CURSOR/fortaleza 4.0/fortaleza-llm/llm/backends/openai_compat.py\", line 58, in generate\n    with urllib.request.urlopen(req, timeout=120) as resp:\n         ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^\n  File \"/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/urllib/request.py\", line 189, in urlopen\n    return opener.open(url, data, timeout)\n           ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/urllib/request.py\", line 495, in open\n    response = meth(req, response)\n  File \"/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/urllib/request.py\", line 604, in http_response\n    response = self.parent.error(\n        'http', request, response, code, msg, hdrs)\n  File \"/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/urllib/request.py\", line 533, in error\n    return self._call_chain(*args)\n           ~~~~~~~~~~~~~~~~^^^^^^^\n  File \"/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/urllib/request.py\", line 466, in _call_chain\n    result = func(*args)\n  File \"/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/urllib/request.py\", line 613, in http_error_default\n    raise HTTPError(req.full_url, code, msg, hdrs, fp)\nurllib.error.HTTPError: HTTP Error 401: Unauthorized\n"
+        },
+        "raw_hint": {
+          "error": "our-llm failed: Traceback (most recent call last):\n  File \"<frozen runpy>\", line 198, in _run_module_as_main\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"/Users/wilsonarim/CURSOR/fortaleza 4.0/fortaleza-llm/llm/cli.py\", line 24, in <module>\n    main()\n    ~~~~^^\n  File \"/Users/wilsonarim/CURSOR/fortaleza 4.0/fortaleza-llm/llm/cli.py\", line 20, in main\n    out = run_inference(repo, logs=body.get(\"logs\") or {}, files=body.get(\"files\") or {})\n  File \"/Users/wilsonarim/CURSOR/fortaleza 4.0/fortaleza-llm/llm/engine.py\", line 38, in run_inference\n    text_a, meta_a = backend.generate(system, user, main)\n                     ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/wilsonarim/CURSOR/fortaleza 4.0/fortaleza-llm/llm/backends/openai_compat.py\", line 58, in generate\n    with urllib.request.urlopen(req, timeout=120) as resp:\n         ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^\n  File \"/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/urllib/request.py\", line 189, in urlopen\n    return opener.open(url, data, timeout)\n           ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/urllib/request.py\", line 495, in open\n    response = meth(req, response)\n  File \"/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/urllib/request.py\", line 604, in http_response\n    response = self.parent.error(\n        'http', request, response, code, msg, hdrs)\n  File \"/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/urllib/request.py\", line 533, in error\n    return self._call_chain(*args)\n           ~~~~~~~~~~~~~~~~^^^^^^^\n  File \"/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/urllib/request.py\", line 466, in _call_chain\n    result = func(*args)\n  File \"/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/urllib/request.py\", line 613, in http_error_default\n    raise HTTPError(req.full_url, code, msg, hdrs, fp)\nurllib.error.HTTPError: HTTP Error 401: Unauthorized\n"
+        }
+      },
+      {
+        "episode_id": "b11",
+        "success": false,
+        "valid_unified": false,
+        "adds": 0,
+        "removes": 0,
+        "diff_size": 0,
+        "duration_ms": 0,
+        "fortaleza_validation": {
+          "ok": false,
+          "error": "our-llm failed: Traceback (most recent call last):\n  File \"<frozen runpy>\", line 198, in _run_module_as_main\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"/Users/wilsonarim/CURSOR/fortaleza 4.0/fortaleza-llm/llm/cli.py\", line 24, in <module>\n    main()\n    ~~~~^^\n  File \"/Users/wilsonarim/CURSOR/fortaleza 4.0/fortaleza-llm/llm/cli.py\", line 20, in main\n    out = run_inference(repo, logs=body.get(\"logs\") or {}, files=body.get(\"files\") or {})\n  File \"/Users/wilsonarim/CURSOR/fortaleza 4.0/fortaleza-llm/llm/engine.py\", line 38, in run_inference\n    text_a, meta_a = backend.generate(system, user, main)\n                     ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/wilsonarim/CURSOR/fortaleza 4.0/fortaleza-llm/llm/backends/openai_compat.py\", line 58, in generate\n    with urllib.request.urlopen(req, timeout=120) as resp:\n         ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^\n  File \"/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/urllib/request.py\", line 189, in urlopen\n    return opener.open(url, data, timeout)\n           ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/urllib/request.py\", line 495, in open\n    response = meth(req, response)\n  File \"/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/urllib/request.py\", line 604, in http_response\n    response = self.parent.error(\n        'http', request, response, code, msg, hdrs)\n  File \"/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/urllib/request.py\", line 533, in error\n    return self._call_chain(*args)\n           ~~~~~~~~~~~~~~~~^^^^^^^\n  File \"/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/urllib/request.py\", line 466, in _call_chain\n    result = func(*args)\n  File \"/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/urllib/request.py\", line 613, in http_error_default\n    raise HTTPError(req.full_url, code, msg, hdrs, fp)\nurllib.error.HTTPError: HTTP Error 401: Unauthorized\n"
+        },
+        "raw_hint": {
+          "error": "our-llm failed: Traceback (most recent call last):\n  File \"<frozen runpy>\", line 198, in _run_module_as_main\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"/Users/wilsonarim/CURSOR/fortaleza 4.0/fortaleza-llm/llm/cli.py\", line 24, in <module>\n    main()\n    ~~~~^^\n  File \"/Users/wilsonarim/CURSOR/fortaleza 4.0/fortaleza-llm/llm/cli.py\", line 20, in main\n    out = run_inference(repo, logs=body.get(\"logs\") or {}, files=body.get(\"files\") or {})\n  File \"/Users/wilsonarim/CURSOR/fortaleza 4.0/fortaleza-llm/llm/engine.py\", line 38, in run_inference\n    text_a, meta_a = backend.generate(system, user, main)\n                     ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/wilsonarim/CURSOR/fortaleza 4.0/fortaleza-llm/llm/backends/openai_compat.py\", line 58, in generate\n    with urllib.request.urlopen(req, timeout=120) as resp:\n         ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^\n  File \"/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/urllib/request.py\", line 189, in urlopen\n    return opener.open(url, data, timeout)\n           ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/urllib/request.py\", line 495, in open\n    response = meth(req, response)\n  File \"/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/urllib/request.py\", line 604, in http_response\n    response = self.parent.error(\n        'http', request, response, code, msg, hdrs)\n  File \"/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/urllib/request.py\", line 533, in error\n    return self._call_chain(*args)\n           ~~~~~~~~~~~~~~~~^^^^^^^\n  File \"/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/urllib/request.py\", line 466, in _call_chain\n    result = func(*args)\n  File \"/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/urllib/request.py\", line 613, in http_error_default\n    raise HTTPError(req.full_url, code, msg, hdrs, fp)\nurllib.error.HTTPError: HTTP Error 401: Unauthorized\n"
+        }
+      },
+      {
+        "episode_id": "b12",
+        "success": false,
+        "valid_unified": false,
+        "adds": 0,
+        "removes": 0,
+        "diff_size": 0,
+        "duration_ms": 0,
+        "fortaleza_validation": {
+          "ok": false,
+          "error": "our-llm failed: Traceback (most recent call last):\n  File \"<frozen runpy>\", line 198, in _run_module_as_main\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"/Users/wilsonarim/CURSOR/fortaleza 4.0/fortaleza-llm/llm/cli.py\", line 24, in <module>\n    main()\n    ~~~~^^\n  File \"/Users/wilsonarim/CURSOR/fortaleza 4.0/fortaleza-llm/llm/cli.py\", line 20, in main\n    out = run_inference(repo, logs=body.get(\"logs\") or {}, files=body.get(\"files\") or {})\n  File \"/Users/wilsonarim/CURSOR/fortaleza 4.0/fortaleza-llm/llm/engine.py\", line 38, in run_inference\n    text_a, meta_a = backend.generate(system, user, main)\n                     ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/wilsonarim/CURSOR/fortaleza 4.0/fortaleza-llm/llm/backends/openai_compat.py\", line 58, in generate\n    with urllib.request.urlopen(req, timeout=120) as resp:\n         ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^\n  File \"/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/urllib/request.py\", line 189, in urlopen\n    return opener.open(url, data, timeout)\n           ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/urllib/request.py\", line 495, in open\n    response = meth(req, response)\n  File \"/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/urllib/request.py\", line 604, in http_response\n    response = self.parent.error(\n        'http', request, response, code, msg, hdrs)\n  File \"/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/urllib/request.py\", line 533, in error\n    return self._call_chain(*args)\n           ~~~~~~~~~~~~~~~~^^^^^^^\n  File \"/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/urllib/request.py\", line 466, in _call_chain\n    result = func(*args)\n  File \"/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/urllib/request.py\", line 613, in http_error_default\n    raise HTTPError(req.full_url, code, msg, hdrs, fp)\nurllib.error.HTTPError: HTTP Error 401: Unauthorized\n"
+        },
+        "raw_hint": {
+          "error": "our-llm failed: Traceback (most recent call last):\n  File \"<frozen runpy>\", line 198, in _run_module_as_main\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"/Users/wilsonarim/CURSOR/fortaleza 4.0/fortaleza-llm/llm/cli.py\", line 24, in <module>\n    main()\n    ~~~~^^\n  File \"/Users/wilsonarim/CURSOR/fortaleza 4.0/fortaleza-llm/llm/cli.py\", line 20, in main\n    out = run_inference(repo, logs=body.get(\"logs\") or {}, files=body.get(\"files\") or {})\n  File \"/Users/wilsonarim/CURSOR/fortaleza 4.0/fortaleza-llm/llm/engine.py\", line 38, in run_inference\n    text_a, meta_a = backend.generate(system, user, main)\n                     ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/wilsonarim/CURSOR/fortaleza 4.0/fortaleza-llm/llm/backends/openai_compat.py\", line 58, in generate\n    with urllib.request.urlopen(req, timeout=120) as resp:\n         ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^\n  File \"/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/urllib/request.py\", line 189, in urlopen\n    return opener.open(url, data, timeout)\n           ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/urllib/request.py\", line 495, in open\n    response = meth(req, response)\n  File \"/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/urllib/request.py\", line 604, in http_response\n    response = self.parent.error(\n        'http', request, response, code, msg, hdrs)\n  File \"/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/urllib/request.py\", line 533, in error\n    return self._call_chain(*args)\n           ~~~~~~~~~~~~~~~~^^^^^^^\n  File \"/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/urllib/request.py\", line 466, in _call_chain\n    result = func(*args)\n  File \"/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/urllib/request.py\", line 613, in http_error_default\n    raise HTTPError(req.full_url, code, msg, hdrs, fp)\nurllib.error.HTTPError: HTTP Error 401: Unauthorized\n"
+        }
+      }
+    ],
+    "claude": [
+      {
+        "episode_id": "b1",
+        "success": false,
+        "valid_unified": false,
+        "adds": 0,
+        "removes": 0,
+        "diff_size": 0,
+        "duration_ms": 0,
+        "fortaleza_validation": {
+          "ok": false,
+          "error": "'\"generator\"'"
+        },
+        "raw_hint": {
+          "error": "'\"generator\"'"
+        }
+      },
+      {
+        "episode_id": "b2",
+        "success": false,
+        "valid_unified": false,
+        "adds": 0,
+        "removes": 0,
+        "diff_size": 0,
+        "duration_ms": 0,
+        "fortaleza_validation": {
+          "ok": false,
+          "error": "'\"generator\"'"
+        },
+        "raw_hint": {
+          "error": "'\"generator\"'"
+        }
+      },
+      {
+        "episode_id": "b3",
+        "success": false,
+        "valid_unified": false,
+        "adds": 0,
+        "removes": 0,
+        "diff_size": 0,
+        "duration_ms": 0,
+        "fortaleza_validation": {
+          "ok": false,
+          "error": "'\"generator\"'"
+        },
+        "raw_hint": {
+          "error": "'\"generator\"'"
+        }
+      },
+      {
+        "episode_id": "b4",
+        "success": false,
+        "valid_unified": false,
+        "adds": 0,
+        "removes": 0,
+        "diff_size": 0,
+        "duration_ms": 0,
+        "fortaleza_validation": {
+          "ok": false,
+          "error": "'\"generator\"'"
+        },
+        "raw_hint": {
+          "error": "'\"generator\"'"
+        }
+      },
+      {
+        "episode_id": "b5",
+        "success": false,
+        "valid_unified": false,
+        "adds": 0,
+        "removes": 0,
+        "diff_size": 0,
+        "duration_ms": 0,
+        "fortaleza_validation": {
+          "ok": false,
+          "error": "'\"generator\"'"
+        },
+        "raw_hint": {
+          "error": "'\"generator\"'"
+        }
+      },
+      {
+        "episode_id": "b6",
+        "success": false,
+        "valid_unified": false,
+        "adds": 0,
+        "removes": 0,
+        "diff_size": 0,
+        "duration_ms": 0,
+        "fortaleza_validation": {
+          "ok": false,
+          "error": "'\"generator\"'"
+        },
+        "raw_hint": {
+          "error": "'\"generator\"'"
+        }
+      },
+      {
+        "episode_id": "b7",
+        "success": false,
+        "valid_unified": false,
+        "adds": 0,
+        "removes": 0,
+        "diff_size": 0,
+        "duration_ms": 0,
+        "fortaleza_validation": {
+          "ok": false,
+          "error": "'\"generator\"'"
+        },
+        "raw_hint": {
+          "error": "'\"generator\"'"
+        }
+      },
+      {
+        "episode_id": "b8",
+        "success": false,
+        "valid_unified": false,
+        "adds": 0,
+        "removes": 0,
+        "diff_size": 0,
+        "duration_ms": 0,
+        "fortaleza_validation": {
+          "ok": false,
+          "error": "'\"generator\"'"
+        },
+        "raw_hint": {
+          "error": "'\"generator\"'"
+        }
+      },
+      {
+        "episode_id": "b9",
+        "success": false,
+        "valid_unified": false,
+        "adds": 0,
+        "removes": 0,
+        "diff_size": 0,
+        "duration_ms": 0,
+        "fortaleza_validation": {
+          "ok": false,
+          "error": "'\"generator\"'"
+        },
+        "raw_hint": {
+          "error": "'\"generator\"'"
+        }
+      },
+      {
+        "episode_id": "b10",
+        "success": false,
+        "valid_unified": false,
+        "adds": 0,
+        "removes": 0,
+        "diff_size": 0,
+        "duration_ms": 0,
+        "fortaleza_validation": {
+          "ok": false,
+          "error": "'\"generator\"'"
+        },
+        "raw_hint": {
+          "error": "'\"generator\"'"
+        }
+      },
+      {
+        "episode_id": "b11",
+        "success": false,
+        "valid_unified": false,
+        "adds": 0,
+        "removes": 0,
+        "diff_size": 0,
+        "duration_ms": 0,
+        "fortaleza_validation": {
+          "ok": false,
+          "error": "'\"generator\"'"
+        },
+        "raw_hint": {
+          "error": "'\"generator\"'"
+        }
+      },
+      {
+        "episode_id": "b12",
+        "success": false,
+        "valid_unified": false,
+        "adds": 0,
+        "removes": 0,
+        "diff_size": 0,
+        "duration_ms": 0,
+        "fortaleza_validation": {
+          "ok": false,
+          "error": "'\"generator\"'"
+        },
+        "raw_hint": {
+          "error": "'\"generator\"'"
+        }
+      }
+    ]
+  },
+  "summary": {
+    "our_llm_cli": {
+      "success_rate": 0.0,
+      "diff_size_mean": 0.0,
+      "diff_size_p95": 0,
+      "latency_p95_ms": 0,
+      "count": 12
+    },
+    "claude": {
+      "success_rate": 0.0,
+      "diff_size_mean": 0.0,
+      "diff_size_p95": 0,
+      "latency_p95_ms": 0,
+      "count": 12
+    }
+  }
+}

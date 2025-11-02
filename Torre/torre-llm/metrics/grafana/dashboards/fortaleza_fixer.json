@@ -1,0 +1,56 @@
+{
+  "title": "Fortaleza Fixer — Métricas (.metrics)",
+  "uid": "fort-fixer",
+  "timezone": "browser",
+  "time": { "from": "now-24h", "to": "now" },
+  "panels": [
+    {
+      "type": "timeseries",
+      "title": "Último valor por step",
+      "targets": [
+        { "expr": "fortaleza_fixer_latest{step=\"ts_codefix_resolved\"}", "legendFormat": "ts_codefix" },
+        { "expr": "fortaleza_fixer_latest{step=\"eslint_resolved\"}", "legendFormat": "eslint" },
+        { "expr": "fortaleza_fixer_latest{step=\"semgrep_resolved\"}", "legendFormat": "semgrep" },
+        { "expr": "fortaleza_fixer_latest{step=\"codemods_edits\"}", "legendFormat": "codemods" }
+      ]
+    },
+    {
+      "type": "timeseries",
+      "title": "Soma por janela (1h)",
+      "targets": [
+        { "expr": "fortaleza_fixer_window_sum{window=\"1h\",step=\"ts_codefix_resolved\"}", "legendFormat": "ts_codefix (1h)" },
+        { "expr": "fortaleza_fixer_window_sum{window=\"1h\",step=\"eslint_resolved\"}", "legendFormat": "eslint (1h)" },
+        { "expr": "fortaleza_fixer_window_sum{window=\"1h\",step=\"semgrep_resolved\"}", "legendFormat": "semgrep (1h)" },
+        { "expr": "fortaleza_fixer_window_sum{window=\"1h\",step=\"codemods_edits\"}", "legendFormat": "codemods (1h)" }
+      ]
+    },
+    {
+      "type": "timeseries",
+      "title": "Cumulativo desde o início (counter)",
+      "targets": [
+        { "expr": "fortaleza_fixer_events_total{step=\"ts_codefix_resolved\"}", "legendFormat": "ts_codefix total" },
+        { "expr": "fortaleza_fixer_events_total{step=\"eslint_resolved\"}", "legendFormat": "eslint total" },
+        { "expr": "fortaleza_fixer_events_total{step=\"semgrep_resolved\"}", "legendFormat": "semgrep total" },
+        { "expr": "fortaleza_fixer_events_total{step=\"codemods_edits\"}", "legendFormat": "codemods total" }
+      ]
+    },
+    {
+      "type": "timeseries",
+      "title": "Duração do último run (ms)",
+      "targets": [ { "expr": "fortaleza_fixer_duration_ms" } ]
+    },
+    {
+      "type": "timeseries",
+      "title": "Arquivos modificados (último run)",
+      "targets": [ { "expr": "fortaleza_fixer_files_changed" } ]
+    },
+    {
+      "type": "bargauge",
+      "title": "Codemods — total por tipo",
+      "options": { "displayMode": "lcd", "orientation": "horizontal" },
+      "targets": [ { "expr": "fortaleza_fixer_codemods_edits_total" } ]
+    }
+  ],
+  "version": 1,
+  "schemaVersion": 38
+}

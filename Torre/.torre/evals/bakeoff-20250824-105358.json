@@ -1,0 +1,620 @@
+{
+  "id": "20250824-105358",
+  "dataset": "fortaleza-llm/evals/datasets/bakeoff.sample.jsonl",
+  "providers": {
+    "our_llm_cli": true,
+    "claude": true,
+    "openai_compat": false
+  },
+  "episodes_total": 12,
+  "runs": {
+    "our_llm_cli": [
+      {
+        "episode_id": "b1",
+        "success": true,
+        "valid_unified": true,
+        "adds": 1,
+        "removes": 0,
+        "diff_size": 1,
+        "duration_ms": 57,
+        "fortaleza_validation": {
+          "ok": false,
+          "skipped": true
+        },
+        "raw_hint": {
+          "raw": {
+            "diff": "--- a/fortaleza-llm/llm/README.md\n+++ b/fortaleza-llm/llm/README.md\n@@ -1,5 +1,8 @@\n # Fortaleza LLM — Núcleo (engine/backends)\n \n ## O que é\n Camada mínima para gerar **UM** `diff` unificado a partir de logs/files, com:\n - perfis de decodificação (PATCH / PATCH_B) → A/B,\n+- **SMOKE mode (offline)** para validação rápida da CLI sem rede.\n```",
+            "metrics": {
+              "decode_profile": "PATCH",
+              "decode_profile_ab": "PATCH_B",
+              "decode_backend": "openai_compat",
+              "decode_winner": "A",
+              "diff_size_bytes": 355,
+              "patch_info_present": true
+            },
+            "patch_info": {
+              "generator": "openai_compat",
+              "mode": "smoke",
+              "ts": 1756029238
+            }
+          },
+          "duration_ms": 57,
+          "diff": "--- a/fortaleza-llm/llm/README.md\n+++ b/fortaleza-llm/llm/README.md\n@@ -1,5 +1,8 @@\n # Fortaleza LLM — Núcleo (engine/backends)\n \n ## O que é\n Camada mínima para gerar **UM** `diff` unificado a partir de logs/files, com:\n - perfis de decodificação (PATCH / PATCH_B) → A/B,\n+- **SMOKE mode (offline)** para validação rápida da CLI sem rede.\n```"
+        }
+      },
+      {
+        "episode_id": "b2",
+        "success": true,
+        "valid_unified": true,
+        "adds": 1,
+        "removes": 0,
+        "diff_size": 1,
+        "duration_ms": 47,
+        "fortaleza_validation": {
+          "ok": false,
+          "skipped": true
+        },
+        "raw_hint": {
+          "raw": {
+            "diff": "--- a/fortaleza-llm/llm/README.md\n+++ b/fortaleza-llm/llm/README.md\n@@ -1,5 +1,8 @@\n # Fortaleza LLM — Núcleo (engine/backends)\n \n ## O que é\n Camada mínima para gerar **UM** `diff` unificado a partir de logs/files, com:\n - perfis de decodificação (PATCH / PATCH_B) → A/B,\n+- **SMOKE mode (offline)** para validação rápida da CLI sem rede.\n```",
+            "metrics": {
+              "decode_profile": "PATCH",
+              "decode_profile_ab": "PATCH_B",
+              "decode_backend": "openai_compat",
+              "decode_winner": "A",
+              "diff_size_bytes": 355,
+              "patch_info_present": true
+            },
+            "patch_info": {
+              "generator": "openai_compat",
+              "mode": "smoke",
+              "ts": 1756029238
+            }
+          },
+          "duration_ms": 47,
+          "diff": "--- a/fortaleza-llm/llm/README.md\n+++ b/fortaleza-llm/llm/README.md\n@@ -1,5 +1,8 @@\n # Fortaleza LLM — Núcleo (engine/backends)\n \n ## O que é\n Camada mínima para gerar **UM** `diff` unificado a partir de logs/files, com:\n - perfis de decodificação (PATCH / PATCH_B) → A/B,\n+- **SMOKE mode (offline)** para validação rápida da CLI sem rede.\n```"
+        }
+      },
+      {
+        "episode_id": "b3",
+        "success": true,
+        "valid_unified": true,
+        "adds": 1,
+        "removes": 0,
+        "diff_size": 1,
+        "duration_ms": 50,
+        "fortaleza_validation": {
+          "ok": false,
+          "skipped": true
+        },
+        "raw_hint": {
+          "raw": {
+            "diff": "--- a/fortaleza-llm/llm/README.md\n+++ b/fortaleza-llm/llm/README.md\n@@ -1,5 +1,8 @@\n # Fortaleza LLM — Núcleo (engine/backends)\n \n ## O que é\n Camada mínima para gerar **UM** `diff` unificado a partir de logs/files, com:\n - perfis de decodificação (PATCH / PATCH_B) → A/B,\n+- **SMOKE mode (offline)** para validação rápida da CLI sem rede.\n```",
+            "metrics": {
+              "decode_profile": "PATCH",
+              "decode_profile_ab": "PATCH_B",
+              "decode_backend": "openai_compat",
+              "decode_winner": "A",
+              "diff_size_bytes": 355,
+              "patch_info_present": true
+            },
+            "patch_info": {
+              "generator": "openai_compat",
+              "mode": "smoke",
+              "ts": 1756029238
+            }
+          },
+          "duration_ms": 50,
+          "diff": "--- a/fortaleza-llm/llm/README.md\n+++ b/fortaleza-llm/llm/README.md\n@@ -1,5 +1,8 @@\n # Fortaleza LLM — Núcleo (engine/backends)\n \n ## O que é\n Camada mínima para gerar **UM** `diff` unificado a partir de logs/files, com:\n - perfis de decodificação (PATCH / PATCH_B) → A/B,\n+- **SMOKE mode (offline)** para validação rápida da CLI sem rede.\n```"
+        }
+      },
+      {
+        "episode_id": "b4",
+        "success": true,
+        "valid_unified": true,
+        "adds": 1,
+        "removes": 0,
+        "diff_size": 1,
+        "duration_ms": 47,
+        "fortaleza_validation": {
+          "ok": false,
+          "skipped": true
+        },
+        "raw_hint": {
+          "raw": {
+            "diff": "--- a/fortaleza-llm/llm/README.md\n+++ b/fortaleza-llm/llm/README.md\n@@ -1,5 +1,8 @@\n # Fortaleza LLM — Núcleo (engine/backends)\n \n ## O que é\n Camada mínima para gerar **UM** `diff` unificado a partir de logs/files, com:\n - perfis de decodificação (PATCH / PATCH_B) → A/B,\n+- **SMOKE mode (offline)** para validação rápida da CLI sem rede.\n```",
+            "metrics": {
+              "decode_profile": "PATCH",
+              "decode_profile_ab": "PATCH_B",
+              "decode_backend": "openai_compat",
+              "decode_winner": "A",
+              "diff_size_bytes": 355,
+              "patch_info_present": true
+            },
+            "patch_info": {
+              "generator": "openai_compat",
+              "mode": "smoke",
+              "ts": 1756029238
+            }
+          },
+          "duration_ms": 47,
+          "diff": "--- a/fortaleza-llm/llm/README.md\n+++ b/fortaleza-llm/llm/README.md\n@@ -1,5 +1,8 @@\n # Fortaleza LLM — Núcleo (engine/backends)\n \n ## O que é\n Camada mínima para gerar **UM** `diff` unificado a partir de logs/files, com:\n - perfis de decodificação (PATCH / PATCH_B) → A/B,\n+- **SMOKE mode (offline)** para validação rápida da CLI sem rede.\n```"
+        }
+      },
+      {
+        "episode_id": "b5",
+        "success": true,
+        "valid_unified": true,
+        "adds": 1,
+        "removes": 0,
+        "diff_size": 1,
+        "duration_ms": 46,
+        "fortaleza_validation": {
+          "ok": false,
+          "skipped": true
+        },
+        "raw_hint": {
+          "raw": {
+            "diff": "--- a/fortaleza-llm/llm/README.md\n+++ b/fortaleza-llm/llm/README.md\n@@ -1,5 +1,8 @@\n # Fortaleza LLM — Núcleo (engine/backends)\n \n ## O que é\n Camada mínima para gerar **UM** `diff` unificado a partir de logs/files, com:\n - perfis de decodificação (PATCH / PATCH_B) → A/B,\n+- **SMOKE mode (offline)** para validação rápida da CLI sem rede.\n```",
+            "metrics": {
+              "decode_profile": "PATCH",
+              "decode_profile_ab": "PATCH_B",
+              "decode_backend": "openai_compat",
+              "decode_winner": "A",
+              "diff_size_bytes": 355,
+              "patch_info_present": true
+            },
+            "patch_info": {
+              "generator": "openai_compat",
+              "mode": "smoke",
+              "ts": 1756029238
+            }
+          },
+          "duration_ms": 46,
+          "diff": "--- a/fortaleza-llm/llm/README.md\n+++ b/fortaleza-llm/llm/README.md\n@@ -1,5 +1,8 @@\n # Fortaleza LLM — Núcleo (engine/backends)\n \n ## O que é\n Camada mínima para gerar **UM** `diff` unificado a partir de logs/files, com:\n - perfis de decodificação (PATCH / PATCH_B) → A/B,\n+- **SMOKE mode (offline)** para validação rápida da CLI sem rede.\n```"
+        }
+      },
+      {
+        "episode_id": "b6",
+        "success": true,
+        "valid_unified": true,
+        "adds": 1,
+        "removes": 0,
+        "diff_size": 1,
+        "duration_ms": 46,
+        "fortaleza_validation": {
+          "ok": false,
+          "skipped": true
+        },
+        "raw_hint": {
+          "raw": {
+            "diff": "--- a/fortaleza-llm/llm/README.md\n+++ b/fortaleza-llm/llm/README.md\n@@ -1,5 +1,8 @@\n # Fortaleza LLM — Núcleo (engine/backends)\n \n ## O que é\n Camada mínima para gerar **UM** `diff` unificado a partir de logs/files, com:\n - perfis de decodificação (PATCH / PATCH_B) → A/B,\n+- **SMOKE mode (offline)** para validação rápida da CLI sem rede.\n```",
+            "metrics": {
+              "decode_profile": "PATCH",
+              "decode_profile_ab": "PATCH_B",
+              "decode_backend": "openai_compat",
+              "decode_winner": "A",
+              "diff_size_bytes": 355,
+              "patch_info_present": true
+            },
+            "patch_info": {
+              "generator": "openai_compat",
+              "mode": "smoke",
+              "ts": 1756029238
+            }
+          },
+          "duration_ms": 46,
+          "diff": "--- a/fortaleza-llm/llm/README.md\n+++ b/fortaleza-llm/llm/README.md\n@@ -1,5 +1,8 @@\n # Fortaleza LLM — Núcleo (engine/backends)\n \n ## O que é\n Camada mínima para gerar **UM** `diff` unificado a partir de logs/files, com:\n - perfis de decodificação (PATCH / PATCH_B) → A/B,\n+- **SMOKE mode (offline)** para validação rápida da CLI sem rede.\n```"
+        }
+      },
+      {
+        "episode_id": "b7",
+        "success": true,
+        "valid_unified": true,
+        "adds": 1,
+        "removes": 0,
+        "diff_size": 1,
+        "duration_ms": 45,
+        "fortaleza_validation": {
+          "ok": false,
+          "skipped": true
+        },
+        "raw_hint": {
+          "raw": {
+            "diff": "--- a/fortaleza-llm/llm/README.md\n+++ b/fortaleza-llm/llm/README.md\n@@ -1,5 +1,8 @@\n # Fortaleza LLM — Núcleo (engine/backends)\n \n ## O que é\n Camada mínima para gerar **UM** `diff` unificado a partir de logs/files, com:\n - perfis de decodificação (PATCH / PATCH_B) → A/B,\n+- **SMOKE mode (offline)** para validação rápida da CLI sem rede.\n```",
+            "metrics": {
+              "decode_profile": "PATCH",
+              "decode_profile_ab": "PATCH_B",
+              "decode_backend": "openai_compat",
+              "decode_winner": "A",
+              "diff_size_bytes": 355,
+              "patch_info_present": true
+            },
+            "patch_info": {
+              "generator": "openai_compat",
+              "mode": "smoke",
+              "ts": 1756029238
+            }
+          },
+          "duration_ms": 45,
+          "diff": "--- a/fortaleza-llm/llm/README.md\n+++ b/fortaleza-llm/llm/README.md\n@@ -1,5 +1,8 @@\n # Fortaleza LLM — Núcleo (engine/backends)\n \n ## O que é\n Camada mínima para gerar **UM** `diff` unificado a partir de logs/files, com:\n - perfis de decodificação (PATCH / PATCH_B) → A/B,\n+- **SMOKE mode (offline)** para validação rápida da CLI sem rede.\n```"
+        }
+      },
+      {
+        "episode_id": "b8",
+        "success": true,
+        "valid_unified": true,
+        "adds": 1,
+        "removes": 0,
+        "diff_size": 1,
+        "duration_ms": 46,
+        "fortaleza_validation": {
+          "ok": false,
+          "skipped": true
+        },
+        "raw_hint": {
+          "raw": {
+            "diff": "--- a/fortaleza-llm/llm/README.md\n+++ b/fortaleza-llm/llm/README.md\n@@ -1,5 +1,8 @@\n # Fortaleza LLM — Núcleo (engine/backends)\n \n ## O que é\n Camada mínima para gerar **UM** `diff` unificado a partir de logs/files, com:\n - perfis de decodificação (PATCH / PATCH_B) → A/B,\n+- **SMOKE mode (offline)** para validação rápida da CLI sem rede.\n```",
+            "metrics": {
+              "decode_profile": "PATCH",
+              "decode_profile_ab": "PATCH_B",
+              "decode_backend": "openai_compat",
+              "decode_winner": "A",
+              "diff_size_bytes": 355,
+              "patch_info_present": true
+            },
+            "patch_info": {
+              "generator": "openai_compat",
+              "mode": "smoke",
+              "ts": 1756029238
+            }
+          },
+          "duration_ms": 46,
+          "diff": "--- a/fortaleza-llm/llm/README.md\n+++ b/fortaleza-llm/llm/README.md\n@@ -1,5 +1,8 @@\n # Fortaleza LLM — Núcleo (engine/backends)\n \n ## O que é\n Camada mínima para gerar **UM** `diff` unificado a partir de logs/files, com:\n - perfis de decodificação (PATCH / PATCH_B) → A/B,\n+- **SMOKE mode (offline)** para validação rápida da CLI sem rede.\n```"
+        }
+      },
+      {
+        "episode_id": "b9",
+        "success": true,
+        "valid_unified": true,
+        "adds": 1,
+        "removes": 0,
+        "diff_size": 1,
+        "duration_ms": 45,
+        "fortaleza_validation": {
+          "ok": false,
+          "skipped": true
+        },
+        "raw_hint": {
+          "raw": {
+            "diff": "--- a/fortaleza-llm/llm/README.md\n+++ b/fortaleza-llm/llm/README.md\n@@ -1,5 +1,8 @@\n # Fortaleza LLM — Núcleo (engine/backends)\n \n ## O que é\n Camada mínima para gerar **UM** `diff` unificado a partir de logs/files, com:\n - perfis de decodificação (PATCH / PATCH_B) → A/B,\n+- **SMOKE mode (offline)** para validação rápida da CLI sem rede.\n```",
+            "metrics": {
+              "decode_profile": "PATCH",
+              "decode_profile_ab": "PATCH_B",
+              "decode_backend": "openai_compat",
+              "decode_winner": "A",
+              "diff_size_bytes": 355,
+              "patch_info_present": true
+            },
+            "patch_info": {
+              "generator": "openai_compat",
+              "mode": "smoke",
+              "ts": 1756029238
+            }
+          },
+          "duration_ms": 45,
+          "diff": "--- a/fortaleza-llm/llm/README.md\n+++ b/fortaleza-llm/llm/README.md\n@@ -1,5 +1,8 @@\n # Fortaleza LLM — Núcleo (engine/backends)\n \n ## O que é\n Camada mínima para gerar **UM** `diff` unificado a partir de logs/files, com:\n - perfis de decodificação (PATCH / PATCH_B) → A/B,\n+- **SMOKE mode (offline)** para validação rápida da CLI sem rede.\n```"
+        }
+      },
+      {
+        "episode_id": "b10",
+        "success": true,
+        "valid_unified": true,
+        "adds": 1,
+        "removes": 0,
+        "diff_size": 1,
+        "duration_ms": 46,
+        "fortaleza_validation": {
+          "ok": false,
+          "skipped": true
+        },
+        "raw_hint": {
+          "raw": {
+            "diff": "--- a/fortaleza-llm/llm/README.md\n+++ b/fortaleza-llm/llm/README.md\n@@ -1,5 +1,8 @@\n # Fortaleza LLM — Núcleo (engine/backends)\n \n ## O que é\n Camada mínima para gerar **UM** `diff` unificado a partir de logs/files, com:\n - perfis de decodificação (PATCH / PATCH_B) → A/B,\n+- **SMOKE mode (offline)** para validação rápida da CLI sem rede.\n```",
+            "metrics": {
+              "decode_profile": "PATCH",
+              "decode_profile_ab": "PATCH_B",
+              "decode_backend": "openai_compat",
+              "decode_winner": "A",
+              "diff_size_bytes": 355,
+              "patch_info_present": true
+            },
+            "patch_info": {
+              "generator": "openai_compat",
+              "mode": "smoke",
+              "ts": 1756029238
+            }
+          },
+          "duration_ms": 46,
+          "diff": "--- a/fortaleza-llm/llm/README.md\n+++ b/fortaleza-llm/llm/README.md\n@@ -1,5 +1,8 @@\n # Fortaleza LLM — Núcleo (engine/backends)\n \n ## O que é\n Camada mínima para gerar **UM** `diff` unificado a partir de logs/files, com:\n - perfis de decodificação (PATCH / PATCH_B) → A/B,\n+- **SMOKE mode (offline)** para validação rápida da CLI sem rede.\n```"
+        }
+      },
+      {
+        "episode_id": "b11",
+        "success": true,
+        "valid_unified": true,
+        "adds": 1,
+        "removes": 0,
+        "diff_size": 1,
+        "duration_ms": 47,
+        "fortaleza_validation": {
+          "ok": false,
+          "skipped": true
+        },
+        "raw_hint": {
+          "raw": {
+            "diff": "--- a/fortaleza-llm/llm/README.md\n+++ b/fortaleza-llm/llm/README.md\n@@ -1,5 +1,8 @@\n # Fortaleza LLM — Núcleo (engine/backends)\n \n ## O que é\n Camada mínima para gerar **UM** `diff` unificado a partir de logs/files, com:\n - perfis de decodificação (PATCH / PATCH_B) → A/B,\n+- **SMOKE mode (offline)** para validação rápida da CLI sem rede.\n```",
+            "metrics": {
+              "decode_profile": "PATCH",
+              "decode_profile_ab": "PATCH_B",
+              "decode_backend": "openai_compat",
+              "decode_winner": "A",
+              "diff_size_bytes": 355,
+              "patch_info_present": true
+            },
+            "patch_info": {
+              "generator": "openai_compat",
+              "mode": "smoke",
+              "ts": 1756029238
+            }
+          },
+          "duration_ms": 47,
+          "diff": "--- a/fortaleza-llm/llm/README.md\n+++ b/fortaleza-llm/llm/README.md\n@@ -1,5 +1,8 @@\n # Fortaleza LLM — Núcleo (engine/backends)\n \n ## O que é\n Camada mínima para gerar **UM** `diff` unificado a partir de logs/files, com:\n - perfis de decodificação (PATCH / PATCH_B) → A/B,\n+- **SMOKE mode (offline)** para validação rápida da CLI sem rede.\n```"
+        }
+      },
+      {
+        "episode_id": "b12",
+        "success": true,
+        "valid_unified": true,
+        "adds": 1,
+        "removes": 0,
+        "diff_size": 1,
+        "duration_ms": 50,
+        "fortaleza_validation": {
+          "ok": false,
+          "skipped": true
+        },
+        "raw_hint": {
+          "raw": {
+            "diff": "--- a/fortaleza-llm/llm/README.md\n+++ b/fortaleza-llm/llm/README.md\n@@ -1,5 +1,8 @@\n # Fortaleza LLM — Núcleo (engine/backends)\n \n ## O que é\n Camada mínima para gerar **UM** `diff` unificado a partir de logs/files, com:\n - perfis de decodificação (PATCH / PATCH_B) → A/B,\n+- **SMOKE mode (offline)** para validação rápida da CLI sem rede.\n```",
+            "metrics": {
+              "decode_profile": "PATCH",
+              "decode_profile_ab": "PATCH_B",
+              "decode_backend": "openai_compat",
+              "decode_winner": "A",
+              "diff_size_bytes": 355,
+              "patch_info_present": true
+            },
+            "patch_info": {
+              "generator": "openai_compat",
+              "mode": "smoke",
+              "ts": 1756029238
+            }
+          },
+          "duration_ms": 50,
+          "diff": "--- a/fortaleza-llm/llm/README.md\n+++ b/fortaleza-llm/llm/README.md\n@@ -1,5 +1,8 @@\n # Fortaleza LLM — Núcleo (engine/backends)\n \n ## O que é\n Camada mínima para gerar **UM** `diff` unificado a partir de logs/files, com:\n - perfis de decodificação (PATCH / PATCH_B) → A/B,\n+- **SMOKE mode (offline)** para validação rápida da CLI sem rede.\n```"
+        }
+      }
+    ],
+    "claude": [
+      {
+        "episode_id": "b1",
+        "success": false,
+        "valid_unified": false,
+        "adds": 0,
+        "removes": 0,
+        "diff_size": 0,
+        "duration_ms": 0,
+        "fortaleza_validation": {
+          "ok": false,
+          "error": "'\"generator\"'"
+        },
+        "raw_hint": {
+          "error": "'\"generator\"'"
+        }
+      },
+      {
+        "episode_id": "b2",
+        "success": false,
+        "valid_unified": false,
+        "adds": 0,
+        "removes": 0,
+        "diff_size": 0,
+        "duration_ms": 0,
+        "fortaleza_validation": {
+          "ok": false,
+          "error": "'\"generator\"'"
+        },
+        "raw_hint": {
+          "error": "'\"generator\"'"
+        }
+      },
+      {
+        "episode_id": "b3",
+        "success": false,
+        "valid_unified": false,
+        "adds": 0,
+        "removes": 0,
+        "diff_size": 0,
+        "duration_ms": 0,
+        "fortaleza_validation": {
+          "ok": false,
+          "error": "'\"generator\"'"
+        },
+        "raw_hint": {
+          "error": "'\"generator\"'"
+        }
+      },
+      {
+        "episode_id": "b4",
+        "success": false,
+        "valid_unified": false,
+        "adds": 0,
+        "removes": 0,
+        "diff_size": 0,
+        "duration_ms": 0,
+        "fortaleza_validation": {
+          "ok": false,
+          "error": "'\"generator\"'"
+        },
+        "raw_hint": {
+          "error": "'\"generator\"'"
+        }
+      },
+      {
+        "episode_id": "b5",
+        "success": false,
+        "valid_unified": false,
+        "adds": 0,
+        "removes": 0,
+        "diff_size": 0,
+        "duration_ms": 0,
+        "fortaleza_validation": {
+          "ok": false,
+          "error": "'\"generator\"'"
+        },
+        "raw_hint": {
+          "error": "'\"generator\"'"
+        }
+      },
+      {
+        "episode_id": "b6",
+        "success": false,
+        "valid_unified": false,
+        "adds": 0,
+        "removes": 0,
+        "diff_size": 0,
+        "duration_ms": 0,
+        "fortaleza_validation": {
+          "ok": false,
+          "error": "'\"generator\"'"
+        },
+        "raw_hint": {
+          "error": "'\"generator\"'"
+        }
+      },
+      {
+        "episode_id": "b7",
+        "success": false,
+        "valid_unified": false,
+        "adds": 0,
+        "removes": 0,
+        "diff_size": 0,
+        "duration_ms": 0,
+        "fortaleza_validation": {
+          "ok": false,
+          "error": "'\"generator\"'"
+        },
+        "raw_hint": {
+          "error": "'\"generator\"'"
+        }
+      },
+      {
+        "episode_id": "b8",
+        "success": false,
+        "valid_unified": false,
+        "adds": 0,
+        "removes": 0,
+        "diff_size": 0,
+        "duration_ms": 0,
+        "fortaleza_validation": {
+          "ok": false,
+          "error": "'\"generator\"'"
+        },
+        "raw_hint": {
+          "error": "'\"generator\"'"
+        }
+      },
+      {
+        "episode_id": "b9",
+        "success": false,
+        "valid_unified": false,
+        "adds": 0,
+        "removes": 0,
+        "diff_size": 0,
+        "duration_ms": 0,
+        "fortaleza_validation": {
+          "ok": false,
+          "error": "'\"generator\"'"
+        },
+        "raw_hint": {
+          "error": "'\"generator\"'"
+        }
+      },
+      {
+        "episode_id": "b10",
+        "success": false,
+        "valid_unified": false,
+        "adds": 0,
+        "removes": 0,
+        "diff_size": 0,
+        "duration_ms": 0,
+        "fortaleza_validation": {
+          "ok": false,
+          "error": "'\"generator\"'"
+        },
+        "raw_hint": {
+          "error": "'\"generator\"'"
+        }
+      },
+      {
+        "episode_id": "b11",
+        "success": false,
+        "valid_unified": false,
+        "adds": 0,
+        "removes": 0,
+        "diff_size": 0,
+        "duration_ms": 0,
+        "fortaleza_validation": {
+          "ok": false,
+          "error": "'\"generator\"'"
+        },
+        "raw_hint": {
+          "error": "'\"generator\"'"
+        }
+      },
+      {
+        "episode_id": "b12",
+        "success": false,
+        "valid_unified": false,
+        "adds": 0,
+        "removes": 0,
+        "diff_size": 0,
+        "duration_ms": 0,
+        "fortaleza_validation": {
+          "ok": false,
+          "error": "'\"generator\"'"
+        },
+        "raw_hint": {
+          "error": "'\"generator\"'"
+        }
+      }
+    ]
+  },
+  "summary": {
+    "our_llm_cli": {
+      "success_rate": 100.0,
+      "diff_size_mean": 1,
+      "diff_size_p95": 1,
+      "latency_p95_ms": 50,
+      "count": 12
+    },
+    "claude": {
+      "success_rate": 0.0,
+      "diff_size_mean": 0.0,
+      "diff_size_p95": 0,
+      "latency_p95_ms": 0,
+      "count": 12
+    }
+  }
+}

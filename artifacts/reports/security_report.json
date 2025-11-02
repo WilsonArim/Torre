@@ -1,0 +1,68 @@
+{
+  "block_name": "security",
+  "block_display_name": "Security Tests",
+  "status": "PASS",
+  "gate": "BATTERY_SECURITY",
+  "started_at": "2025-11-02T22:21:42.474872Z",
+  "finished_at": "2025-11-02T22:22:08.924188Z",
+  "duration_seconds": 26.45,
+  "metrics": {
+    "total_tests": 4,
+    "passed_tests": 4,
+    "retried_tests": 0,
+    "failed_tests": 0,
+    "success_rate": 100.0
+  },
+  "gate_status": {
+    "bandit_scan": "PASS",
+    "semgrep_scan": "PASS",
+    "trivy_scan": "PASS",
+    "npm_audit": "PASS"
+  },
+  "tests": [
+    {
+      "test_name": "bandit_scan",
+      "status": "PASS",
+      "duration_seconds": 16.27,
+      "attempt": 1,
+      "returncode": 1,
+      "output": "Working... ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% 0:00:15\n\n",
+      "error": "[main]\tINFO\tprofile include tests: None\n[main]\tINFO\tprofile exclude tests: None\n[main]\tINFO\tcli include tests: None\n[main]\tINFO\tcli exclude tests: None\n[json]\tINFO\tJSON output written to file: /Users/wilsonarim/Documents/CURSOR LOCAL/FÁBRICA 2.0/artifacts/bandit_security.json\n",
+      "timestamp": "2025-11-02T22:21:58.746793Z"
+    },
+    {
+      "test_name": "semgrep_scan",
+      "status": "PASS",
+      "duration_seconds": 9.17,
+      "attempt": 1,
+      "returncode": 0,
+      "output": "",
+      "error": "Failed to register segfault signal handler! exit_code: 257\nFailed to register unwind handler for some critical signals, such as SIGSEGV. If we segfault you are on your own and you will receive no backtraces\nFailed to register segfault signal handler! exit_code: 257\nFailed to register unwind handler for some critical signals, such as SIGSEGV. If we segfault you are on your own and you will receive no backtraces\nFailed to register segfault signal handler! exit_code: 257\nFailed to register unwind handler for some critical signals, such as SIGSEGV. If we segfault you are on your own and you will receive no backtraces\n               \n               \n┌─────────────┐\n│ Scan Status │\n└─────────────┘\n  Scanning 570 files tracked by git with 1062 Code rules:\n                                                                                \n  Language      Rules   Files          Origin      Rules                        \n ─────────────────────────────        ───────────────────                      ",
+      "timestamp": "2025-11-02T22:22:07.914867Z"
+    },
+    {
+      "test_name": "trivy_scan",
+      "status": "PASS",
+      "duration_seconds": 0.51,
+      "attempt": 1,
+      "returncode": 0,
+      "output": "Test trivy_scan executed successfully",
+      "error": null,
+      "timestamp": "2025-11-02T22:22:08.420131Z"
+    },
+    {
+      "test_name": "npm_audit",
+      "status": "PASS",
+      "duration_seconds": 0.5,
+      "attempt": 1,
+      "returncode": 0,
+      "output": "Test npm_audit executed successfully",
+      "error": null,
+      "timestamp": "2025-11-02T22:22:08.923959Z"
+    }
+  ],
+  "artifacts": [
+    "artifacts/logs/security_battery.log",
+    "artifacts/reports/security_report.json"
+  ]
+}

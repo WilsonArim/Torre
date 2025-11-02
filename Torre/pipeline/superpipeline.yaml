@@ -1,0 +1,63 @@
+versao: 1
+projeto: "TORRE"
+descricao: "Treino estruturado da LLM-Engenheira da FÁBRICA com validações por gates e supervisão constitucional."
+gates:
+  - G0: "Fundação & Constituição"
+  - G1: "Compreensão de Código"
+  - G2: "Validação & Conformidade"
+  - G3: "Refatoração Segura"
+  - G4: "Auditoria & Integração"
+modulos:
+  - nome: FUNDAÇÃO
+    tipo: base
+  - nome: CODE
+    tipo: especialização
+  - nome: VALIDAÇÃO
+    tipo: compliance
+  - nome: REFATORAÇÃO
+    tipo: melhoria
+  - nome: AUDITORIA
+    tipo: supervisão
+capitulos:
+  - id: CAP-01
+    nome: "Fundação Constitucional"
+    gates_alvo: [G0]
+    modulos: ["FUNDAÇÃO"]
+    checkpoint_humano: true
+  - id: CAP-02
+    nome: "Compreensão Profunda de Código"
+    gates_alvo: [G1]
+    modulos: ["CODE"]
+    checkpoint_humano: true
+  - id: CAP-03
+    nome: "Validação e Conformidade SOP"
+    gates_alvo: [G2]
+    modulos: ["VALIDAÇÃO"]
+    checkpoint_humano: true
+  - id: CAP-04
+    nome: "Refatoração Segura"
+    gates_alvo: [G3]
+    modulos: ["REFATORAÇÃO"]
+    checkpoint_humano: true
+  - id: CAP-05
+    nome: "Auditoria, Integração e Operação Real"
+    gates_alvo: [G4]
+    modulos: ["AUDITORIA"]
+    checkpoint_humano: true
+  - id: CAP-06
+    nome: "Cobertura de Casos Reais e Edge"
+    gates_alvo: [G5]
+    modulos: ["EDGE"]
+    checkpoint_humano: true
+  - id: CAP-07
+    nome: "Logging de Falhas e Comportamentos Desviantes"
+    gates_alvo: [G6]
+    modulos: ["LOGGING"]
+    checkpoint_humano: true
+  - id: CAP-08
+    nome: "Rotinas de CI/CD e Autodiagnóstico"
+    gates_alvo: [G7]
+    modulos: ["CI", "AUTODIAGNÓSTICO"]
+    checkpoint_humano: true
+assinatura:   # A preencher pelo Estado-Maior (GPG)
+checksum:     # SHA256 do arquivo gerado

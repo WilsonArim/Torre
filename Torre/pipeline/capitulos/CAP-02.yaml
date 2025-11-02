@@ -1,0 +1,16 @@
+id: CAP-02
+nome: "Compreensão Profunda de Código"
+gates_alvo: [G1]
+modulos: ["CODE"]
+objetivo: "Dominar parsing e entendimento do código FÁBRICA"
+tarefas:
+  - "Ler e interpretar cli.py, validator.py, plugins"
+  - "Mapear dependências e fluxos principais"
+  - "Analisar casos de uso e erros intencionais"
+checkpoint: "Checkpoint 1: Parsing sintático pleno"
+deliverables:
+  - "Relatório de análise de dependências"
+  - "Resumo de padrões e antipadrões"
+métricas:
+  - "Parse em todos os formatos: 100%"
+  - "Mapeamento semântico: 95%+"

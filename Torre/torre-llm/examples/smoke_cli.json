@@ -1,0 +1,8 @@
+{
+  "logs": {
+    "lint": "Cannot find name 'SettingsPage' (TS2304)"
+  },
+  "files": {
+    "src/components/Test.tsx": "export function Test(){ return <div>OK</div> }"
+  }
+}

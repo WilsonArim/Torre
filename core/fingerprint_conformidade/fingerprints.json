@@ -1,0 +1,67 @@
+{
+  "versao": "1.0",
+  "data_criacao": "2025-11-02T20:40:16.091246+00:00",
+  "algoritmo": "SHA256",
+  "fingerprints": [
+    {
+      "caminho": "core/sop/constituição.yaml",
+      "hash": "2480ccb4c341459845ce3b212f467fd90411535af7f545046c7477e5e1a8c7eb",
+      "tipo": "artefacto_critico",
+      "timestamp": "2025-11-02T20:40:16.091483+00:00"
+    },
+    {
+      "caminho": "core/sop/leis.yaml",
+      "hash": "7f4378e202ea9fb8a5b8602168380a588e4e123587a063fa49beae37cab8a14e",
+      "tipo": "artefacto_critico",
+      "timestamp": "2025-11-02T20:40:16.091528+00:00"
+    },
+    {
+      "caminho": "core/sop/exceptions.yaml",
+      "hash": "449d407a32caad1a434c30352e1cdbdd4e8b4d36c8e1755cf5a4573c81f1faf8",
+      "tipo": "artefacto_critico",
+      "timestamp": "2025-11-02T20:40:16.091566+00:00"
+    },
+    {
+      "caminho": "core/sop/doutrina.yaml",
+      "hash": "f6e34ca62e163e2ccf49da447f695b7e668af2ac9451c0f400eefd312313e404",
+      "tipo": "artefacto_critico",
+      "timestamp": "2025-11-02T20:40:16.091607+00:00"
+    },
+    {
+      "caminho": "pipeline/superpipeline.yaml",
+      "hash": "585adfead24c65527b63b44785490477df373225563965b4a27d0ac6d95598bf",
+      "tipo": "artefacto_critico",
+      "timestamp": "2025-11-02T20:40:16.091643+00:00"
+    },
+    {
+      "caminho": "pipeline/PIPELINE_TOC.md",
+      "hash": "5b9a9de0daaa55d5a2cc025e95dbcb4401f0c57c4f4cf47baf2043bd4f73272e",
+      "tipo": "artefacto_critico",
+      "timestamp": "2025-11-02T20:40:16.091672+00:00"
+    },
+    {
+      "caminho": "factory/pins/engenheiro.yaml",
+      "hash": "dbf0df7ff8022c484d0dad7c220dea57908a41fa12f3a2a8cb68e0041e7f91c9",
+      "tipo": "artefacto_critico",
+      "timestamp": "2025-11-02T20:40:16.091705+00:00"
+    },
+    {
+      "caminho": "factory/pins/sop.yaml",
+      "hash": "c7a67de052917a29770eec84b8fd4d0fa82a49eb5f7debcf6e84156b5871e80e",
+      "tipo": "artefacto_critico",
+      "timestamp": "2025-11-02T20:40:16.091738+00:00"
+    },
+    {
+      "caminho": "factory/pins/gatekeeper.yaml",
+      "hash": "51e9b1c7d0d60cfbe2e5aa327cebcad3605c5738c84ee07d94e26470a9c794f0",
+      "tipo": "artefacto_critico",
+      "timestamp": "2025-11-02T20:40:16.091771+00:00"
+    },
+    {
+      "caminho": "factory/pins/estado_maior.yaml",
+      "hash": "460abacf4097a4ce71b6527c35a6b7050bed73419c4295156f643b3c0faa684c",
+      "tipo": "artefacto_critico",
+      "timestamp": "2025-11-02T20:40:16.091804+00:00"
+    }
+  ]
+}

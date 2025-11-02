@@ -1,0 +1,22 @@
+{
+  "workspace": "default",
+  "mode": "offline",
+  "state": "unknown",
+  "last_apply": {
+    "ok": true,
+    "metrics": {
+      "apply_clean": true,
+      "lint_clean": true,
+      "tests_pass": true,
+      "diff_size": 56,
+      "classes": [],
+      "decode_profile": "PATCH",
+      "decode_profile_ab": "PATCH_B",
+      "score_patch": 2.0,
+      "ab_candidates": 0,
+      "ab_winner": null,
+      "logic_proofs": 6,
+      "logic_violations": []
+    }
+  }
+}

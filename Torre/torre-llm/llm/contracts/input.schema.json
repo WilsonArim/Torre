@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "fortaleza://contracts/input.schema.json",
+  "title": "Fortaleza LLM Request",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "trace_id": { "type": "string" },
+    "logs": {
+      "type": "object",
+      "maxProperties": 32,
+      "additionalProperties": { "type": "string", "maxLength": 8192 }
+    },
+    "files": {
+      "type": "object",
+      "maxProperties": 32,
+      "additionalProperties": { "type": "string", "maxLength": 204800 },
+      "propertyNames": {
+        "type": "string",
+        "maxLength": 256,
+        "pattern": "^(?!.*\\.\\.)[A-Za-z0-9_./-]+$"
+      }
+    },
+    "options": {
+      "type": "object",
+      "additionalProperties": true
+    }
+  },
+  "required": ["logs", "files"]
+}

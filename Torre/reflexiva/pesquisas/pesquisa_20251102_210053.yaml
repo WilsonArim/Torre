@@ -1,0 +1,20 @@
+# Pesquisa Torre Reflexiva
+
+tema: teste
+timestamp: 2025-11-02T21:00:53.171796+00:00
+agente: TORRE_REFLEXIVA
+tipo: pesquisa_externa
+
+fontes:
+
+resultados:
+  - fonte: simulada
+    resumo: Informações sobre teste
+    relevancia: media
+
+metadados:
+  objetivo: "Pesquisar informações sobre: teste"
+  regras_aplicadas:
+    - ART-05: Não-Autonomia Absoluta
+    - ART-07: Transparência (metadados obrigatórios)
+    - Apenas YAML/MD na pasta Torre/reflexiva/

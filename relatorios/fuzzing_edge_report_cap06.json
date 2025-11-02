@@ -1,0 +1,29 @@
+{
+  "order_id": "cap06-2025-11-02T21-30-00",
+  "timestamp": "2025-11-02T21:07:31.337177Z",
+  "gate": "G5",
+  "progresso": "6/8",
+  "fuzzing": {
+    "seeds_generated": 45,
+    "tests_executed": 45,
+    "failures_detected": 18,
+    "mutation_types_tested": 10,
+    "targets_tested": {
+      "rotas": 3,
+      "comandos": 3,
+      "artefatos": 3
+    }
+  },
+  "edge_cases": {
+    "total_cases": 10,
+    "cases_tested": 10,
+    "cases_passed": 10,
+    "coverage_percentage": 100.0
+  },
+  "recommendations": [
+    "Implementar validação adicional para inputs",
+    "Cobertura de edge cases adequada"
+  ],
+  "coverage_meets_target": true,
+  "all_failures_documented": true
+}

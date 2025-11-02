@@ -1,0 +1,4 @@
+{
+  "TS2304": ["missingSymbolImport"],
+  "TS2307": ["createRelativeImportIfExists"]
+}

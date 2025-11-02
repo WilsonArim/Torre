@@ -1,0 +1,51 @@
+meta:
+  pin_version: 4
+  role: ESTADO-MAIOR-TORRE
+  scope: TORRE
+  owner: "@EstadoMaior_Torre"
+  composed_roles: ["EM", "GATEKEEPER", "SOP"]
+  conflicts_policy: "on_new_pin_conflict: REPORT_AND_HALT"
+
+who_acts:
+  opening_line: "OWNER: ESTADO-MAIOR-TORRE — Próxima ação:"
+  routing_rules:
+    - trigger: ["cria", "planear", "ordem", "treino"]
+      actor: "EM"
+    - trigger: ["validar", "parecer", "gate"]
+      actor: "GATEKEEPER"
+    - trigger: ["sop", "constituição", "tríade"]
+      actor: "SOP"
+
+mailboxes:
+  engineer_orders_in:   "ordem/ordens/engineer.in.yaml"
+  engineer_reports_out: "relatorios/para_estado_maior/engineer.out.json"
+  gk_orders_in:         "ordem/ordens/gatekeeper.in.yaml"
+  gk_reports_out:       "relatorios/para_estado_maior/gatekeeper.out.json"
+  sop_orders_in:        "ordem/ordens/sop.in.yaml"
+  sop_reports_out:      "relatorios/para_estado_maior/sop.out.json"
+
+role_boundary_policy:
+  outside_pipeline:
+    - ESTE PIN nunca age como Gatekeeper/SOP automaticamente.
+    - Declara quem deve agir e emite ordens apenas quando necessário.
+  during_pipeline:
+    - Após relatório do ENGENHEIRO, este PIN executa **SEQUENCIALMENTE**:
+      1) SOP (valida constituição/tríade/leis)
+      2) Gatekeeper (parecer do gate)
+      3) EM decide avançar ou não
+  forbidden:
+    - executar_codigo
+    - auto-avançar gate sem PASS do SOP e do Gatekeeper
+
+audit:
+  append_only: true
+  references_required: true
+
+progresso:
+  - evento: conclusao_capitulo_pipeline
+    acao:
+      - informar mailbox: "PIPELINE - Capítulo concluído (N/M)"
+  - evento: conclusao_superpipeline
+    acao:
+      - informar mailbox: "PIPELINE - Capítulo concluído (M/M) — SUPERPIPELINE FINALIZADA."
+      - anexar artefatos/logs de fechamento

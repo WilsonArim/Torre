@@ -1,0 +1,45 @@
+{
+  "agente": "ESTADO-MAIOR-TORRE",
+  "proceed": true,
+  "pin_scan_time": "2025-11-01T14:05:00Z",
+  "encontrados": [
+    {
+      "path": "core/orquestrador/PIN_SOP.md",
+      "agent": "SOP",
+      "status": "ATIVO",
+      "action": "MANTER (usado por SOP, não auto-exec)"
+    },
+    {
+      "path": "Torre/orquestrador/PIN_ESTADO_MAIOR.yaml",
+      "agent": "ESTADO-MAIOR",
+      "status": "ATIVO",
+      "action": "MANTER (governança, trigger de ordens e validação em torre/)"
+    },
+    {
+      "path": "docs/ENGINEER_PIN.md",
+      "agent": "ENGENHEIRO",
+      "status": "ATIVO",
+      "action": "MANTER (apenas execução sob ordem, sem auto-exec permitido pela EM)"
+    },
+    {
+      "path": "factory/pins/_deprecated/PIN_TORRE_v2.md",
+      "agent": "ENGENHEIRO-TORRE",
+      "status": "DEPRECADO",
+      "action": "DEPRECADO — requer validação manual se referenciado por alguma rotina"
+    },
+    {
+      "path": "factory/pins/_deprecated/cli_gatekeeper_torre.py",
+      "agent": "GATEKEEPER",
+      "status": "DEPRECADO",
+      "action": "DEPRECADO — garantir que não é chamado externamente/manualmente"
+    },
+    {
+      "path": "factory/pins/_deprecated/engineer_executor.py",
+      "agent": "ENGENHEIRO",
+      "status": "DEPRECADO",
+      "action": "DEPRECADO — qualquer lógica de auto-exec bloqueada/obsoleta"
+    }
+  ],
+  "auto_exec_detected": false,
+  "guarda": "Todo PIN/rotina de auto-exec bloqueada. Nenhuma execução de engenharia automatizada por Estado-Maior/SOP. Só ordens e validação."
+}

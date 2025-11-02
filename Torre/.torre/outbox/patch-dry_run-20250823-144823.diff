@@ -1,0 +1,8 @@
+diff --git a/fortaleza-llm/STRATEGY.md b/fortaleza-llm/STRATEGY.md
+new file mode 100644
+index 0000000..0000001
+--- /dev/null
++++ b/fortaleza-llm/STRATEGY.md
+@@ -0,0 +1,2 @@
++# Fortaleza LLM-Engenheira — Estratégia mínima
++Este patch é idempotente e não toca em segredos. Em ciclos seguintes, substituir por correções cirúrgicas reais.

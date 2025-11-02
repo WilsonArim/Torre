@@ -1,0 +1,145 @@
+diff --git a/torre-llm/logic/__init__.py b/torre-llm/logic/__init__.py
+new file mode 100644
+index 0000000..a1b2c3d
+--- /dev/null
++++ b/torre-llm/logic/__init__.py
+@@ -0,0 +1 @@
++# Logic module
+diff --git a/torre-llm/logic/aristotelian.py b/torre-llm/logic/aristotelian.py
+new file mode 100644
+index 0000000..a71b10c
+--- /dev/null
++++ b/torre-llm/logic/aristotelian.py
+@@ -0,0 +1,112 @@
++from __future__ import annotations
++from typing import Any, Dict, List
++
++# [ARISTÓTELES] Guardrails práticos para runtime:
++# - Não-contradição: não pode haver p ∧ ¬p
++# - Terceiro excluído: métricas booleanas ∈ {True, False}
++# - Silogismo operacional: (validate ∧ dry_run) ⇒ apply
++
++def _implies(p: bool, q: bool) -> bool:
++    return (not p) or q
++
++def _bool(v: Any) -> bool | None:
++    if v is True: return True
++    if v is False: return False
++    return None
++
++def verify_invariants(
++    classification: Dict[str, Any],
++    validate_ok: bool,
++    dry_ok: bool,
++    apply_ok: bool,
++    metrics: Dict[str, Any],
++) -> Dict[str, Any]:
++    proofs: List[str] = []
++    violations: List[str] = []
++
++    # 1) Silogismo operacional: (validate ∧ dry_run) ⇒ apply
++    if _implies(validate_ok and dry_ok, apply_ok):
++        proofs.append("Se validate && dry_run, então apply não viola as regras (modus ponens).")
++    else:
++        violations.append("Violação: validate && dry_run verdadeiros mas apply==False.")
++
++    # 2) Coerência entre classification e metrics (não-contradição)
++    lint_ok = bool((classification.get("lint") or {}).get("ok", False))
++    tests_ok = bool((classification.get("tests") or {}).get("ok", False))
++    m_lint = _bool(metrics.get("lint_clean"))
++    m_tests = _bool(metrics.get("tests_pass"))
++    if m_lint is None:
++        violations.append("Lei do terceiro excluído violada: metrics.lint_clean ∉ {True, False}.")
++    else:
++        # Aceitamos pequenas divergências em cenários parciais, mas sinalizamos
++        if m_lint and not lint_ok:
++            violations.append("Contradição: metrics.lint_clean=True mas classification.lint.ok=False.")
++        elif (not m_lint) and lint_ok:
++            violations.append("Contradição: lint.ok=True mas metrics.lint_clean=False.")
++        else:
++            proofs.append("Coerência: lint_clean ↔ classification.lint.ok.")
++    if m_tests is None:
++        violations.append("Lei do terceiro excluído violada: metrics.tests_pass ∉ {True, False}.")
++    else:
++        if m_tests and not tests_ok:
++            violations.append("Contradição: metrics.tests_pass=True mas classification.tests.ok=False.")
++        elif (not m_tests) and tests_ok:
++            violations.append("Contradição: tests.ok=True mas metrics.tests_pass=False.")
++        else:
++            proofs.append("Coerência: tests_pass ↔ classification.tests.ok.")
++
++    # 3) Booleans essenciais obedecem ao terceiro excluído
++    for k in ("apply_clean", "lint_clean", "tests_pass"):
++        v = metrics.get(k, None)
++        if v not in (True, False):
++            violations.append(f"Lei do terceiro excluído violada: metrics.{k} ∉ {{True, False}}.")
++        else:
++            proofs.append(f"'{k}' ∈ {{True, False}}.")
++
++    return {"proofs": proofs, "violations": violations}
+diff --git a/torre-llm/orchestrator.py b/torre-llm/orchestrator.py
+index 5a6b7c9..8ac3d22 100644
+--- a/torre-llm/orchestrator.py
++++ b/torre-llm/orchestrator.py
+@@ -10,6 +10,7 @@ from .utils.diff_utils import make_new_file_diff, join_unified_diffs, validate_u
+ from .client import ingest_report, get_pipeline_state, write_pipeline_state
+ from importlib import import_module
+ from .code_index import build_code_index, write_index_json, make_overview_md
++from .logic.aristotelian import verify_invariants
+ 
+ 
+ ROOT = Path(os.getenv("REPO_ROOT", ".")).resolve()
+@@ -25,6 +26,12 @@ def guardrails_diff(diff: str) -> None:
+     for f in forbidden:
+         if f in diff:
+             raise RuntimeError(f"diff inválido: toca em ficheiro sensível ({f})")
++
++def score_patch(metrics: Dict[str, Any]) -> float:
++    """Calcula score simples do patch baseado nas métricas."""
++    score = 0.0
++    if metrics.get("apply_clean"): score += 1.0
++    if metrics.get("lint_clean"): score += 0.5
++    if metrics.get("tests_pass"): score += 0.5
++    return score
+ 
+ def main() -> None:
+     # 1) coletar erros
+@@ -86,6 +93,7 @@ def main() -> None:
+     if not d_ok:
+         raise RuntimeError("dry_run falhou no endpoint de ingest")
+     apply_ok = ingest_report(WS, mode="apply", payload=unified, content_type="text/plain")
++
+     # 6) Métricas, score e invariantes lógicos
+     metrics = {
+         "apply_clean": bool(apply_ok),
+@@ -93,11 +101,21 @@ def main() -> None:
+         "tests_pass": tests.get("ok", False),
+         "diff_size": len(unified.splitlines()),
+         "classes": classification.get("classes", []),
+     }
++    try:
++        metrics["score_patch"] = score_patch(metrics)
++    except Exception:
++        metrics["score_patch"] = 0.0
++
++    try:
++        logic = verify_invariants(
++            classification=classification,
++            validate_ok=bool(v_ok),
++            dry_ok=bool(d_ok),
++            apply_ok=bool(apply_ok),
++            metrics=metrics,
++        )
++        metrics["logic_proofs"] = len(logic.get("proofs", []))
++        metrics["logic_violations"] = logic.get("violations", [])
++    except Exception:
++        metrics["logic_proofs"] = 0
++        metrics["logic_violations"] = ["erro ao verificar invariantes"]
+ 
+     print(json.dumps({"metrics": metrics, "summary": "patch aplicado" if apply_ok else "patch não aplicado"}))
+ 
+     # Atualizar estado se apply ok
+     if apply_ok:
+         state = get_pipeline_state(WS)
+         state["last_apply"] = {"ok": True, "metrics": metrics}
+         write_pipeline_state(state)

@@ -1,0 +1,177 @@
+diff --git a/torre-llm/docs/AB_SELECTION.md b/torre-llm/docs/AB_SELECTION.md
+new file mode 100644
+index 0000000..a1b2ab1
+--- /dev/null
++++ b/torre-llm/docs/AB_SELECTION.md
+@@ -0,0 +1,80 @@
++# A/B + Score (v1)
++
++## Objetivo
++Quando existem várias formas válidas de corrigir, escolhemos **1 patch vencedor** de modo **determinístico** e **idempotente**.
++
++## Fonte de variações
++- `autofix_base_shim` (inserção de shim no topo do .tsx)
++- `ts_codemods` (no-unused/imports/path)
++
++## Score v1 (offline)
++- Critério: **menor nº de linhas no diff** (`diff_size`).
++- Desempate: nome do gerador (ordem alfabética) para ser determinístico.
++
++> Nota: Em modo online futuro, o score passa a combinar `apply_clean`, `lint_clean`, `tests_pass`, tempo e `diff_size`.
++
++## Invariantes
++- UM único diff final.
++- Idempotente: mesmos candidatos ⇒ mesmo vencedor.
++- Guardrails ativos (paths sensíveis proibidos).
++
++## Como validar
++```bash
++python -m torre-llm.run_offline
++# stdout inclui: ab_candidates, ab_winner
++```
+diff --git a/torre-llm/strategies/ab_select.py b/torre-llm/strategies/ab_select.py
+new file mode 100644
+index 0000000..b7c9d01
+--- /dev/null
++++ b/torre-llm/strategies/ab_select.py
+@@ -0,0 +1,120 @@
++from __future__ import annotations
++from typing import Dict, Any, List, Tuple
++from dataclasses import dataclass
++
++@dataclass
++class Candidate:
++    name: str           # origem (ex.: 'autofix_base_shim' | 'ts_codemods')
++    diff: str           # diff unificado do candidato
++    diff_size: int      # nº de linhas do diff
++
++def _size(diff: str) -> int:
++    return len(diff.splitlines())
++
++def pick_best(cands: List[Candidate]) -> Tuple[Candidate | None, Dict[str, Any]]:
++    """
++    Seleciona o vencedor pelo menor `diff_size`.
++    Empate: menor `name` (ordem alfabética).
++    """
++    if not cands:
++        return None, {"ab_candidates": 0, "ab_winner": None}
++    cands = sorted(cands, key=lambda c: (c.diff_size, c.name))
++    winner = cands[0]
++    return winner, {
++        "ab_candidates": len(cands),
++        "ab_winner": {"name": winner.name, "diff_size": winner.diff_size},
++    }
++
++def make_candidate(name: str, diff: str) -> Candidate | None:
++    if not diff or not diff.strip().startswith("diff --git"):
++        return None
++    return Candidate(name=name, diff=diff, diff_size=_size(diff))
+diff --git a/torre-llm/orchestrator.py b/torre-llm/orchestrator.py
+index b7edc10..c3de8aa 100644
+--- a/torre-llm/orchestrator.py
++++ b/torre-llm/orchestrator.py
+@@ -14,6 +14,7 @@ from .code_index import build_code_index, write_index_json, make_overview_md
+ from .logic.aristotelian import verify_invariants
+ from importlib import import_module
+ from .strategies import ts_codemods as _ts_codemods
++from .strategies.ab_select import Candidate, make_candidate, pick_best
+ 
+ 
+ ROOT = Path(os.getenv("REPO_ROOT", ".")).resolve()
+@@ -52,7 +53,7 @@ def main() -> None:
+         idx = {"files_indexed": 0, "symbols": 0}
+         index_overview = "# INDEX_OVERVIEW — falha ao gerar índice\n"
+ 
+-    # 2) propor patch mínimo
++    # 2) Propor patch mínimo (docs) com base nos erros
+     file_changes: List[Tuple[str, str]] = propose_patch(ROOT, classification)
+ 
+     # 3) Se não houver mudanças, criar no máximo um README de progresso (idempotente)
+@@ -74,26 +75,60 @@ def main() -> None:
+     except Exception:
+         pass
+ 
+-    # 4) construir diffs (novos ficheiros) e recolher diffs de auto-fix (ficheiros existentes)
+-    diffs = [make_new_file_diff(Path(p), c) for (p, c) in file_changes]
++    # 4) Construir diffs (novos ficheiros) para docs/evidence/index
++    base_diffs = [make_new_file_diff(Path(p), c) for (p, c) in file_changes]
+ 
+-    # Auto-fix opcional: se existir strategies.autofix_base_shim, inclui os seus diffs
++    # Recolher CANDIDATOS de código (ficheiros existentes) — A/B
++    candidates: List[Candidate] = []
++
++    # A) Auto-fix opcional
+     try:
+         af = import_module(".strategies.autofix_base_shim", package=__package__)
+-        extra_diffs = af.generate_diffs(ROOT, classification) or []
+-        diffs.extend(extra_diffs)
++        extra = af.generate_diffs(ROOT, classification) or []
++        for d in extra:
++            c = make_candidate("autofix_base_shim", diffs)
++            if c: candidates.append(c)
+     except Exception:
+-        # silencioso
+         pass
+-    # Codemods TS v1 (AST preferido; fallback Python)
++
++    # B) Codemods TS v1 (AST preferido; fallback Python)
+     try:
+-        extra_diffs = _ts_codemods.generate_diffs(ROOT, classification) or []
+-        diffs.extend(extra_diffs)
++        extra = _ts_codemods.generate_diffs(ROOT, classification) or []
++        for d in extra:
++            c = make_candidate("ts_codemods", d)
++            if c: candidates.append(c)
+     except Exception:
+         pass
+ 
++    # Se não houver candidatos, seguimos só com docs
++    diffs = list(base_diffs)
++
+     # Se nada para fazer, abortar de forma limpa
+-    if not diffs:
++    if not diffs and not candidates:
+         print(json.dumps({"metrics": {"apply_clean": False}, "summary": "sem alterações"}))
+         return
+ 
++    # 4.1) A/B + score (v1): escolher 1 candidato (menor diff_size)
++    ab_meta = {"ab_candidates": 0, "ab_winner": None}
++    if candidates:
++        winner, meta = pick_best(candidates)
++        ab_meta.update(meta)
++        if winner:
++            diffs.append(winner.diff)  # concatenamos só o vencedor
++
+     unified = join_unified_diffs(diffs)
+     guardrails_diff(unified)
+ 
+@@ -112,6 +147,8 @@ def main() -> None:
+         "classes": classification.get("classes", []),
+     }
+     try:
+         metrics["score_patch"] = score_patch(metrics)
+     except Exception:
+         metrics["score_patch"] = 0.0
++    metrics.update(ab_meta)  # ab_candidates, ab_winner
+ 
+     try:
+         logic = verify_invariants(
+             classification=classification,
+             validate_ok=bool(v_ok),
+             dry_ok=bool(d_ok),
+             apply_ok=bool(apply_ok),
+             metrics=metrics,
+         )
+         metrics["logic_proofs"] = len(logic.get("proofs", []))
+         metrics["logic_violations"] = logic.get("violations", [])
+     except Exception:
+         metrics["logic_proofs"] = 0
+         metrics["logic_violations"] = ["erro ao verificar invariantes"]
+ 
+     print(json.dumps({"metrics": metrics, "summary": "patch aplicado" if apply_ok else "patch não aplicado"}))
+ 
+     # Atualizar estado se apply ok
+     if apply_ok:
+         state = get_pipeline_state(WS)
+         state["last_apply"] = {"ok": True, "metrics": metrics}
+         write_pipeline_state(state)

@@ -1,0 +1,144 @@
+{
+  "ts": "2025-08-26T06:51:23Z",
+  "total": 2,
+  "passed": 2,
+  "success_rate": 100.0,
+  "results": [
+    {
+      "case": "01_ts2304_missing_symbol.json",
+      "passed": true,
+      "rc": 0,
+      "dur_ms": 759,
+      "trace_id": null,
+      "metrics": {
+        "rerank": true,
+        "winner": "generator_error",
+        "candidates": [
+          {
+            "name": "generator_error",
+            "ok": false,
+            "metrics": {
+              "error": "HTTP Error 401: Unauthorized"
+            },
+            "diff_lines": 0
+          },
+          {
+            "name": "generator_error",
+            "ok": false,
+            "metrics": {
+              "error": "HTTP Error 401: Unauthorized"
+            },
+            "diff_lines": 0
+          },
+          {
+            "name": "generator_error",
+            "ok": false,
+            "metrics": {
+              "error": "HTTP Error 401: Unauthorized"
+            },
+            "diff_lines": 0
+          }
+        ],
+        "strategos": {
+          "mode": "ADVICE",
+          "nodes_considered": [],
+          "attempts_to_green_est": 0,
+          "ttg_delta_est": 0.0
+        },
+        "memory_used": false,
+        "optimizer": "qwen2.5-coder-7b-instruct",
+        "memory": {
+          "repeat_error_rate": 9.09,
+          "rules_promoted": 1,
+          "rules_hit_rate": 0.0,
+          "avoidance_saves": 5
+        },
+        "forensics": {
+          "files_touched": 0,
+          "lines": {
+            "add": 0,
+            "rem": 0,
+            "total": 0
+          },
+          "layers": {},
+          "secrets_found": 0,
+          "risk_score": 0
+        },
+        "lenses": [
+          {
+            "lens": "DIJKSTRA",
+            "rule": "Passo mínimo com prova (invariantes/testes)."
+          }
+        ]
+      }
+    },
+    {
+      "case": "02_ts2307_missing_css.json",
+      "passed": true,
+      "rc": 0,
+      "dur_ms": 974,
+      "trace_id": null,
+      "metrics": {
+        "rerank": true,
+        "winner": "generator_error",
+        "candidates": [
+          {
+            "name": "generator_error",
+            "ok": false,
+            "metrics": {
+              "error": "HTTP Error 401: Unauthorized"
+            },
+            "diff_lines": 0
+          },
+          {
+            "name": "generator_error",
+            "ok": false,
+            "metrics": {
+              "error": "HTTP Error 401: Unauthorized"
+            },
+            "diff_lines": 0
+          },
+          {
+            "name": "generator_error",
+            "ok": false,
+            "metrics": {
+              "error": "HTTP Error 401: Unauthorized"
+            },
+            "diff_lines": 0
+          }
+        ],
+        "strategos": {
+          "mode": "ADVICE",
+          "nodes_considered": [],
+          "attempts_to_green_est": 0,
+          "ttg_delta_est": 0.0
+        },
+        "memory_used": false,
+        "optimizer": "qwen2.5-coder-7b-instruct",
+        "memory": {
+          "repeat_error_rate": 9.09,
+          "rules_promoted": 1,
+          "rules_hit_rate": 0.0,
+          "avoidance_saves": 6
+        },
+        "forensics": {
+          "files_touched": 0,
+          "lines": {
+            "add": 0,
+            "rem": 0,
+            "total": 0
+          },
+          "layers": {},
+          "secrets_found": 0,
+          "risk_score": 0
+        },
+        "lenses": [
+          {
+            "lens": "DIJKSTRA",
+            "rule": "Passo mínimo com prova (invariantes/testes)."
+          }
+        ]
+      }
+    }
+  ]
+}

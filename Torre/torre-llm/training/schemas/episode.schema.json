@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Fortaleza Episode (logs → patch → tests)",
+  "type": "object",
+  "required": ["id", "domain", "logs", "files_before", "patch_unified", "outcome"],
+  "properties": {
+    "id": { "type": "string" },
+    "domain": { "type": "string", "enum": ["programming", "problem_solving", "forensic_audit"] },
+    "logs": {
+      "type": "object",
+      "properties": {
+        "lint": { "type": "string" },
+        "tests": { "type": "string" },
+        "build": { "type": "string" },
+        "runtime": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "files_before": {
+      "type": "object",
+      "additionalProperties": { "type": "string" },
+      "description": "amostra pequena dos ficheiros tocados"
+    },
+    "patch_unified": { "type": "string", "description": "UM diff unificado (git apply)" },
+    "tests_added": {
+      "oneOf": [
+        { "type": "object", "additionalProperties": { "type": "string" } },
+        { "type": "array", "items": { "type": "string" } },
+        { "type": "null" }
+      ]
+    },
+    "outcome": {
+      "type": "object",
+      "required": ["lint_clean", "tests_pass", "apply_clean"],
+      "properties": {
+        "lint_clean": { "type": "boolean" },
+        "tests_pass": { "type": "boolean" },
+        "apply_clean": { "type": "boolean" }
+      },
+      "additionalProperties": false
+    },
+    "lenses_applied": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+    "notes": { "type": "string" }
+  },
+  "additionalProperties": false
+}

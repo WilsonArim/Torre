@@ -1,0 +1,4 @@
+{
+  "logs": { "types": "TS2304: Cannot find name React" },
+  "files": { "src/App.tsx": "export default function App(){ return (<div/>) }" }
+}

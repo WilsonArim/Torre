@@ -1,0 +1,81 @@
+{
+  "report_id": "pins-cleanup-plan-20251101-125342",
+  "timestamp": "2025-11-01T12:53:42.500907+00:00",
+  "agente": "SOP-v3.0",
+  "objetivo": "Saneamento de PINs - remover auto-bloqueios herdados e engenharia",
+  "proceed": false,
+  "guardas": {
+    "outros_pins_ativos": [
+      "Torre/orquestrador/PIN_ESTADO_MAIOR.md",
+      "Torre/orquestrador/PIN_ESTADO_MAIOR.yaml",
+      "docs/ENGINEER_PIN.md",
+      "factory/pins/_deprecated/PIN_TORRE_v2.md"
+    ],
+    "guardas_ok": false,
+    "acao_se_guardas_ok": "CONTINUAR saneamento",
+    "acao_se_guardas_falharem": "ABORTA - outros PINs ativos detectados"
+  },
+  "problemas_identificados": [
+    {
+      "tipo": "engenharia",
+      "severidade": "HIGH",
+      "local": "PIN_SOP.md linha ~47",
+      "problema": "Menciona execução de 'make orders_rotate' e 'make mailbox_health'",
+      "acao": "REMOVER - SOP não executa engenharia, apenas lê artefactos",
+      "linha_original": "Executar `make orders_rotate` e `make mailbox_health`"
+    },
+    {
+      "tipo": "engenharia",
+      "severidade": "HIGH",
+      "local": "PIN_SOP.md linha ~47",
+      "problema": "Menciona execução de 'make mailbox_health'",
+      "acao": "REMOVER - SOP não executa engenharia",
+      "linha_original": "Executar `make orders_rotate` e `make mailbox_health`"
+    }
+  ],
+  "leituras_permitidas": [
+    "core/sop/constituição.yaml",
+    "core/sop/leis.yaml",
+    "core/sop/exceptions.yaml",
+    "relatorios/torre_status.json"
+  ],
+  "leituras_proibidas": [],
+  "acoes_planeadas": [
+    {
+      "acao": "REMOVER",
+      "tipo": "engenharia",
+      "detalhes": "Remover menção a 'Executar make orders_rotate e make mailbox_health'",
+      "local": "PIN_SOP.md seção 'Fiscalização'",
+      "justificativa": "SOP não executa engenharia, apenas lê artefactos"
+    },
+    {
+      "acao": "LIMPAR",
+      "tipo": "auto-bloqueio",
+      "detalhes": "Confirmar que SOP lê apenas core/sop/* e relatorios/torre_status.json",
+      "local": "PIN_SOP.md seção 'Responsabilidades'",
+      "justificativa": "Focar apenas em interpretação de Leis/Constituição"
+    },
+    {
+      "acao": "CONFIRMAR",
+      "tipo": "leitura",
+      "detalhes": "Especificar explicitamente que SOP lê apenas: core/sop/* e relatorios/torre_status.json",
+      "local": "PIN_SOP.md seção 'Responsabilidades'",
+      "justificativa": "Remover ambiguidade sobre quais ficheiros o SOP pode ler"
+    },
+    {
+      "acao": "DEPRECAR",
+      "tipo": "pin_antigo",
+      "detalhes": "Mover PIN_TORRE_v2.md já está em factory/pins/_deprecated/",
+      "local": "factory/pins/_deprecated/PIN_TORRE_v2.md",
+      "status": "JÁ DEPRECADO"
+    }
+  ],
+  "artefactos_afetados": [
+    "core/orquestrador/PIN_SOP.md"
+  ],
+  "resultado_esperado": {
+    "pin_sop_focado": "Apenas interpretação de Leis/Constituição e bloqueio conforme artefactos",
+    "sem_engenharia": "Nenhuma menção a execução de comandos make ou criação de código",
+    "leituras_claras": "Lista explícita de ficheiros que SOP pode ler"
+  }
+}

@@ -1,0 +1,79 @@
+{
+  "version": "1.0",
+  "updated_at": "2025-08-23",
+  "tools": [
+    {
+      "name": "run_tests",
+      "version": "1.0",
+      "idempotent": true,
+      "timeout_sec": 600,
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "cmd": { "type": "string", "description": "Comando de teste, ex.: `pytest -q`" },
+          "workdir": { "type": "string", "description": "Diretório onde executar" },
+          "timeout_sec": { "type": "integer", "minimum": 1 }
+        },
+        "required": ["cmd"]
+      },
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "ok": { "type": "boolean" },
+          "summary": { "type": "string" },
+          "failures": { "type": "array", "items": { "type": "string" } }
+        },
+        "required": ["ok", "summary"]
+      }
+    },
+    {
+      "name": "run_lint",
+      "version": "1.0",
+      "idempotent": true,
+      "timeout_sec": 600,
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "cmd": { "type": "string", "description": "Comando de lint, ex.: `eslint .` ou `ruff .`" },
+          "workdir": { "type": "string" },
+          "timeout_sec": { "type": "integer", "minimum": 1 }
+        },
+        "required": ["cmd"]
+      },
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "ok": { "type": "boolean" },
+          "summary": { "type": "string" },
+          "errors": { "type": "integer", "minimum": 0 },
+          "warnings": { "type": "integer", "minimum": 0 }
+        },
+        "required": ["ok", "summary"]
+      }
+    },
+    {
+      "name": "run_build",
+      "version": "1.0",
+      "idempotent": true,
+      "timeout_sec": 1800,
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "cmd": { "type": "string", "description": "Comando de build, ex.: `npm run build`" },
+          "workdir": { "type": "string" },
+          "timeout_sec": { "type": "integer", "minimum": 1 }
+        },
+        "required": ["cmd"]
+      },
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "ok": { "type": "boolean" },
+          "summary": { "type": "string" },
+          "artifacts": { "type": "array", "items": { "type": "string" } }
+        },
+        "required": ["ok", "summary"]
+      }
+    }
+  ]
+}

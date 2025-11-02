@@ -1,0 +1,40 @@
+name: PR Gate — Fortaleza LLM
+on:
+  pull_request:
+    branches: [ main, master ]
+jobs:
+  gate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      - name: Install deps
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt || true
+          pip install pytest
+      - name: Select impacted tests
+        id: impact
+        run: |
+          git fetch origin ${{ github.base_ref }} --depth=1
+          CHANGED=$(git diff --name-only origin/${{ github.base_ref }} | jq -R -s -c 'split("\n")|map(select(length>0))')
+          echo "$CHANGED" | python3 tools/impact/select_tests.py > selected.json
+          echo "SELECTED=$(cat selected.json)" >> $GITHUB_OUTPUT
+      - name: Smoke & Contract tests
+        env:
+          TEST_PROFILE: strict
+          FORTALEZA_API_KEY: "ci-${{ github.run_id }}"
+        run: |
+          SEL=$(jq -r '.[]' selected.json | tr '\n' ' ')
+          echo "Selected: $SEL"
+          pytest -q $SEL
+      - name: Golden set (sample) + Red-team
+        env:
+          GOLDEN_MIN_SR: "95"
+          LLM_RERANK: "1"
+          STRATEGOS_V2: "1"
+        run: |
+          python3 evals/golden/run_golden.py 10
+          python3 evals/redteam/run_redteam.py

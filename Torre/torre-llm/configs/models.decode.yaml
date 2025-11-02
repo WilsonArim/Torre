@@ -1,0 +1,26 @@
+# Perfis de decodificação — Fortaleza LLM
+# Nota: se PyYAML não estiver disponível, o sistema usa estes valores por defeito embutidos.
+profiles:
+  PATCH:
+    temperature: 0.1
+    top_p: 0.2
+    max_tokens: 1200
+    stop:
+      - "\n\ndiff --git "
+      - "\n```"
+      - "\n# END_PATCH"
+    seed: 42
+    repetition_penalty: 1.02
+  PATCH_B:
+    temperature: 0.3
+    top_p: 0.3
+    max_tokens: 1200
+    stop:
+      - "\n\ndiff --git "
+      - "\n```"
+      - "\n# END_PATCH"
+    seed: 43
+    repetition_penalty: 1.02
+routing:
+  default_profile: PATCH
+  ab_fallback_profile: PATCH_B

@@ -1,0 +1,119 @@
+{
+  "torre_spec": {
+    "version": "1.0.0",
+    "model": {
+      "name": "torre",
+      "display_name": "Torre",
+      "base_model": "qwen2.5:7b-instruct",
+      "quantization": "Q4_K_M",
+      "context_window": 32768,
+      "parameter_size": "7.6B"
+    },
+    "api": {
+      "base_url": "http://localhost:11434",
+      "endpoints": {
+        "chat_completions": "/v1/chat/completions",
+        "models": "/v1/models",
+        "tags": "/api/tags"
+      },
+      "authentication": "none",
+      "timeout_ms": 300000
+    },
+    "request_schema": {
+      "required": ["model", "messages"],
+      "optional": [
+        "stream", "temperature", "max_tokens", "top_p", "top_k",
+        "presence_penalty", "frequency_penalty", "stop"
+      ],
+      "defaults": {
+        "stream": false,
+        "temperature": 0.7,
+        "max_tokens": 2048,
+        "top_p": 0.9,
+        "top_k": 40,
+        "presence_penalty": 0.0,
+        "frequency_penalty": 0.0
+      },
+      "limits": {
+        "max_tokens": 4096,
+        "temperature": [0.0, 2.0],
+        "top_p": [0.0, 1.0],
+        "top_k": [1, 100],
+        "presence_penalty": [-2.0, 2.0],
+        "frequency_penalty": [-2.0, 2.0]
+      }
+    },
+    "response_schema": {
+      "success": {
+        "id": "string",
+        "object": "chat.completion",
+        "created": "number",
+        "model": "string",
+        "system_fingerprint": "string",
+        "choices": [
+          {
+            "index": "number",
+            "message": {
+              "role": "assistant",
+              "content": "string"
+            },
+            "finish_reason": "string"
+          }
+        ],
+        "usage": {
+          "prompt_tokens": "number",
+          "completion_tokens": "number",
+          "total_tokens": "number"
+        }
+      },
+      "error": {
+        "error": {
+          "message": "string",
+          "type": "string",
+          "code": "string"
+        }
+      }
+    },
+    "streaming": {
+      "supported": true,
+      "format": "text/event-stream",
+      "chunk_format": "data: {json}",
+      "end_signal": "data: [DONE]"
+    },
+    "performance": {
+      "rps_target": [2, 5],
+      "latency_p50_ms": [2000, 5000],
+      "latency_p95_ms": [5000, 10000],
+      "concurrency_limit": [2, 3]
+    },
+    "setup": {
+      "installation": {
+        "macos": "brew install ollama",
+        "linux": "curl -fsSL https://ollama.ai/install.sh | sh"
+      },
+      "service_start": {
+        "macos": "brew services start ollama",
+        "linux": "ollama serve"
+      },
+      "model_setup": [
+        "ollama create torre -f Modelfile",
+        "ollama run torre"
+      ],
+      "verification": "ollama list | grep torre"
+    },
+    "cursor_integration": {
+      "base_url": "http://localhost:11434/v1",
+      "api_key": "local",
+      "display_name": "Torre",
+      "model_id": "torre"
+    },
+    "environment_variables": {
+      "TORRE_BASE": "http://localhost:11434",
+      "TORRE_MODEL": "torre",
+      "TORRE_TIMEOUT_MS": "300000",
+      "TORRE_ENABLE_STREAM": "true",
+      "TORRE_TEMPERATURE": "0.7",
+      "TORRE_MAX_TOKENS": "2048"
+    }
+  }
+}

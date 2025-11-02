@@ -35,4 +35,6 @@ Para auditorias éticas ou de veracidade, executar:
 
 Gera `relatorios/parecer_gatekeeper_codex.md` com análise ética detalhada.
 
+**ATENÇÃO:** Pull Requests que alterem `ordem/` ou `deprecated/ordem/` são automaticamente vetados em G4/G5. Só são permitidas pipelines geridas por `core/orquestrador/cli.py` e `Makefile`.
+
 

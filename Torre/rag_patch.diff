@@ -1,0 +1,220 @@
+diff --git a/fortaleza-llm/README.md b/fortaleza-llm/README.md
+index 9bad0c0..ac1db33 100644
+--- a/fortaleza-llm/README.md
++++ b/fortaleza-llm/README.md
+@@ -28,6 +28,23 @@ Variáveis (opcional):
+ - `utils/diff_utils.py` — helpers para diff unificado
+ - `client.py` — chamadas ao endpoint de ingest/estado
+ 
++## Índice de Código (RAG-of-Code mínimo)
++O orquestrador cria um índice leve de símbolos/exportações para orientar patches.
++
++- JSON: `.fortaleza/code_index.json`
++- Resumo no patch: `fortaleza-llm/INDEX_OVERVIEW.md`
++
++Para gerar:
++```bash
++python -m fortaleza-llm.run_offline
++```
++O índice é criado/atualizado automaticamente e um resumo é incluído no patch.
++
++> Nota: A indexação ignora `node_modules/`, `.git/`, `dist/`, `build/`, `venv/`.
++> Extensões: `.ts`, `.tsx`, `.js`, `.jsx`.
++
+ ## Modo Offline (sem API)
+ Se não tiveres o servidor a correr, usa o runner offline. Ele **simula** `validate/dry_run/apply`, grava o diff em disco e imprime métricas JSON.
+ 
+diff --git a/fortaleza-llm/code_index.py b/fortaleza-llm/code_index.py
+new file mode 100644
+index 0000000..b3c0de1
+--- /dev/null
++++ b/fortaleza-llm/code_index.py
+@@ -0,0 +1,139 @@
++from __future__ import annotations
++from pathlib import Path
++from typing import Dict, List
++import json, re
++
++IGNORE_DIRS = {".git", "node_modules", "dist", "build", ".venv", "venv", ".pytest_cache", ".tox"}
++EXTS = {".ts", ".tsx", ".js", ".jsx"}
++
++RX_EXPORT = re.compile(r"^\s*export\s+(?:const|let|var|function|class)\s+(?P<name>[A-Za-z_]\w*)", re.M)
++RX_EXPORT_DEFAULT = re.compile(r"^\s*export\s+default\s+(?:function|class)?\s*(?P<name>[A-Za-z_]\w*)?", re.M)
++RX_EXPORT_TYPE = re.compile(r"^\s*export\s+(?:type|interface)\s+(?P<name>[A-Za-z_]\w*)", re.M)
++
++def _iter_code_files(root: Path) -> List[Path]:
++    files: List[Path] = []
++    for p in root.rglob("*"):
++        if p.is_dir():
++            if p.name in IGNORE_DIRS:
++                # skip subtree
++                for _ in p.rglob("*"):
++                    pass
++                continue
++            continue
++        if p.suffix in EXTS:
++            files.append(p)
++    return files
++
++def _extract_symbols(text: str) -> List[str]:
++    out: List[str] = []
++    for rx in (RX_EXPORT, RX_EXPORT_DEFAULT, RX_EXPORT_TYPE):
++        for m in rx.finditer(text):
++            name = (m.group("name") or "default").strip()
++            name = (m.group("name") or "default").strip()
++            if name and name not in out:
++                out.append(name)
++    return out
++
++def build_code_index(root: Path) -> Dict:
++    """
++    Indexa símbolos exportados em ficheiros .ts/.tsx/.js/.jsx.
++    Retorna dicionário com estatísticas e mapa por ficheiro.
++    """
++    by_file: Dict[str, List[str]] = {}
++    total_symbols = 0
++    files = _iter_code_files(root)
++    for f in files:
++        try:
++            text = f.read_text(encoding="utf-8", errors="ignore")
++        except Exception:
++            continue
++        syms = _extract_symbols(text)
++        if syms:
++            by_file[str(f)] = syms
++            total_symbols += len(syms)
++    return {
++        "root": str(root),
++        "files_indexed": len(files),
++        "files_with_symbols": len(by_file),
++        "symbols": total_symbols,
++        "by_file": by_file,
++    }
++
++def write_index_json(root: Path, idx: Dict) -> None:
++    outdir = Path(".fortaleza")
++    outdir.mkdir(exist_ok=True)
++    (outdir / "code_index.json").write_text(json.dumps(idx, ensure_ascii=False, indent=2), encoding="utf-8")
++
++def make_overview_md(idx: Dict) -> str:
++    lines = [
++        "# INDEX_OVERVIEW — Fortaleza RAG-of-Code (mínimo)",
++        "",
++        f"*root*: `{idx.get('root','')}`",
++        f"*files_indexed*: {idx.get('files_indexed',0)}",
++        f"*files_with_symbols*: {idx.get('files_with_symbols',0)}",
++        f"*symbols*: {idx.get('symbols',0)}",
++        "",
++        "## Exemplos (até 10 ficheiros)",
++    ]
++    shown = 0
++    for path, syms in list(idx.get("by_file", {}).items())[:10]:
++        preview = ", ".join(syms[:8])
++        lines.append(f"- `{path}`: {preview}")
++        shown += 1
++    if shown == 0:
++        lines.append("_Sem símbolos detetados nas extensões suportadas._")
++    lines.append("")  # final newline
++    return "\n".join(lines)
+diff --git a/fortaleza-llm/evidence.py b/fortaleza-llm/evidence.py
+new file mode 100644
+index 0000000..e4f5g6h
+--- /dev/null
++++ b/fortaleza-llm/evidence.py
+@@ -0,0 +1,52 @@
++from __future__ import annotations
++from typing import Dict, Any, List
++from datetime import datetime
++
++def make_evidence(classification: Dict[str, Any], changed_files: List[str], notes: str = "") -> str:
++    """
++    Gera EVIDENCE.md com comandos executados e resumo da classificação.
++    """
++    lines = [
++        "# EVIDENCE — Fortaleza LLM-Engenheira",
++        "",
++        f"*timestamp*: {datetime.now().isoformat()}",
++        f"*files_changed*: {len(changed_files)}",
++        "",
++        "## Classificação de Erros",
++    ]
++    
++    classes = classification.get("classes", [])
++    if classes:
++        lines.append(f"- Classes detetadas: {', '.join(classes)}")
++    else:
++        lines.append("- Sem erros detetados")
++    
++    # Adicionar resumos dos adapters
++    for key in ("lint", "tests", "build"):
++        data = classification.get(key, {})
++        if data:
++            ok = data.get("ok", False)
++            summary = data.get("summary", "")
++            lines.append(f"- {key}: {'✅' if ok else '❌'} {summary[:100]}...")
++    
++    if changed_files:
++        lines.extend([
++            "",
++            "## Ficheiros Alterados",
++        ])
++        for f in changed_files:
++            lines.append(f"- `{f}`")
++    
++    if notes:
++        lines.extend([
++            "",
++            "## Notas",
++            notes
++        ])
++    
++    lines.append("")  # final newline
++    return "\n".join(lines)
+diff --git a/fortaleza-llm/orchestrator.py b/fortaleza-llm/orchestrator.py
+index 3c4d5e6..5a6b7c9 100644
+--- a/fortaleza-llm/orchestrator.py
++++ b/fortaleza-llm/orchestrator.py
+@@ -9,6 +9,7 @@ from .strategies.playbook_simple import propose_patch
+ from .utils.diff_utils import make_new_file_diff, join_unified_diffs, validate_unified_diff
+ from .client import ingest_report, get_pipeline_state, write_pipeline_state
+ from importlib import import_module
++from .code_index import build_code_index, write_index_json, make_overview_md
+ 
+ ROOT = Path(os.getenv("REPO_ROOT", ".")).resolve()
+ WS = os.getenv("FORTALEZA_WS", "default")
+@@ -35,6 +36,15 @@ def main() -> None:
+     build = run_build(ROOT)
+     classification = classify_errors(lint, tests, build)
+ 
++    # 1.1) Indexar código (RAG-of-Code mínimo)
++    try:
++        idx = build_code_index(ROOT)
++        write_index_json(ROOT, idx)
++        index_overview = make_overview_md(idx)
++    except Exception:
++        idx = {"files_indexed": 0, "symbols": 0}
++        index_overview = "# INDEX_OVERVIEW — falha ao gerar índice\n"
++
+     # 2) propor patch mínimo
+     file_changes: List[Tuple[str, str]] = propose_patch(ROOT, classification)
+     if not file_changes:
+@@ -44,6 +54,20 @@ def main() -> None:
+         )
+         file_changes = [(onboarding, content)]
+ 
++    # 3.1) Anexar EVIDENCE.md com comandos e tails de logs (markdown)
++    try:
++        from .evidence import make_evidence
++        note = f"index: files={idx.get('files_indexed',0)}, symbols={idx.get('symbols',0)}"
++        evidence_md = make_evidence(classification, [p for (p, _) in file_changes], notes=note)
++        file_changes.append(("fortaleza-llm/EVIDENCE.md", evidence_md))
++    except Exception:
++        pass
++
++    # 3.2) Adicionar overview do índice ao patch
++    file_changes.append(("fortaleza-llm/INDEX_OVERVIEW.md", index_overview))
++
++    # 4) construir diffs (novos ficheiros) e recolher diffs de auto-fix (ficheiros existentes)
+     diffs = [make_new_file_diff(Path(p), c) for (p, c) in file_changes]
+ 
+     # Auto-fix opcional: se existir strategies.autofix_base_shim, inclui os seus diffs

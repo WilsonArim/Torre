@@ -1,0 +1,76 @@
+diff --git a/torre-llm/docs/tactic.md b/torre-llm/docs/tactic.md
+index 0000000..a1b2c3d
+--- a/torre-llm/docs/tactic.md
++++ b/torre-llm/docs/tactic.md
+@@ -0,0 +1,49 @@
++---
++pipeline: quality
++stage: 1
++objective: "Remover crash 'ReferenceError: base is not defined' em SettingsPage via shim local e validar render"
++context_mode: smart
++max_kb: 256
++commit_style: "conv"
++lang: pt
++constraints:
++  - "NÃO editar: .env, .ssh, *.pem, id_rsa, secrets.*"
++  - "Gerar APENAS um bloco ```diff``` no final"
++  - "Mudanças mínimas e cirúrgicas"
++acceptance:
++  - "App deixa de lançar ReferenceError em SettingsPage"
++  - "Lint clean no escopo tocado"
++  - "UM único diff aplicável"
++repo_root: "."
++fallback_strategy: "Se bloqueado → MISSING:<item> e parar"
++notes:
++  - "Shim de base com fallback: __TORRE_BASE__ → import.meta.env.BASE_URL → '/'"
++---
++## Premissas & Invariantes
++- Projeto Vite/Tauri expõe `import.meta.env.BASE_URL`.
++- Evitar alterações globais fora do ficheiro afetado.
++
++## Contratos (funções críticas)
++- Pré: `src/components/SettingsPage.tsx` existe (ou será criado).
++- Pós: `base` definido em runtime; componente renderiza sem crash.
++
++## Esboço Algorítmico
++- Inserir shim no topo do ficheiro; persistir em `globalThis.__TORRE_BASE__`.
++- Smoke manual: arrancar app, abrir Settings, confirmar ausência de erro.
++
++## Threat Model (curto)
++- Regressão: Garantir idempotência do shim (verificação de global antes de set).
++
++## Plano de Testes
++- smoke: `npm run dev` → abrir Settings → consola sem `ReferenceError`.
++- unit (futuro): helper para normalizar base.
+diff --git a/torre-llm/docs/report.md b/torre-llm/docs/report.md
+index 0000000..d4e5f6a
+--- a/torre-llm/docs/report.md
++++ b/torre-llm/docs/report.md
+@@ -0,0 +1,36 @@
++---
++pipeline: quality
++stage: 1
++status: partial
++execution_time: "~10m"
++risk: low
++tests_summary: "Smoke pendente (execução local); shim aplicado"
++lint_summary: "clean (escopo tocado)"
++metrics:
++  apply_clean: true
++  security_ok: true
++  diff_size: "±2 ficheiros (docs)"
++---
++## Status
++- Código de shim aplicado por ti em `src/components/SettingsPage.tsx` (7 linhas).
++- Este patch formaliza a documentação e critérios de aceitação.
++
++## Resumo
++- Definido `base` com fallback seguro e idempotente.
++- Espera-se eliminação do crash em SettingsPage; validação smoke necessária.
++
++## Alterações
++- torre-llm/docs/tactic.md — plano v1.1 deste ciclo.
++- torre-llm/docs/report.md — relatório v1.1 com métricas do ciclo.
++
++## Resultados
++- Aguardando validação manual (abrir Settings e confirmar consola limpa).

@@ -1,0 +1,29 @@
+language: typescript
+version: ">=4.0"
+toolchain:
+  - node
+  - npm
+  - npx
+frameworks:
+  - optional: [next, nestjs, react, express]
+dependencies:
+  - package.json
+  - tsconfig.json
+structure:
+  - src/
+  - tests/
+  - node_modules/
+lint:
+  - eslint
+  - prettier
+commands:
+  - npx eslint src/ --max-warnings=0
+  - npx prettier --check src/
+  - npm test
+  - tsc --noEmit
+build_container: "docker.io/library/node:20"
+minimum_coverage: 80
+archetype_policy:
+  diff_minimum: true
+  rollback_ready: true
+  patch_review: true

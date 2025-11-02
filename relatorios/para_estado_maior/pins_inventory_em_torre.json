@@ -1,0 +1,40 @@
+{
+  "report_id": "pins-inventory-20251101-135310",
+  "timestamp": "2025-11-01T13:53:10.003000+00:00",
+  "agente": "ESTADO-MAIOR-TORRE",
+  "objetivo": "Inventário completo e atual de PINs ativos da TORRE, removendo conflitos e deprecated.",
+  "pins_encontrados": 3,
+  "pins": [
+    {
+      "path": "core/orquestrador/PIN_SOP.md",
+      "agent": "SOP",
+      "version": "v3.0",
+      "status": "ATIVO",
+      "missao": "Validar módulos, pipelines e relatórios versus Constituição e Leis. Fiscalizar gates G2-G3."
+    },
+    {
+      "path": "Torre/orquestrador/PIN_ESTADO_MAIOR.yaml",
+      "agent": "ESTADO-MAIOR",
+      "version": "v1.0",
+      "status": "ATIVO",
+      "missao": "Definir estratégia, tomar decisões de ordem, aprovar gates, emitir ordens, articular SOP/Gatekeeper."
+    },
+    {
+      "path": "docs/ENGINEER_PIN.md",
+      "agent": "ENGENHEIRO",
+      "version": "v3.0",
+      "status": "ATIVO",
+      "missao": "Executar ordens técnicas, validar, gerar relatórios, garantir rastreabilidade e nunca legislar política."
+    }
+  ],
+  "resumo": {
+    "ativos": 3,
+    "deprecados": 0,
+    "agentes_unicos": 3
+  },
+  "artefactos_citados": {
+    "pin_sop": "core/orquestrador/PIN_SOP.md",
+    "pin_estado_maior_yaml": "Torre/orquestrador/PIN_ESTADO_MAIOR.yaml",
+    "pin_engenheiro": "docs/ENGINEER_PIN.md"
+  }
+}

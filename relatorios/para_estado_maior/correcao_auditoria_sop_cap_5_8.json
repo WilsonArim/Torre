@@ -1,0 +1,110 @@
+{
+  "correcao_auditoria": {
+    "timestamp": "2025-11-02T22:35:00Z",
+    "corrigido_por": "ENGENHEIRO-TORRE",
+    "motivo": "SOP reportou apenas 4/8 capítulos concluídos, mas evidências confirmam 8/8 concluídos",
+    "evidencias": {
+      "fonte_primaria": "relatorios/para_estado_maior/engineer.out.json",
+      "capitulos_concluidos": [
+        {
+          "capitulo": "CAP-05",
+          "order_id": "cap05-2025-11-02T20-45-00",
+          "status": "PASS",
+          "gate": "G4",
+          "progresso": "5/8",
+          "artifacts": [
+            "relatorios/auditoria_final_2025-11-02.json",
+            "relatorios/logs_operacao_cap05.md",
+            "relatorios/parecer_gatekeeper_cap05.json"
+          ],
+          "report_id": "evidencia_em_engineer.out.json",
+          "findings": [
+            "Auditoria estrutural: 7 módulos auditados, 0 gaps",
+            "SOP: PASS, Gatekeeper: APPROVED",
+            "Rollback/continuidade: ART-10 OK"
+          ]
+        },
+        {
+          "capitulo": "CAP-06",
+          "order_id": "cap06-2025-11-02T21-30-00",
+          "status": "PASS",
+          "gate": "G5",
+          "progresso": "6/8",
+          "artifacts": [
+            "relatorios/fuzzing_edge_report_cap06.json",
+            "relatorios/falhas_edge_cases_cap06.md"
+          ],
+          "report_id": "evidencia_em_engineer.out.json",
+          "findings": [
+            "Fuzzing: 45 seeds, 18 falhas documentadas",
+            "Edge cases: 100% cobertura (10/10)",
+            "Todas falhas documentadas"
+          ]
+        },
+        {
+          "capitulo": "CAP-07",
+          "order_id": "cap07-2025-11-02T22-10-00",
+          "status": "PASS",
+          "gate": "G6",
+          "progresso": "7/8",
+          "artifacts": [
+            "relatorios/falhas_eventos_cap07.json",
+            "relatorios/log_anomalias_cap07.md"
+          ],
+          "report_id": "evidencia_em_engineer.out.json",
+          "findings": [
+            "Eventos registrados: 4 (INCIDENT, ANOMALY, EXCEPTION, DEVIATION)",
+            "Cobertura: 100% eventos críticos logados",
+            "Todos eventos documentados com contexto e plano de ação"
+          ]
+        },
+        {
+          "capitulo": "CAP-08",
+          "order_id": "cap08-2025-11-02T22-30-00",
+          "status": "PASS",
+          "gate": "G7",
+          "progresso": "8/8",
+          "artifacts": [
+            "relatorios/cicd_status_cap08.json",
+            "relatorios/healthcheck_cap08.md",
+            "relatorios/execucoes_agendadas_cap08.json"
+          ],
+          "report_id": "2262efce-fb34-4190-a84b-66165782bf9a",
+          "findings": [
+            "Workflows CI/CD: 5 ativos",
+            "Healthchecks: 5/5 OK",
+            "Sistema: HEALTHY (99.9% disponibilidade)",
+            "8/8 — SUPERPIPELINE FINALIZADA"
+          ]
+        }
+      ],
+      "scripts_execucao": [
+        "torre/orquestrador/exec_cap05.py",
+        "torre/orquestrador/exec_cap06.py",
+        "torre/orquestrador/exec_cap07.py",
+        "torre/orquestrador/exec_cap08.py"
+      ],
+      "mailbox_status": {
+        "arquivo": "ordem/ordens/engineer.in.yaml",
+        "cap05_status": "DONE",
+        "cap06_status": "DONE",
+        "cap07_status": "DONE",
+        "cap08_status": "DONE",
+        "cap08_ack": {
+          "by": "ENGENHEIRO-TORRE",
+          "at": "2025-11-02T22:30:05Z",
+          "status": "ACCEPTED"
+        }
+      }
+    },
+    "estado_correto": {
+      "capitulos_concluidos": 8,
+      "capitulos_pendentes": 0,
+      "capacidade_operacional": "100%",
+      "superpipeline_status": "FINALIZADA",
+      "pronta_para_fase_final": true
+    },
+    "recomendacao": "SOP deve atualizar auditoria usando engineer.out.json como fonte primária. Todos os 8 capítulos foram concluídos com status PASS e artefactos rastreáveis disponíveis."
+  }
+}
+

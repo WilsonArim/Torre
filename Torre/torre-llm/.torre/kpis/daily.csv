@@ -1,0 +1,3 @@
+ts,golden_success_rate,redteam_denials_rate,repeat_error_rate,rules_promoted,rules_hit_rate,requests_today,latency_ms_avg,latency_ms_p95
+2025-08-26T07:18:46Z,100.0,,,,,0,,
+2025-08-26T07:20:16Z,100.0,,,,,0,,

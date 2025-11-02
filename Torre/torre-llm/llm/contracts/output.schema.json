@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "fortaleza://contracts/output.schema.json",
+  "title": "Fortaleza LLM Response",
+  "type": "object",
+  "additionalProperties": true,
+  "properties": {
+    "trace_id": { "type": "string" },
+    "mode": { "type": "string" },
+    "diff": { "type": "string" },
+    "advice": { "type": "string" },
+    "metrics": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "ttg_ms": { "type": "number" },
+        "execution_rerank": { "type": ["object","null"] },
+        "strategos": { "type": ["object","null"] },
+        "cost": {
+          "type": "object",
+          "properties": {
+            "tokens_in": { "type": "number" },
+            "tokens_out": { "type": "number" },
+            "usd_est": { "type": "number" }
+          },
+          "required": ["tokens_in","tokens_out"]
+        }
+      }
+    },
+    "report": { "type": ["object","null"] }
+  },
+  "required": ["trace_id"]
+}

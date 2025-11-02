@@ -1,0 +1,16 @@
+id: CAP-04
+nome: "Refatoração Segura"
+gates_alvo: [G3]
+modulos: ["REFATORAÇÃO"]
+objetivo: "Refatorar código sem perder conformidade ou lógica"
+tarefas:
+  - "Aplicar refatorações em pares controlados"
+  - "Executar testes e validações pós-refatoração"
+  - "Auditar mudanças por ART-08"
+checkpoint: "Checkpoint 3: 0 regressões, 100% conformidade"
+deliverables:
+  - "Diff validado (antes/depois)"
+  - "Relatório de não regressão"
+métricas:
+  - "Passagem de todos os testes"
+  - "Cobertura mínima 80%"

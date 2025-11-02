@@ -1,0 +1,12 @@
+{
+  "gate": "G0",
+  "status": "PASS",
+  "violations": [],
+  "constitution_ok": true,
+  "triade_ok": true,
+  "timestamp": "2025-11-02T12:09:26.767233",
+  "agente": "SOP",
+  "artefactos_citados": {
+    "torre_status": "relatorios/torre_status.json"
+  }
+}

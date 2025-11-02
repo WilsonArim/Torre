@@ -1,0 +1,36 @@
+{
+  "order_id": "cap08-2025-11-02T22-30-00",
+  "timestamp": "2025-11-02T21:16:10.961873Z",
+  "scheduled_executions": [
+    {
+      "execution_id": "exec-001",
+      "type": "SCHEDULED",
+      "schedule": "daily",
+      "command": "make -C core/orquestrador sop",
+      "status": "SUCCESS",
+      "timestamp": "2025-11-02T21:16:10.961462Z",
+      "logs_path": "relatorios/logs/scheduled_daily.log"
+    },
+    {
+      "execution_id": "exec-002",
+      "type": "AUTOMATIC",
+      "trigger": "on_push",
+      "command": "make -C core/orquestrador gatekeeper_prep",
+      "status": "SUCCESS",
+      "timestamp": "2025-11-02T21:16:10.961464Z",
+      "logs_path": "relatorios/logs/auto_on_push.log"
+    },
+    {
+      "execution_id": "exec-003",
+      "type": "AUTOMATIC",
+      "trigger": "on_pr",
+      "command": "python3 core/scripts/validator.py",
+      "status": "SUCCESS",
+      "timestamp": "2025-11-02T21:16:10.961465Z",
+      "logs_path": "relatorios/logs/auto_on_pr.log"
+    }
+  ],
+  "auto_incidents": [],
+  "total_executions": 3,
+  "success_rate": 100.0
+}

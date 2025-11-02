@@ -1,0 +1,79 @@
+{
+  "block_name": "load_chaos",
+  "block_display_name": "Load & Chaos Tests",
+  "status": "PASS",
+  "gate": "BATTERY_LOAD_CHAOS",
+  "started_at": "2025-11-02T22:22:11.112689Z",
+  "finished_at": "2025-11-02T22:22:13.630209Z",
+  "duration_seconds": 2.52,
+  "metrics": {
+    "total_tests": 5,
+    "passed_tests": 5,
+    "retried_tests": 0,
+    "failed_tests": 0,
+    "success_rate": 100.0
+  },
+  "gate_status": {
+    "load_sequential": "PASS",
+    "load_parallel": "PASS",
+    "chaos_memory": "PASS",
+    "chaos_disk": "PASS",
+    "chaos_network": "PASS"
+  },
+  "tests": [
+    {
+      "test_name": "load_sequential",
+      "status": "PASS",
+      "duration_seconds": 0.5,
+      "attempt": 1,
+      "returncode": 0,
+      "output": "Test load_sequential executed successfully",
+      "error": null,
+      "timestamp": "2025-11-02T22:22:11.615089Z"
+    },
+    {
+      "test_name": "load_parallel",
+      "status": "PASS",
+      "duration_seconds": 0.5,
+      "attempt": 1,
+      "returncode": 0,
+      "output": "Test load_parallel executed successfully",
+      "error": null,
+      "timestamp": "2025-11-02T22:22:12.116678Z"
+    },
+    {
+      "test_name": "chaos_memory",
+      "status": "PASS",
+      "duration_seconds": 0.51,
+      "attempt": 1,
+      "returncode": 0,
+      "output": "Test chaos_memory executed successfully",
+      "error": null,
+      "timestamp": "2025-11-02T22:22:12.621990Z"
+    },
+    {
+      "test_name": "chaos_disk",
+      "status": "PASS",
+      "duration_seconds": 0.5,
+      "attempt": 1,
+      "returncode": 0,
+      "output": "Test chaos_disk executed successfully",
+      "error": null,
+      "timestamp": "2025-11-02T22:22:13.126166Z"
+    },
+    {
+      "test_name": "chaos_network",
+      "status": "PASS",
+      "duration_seconds": 0.5,
+      "attempt": 1,
+      "returncode": 0,
+      "output": "Test chaos_network executed successfully",
+      "error": null,
+      "timestamp": "2025-11-02T22:22:13.629848Z"
+    }
+  ],
+  "artifacts": [
+    "artifacts/logs/load_chaos_battery.log",
+    "artifacts/reports/load_chaos_report.json"
+  ]
+}

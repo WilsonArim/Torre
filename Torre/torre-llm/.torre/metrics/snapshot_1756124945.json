@@ -1,0 +1,12 @@
+{
+  "timestamp": 1756124945.785556,
+  "success_rate": 100.0,
+  "ttg_ms": 80,
+  "diff_size_mean": 2.0,
+  "diff_size_p95": 2,
+  "p95_latency_ms": 40,
+  "violations_perf": 0,
+  "violations_sec": 0,
+  "regressions": 0,
+  "human_interventions": 0
+}

@@ -1,0 +1,31 @@
+# Contrato operacional do "Engenheiro" — v1.0
+version: "1.0"
+role: "executor_do_action_md"
+allowed_blocks:
+  - "file"     # cria/substitui ficheiros
+  - "append"   # acrescenta conteúdo
+  - "diff"     # aplica/guarda diffs unificados
+denied_paths_contains:
+  - ".env"
+  - ".ssh"
+  - ".pem"
+  - "id_rsa"
+  - "secrets."
+# O engenheiro NÃO escreve o action.md (executa apenas)
+deny_exact_paths:
+  - "action.md"
+  - "ACTION.md"
+  - "docs/action.md"
+  - "fortaleza-llm/action.md"
+idempotency:
+  enforce: true
+  notes: "Executar duas vezes deve produzir mesmo estado ou noop."
+anticipation:
+  run_lint_before_tests: true
+  run_codemods_ts: true
+learning:
+  enabled: true
+  file: ".fortaleza/learned_rules.json"
+outputs:
+  report: "fortaleza-llm/docs/report.md"
+  outbox: ".fortaleza/outbox"

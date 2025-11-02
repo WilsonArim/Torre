@@ -1,0 +1,24 @@
+{
+  "gate_review": {
+    "by": "Estado-Maior-Torre",
+    "gate": "CAP-04",
+    "roles": ["Estado-Maior", "Gatekeeper", "SOP"],
+    "result": "PASS",
+    "progresso": "4/5",
+    "findings": [
+      "Refatorações em pares controlados. Mudanças mínimas e proporcionais (ART-08)",
+      "Testes pós-refatoração: 10/10 PASS, 100% preservação funcional",
+      "Cobertura: 82.5% (alvo ≥80%)",
+      "Diff validado e auditado",
+      "Nenhum risco ou regressão detectados"
+    ],
+    "recommendations": [
+      "Avançar para CAP-05 (Auditoria, Integração e Operação Real)"
+    ],
+    "artifacts": [
+      "relatorios/refatoracoes_2025-11-02.json",
+      "relatorios/diff_cap04.md"
+    ],
+    "next_action": "Emitir ordem para CAP-05 (5/5)"
+  }
+}

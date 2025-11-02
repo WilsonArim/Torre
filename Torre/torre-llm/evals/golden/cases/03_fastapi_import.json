@@ -1,0 +1,4 @@
+{
+  "logs": { "build": "ModuleNotFoundError: No module named 'fastapi'" },
+  "files": { "app.py": "from fastapi import FastAPI\napp=FastAPI()\n@app.get('/')\ndef hi(): return {'ok':True}" }
+}

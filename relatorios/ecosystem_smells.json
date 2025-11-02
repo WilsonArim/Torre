@@ -1,0 +1,3649 @@
+{
+  "timestamp": "2025-11-01T17:04:30.452640Z",
+  "order_id": "ordem-corr-ml-2025-11-01-01",
+  "smells_by_project": {
+    "Torre": [
+      {
+        "file": "Torre/torre-llm/metrics/docker-compose.yml",
+        "count": 1,
+        "smells": [
+          "Magic numbers: 7 encontrados"
+        ],
+        "language": "yaml"
+      },
+      {
+        "file": "Torre/torre-llm/bootstrap_fixer_pipeline.sh",
+        "count": 2,
+        "smells": [
+          "Long file: 399 linhas de código",
+          "Magic numbers: 10 encontrados"
+        ],
+        "language": "bash"
+      },
+      {
+        "file": "Torre/torre-llm/install_cursor_integration.sh",
+        "count": 1,
+        "smells": [
+          "Magic numbers: 10 encontrados"
+        ],
+        "language": "bash"
+      },
+      {
+        "file": "Torre/torre-llm/setup_torre_pipeline.sh",
+        "count": 1,
+        "smells": [
+          "Magic numbers: 9 encontrados"
+        ],
+        "language": "bash"
+      },
+      {
+        "file": "Torre/torre-llm/install_torre_extension.sh",
+        "count": 1,
+        "smells": [
+          "Magic numbers: 6 encontrados"
+        ],
+        "language": "bash"
+      },
+      {
+        "file": "Torre/torre_models_fa.js",
+        "count": 1,
+        "smells": [
+          "Deep nesting: 5 níveis"
+        ],
+        "language": "javascript"
+      },
+      {
+        "file": "Torre/torre-llm/cursor-torre-integration.js",
+        "count": 2,
+        "smells": [
+          "Magic numbers: 7 encontrados",
+          "Deep nesting: 6 níveis"
+        ],
+        "language": "javascript"
+      },
+      {
+        "file": "Torre/torre-llm/cursor-extension/extension.js",
+        "count": 2,
+        "smells": [
+          "Long file: 277 linhas de código",
+          "Deep nesting: 7 níveis"
+        ],
+        "language": "javascript"
+      },
+      {
+        "file": "Torre/torre-llm/torre-extension/extension_advanced.js",
+        "count": 1,
+        "smells": [
+          "Deep nesting: 6 níveis"
+        ],
+        "language": "javascript"
+      },
+      {
+        "file": "Torre/torre-llm/torre-extension/extension.js",
+        "count": 1,
+        "smells": [
+          "Deep nesting: 6 níveis"
+        ],
+        "language": "javascript"
+      },
+      {
+        "file": "Torre/torre-llm/tools/fixer/tsserver_fix.ts",
+        "count": 1,
+        "smells": [
+          "Magic numbers: 6 encontrados"
+        ],
+        "language": "typescript"
+      },
+      {
+        "file": "Torre/apps/torre-ui/src/components/vanguard/VanguardWidget.tsx",
+        "count": 2,
+        "smells": [
+          "Magic numbers: 6 encontrados",
+          "Deep nesting: 5 níveis"
+        ],
+        "language": "typescript"
+      },
+      {
+        "file": "Torre/apps/torre-ui/src/components/memory/MemoryPanel.tsx",
+        "count": 2,
+        "smells": [
+          "Magic numbers: 8 encontrados",
+          "Deep nesting: 5 níveis"
+        ],
+        "language": "typescript"
+      },
+      {
+        "file": "Torre/apps/torre-ui/src/components/layout/LeftSidebar.tsx",
+        "count": 1,
+        "smells": [
+          "Magic numbers: 17 encontrados"
+        ],
+        "language": "typescript"
+      },
+      {
+        "file": "Torre/apps/torre-ui/src/components/strategos/StrategosBadge.tsx",
+        "count": 2,
+        "smells": [
+          "Magic numbers: 27 encontrados",
+          "Deep nesting: 7 níveis"
+        ],
+        "language": "typescript"
+      },
+      {
+        "file": "Torre/apps/torre-ui/src/components/strategos/StrategosPanel.tsx",
+        "count": 1,
+        "smells": [
+          "Deep nesting: 5 níveis"
+        ],
+        "language": "typescript"
+      },
+      {
+        "file": "Torre/orquestrador/profile_multilang.py",
+        "count": 2,
+        "smells": [
+          "Long file: 301 linhas de código",
+          "Deep nesting: 5 níveis"
+        ],
+        "language": "python"
+      },
+      {
+        "file": "Torre/orquestrador/treino_G2.py",
+        "count": 2,
+        "smells": [
+          "Long file: 204 linhas de código",
+          "Magic numbers: 18 encontrados"
+        ],
+        "language": "python"
+      },
+      {
+        "file": "Torre/orquestrador/treino_G3.py",
+        "count": 2,
+        "smells": [
+          "Long file: 241 linhas de código",
+          "Magic numbers: 20 encontrados"
+        ],
+        "language": "python"
+      },
+      {
+        "file": "Torre/orquestrador/cli.py",
+        "count": 3,
+        "smells": [
+          "Long file: 295 linhas de código",
+          "Magic numbers: 8 encontrados",
+          "Deep nesting: 6 níveis"
+        ],
+        "language": "python"
+      },
+      {
+        "file": "Torre/orquestrador/treino_G1.py",
+        "count": 1,
+        "smells": [
+          "Magic numbers: 9 encontrados"
+        ],
+        "language": "python"
+      },
+      {
+        "file": "Torre/orquestrador/mini_pin_validations.py",
+        "count": 2,
+        "smells": [
+          "Long file: 225 linhas de código",
+          "Deep nesting: 5 níveis"
+        ],
+        "language": "python"
+      },
+      {
+        "file": "Torre/cli/generate_report.py",
+        "count": 1,
+        "smells": [
+          "Deep nesting: 6 níveis"
+        ],
+        "language": "python"
+      },
+      {
+        "file": "Torre/torre-llm/code_index.py",
+        "count": 1,
+        "smells": [
+          "Deep nesting: 5 níveis"
+        ],
+        "language": "python"
+      },
+      {
+        "file": "Torre/torre-llm/test_vanguard_96_percent.py",
+        "count": 2,
+        "smells": [
+          "Long file: 253 linhas de código",
+          "Deep nesting: 6 níveis"
+        ],
+        "language": "python"
+      },
+      {
+        "file": "Torre/torre-llm/analyze_metrics.py",
+        "count": 1,
+        "smells": [
+          "Deep nesting: 5 níveis"
+        ],
+        "language": "python"
+      },
+      {
+        "file": "Torre/torre-llm/test_badge_counter_manual.py",
+        "count": 1,
+        "smells": [
+          "Deep nesting: 5 níveis"
+        ],
+        "language": "python"
+      },
+      {
+        "file": "Torre/torre-llm/test_phase20_manual.py",
+        "count": 1,
+        "smells": [
+          "Deep nesting: 6 níveis"
+        ],
+        "language": "python"
+      },
+      {
+        "file": "Torre/torre-llm/test_smart_fix.py",
+        "count": 1,
+        "smells": [
+          "Deep nesting: 6 níveis"
+        ],
+        "language": "python"
+      },
+      {
+        "file": "Torre/torre-llm/test_rigoroso_justo.py",
+        "count": 2,
+        "smells": [
+          "Long file: 297 linhas de código",
+          "Deep nesting: 6 níveis"
+        ],
+        "language": "python"
+      },
+      {
+        "file": "Torre/torre-llm/test_comparativo_atualizado.py",
+        "count": 2,
+        "smells": [
+          "Long file: 286 linhas de código",
+          "Deep nesting: 5 níveis"
+        ],
+        "language": "python"
+      },
+      {
+        "file": "Torre/torre-llm/test_rigoroso_comparativo.py",
+        "count": 2,
+        "smells": [
+          "Long file: 316 linhas de código",
+          "Deep nesting: 6 níveis"
+        ],
+        "language": "python"
+      },
+      {
+        "file": "Torre/torre-llm/test_vantagens_torre.py",
+        "count": 2,
+        "smells": [
+          "Long file: 269 linhas de código",
+          "Deep nesting: 5 níveis"
+        ],
+        "language": "python"
+      },
+      {
+        "file": "Torre/torre-llm/test_memory_promote.py",
+        "count": 1,
+        "smells": [
+          "Magic numbers: 8 encontrados"
+        ],
+        "language": "python"
+      },
+      {
+        "file": "Torre/torre-llm/run_action.py",
+        "count": 1,
+        "smells": [
+          "Deep nesting: 6 níveis"
+        ],
+        "language": "python"
+      },
+      {
+        "file": "Torre/torre-llm/api_server.py",
+        "count": 3,
+        "smells": [
+          "Long file: 288 linhas de código",
+          "Magic numbers: 6 encontrados",
+          "Deep nesting: 6 níveis"
+        ],
+        "language": "python"
+      },
+      {
+        "file": "Torre/torre-llm/test_vanguard_vs_commercial_7000.py",
+        "count": 3,
+        "smells": [
+          "Long file: 550 linhas de código",
+          "Magic numbers: 72 encontrados",
+          "Deep nesting: 5 níveis"
+        ],
+        "language": "python"
+      },
+      {
+        "file": "Torre/torre-llm/test_badge_flags_manual.py",
+        "count": 2,
+        "smells": [
+          "Magic numbers: 6 encontrados",
+          "Deep nesting: 5 níveis"
+        ],
+        "language": "python"
+      },
+      {
+        "file": "Torre/torre-llm/test_integration.py",
+        "count": 2,
+        "smells": [
+          "Magic numbers: 9 encontrados",
+          "Deep nesting: 11 níveis"
+        ],
+        "language": "python"
+      },
+      {
+        "file": "Torre/torre-llm/test_vanguard_demo_quick.py",
+        "count": 2,
+        "smells": [
+          "Long file: 449 linhas de código",
+          "Magic numbers: 23 encontrados"
+        ],
+        "language": "python"
+      },
+      {
+        "file": "Torre/torre-llm/torre_chat.py",
+        "count": 2,
+        "smells": [
+          "Long file: 263 linhas de código",
+          "Deep nesting: 5 níveis"
+        ],
+        "language": "python"
+      },
+      {
+        "file": "Torre/torre-llm/test_cli_badge_patch.py",
+        "count": 1,
+        "smells": [
+          "Deep nesting: 5 níveis"
+        ],
+        "language": "python"
+      },
+      {
+        "file": "Torre/torre-llm/evals/strategos.py",
+        "count": 1,
+        "smells": [
+          "Deep nesting: 6 níveis"
+        ],
+        "language": "python"
+      },
+      {
+        "file": "Torre/torre-llm/evals/log_optimizer.py",
+        "count": 1,
+        "smells": [
+          "Deep nesting: 5 níveis"
+        ],
+        "language": "python"
+      },
+      {
+        "file": "Torre/torre-llm/evals/test_phase11.py",
+        "count": 1,
+        "smells": [
+          "Magic numbers: 7 encontrados"
+        ],
+        "language": "python"
+      },
+      {
+        "file": "Torre/torre-llm/evals/cache_manager.py",
+        "count": 1,
+        "smells": [
+          "Deep nesting: 6 níveis"
+        ],
+        "language": "python"
+      },
+      {
+        "file": "Torre/torre-llm/evals/test_phase6.py",
+        "count": 2,
+        "smells": [
+          "Long file: 222 linhas de código",
+          "Deep nesting: 4 níveis"
+        ],
+        "language": "python"
+      },
+      {
+        "file": "Torre/torre-llm/evals/test_dinamico.py",
+        "count": 2,
+        "smells": [
+          "Long file: 215 linhas de código",
+          "Magic numbers: 11 encontrados"
+        ],
+        "language": "python"
+      },
+      {
+        "file": "Torre/torre-llm/evals/test_phase2.py",
+        "count": 1,
+        "smells": [
+          "Deep nesting: 4 níveis"
+        ],
+        "language": "python"
+      },
+      {
+        "file": "Torre/torre-llm/evals/strategos_v2.py",
+        "count": 2,
+        "smells": [
+          "Long file: 324 linhas de código",
+          "Deep nesting: 7 níveis"
+        ],
+        "language": "python"
+      },
+      {
+        "file": "Torre/torre-llm/evals/omni_context.py",
+        "count": 1,
+        "smells": [
+          "Deep nesting: 5 níveis"
+        ],
+        "language": "python"
+      },
+      {
+        "file": "Torre/torre-llm/evals/test_phase14_final.py",
+        "count": 1,
+        "smells": [
+          "Deep nesting: 5 níveis"
+        ],
+        "language": "python"
+      },
+      {
+        "file": "Torre/torre-llm/evals/prompt_optimizer.py",
+        "count": 1,
+        "smells": [
+          "Deep nesting: 6 níveis"
+        ],
+        "language": "python"
+      },
+      {
+        "file": "Torre/torre-llm/evals/strategic_suite.py",
+        "count": 1,
+        "smells": [
+          "Deep nesting: 5 níveis"
+        ],
+        "language": "python"
+      },
+      {
+        "file": "Torre/torre-llm/evals/util_project.py",
+        "count": 1,
+        "smells": [
+          "Deep nesting: 5 níveis"
+        ],
+        "language": "python"
+      },
+      {
+        "file": "Torre/torre-llm/evals/test_phase7.py",
+        "count": 2,
+        "smells": [
+          "Long file: 223 linhas de código",
+          "Magic numbers: 7 encontrados"
+        ],
+        "language": "python"
+      },
+      {
+        "file": "Torre/torre-llm/evals/metrics_dashboard.py",
+        "count": 2,
+        "smells": [
+          "Magic numbers: 7 encontrados",
+          "Deep nesting: 6 níveis"
+        ],
+        "language": "python"
+      },
+      {
+        "file": "Torre/torre-llm/evals/providers.py",
+        "count": 3,
+        "smells": [
+          "Long file: 290 linhas de código",
+          "Magic numbers: 10 encontrados",
+          "Deep nesting: 5 níveis"
+        ],
+        "language": "python"
+      },
+      {
+        "file": "Torre/torre-llm/evals/test_honesto.py",
+        "count": 1,
+        "smells": [
+          "Long file: 231 linhas de código"
+        ],
+        "language": "python"
+      },
+      {
+        "file": "Torre/torre-llm/evals/test_phase1.py",
+        "count": 1,
+        "smells": [
+          "Deep nesting: 4 níveis"
+        ],
+        "language": "python"
+      },
+      {
+        "file": "Torre/torre-llm/evals/learning_system.py",
+        "count": 2,
+        "smells": [
+          "Long file: 530 linhas de código",
+          "Deep nesting: 7 níveis"
+        ],
+        "language": "python"
+      },
+      {
+        "file": "Torre/torre-llm/evals/run_bakeoff.py",
+        "count": 1,
+        "smells": [
+          "Deep nesting: 5 níveis"
+        ],
+        "language": "python"
+      },
+      {
+        "file": "Torre/torre-llm/evals/test_sensitive_endpoints.py",
+        "count": 1,
+        "smells": [
+          "Deep nesting: 5 níveis"
+        ],
+        "language": "python"
+      },
+      {
+        "file": "Torre/torre-llm/llm/decoder.py",
+        "count": 1,
+        "smells": [
+          "Deep nesting: 8 níveis"
+        ],
+        "language": "python"
+      },
+      {
+        "file": "Torre/torre-llm/llm/server.py",
+        "count": 3,
+        "smells": [
+          "Long file: 679 linhas de código",
+          "Magic numbers: 27 encontrados",
+          "Deep nesting: 9 níveis"
+        ],
+        "language": "python"
+      },
+      {
+        "file": "Torre/torre-llm/llm/cli.py",
+        "count": 3,
+        "smells": [
+          "Long file: 489 linhas de código",
+          "Magic numbers: 6 encontrados",
+          "Deep nesting: 7 níveis"
+        ],
+        "language": "python"
+      },
+      {
+        "file": "Torre/torre-llm/strategies/ts_codemods.py",
+        "count": 1,
+        "smells": [
+          "Deep nesting: 5 níveis"
+        ],
+        "language": "python"
+      },
+      {
+        "file": "Torre/torre-llm/tests/test_fastapi_simple.py",
+        "count": 1,
+        "smells": [
+          "Magic numbers: 9 encontrados"
+        ],
+        "language": "python"
+      },
+      {
+        "file": "Torre/torre-llm/tests/test_fastapi_contract.py",
+        "count": 1,
+        "smells": [
+          "Magic numbers: 49 encontrados"
+        ],
+        "language": "python"
+      },
+      {
+        "file": "Torre/torre-llm/tests/test_fastapi_optional.py",
+        "count": 1,
+        "smells": [
+          "Magic numbers: 44 encontrados"
+        ],
+        "language": "python"
+      },
+      {
+        "file": "Torre/torre-llm/tests/test_strategos_badge_counter.py",
+        "count": 1,
+        "smells": [
+          "Magic numbers: 9 encontrados"
+        ],
+        "language": "python"
+      },
+      {
+        "file": "Torre/torre-llm/tests/_helpers.py",
+        "count": 1,
+        "smells": [
+          "Magic numbers: 21 encontrados"
+        ],
+        "language": "python"
+      },
+      {
+        "file": "Torre/torre-llm/llm/research/vanguard_radar.py",
+        "count": 2,
+        "smells": [
+          "Long file: 238 linhas de código",
+          "Deep nesting: 5 níveis"
+        ],
+        "language": "python"
+      },
+      {
+        "file": "Torre/torre-llm/llm/innovation/vanguard_experiments.py",
+        "count": 2,
+        "smells": [
+          "Long file: 369 linhas de código",
+          "Deep nesting: 7 níveis"
+        ],
+        "language": "python"
+      },
+      {
+        "file": "Torre/torre-llm/llm/guardrails/advanced.py",
+        "count": 1,
+        "smells": [
+          "Deep nesting: 8 níveis"
+        ],
+        "language": "python"
+      },
+      {
+        "file": "Torre/torre-llm/llm/guardrails/sca_scanner.py",
+        "count": 3,
+        "smells": [
+          "Long file: 279 linhas de código",
+          "Magic numbers: 12 encontrados",
+          "Deep nesting: 9 níveis"
+        ],
+        "language": "python"
+      },
+      {
+        "file": "Torre/torre-llm/llm/guardrails/ast_analyzer.py",
+        "count": 2,
+        "smells": [
+          "Long file: 227 linhas de código",
+          "Deep nesting: 6 níveis"
+        ],
+        "language": "python"
+      },
+      {
+        "file": "Torre/torre-llm/llm/guardrails/calibration.py",
+        "count": 2,
+        "smells": [
+          "Long file: 252 linhas de código",
+          "Deep nesting: 7 níveis"
+        ],
+        "language": "python"
+      },
+      {
+        "file": "Torre/torre-llm/llm/memory/episodic.py",
+        "count": 2,
+        "smells": [
+          "Magic numbers: 8 encontrados",
+          "Deep nesting: 8 níveis"
+        ],
+        "language": "python"
+      },
+      {
+        "file": "Torre/torre-llm/llm/collective/pattern_bank.py",
+        "count": 2,
+        "smells": [
+          "Long file: 325 linhas de código",
+          "Deep nesting: 7 níveis"
+        ],
+        "language": "python"
+      },
+      {
+        "file": "Torre/torre-llm/llm/optimization/auto_optimizer.py",
+        "count": 3,
+        "smells": [
+          "Long file: 375 linhas de código",
+          "Magic numbers: 12 encontrados",
+          "Deep nesting: 8 níveis"
+        ],
+        "language": "python"
+      },
+      {
+        "file": "Torre/torre-llm/llm/providers/policy.py",
+        "count": 1,
+        "smells": [
+          "Magic numbers: 8 encontrados"
+        ],
+        "language": "python"
+      },
+      {
+        "file": "Torre/torre-llm/llm/prediction/risk_predictor.py",
+        "count": 3,
+        "smells": [
+          "Long file: 233 linhas de código",
+          "Magic numbers: 15 encontrados",
+          "Deep nesting: 8 níveis"
+        ],
+        "language": "python"
+      },
+      {
+        "file": "Torre/torre-llm/llm/strategos/scorer_v2.py",
+        "count": 1,
+        "smells": [
+          "Deep nesting: 5 níveis"
+        ],
+        "language": "python"
+      },
+      {
+        "file": "Torre/torre-llm/llm/simulation/preflight_simulator.py",
+        "count": 2,
+        "smells": [
+          "Long file: 302 linhas de código",
+          "Deep nesting: 6 níveis"
+        ],
+        "language": "python"
+      },
+      {
+        "file": "Torre/torre-llm/llm/reverse/refactor_advisor.py",
+        "count": 1,
+        "smells": [
+          "Deep nesting: 5 níveis"
+        ],
+        "language": "python"
+      },
+      {
+        "file": "Torre/torre-llm/llm/reverse/codemap.py",
+        "count": 1,
+        "smells": [
+          "Deep nesting: 6 níveis"
+        ],
+        "language": "python"
+      },
+      {
+        "file": "Torre/torre-llm/llm/autonomy/deterministic_brain.py",
+        "count": 3,
+        "smells": [
+          "Long file: 272 linhas de código",
+          "Magic numbers: 6 encontrados",
+          "Deep nesting: 6 níveis"
+        ],
+        "language": "python"
+      },
+      {
+        "file": "Torre/torre-llm/llm/autonomy/post_processor.py",
+        "count": 2,
+        "smells": [
+          "Long file: 244 linhas de código",
+          "Deep nesting: 6 níveis"
+        ],
+        "language": "python"
+      },
+      {
+        "file": "Torre/torre-llm/llm/autonomy/autonomy_orchestrator.py",
+        "count": 2,
+        "smells": [
+          "Long file: 201 linhas de código",
+          "Deep nesting: 8 níveis"
+        ],
+        "language": "python"
+      },
+      {
+        "file": "Torre/torre-llm/llm/autonomy/circuit_breaker.py",
+        "count": 3,
+        "smells": [
+          "Long file: 212 linhas de código",
+          "Magic numbers: 6 encontrados",
+          "Deep nesting: 8 níveis"
+        ],
+        "language": "python"
+      },
+      {
+        "file": "Torre/torre-llm/llm/execution/reranker.py",
+        "count": 1,
+        "smells": [
+          "Deep nesting: 5 níveis"
+        ],
+        "language": "python"
+      },
+      {
+        "file": "Torre/torre-llm/llm/ops/guard_apply.py",
+        "count": 1,
+        "smells": [
+          "Magic numbers: 7 encontrados"
+        ],
+        "language": "python"
+      },
+      {
+        "file": "Torre/torre-llm/llm/ops/sandbox.py",
+        "count": 1,
+        "smells": [
+          "Magic numbers: 7 encontrados"
+        ],
+        "language": "python"
+      },
+      {
+        "file": "Torre/torre-llm/llm/meta_learning/bandit_orchestrator.py",
+        "count": 2,
+        "smells": [
+          "Long file: 298 linhas de código",
+          "Deep nesting: 8 níveis"
+        ],
+        "language": "python"
+      },
+      {
+        "file": "Torre/torre-llm/llm/meta_learning/meta_learning_orchestrator.py",
+        "count": 2,
+        "smells": [
+          "Long file: 208 linhas de código",
+          "Deep nesting: 5 níveis"
+        ],
+        "language": "python"
+      },
+      {
+        "file": "Torre/torre-llm/llm/meta_learning/episodic_store.py",
+        "count": 2,
+        "smells": [
+          "Long file: 277 linhas de código",
+          "Deep nesting: 8 níveis"
+        ],
+        "language": "python"
+      },
+      {
+        "file": "Torre/torre-llm/llm/meta_learning/lesson_engine.py",
+        "count": 2,
+        "smells": [
+          "Long file: 285 linhas de código",
+          "Deep nesting: 7 níveis"
+        ],
+        "language": "python"
+      },
+      {
+        "file": "Torre/torre-llm/llm/providers/adapters/smart_fix.py",
+        "count": 2,
+        "smells": [
+          "Long file: 231 linhas de código",
+          "Deep nesting: 5 níveis"
+        ],
+        "language": "python"
+      },
+      {
+        "file": "Torre/torre-llm/llm/providers/adapters/vanguard_fix.py",
+        "count": 2,
+        "smells": [
+          "Long file: 674 linhas de código",
+          "Deep nesting: 7 níveis"
+        ],
+        "language": "python"
+      },
+      {
+        "file": "Torre/torre-llm/tools/fixer/metrics_wrapper.py",
+        "count": 1,
+        "smells": [
+          "Magic numbers: 11 encontrados"
+        ],
+        "language": "python"
+      },
+      {
+        "file": "Torre/torre-llm/evals/redteam/run_redteam.py",
+        "count": 1,
+        "smells": [
+          "Deep nesting: 5 níveis"
+        ],
+        "language": "python"
+      },
+      {
+        "file": "Torre/torre-llm/evals/golden/run_golden.py",
+        "count": 1,
+        "smells": [
+          "Deep nesting: 5 níveis"
+        ],
+        "language": "python"
+      },
+      {
+        "file": "Torre/torre-llm/evals/kpis/export_kpis.py",
+        "count": 1,
+        "smells": [
+          "Deep nesting: 5 níveis"
+        ],
+        "language": "python"
+      },
+      {
+        "file": "Torre/torre-llm/evals/codemods/ts_imports.py",
+        "count": 1,
+        "smells": [
+          "Deep nesting: 5 níveis"
+        ],
+        "language": "python"
+      },
+      {
+        "file": "Torre/torre-llm/metrics/exporter/exporter.py",
+        "count": 1,
+        "smells": [
+          "Deep nesting: 5 níveis"
+        ],
+        "language": "python"
+      },
+      {
+        "file": "Torre/torre-llm/package-lock.json",
+        "count": 1,
+        "smells": [
+          "Long file: 3788 linhas de código"
+        ],
+        "language": "json"
+      },
+      {
+        "file": "Torre/torre-llm/vanguard_demo_results.json",
+        "count": 1,
+        "smells": [
+          "Magic numbers: 22 encontrados"
+        ],
+        "language": "json"
+      },
+      {
+        "file": "Torre/relatorios/treino_G1_metrics.json",
+        "count": 1,
+        "smells": [
+          "Magic numbers: 21 encontrados"
+        ],
+        "language": "json"
+      },
+      {
+        "file": "Torre/relatorios/treino_G3_metrics.json",
+        "count": 1,
+        "smells": [
+          "Magic numbers: 34 encontrados"
+        ],
+        "language": "json"
+      },
+      {
+        "file": "Torre/relatorios/treino_G2_metrics.json",
+        "count": 1,
+        "smells": [
+          "Magic numbers: 45 encontrados"
+        ],
+        "language": "json"
+      },
+      {
+        "file": "Torre/torre-llm/docs/torre.contract.json",
+        "count": 1,
+        "smells": [
+          "Magic numbers: 14 encontrados"
+        ],
+        "language": "json"
+      },
+      {
+        "file": "Torre/torre-llm/.torre/out/pipeline_efficacy_test.json",
+        "count": 1,
+        "smells": [
+          "Magic numbers: 223 encontrados"
+        ],
+        "language": "json"
+      },
+      {
+        "file": "Torre/torre-llm/.torre/learning/lessons.json",
+        "count": 1,
+        "smells": [
+          "Magic numbers: 10 encontrados"
+        ],
+        "language": "json"
+      },
+      {
+        "file": "Torre/torre-llm/.torre/golden/golden-20250826-075314.json",
+        "count": 1,
+        "smells": [
+          "Magic numbers: 10 encontrados"
+        ],
+        "language": "json"
+      },
+      {
+        "file": "Torre/torre-llm/.torre/golden/golden-20250826-075123.json",
+        "count": 1,
+        "smells": [
+          "Magic numbers: 10 encontrados"
+        ],
+        "language": "json"
+      },
+      {
+        "file": "Torre/torre-llm/.torre/audit/audit-20250825-151714.json",
+        "count": 1,
+        "smells": [
+          "Magic numbers: 29 encontrados"
+        ],
+        "language": "json"
+      },
+      {
+        "file": "Torre/torre-llm/.torre/audit/audit-20250825-112458.json",
+        "count": 1,
+        "smells": [
+          "Magic numbers: 29 encontrados"
+        ],
+        "language": "json"
+      },
+      {
+        "file": "Torre/torre-llm/.torre/audit/audit-20250825-135348.json",
+        "count": 1,
+        "smells": [
+          "Magic numbers: 29 encontrados"
+        ],
+        "language": "json"
+      },
+      {
+        "file": "Torre/torre-llm/.torre/audit/audit-20250825-135759.json",
+        "count": 1,
+        "smells": [
+          "Magic numbers: 29 encontrados"
+        ],
+        "language": "json"
+      },
+      {
+        "file": "Torre/torre-llm/.torre/audit/audit-20250825-122906.json",
+        "count": 1,
+        "smells": [
+          "Magic numbers: 29 encontrados"
+        ],
+        "language": "json"
+      },
+      {
+        "file": "Torre/torre-llm/.torre/audit/audit-20250825-111840.json",
+        "count": 1,
+        "smells": [
+          "Magic numbers: 29 encontrados"
+        ],
+        "language": "json"
+      },
+      {
+        "file": "Torre/torre-llm/.torre/audit/audit-20250825-134149.json",
+        "count": 1,
+        "smells": [
+          "Magic numbers: 29 encontrados"
+        ],
+        "language": "json"
+      },
+      {
+        "file": "Torre/torre-llm/.torre/audit/audit-20250825-121832.json",
+        "count": 1,
+        "smells": [
+          "Magic numbers: 29 encontrados"
+        ],
+        "language": "json"
+      },
+      {
+        "file": "Torre/.torre/evals/bakeoff-20250824-105920.json",
+        "count": 3,
+        "smells": [
+          "Long file: 644 linhas de código",
+          "Magic numbers: 28 encontrados",
+          "Possível código duplicado"
+        ],
+        "language": "json"
+      },
+      {
+        "file": "Torre/.torre/evals/bakeoff-20250824-105717.json",
+        "count": 3,
+        "smells": [
+          "Long file: 644 linhas de código",
+          "Magic numbers: 28 encontrados",
+          "Possível código duplicado"
+        ],
+        "language": "json"
+      },
+      {
+        "file": "Torre/.torre/evals/bakeoff-20250824-105852.json",
+        "count": 3,
+        "smells": [
+          "Long file: 644 linhas de código",
+          "Magic numbers: 28 encontrados",
+          "Possível código duplicado"
+        ],
+        "language": "json"
+      },
+      {
+        "file": "Torre/.torre/evals/bakeoff-20250824-110938.json",
+        "count": 3,
+        "smells": [
+          "Long file: 644 linhas de código",
+          "Magic numbers: 28 encontrados",
+          "Possível código duplicado"
+        ],
+        "language": "json"
+      },
+      {
+        "file": "Torre/.torre/evals/bakeoff-20250824-105156.json",
+        "count": 3,
+        "smells": [
+          "Long file: 416 linhas de código",
+          "Magic numbers: 218 encontrados",
+          "Possível código duplicado"
+        ],
+        "language": "json"
+      },
+      {
+        "file": "Torre/.torre/evals/bakeoff-20250824-105341.json",
+        "count": 3,
+        "smells": [
+          "Long file: 620 linhas de código",
+          "Magic numbers: 27 encontrados",
+          "Possível código duplicado"
+        ],
+        "language": "json"
+      },
+      {
+        "file": "Torre/.torre/evals/bakeoff-20250824-105622.json",
+        "count": 3,
+        "smells": [
+          "Long file: 620 linhas de código",
+          "Magic numbers: 27 encontrados",
+          "Possível código duplicado"
+        ],
+        "language": "json"
+      },
+      {
+        "file": "Torre/.torre/evals/bakeoff-20250824-104837.json",
+        "count": 3,
+        "smells": [
+          "Long file: 419 linhas de código",
+          "Magic numbers: 27 encontrados",
+          "Possível código duplicado"
+        ],
+        "language": "json"
+      },
+      {
+        "file": "Torre/.torre/evals/bakeoff-20250824-105231.json",
+        "count": 3,
+        "smells": [
+          "Long file: 620 linhas de código",
+          "Magic numbers: 27 encontrados",
+          "Possível código duplicado"
+        ],
+        "language": "json"
+      },
+      {
+        "file": "Torre/.torre/evals/bakeoff-20250824-105358.json",
+        "count": 3,
+        "smells": [
+          "Long file: 620 linhas de código",
+          "Magic numbers: 27 encontrados",
+          "Possível código duplicado"
+        ],
+        "language": "json"
+      },
+      {
+        "file": "Torre/.torre/evals/bakeoff-20250824-105315.json",
+        "count": 3,
+        "smells": [
+          "Long file: 620 linhas de código",
+          "Magic numbers: 27 encontrados",
+          "Possível código duplicado"
+        ],
+        "language": "json"
+      },
+      {
+        "file": "Torre/.torre/evals/bakeoff-20250824-105207.json",
+        "count": 3,
+        "smells": [
+          "Long file: 620 linhas de código",
+          "Magic numbers: 32 encontrados",
+          "Possível código duplicado"
+        ],
+        "language": "json"
+      },
+      {
+        "file": "Torre/.torre/evals/bakeoff-20250824-110018.json",
+        "count": 3,
+        "smells": [
+          "Long file: 644 linhas de código",
+          "Magic numbers: 28 encontrados",
+          "Possível código duplicado"
+        ],
+        "language": "json"
+      },
+      {
+        "file": "Torre/.torre/evals/bakeoff-20250824-105305.json",
+        "count": 3,
+        "smells": [
+          "Long file: 620 linhas de código",
+          "Magic numbers: 27 encontrados",
+          "Possível código duplicado"
+        ],
+        "language": "json"
+      },
+      {
+        "file": "Torre/.torre/evals/bakeoff-20250824-104830.json",
+        "count": 3,
+        "smells": [
+          "Long file: 215 linhas de código",
+          "Magic numbers: 218 encontrados",
+          "Possível código duplicado"
+        ],
+        "language": "json"
+      },
+      {
+        "file": "Torre/.torre/evals/bakeoff-20250824-105519.json",
+        "count": 3,
+        "smells": [
+          "Long file: 620 linhas de código",
+          "Magic numbers: 27 encontrados",
+          "Possível código duplicado"
+        ],
+        "language": "json"
+      },
+      {
+        "file": "Torre/pipeline.md",
+        "count": 2,
+        "smells": [
+          "Long file: 543 linhas de código",
+          "Magic numbers: 15 encontrados"
+        ],
+        "language": "markdown"
+      },
+      {
+        "file": "Torre/blocos-partidos_rgpd.md",
+        "count": 1,
+        "smells": [
+          "Long file: 246 linhas de código"
+        ],
+        "language": "markdown"
+      },
+      {
+        "file": "Torre/relatorio.md",
+        "count": 1,
+        "smells": [
+          "Magic numbers: 34 encontrados"
+        ],
+        "language": "markdown"
+      },
+      {
+        "file": "Torre/treino.md",
+        "count": 2,
+        "smells": [
+          "Long file: 566 linhas de código",
+          "Magic numbers: 37 encontrados"
+        ],
+        "language": "markdown"
+      },
+      {
+        "file": "Torre/curriculum/PLAN.md",
+        "count": 1,
+        "smells": [
+          "Magic numbers: 12 encontrados"
+        ],
+        "language": "markdown"
+      },
+      {
+        "file": "Torre/models/ARCHITECTURE.md",
+        "count": 3,
+        "smells": [
+          "Long file: 269 linhas de código",
+          "Magic numbers: 7 encontrados",
+          "Deep nesting: 5 níveis"
+        ],
+        "language": "markdown"
+      },
+      {
+        "file": "Torre/cli/bridge_spec.md",
+        "count": 2,
+        "smells": [
+          "Long file: 325 linhas de código",
+          "Magic numbers: 21 encontrados"
+        ],
+        "language": "markdown"
+      },
+      {
+        "file": "Torre/torre-llm/PHASE20_SUMMARY.md",
+        "count": 1,
+        "smells": [
+          "Magic numbers: 8 encontrados"
+        ],
+        "language": "markdown"
+      },
+      {
+        "file": "Torre/torre-llm/BADGE_COUNTER_SUMMARY.md",
+        "count": 1,
+        "smells": [
+          "Magic numbers: 14 encontrados"
+        ],
+        "language": "markdown"
+      },
+      {
+        "file": "Torre/torre-llm/INTEGRACAO_PLATAFORMA_TORRE.md",
+        "count": 1,
+        "smells": [
+          "Long file: 227 linhas de código"
+        ],
+        "language": "markdown"
+      },
+      {
+        "file": "Torre/torre-llm/INTEGRACAO_FORTALEZA.md",
+        "count": 1,
+        "smells": [
+          "Magic numbers: 16 encontrados"
+        ],
+        "language": "markdown"
+      },
+      {
+        "file": "Torre/torre-llm/GUIA_CURSOR_TORRE.md",
+        "count": 1,
+        "smells": [
+          "Magic numbers: 8 encontrados"
+        ],
+        "language": "markdown"
+      },
+      {
+        "file": "Torre/torre-llm/COMO_VERIFICAR_USO.md",
+        "count": 1,
+        "smells": [
+          "Magic numbers: 6 encontrados"
+        ],
+        "language": "markdown"
+      },
+      {
+        "file": "Torre/torre-llm/GRAFANA_METRICS_IMPLEMENTATION.md",
+        "count": 1,
+        "smells": [
+          "Magic numbers: 6 encontrados"
+        ],
+        "language": "markdown"
+      },
+      {
+        "file": "Torre/torre-llm/PATCH_CURSOR_TORRE.md",
+        "count": 1,
+        "smells": [
+          "Magic numbers: 7 encontrados"
+        ],
+        "language": "markdown"
+      },
+      {
+        "file": "Torre/torre-llm/TESTE_COMPARATIVO_FINAL.md",
+        "count": 1,
+        "smells": [
+          "Magic numbers: 6 encontrados"
+        ],
+        "language": "markdown"
+      },
+      {
+        "file": "Torre/relatorios/treino_G2_log.md",
+        "count": 1,
+        "smells": [
+          "Magic numbers: 61 encontrados"
+        ],
+        "language": "markdown"
+      },
+      {
+        "file": "Torre/relatorios/treino_G1_log.md",
+        "count": 1,
+        "smells": [
+          "Magic numbers: 58 encontrados"
+        ],
+        "language": "markdown"
+      },
+      {
+        "file": "Torre/relatorios/treino_G3_log.md",
+        "count": 1,
+        "smells": [
+          "Magic numbers: 24 encontrados"
+        ],
+        "language": "markdown"
+      },
+      {
+        "file": "Torre/data/SOURCES.md",
+        "count": 2,
+        "smells": [
+          "Long file: 226 linhas de código",
+          "Magic numbers: 16 encontrados"
+        ],
+        "language": "markdown"
+      },
+      {
+        "file": "Torre/reports/EVAL_CRITERIA.md",
+        "count": 2,
+        "smells": [
+          "Long file: 272 linhas de código",
+          "Magic numbers: 65 encontrados"
+        ],
+        "language": "markdown"
+      },
+      {
+        "file": "Torre/torre-llm/evals/audit_phase13_14.md",
+        "count": 1,
+        "smells": [
+          "Magic numbers: 11 encontrados"
+        ],
+        "language": "markdown"
+      },
+      {
+        "file": "Torre/torre-llm/tests/README.md",
+        "count": 1,
+        "smells": [
+          "Magic numbers: 24 encontrados"
+        ],
+        "language": "markdown"
+      },
+      {
+        "file": "Torre/torre-llm/docs/TORRE_SPEC.md",
+        "count": 1,
+        "smells": [
+          "Magic numbers: 17 encontrados"
+        ],
+        "language": "markdown"
+      },
+      {
+        "file": "Torre/pins/_deprecated/ENGINEER_PIN_v3_CORE.md",
+        "count": 1,
+        "smells": [
+          "Magic numbers: 8 encontrados"
+        ],
+        "language": "markdown"
+      }
+    ],
+    "core": [
+      {
+        "file": "core/orquestrador/engineer_cli.py",
+        "count": 2,
+        "smells": [
+          "Long file: 425 linhas de código",
+          "Deep nesting: 5 níveis"
+        ],
+        "language": "python"
+      },
+      {
+        "file": "core/orquestrador/sop_cli.py",
+        "count": 3,
+        "smells": [
+          "Long file: 686 linhas de código",
+          "Magic numbers: 7 encontrados",
+          "Deep nesting: 8 níveis"
+        ],
+        "language": "python"
+      },
+      {
+        "file": "core/scripts/validator.py",
+        "count": 2,
+        "smells": [
+          "Long file: 758 linhas de código",
+          "Deep nesting: 6 níveis"
+        ],
+        "language": "python"
+      }
+    ],
+    "root": [
+      {
+        "file": "package-lock.json",
+        "count": 2,
+        "smells": [
+          "Long file: 1365 linhas de código",
+          "Magic numbers: 26 encontrados"
+        ],
+        "language": "json"
+      }
+    ],
+    "ordem": [
+      {
+        "file": "ordem/ordens/engineer.in.yaml",
+        "count": 2,
+        "smells": [
+          "Long file: 448 linhas de código",
+          "Magic numbers: 27 encontrados"
+        ],
+        "language": "yaml"
+      },
+      {
+        "file": "ordem/ordens/sop.in.yaml",
+        "count": 1,
+        "smells": [
+          "Magic numbers: 6 encontrados"
+        ],
+        "language": "yaml"
+      }
+    ],
+    "factory": [
+      {
+        "file": "factory/pins/_deprecated/engineer_executor.py",
+        "count": 3,
+        "smells": [
+          "Long file: 923 linhas de código",
+          "Magic numbers: 11 encontrados",
+          "Deep nesting: 8 níveis"
+        ],
+        "language": "python"
+      },
+      {
+        "file": "factory/pins/_deprecated/cli_gatekeeper_torre.py",
+        "count": 3,
+        "smells": [
+          "Long file: 295 linhas de código",
+          "Magic numbers: 8 encontrados",
+          "Deep nesting: 6 níveis"
+        ],
+        "language": "python"
+      },
+      {
+        "file": "factory/pins/_deprecated/PIN_TORRE_v2.md",
+        "count": 1,
+        "smells": [
+          "Magic numbers: 6 encontrados"
+        ],
+        "language": "markdown"
+      }
+    ],
+    "relatorios": [
+      {
+        "file": "relatorios/para_estado_maior/pins_inventory_sop.json",
+        "count": 1,
+        "smells": [
+          "Magic numbers: 19 encontrados"
+        ],
+        "language": "json"
+      },
+      {
+        "file": "relatorios/autoexec_log.md",
+        "count": 1,
+        "smells": [
+          "Magic numbers: 11 encontrados"
+        ],
+        "language": "markdown"
+      },
+      {
+        "file": "relatorios/torre_setup.md",
+        "count": 1,
+        "smells": [
+          "Magic numbers: 28 encontrados"
+        ],
+        "language": "markdown"
+      },
+      {
+        "file": "relatorios/respostas_llm_engenheira.md",
+        "count": 2,
+        "smells": [
+          "Long file: 322 linhas de código",
+          "Magic numbers: 11 encontrados"
+        ],
+        "language": "markdown"
+      }
+    ],
+    "docs": [
+      {
+        "file": "docs/ENGINEER_PIN.md",
+        "count": 1,
+        "smells": [
+          "Magic numbers: 8 encontrados"
+        ],
+        "language": "markdown"
+      }
+    ],
+    "logs": [
+      {
+        "file": "logs/mitigacao_incongruencias.md",
+        "count": 1,
+        "smells": [
+          "Magic numbers: 6 encontrados"
+        ],
+        "language": "markdown"
+      }
+    ]
+  },
+  "smells_justified": [
+    {
+      "file": "Torre/torre-llm/metrics/docker-compose.yml",
+      "smell": "Magic numbers: 7 encontrados",
+      "status": "JUSTIFIED",
+      "reason": "Magic numbers em configurações, testes e scripts são aceitáveis",
+      "pattern": "Magic numbers"
+    },
+    {
+      "file": "Torre/torre-llm/bootstrap_fixer_pipeline.sh",
+      "smell": "Long file: 399 linhas de código",
+      "status": "JUSTIFIED",
+      "reason": "Scripts, arquivos gerados e testes podem ser longos por natureza",
+      "pattern": "Long file"
+    },
+    {
+      "file": "Torre/torre-llm/bootstrap_fixer_pipeline.sh",
+      "smell": "Magic numbers: 10 encontrados",
+      "status": "JUSTIFIED",
+      "reason": "Magic numbers em configurações, testes e scripts são aceitáveis",
+      "pattern": "Magic numbers"
+    },
+    {
+      "file": "Torre/torre-llm/install_cursor_integration.sh",
+      "smell": "Magic numbers: 10 encontrados",
+      "status": "JUSTIFIED",
+      "reason": "Magic numbers em configurações, testes e scripts são aceitáveis",
+      "pattern": "Magic numbers"
+    },
+    {
+      "file": "Torre/torre-llm/setup_torre_pipeline.sh",
+      "smell": "Magic numbers: 9 encontrados",
+      "status": "JUSTIFIED",
+      "reason": "Magic numbers em configurações, testes e scripts são aceitáveis",
+      "pattern": "Magic numbers"
+    },
+    {
+      "file": "Torre/torre-llm/install_torre_extension.sh",
+      "smell": "Magic numbers: 6 encontrados",
+      "status": "JUSTIFIED",
+      "reason": "Magic numbers em configurações, testes e scripts são aceitáveis",
+      "pattern": "Magic numbers"
+    },
+    {
+      "file": "Torre/torre_models_fa.js",
+      "smell": "Deep nesting: 5 níveis",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/torre-llm/cursor-torre-integration.js",
+      "smell": "Magic numbers: 7 encontrados",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/torre-llm/cursor-torre-integration.js",
+      "smell": "Deep nesting: 6 níveis",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/torre-llm/cursor-extension/extension.js",
+      "smell": "Long file: 277 linhas de código",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/torre-llm/cursor-extension/extension.js",
+      "smell": "Deep nesting: 7 níveis",
+      "status": "JUSTIFIED",
+      "reason": "Componentes UI e configurações podem ter nesting profundo",
+      "pattern": "Deep nesting"
+    },
+    {
+      "file": "Torre/torre-llm/torre-extension/extension_advanced.js",
+      "smell": "Deep nesting: 6 níveis",
+      "status": "JUSTIFIED",
+      "reason": "Componentes UI e configurações podem ter nesting profundo",
+      "pattern": "Deep nesting"
+    },
+    {
+      "file": "Torre/torre-llm/torre-extension/extension.js",
+      "smell": "Deep nesting: 6 níveis",
+      "status": "JUSTIFIED",
+      "reason": "Componentes UI e configurações podem ter nesting profundo",
+      "pattern": "Deep nesting"
+    },
+    {
+      "file": "Torre/torre-llm/tools/fixer/tsserver_fix.ts",
+      "smell": "Magic numbers: 6 encontrados",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/apps/torre-ui/src/components/vanguard/VanguardWidget.tsx",
+      "smell": "Magic numbers: 6 encontrados",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/apps/torre-ui/src/components/vanguard/VanguardWidget.tsx",
+      "smell": "Deep nesting: 5 níveis",
+      "status": "JUSTIFIED",
+      "reason": "Componentes UI e configurações podem ter nesting profundo",
+      "pattern": "Deep nesting"
+    },
+    {
+      "file": "Torre/apps/torre-ui/src/components/memory/MemoryPanel.tsx",
+      "smell": "Magic numbers: 8 encontrados",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/apps/torre-ui/src/components/memory/MemoryPanel.tsx",
+      "smell": "Deep nesting: 5 níveis",
+      "status": "JUSTIFIED",
+      "reason": "Componentes UI e configurações podem ter nesting profundo",
+      "pattern": "Deep nesting"
+    },
+    {
+      "file": "Torre/apps/torre-ui/src/components/layout/LeftSidebar.tsx",
+      "smell": "Magic numbers: 17 encontrados",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/apps/torre-ui/src/components/strategos/StrategosBadge.tsx",
+      "smell": "Magic numbers: 27 encontrados",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/apps/torre-ui/src/components/strategos/StrategosBadge.tsx",
+      "smell": "Deep nesting: 7 níveis",
+      "status": "JUSTIFIED",
+      "reason": "Componentes UI e configurações podem ter nesting profundo",
+      "pattern": "Deep nesting"
+    },
+    {
+      "file": "Torre/apps/torre-ui/src/components/strategos/StrategosPanel.tsx",
+      "smell": "Deep nesting: 5 níveis",
+      "status": "JUSTIFIED",
+      "reason": "Componentes UI e configurações podem ter nesting profundo",
+      "pattern": "Deep nesting"
+    },
+    {
+      "file": "Torre/orquestrador/profile_multilang.py",
+      "smell": "Long file: 301 linhas de código",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/orquestrador/profile_multilang.py",
+      "smell": "Deep nesting: 5 níveis",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/orquestrador/treino_G2.py",
+      "smell": "Long file: 204 linhas de código",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/orquestrador/treino_G2.py",
+      "smell": "Magic numbers: 18 encontrados",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/orquestrador/treino_G3.py",
+      "smell": "Long file: 241 linhas de código",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/orquestrador/treino_G3.py",
+      "smell": "Magic numbers: 20 encontrados",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/orquestrador/cli.py",
+      "smell": "Long file: 295 linhas de código",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/orquestrador/cli.py",
+      "smell": "Magic numbers: 8 encontrados",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/orquestrador/cli.py",
+      "smell": "Deep nesting: 6 níveis",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/orquestrador/treino_G1.py",
+      "smell": "Magic numbers: 9 encontrados",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/orquestrador/mini_pin_validations.py",
+      "smell": "Long file: 225 linhas de código",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/orquestrador/mini_pin_validations.py",
+      "smell": "Deep nesting: 5 níveis",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/cli/generate_report.py",
+      "smell": "Deep nesting: 6 níveis",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/torre-llm/code_index.py",
+      "smell": "Deep nesting: 5 níveis",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/torre-llm/test_vanguard_96_percent.py",
+      "smell": "Long file: 253 linhas de código",
+      "status": "JUSTIFIED",
+      "reason": "Scripts, arquivos gerados e testes podem ser longos por natureza",
+      "pattern": "Long file"
+    },
+    {
+      "file": "Torre/torre-llm/test_vanguard_96_percent.py",
+      "smell": "Deep nesting: 6 níveis",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/torre-llm/analyze_metrics.py",
+      "smell": "Deep nesting: 5 níveis",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/torre-llm/test_badge_counter_manual.py",
+      "smell": "Deep nesting: 5 níveis",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/torre-llm/test_phase20_manual.py",
+      "smell": "Deep nesting: 6 níveis",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/torre-llm/test_smart_fix.py",
+      "smell": "Deep nesting: 6 níveis",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/torre-llm/test_rigoroso_justo.py",
+      "smell": "Long file: 297 linhas de código",
+      "status": "JUSTIFIED",
+      "reason": "Scripts, arquivos gerados e testes podem ser longos por natureza",
+      "pattern": "Long file"
+    },
+    {
+      "file": "Torre/torre-llm/test_rigoroso_justo.py",
+      "smell": "Deep nesting: 6 níveis",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/torre-llm/test_comparativo_atualizado.py",
+      "smell": "Long file: 286 linhas de código",
+      "status": "JUSTIFIED",
+      "reason": "Scripts, arquivos gerados e testes podem ser longos por natureza",
+      "pattern": "Long file"
+    },
+    {
+      "file": "Torre/torre-llm/test_comparativo_atualizado.py",
+      "smell": "Deep nesting: 5 níveis",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/torre-llm/test_rigoroso_comparativo.py",
+      "smell": "Long file: 316 linhas de código",
+      "status": "JUSTIFIED",
+      "reason": "Scripts, arquivos gerados e testes podem ser longos por natureza",
+      "pattern": "Long file"
+    },
+    {
+      "file": "Torre/torre-llm/test_rigoroso_comparativo.py",
+      "smell": "Deep nesting: 6 níveis",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/torre-llm/test_vantagens_torre.py",
+      "smell": "Long file: 269 linhas de código",
+      "status": "JUSTIFIED",
+      "reason": "Scripts, arquivos gerados e testes podem ser longos por natureza",
+      "pattern": "Long file"
+    },
+    {
+      "file": "Torre/torre-llm/test_vantagens_torre.py",
+      "smell": "Deep nesting: 5 níveis",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/torre-llm/test_memory_promote.py",
+      "smell": "Magic numbers: 8 encontrados",
+      "status": "JUSTIFIED",
+      "reason": "Magic numbers em configurações, testes e scripts são aceitáveis",
+      "pattern": "Magic numbers"
+    },
+    {
+      "file": "Torre/torre-llm/run_action.py",
+      "smell": "Deep nesting: 6 níveis",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/torre-llm/api_server.py",
+      "smell": "Long file: 288 linhas de código",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/torre-llm/api_server.py",
+      "smell": "Magic numbers: 6 encontrados",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/torre-llm/api_server.py",
+      "smell": "Deep nesting: 6 níveis",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/torre-llm/test_vanguard_vs_commercial_7000.py",
+      "smell": "Long file: 550 linhas de código",
+      "status": "JUSTIFIED",
+      "reason": "Scripts, arquivos gerados e testes podem ser longos por natureza",
+      "pattern": "Long file"
+    },
+    {
+      "file": "Torre/torre-llm/test_vanguard_vs_commercial_7000.py",
+      "smell": "Magic numbers: 72 encontrados",
+      "status": "JUSTIFIED",
+      "reason": "Magic numbers em configurações, testes e scripts são aceitáveis",
+      "pattern": "Magic numbers"
+    },
+    {
+      "file": "Torre/torre-llm/test_vanguard_vs_commercial_7000.py",
+      "smell": "Deep nesting: 5 níveis",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/torre-llm/test_badge_flags_manual.py",
+      "smell": "Magic numbers: 6 encontrados",
+      "status": "JUSTIFIED",
+      "reason": "Magic numbers em configurações, testes e scripts são aceitáveis",
+      "pattern": "Magic numbers"
+    },
+    {
+      "file": "Torre/torre-llm/test_badge_flags_manual.py",
+      "smell": "Deep nesting: 5 níveis",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/torre-llm/test_integration.py",
+      "smell": "Magic numbers: 9 encontrados",
+      "status": "JUSTIFIED",
+      "reason": "Magic numbers em configurações, testes e scripts são aceitáveis",
+      "pattern": "Magic numbers"
+    },
+    {
+      "file": "Torre/torre-llm/test_integration.py",
+      "smell": "Deep nesting: 11 níveis",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/torre-llm/test_vanguard_demo_quick.py",
+      "smell": "Long file: 449 linhas de código",
+      "status": "JUSTIFIED",
+      "reason": "Scripts, arquivos gerados e testes podem ser longos por natureza",
+      "pattern": "Long file"
+    },
+    {
+      "file": "Torre/torre-llm/test_vanguard_demo_quick.py",
+      "smell": "Magic numbers: 23 encontrados",
+      "status": "JUSTIFIED",
+      "reason": "Magic numbers em configurações, testes e scripts são aceitáveis",
+      "pattern": "Magic numbers"
+    },
+    {
+      "file": "Torre/torre-llm/torre_chat.py",
+      "smell": "Long file: 263 linhas de código",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/torre-llm/torre_chat.py",
+      "smell": "Deep nesting: 5 níveis",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/torre-llm/test_cli_badge_patch.py",
+      "smell": "Deep nesting: 5 níveis",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/torre-llm/evals/strategos.py",
+      "smell": "Deep nesting: 6 níveis",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/torre-llm/evals/log_optimizer.py",
+      "smell": "Deep nesting: 5 níveis",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/torre-llm/evals/test_phase11.py",
+      "smell": "Magic numbers: 7 encontrados",
+      "status": "JUSTIFIED",
+      "reason": "Magic numbers em configurações, testes e scripts são aceitáveis",
+      "pattern": "Magic numbers"
+    },
+    {
+      "file": "Torre/torre-llm/evals/cache_manager.py",
+      "smell": "Deep nesting: 6 níveis",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/torre-llm/evals/test_phase6.py",
+      "smell": "Long file: 222 linhas de código",
+      "status": "JUSTIFIED",
+      "reason": "Scripts, arquivos gerados e testes podem ser longos por natureza",
+      "pattern": "Long file"
+    },
+    {
+      "file": "Torre/torre-llm/evals/test_phase6.py",
+      "smell": "Deep nesting: 4 níveis",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/torre-llm/evals/test_dinamico.py",
+      "smell": "Long file: 215 linhas de código",
+      "status": "JUSTIFIED",
+      "reason": "Scripts, arquivos gerados e testes podem ser longos por natureza",
+      "pattern": "Long file"
+    },
+    {
+      "file": "Torre/torre-llm/evals/test_dinamico.py",
+      "smell": "Magic numbers: 11 encontrados",
+      "status": "JUSTIFIED",
+      "reason": "Magic numbers em configurações, testes e scripts são aceitáveis",
+      "pattern": "Magic numbers"
+    },
+    {
+      "file": "Torre/torre-llm/evals/test_phase2.py",
+      "smell": "Deep nesting: 4 níveis",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/torre-llm/evals/strategos_v2.py",
+      "smell": "Long file: 324 linhas de código",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/torre-llm/evals/strategos_v2.py",
+      "smell": "Deep nesting: 7 níveis",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/torre-llm/evals/omni_context.py",
+      "smell": "Deep nesting: 5 níveis",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/torre-llm/evals/test_phase14_final.py",
+      "smell": "Deep nesting: 5 níveis",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/torre-llm/evals/prompt_optimizer.py",
+      "smell": "Deep nesting: 6 níveis",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/torre-llm/evals/strategic_suite.py",
+      "smell": "Deep nesting: 5 níveis",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/torre-llm/evals/util_project.py",
+      "smell": "Deep nesting: 5 níveis",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/torre-llm/evals/test_phase7.py",
+      "smell": "Long file: 223 linhas de código",
+      "status": "JUSTIFIED",
+      "reason": "Scripts, arquivos gerados e testes podem ser longos por natureza",
+      "pattern": "Long file"
+    },
+    {
+      "file": "Torre/torre-llm/evals/test_phase7.py",
+      "smell": "Magic numbers: 7 encontrados",
+      "status": "JUSTIFIED",
+      "reason": "Magic numbers em configurações, testes e scripts são aceitáveis",
+      "pattern": "Magic numbers"
+    },
+    {
+      "file": "Torre/torre-llm/evals/metrics_dashboard.py",
+      "smell": "Magic numbers: 7 encontrados",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/torre-llm/evals/metrics_dashboard.py",
+      "smell": "Deep nesting: 6 níveis",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/torre-llm/evals/providers.py",
+      "smell": "Long file: 290 linhas de código",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/torre-llm/evals/providers.py",
+      "smell": "Magic numbers: 10 encontrados",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/torre-llm/evals/providers.py",
+      "smell": "Deep nesting: 5 níveis",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/torre-llm/evals/test_honesto.py",
+      "smell": "Long file: 231 linhas de código",
+      "status": "JUSTIFIED",
+      "reason": "Scripts, arquivos gerados e testes podem ser longos por natureza",
+      "pattern": "Long file"
+    },
+    {
+      "file": "Torre/torre-llm/evals/test_phase1.py",
+      "smell": "Deep nesting: 4 níveis",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/torre-llm/evals/learning_system.py",
+      "smell": "Long file: 530 linhas de código",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/torre-llm/evals/learning_system.py",
+      "smell": "Deep nesting: 7 níveis",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/torre-llm/evals/run_bakeoff.py",
+      "smell": "Deep nesting: 5 níveis",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/torre-llm/evals/test_sensitive_endpoints.py",
+      "smell": "Deep nesting: 5 níveis",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/torre-llm/llm/decoder.py",
+      "smell": "Deep nesting: 8 níveis",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/torre-llm/llm/server.py",
+      "smell": "Long file: 679 linhas de código",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/torre-llm/llm/server.py",
+      "smell": "Magic numbers: 27 encontrados",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/torre-llm/llm/server.py",
+      "smell": "Deep nesting: 9 níveis",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/torre-llm/llm/cli.py",
+      "smell": "Long file: 489 linhas de código",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/torre-llm/llm/cli.py",
+      "smell": "Magic numbers: 6 encontrados",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/torre-llm/llm/cli.py",
+      "smell": "Deep nesting: 7 níveis",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/torre-llm/strategies/ts_codemods.py",
+      "smell": "Deep nesting: 5 níveis",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/torre-llm/tests/test_fastapi_simple.py",
+      "smell": "Magic numbers: 9 encontrados",
+      "status": "JUSTIFIED",
+      "reason": "Magic numbers em configurações, testes e scripts são aceitáveis",
+      "pattern": "Magic numbers"
+    },
+    {
+      "file": "Torre/torre-llm/tests/test_fastapi_contract.py",
+      "smell": "Magic numbers: 49 encontrados",
+      "status": "JUSTIFIED",
+      "reason": "Magic numbers em configurações, testes e scripts são aceitáveis",
+      "pattern": "Magic numbers"
+    },
+    {
+      "file": "Torre/torre-llm/tests/test_fastapi_optional.py",
+      "smell": "Magic numbers: 44 encontrados",
+      "status": "JUSTIFIED",
+      "reason": "Magic numbers em configurações, testes e scripts são aceitáveis",
+      "pattern": "Magic numbers"
+    },
+    {
+      "file": "Torre/torre-llm/tests/test_strategos_badge_counter.py",
+      "smell": "Magic numbers: 9 encontrados",
+      "status": "JUSTIFIED",
+      "reason": "Magic numbers em configurações, testes e scripts são aceitáveis",
+      "pattern": "Magic numbers"
+    },
+    {
+      "file": "Torre/torre-llm/tests/_helpers.py",
+      "smell": "Magic numbers: 21 encontrados",
+      "status": "JUSTIFIED",
+      "reason": "Magic numbers em configurações, testes e scripts são aceitáveis",
+      "pattern": "Magic numbers"
+    },
+    {
+      "file": "Torre/torre-llm/llm/research/vanguard_radar.py",
+      "smell": "Long file: 238 linhas de código",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/torre-llm/llm/research/vanguard_radar.py",
+      "smell": "Deep nesting: 5 níveis",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/torre-llm/llm/innovation/vanguard_experiments.py",
+      "smell": "Long file: 369 linhas de código",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/torre-llm/llm/innovation/vanguard_experiments.py",
+      "smell": "Deep nesting: 7 níveis",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/torre-llm/llm/guardrails/advanced.py",
+      "smell": "Deep nesting: 8 níveis",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/torre-llm/llm/guardrails/sca_scanner.py",
+      "smell": "Long file: 279 linhas de código",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/torre-llm/llm/guardrails/sca_scanner.py",
+      "smell": "Magic numbers: 12 encontrados",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/torre-llm/llm/guardrails/sca_scanner.py",
+      "smell": "Deep nesting: 9 níveis",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/torre-llm/llm/guardrails/ast_analyzer.py",
+      "smell": "Long file: 227 linhas de código",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/torre-llm/llm/guardrails/ast_analyzer.py",
+      "smell": "Deep nesting: 6 níveis",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/torre-llm/llm/guardrails/calibration.py",
+      "smell": "Long file: 252 linhas de código",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/torre-llm/llm/guardrails/calibration.py",
+      "smell": "Deep nesting: 7 níveis",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/torre-llm/llm/memory/episodic.py",
+      "smell": "Magic numbers: 8 encontrados",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/torre-llm/llm/memory/episodic.py",
+      "smell": "Deep nesting: 8 níveis",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/torre-llm/llm/collective/pattern_bank.py",
+      "smell": "Long file: 325 linhas de código",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/torre-llm/llm/collective/pattern_bank.py",
+      "smell": "Deep nesting: 7 níveis",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/torre-llm/llm/optimization/auto_optimizer.py",
+      "smell": "Long file: 375 linhas de código",
+      "status": "JUSTIFIED",
+      "reason": "Scripts, arquivos gerados e testes podem ser longos por natureza",
+      "pattern": "Long file"
+    },
+    {
+      "file": "Torre/torre-llm/llm/optimization/auto_optimizer.py",
+      "smell": "Magic numbers: 12 encontrados",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/torre-llm/llm/optimization/auto_optimizer.py",
+      "smell": "Deep nesting: 8 níveis",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/torre-llm/llm/providers/policy.py",
+      "smell": "Magic numbers: 8 encontrados",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/torre-llm/llm/prediction/risk_predictor.py",
+      "smell": "Long file: 233 linhas de código",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/torre-llm/llm/prediction/risk_predictor.py",
+      "smell": "Magic numbers: 15 encontrados",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/torre-llm/llm/prediction/risk_predictor.py",
+      "smell": "Deep nesting: 8 níveis",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/torre-llm/llm/strategos/scorer_v2.py",
+      "smell": "Deep nesting: 5 níveis",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/torre-llm/llm/simulation/preflight_simulator.py",
+      "smell": "Long file: 302 linhas de código",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/torre-llm/llm/simulation/preflight_simulator.py",
+      "smell": "Deep nesting: 6 níveis",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/torre-llm/llm/reverse/refactor_advisor.py",
+      "smell": "Deep nesting: 5 níveis",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/torre-llm/llm/reverse/codemap.py",
+      "smell": "Deep nesting: 6 níveis",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/torre-llm/llm/autonomy/deterministic_brain.py",
+      "smell": "Long file: 272 linhas de código",
+      "status": "JUSTIFIED",
+      "reason": "Scripts, arquivos gerados e testes podem ser longos por natureza",
+      "pattern": "Long file"
+    },
+    {
+      "file": "Torre/torre-llm/llm/autonomy/deterministic_brain.py",
+      "smell": "Magic numbers: 6 encontrados",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/torre-llm/llm/autonomy/deterministic_brain.py",
+      "smell": "Deep nesting: 6 níveis",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/torre-llm/llm/autonomy/post_processor.py",
+      "smell": "Long file: 244 linhas de código",
+      "status": "JUSTIFIED",
+      "reason": "Scripts, arquivos gerados e testes podem ser longos por natureza",
+      "pattern": "Long file"
+    },
+    {
+      "file": "Torre/torre-llm/llm/autonomy/post_processor.py",
+      "smell": "Deep nesting: 6 níveis",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/torre-llm/llm/autonomy/autonomy_orchestrator.py",
+      "smell": "Long file: 201 linhas de código",
+      "status": "JUSTIFIED",
+      "reason": "Scripts, arquivos gerados e testes podem ser longos por natureza",
+      "pattern": "Long file"
+    },
+    {
+      "file": "Torre/torre-llm/llm/autonomy/autonomy_orchestrator.py",
+      "smell": "Deep nesting: 8 níveis",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/torre-llm/llm/autonomy/circuit_breaker.py",
+      "smell": "Long file: 212 linhas de código",
+      "status": "JUSTIFIED",
+      "reason": "Scripts, arquivos gerados e testes podem ser longos por natureza",
+      "pattern": "Long file"
+    },
+    {
+      "file": "Torre/torre-llm/llm/autonomy/circuit_breaker.py",
+      "smell": "Magic numbers: 6 encontrados",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/torre-llm/llm/autonomy/circuit_breaker.py",
+      "smell": "Deep nesting: 8 níveis",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/torre-llm/llm/execution/reranker.py",
+      "smell": "Deep nesting: 5 níveis",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/torre-llm/llm/ops/guard_apply.py",
+      "smell": "Magic numbers: 7 encontrados",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/torre-llm/llm/ops/sandbox.py",
+      "smell": "Magic numbers: 7 encontrados",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/torre-llm/llm/meta_learning/bandit_orchestrator.py",
+      "smell": "Long file: 298 linhas de código",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/torre-llm/llm/meta_learning/bandit_orchestrator.py",
+      "smell": "Deep nesting: 8 níveis",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/torre-llm/llm/meta_learning/meta_learning_orchestrator.py",
+      "smell": "Long file: 208 linhas de código",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/torre-llm/llm/meta_learning/meta_learning_orchestrator.py",
+      "smell": "Deep nesting: 5 níveis",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/torre-llm/llm/meta_learning/episodic_store.py",
+      "smell": "Long file: 277 linhas de código",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/torre-llm/llm/meta_learning/episodic_store.py",
+      "smell": "Deep nesting: 8 níveis",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/torre-llm/llm/meta_learning/lesson_engine.py",
+      "smell": "Long file: 285 linhas de código",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/torre-llm/llm/meta_learning/lesson_engine.py",
+      "smell": "Deep nesting: 7 níveis",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/torre-llm/llm/providers/adapters/smart_fix.py",
+      "smell": "Long file: 231 linhas de código",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/torre-llm/llm/providers/adapters/smart_fix.py",
+      "smell": "Deep nesting: 5 níveis",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/torre-llm/llm/providers/adapters/vanguard_fix.py",
+      "smell": "Long file: 674 linhas de código",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/torre-llm/llm/providers/adapters/vanguard_fix.py",
+      "smell": "Deep nesting: 7 níveis",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/torre-llm/tools/fixer/metrics_wrapper.py",
+      "smell": "Magic numbers: 11 encontrados",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/torre-llm/evals/redteam/run_redteam.py",
+      "smell": "Deep nesting: 5 níveis",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/torre-llm/evals/golden/run_golden.py",
+      "smell": "Deep nesting: 5 níveis",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/torre-llm/evals/kpis/export_kpis.py",
+      "smell": "Deep nesting: 5 níveis",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/torre-llm/evals/codemods/ts_imports.py",
+      "smell": "Deep nesting: 5 níveis",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/torre-llm/metrics/exporter/exporter.py",
+      "smell": "Deep nesting: 5 níveis",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/torre-llm/package-lock.json",
+      "smell": "Long file: 3788 linhas de código",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/torre-llm/vanguard_demo_results.json",
+      "smell": "Magic numbers: 22 encontrados",
+      "status": "JUSTIFIED",
+      "reason": "Magic numbers em configurações, testes e scripts são aceitáveis",
+      "pattern": "Magic numbers"
+    },
+    {
+      "file": "Torre/relatorios/treino_G1_metrics.json",
+      "smell": "Magic numbers: 21 encontrados",
+      "status": "JUSTIFIED",
+      "reason": "Magic numbers em configurações, testes e scripts são aceitáveis",
+      "pattern": "Magic numbers"
+    },
+    {
+      "file": "Torre/relatorios/treino_G3_metrics.json",
+      "smell": "Magic numbers: 34 encontrados",
+      "status": "JUSTIFIED",
+      "reason": "Magic numbers em configurações, testes e scripts são aceitáveis",
+      "pattern": "Magic numbers"
+    },
+    {
+      "file": "Torre/relatorios/treino_G2_metrics.json",
+      "smell": "Magic numbers: 45 encontrados",
+      "status": "JUSTIFIED",
+      "reason": "Magic numbers em configurações, testes e scripts são aceitáveis",
+      "pattern": "Magic numbers"
+    },
+    {
+      "file": "Torre/torre-llm/docs/torre.contract.json",
+      "smell": "Magic numbers: 14 encontrados",
+      "status": "JUSTIFIED",
+      "reason": "Magic numbers em configurações, testes e scripts são aceitáveis",
+      "pattern": "Magic numbers"
+    },
+    {
+      "file": "Torre/torre-llm/.torre/out/pipeline_efficacy_test.json",
+      "smell": "Magic numbers: 223 encontrados",
+      "status": "JUSTIFIED",
+      "reason": "Magic numbers em configurações, testes e scripts são aceitáveis",
+      "pattern": "Magic numbers"
+    },
+    {
+      "file": "Torre/torre-llm/.torre/learning/lessons.json",
+      "smell": "Magic numbers: 10 encontrados",
+      "status": "JUSTIFIED",
+      "reason": "Magic numbers em configurações, testes e scripts são aceitáveis",
+      "pattern": "Magic numbers"
+    },
+    {
+      "file": "Torre/torre-llm/.torre/golden/golden-20250826-075314.json",
+      "smell": "Magic numbers: 10 encontrados",
+      "status": "JUSTIFIED",
+      "reason": "Magic numbers em configurações, testes e scripts são aceitáveis",
+      "pattern": "Magic numbers"
+    },
+    {
+      "file": "Torre/torre-llm/.torre/golden/golden-20250826-075123.json",
+      "smell": "Magic numbers: 10 encontrados",
+      "status": "JUSTIFIED",
+      "reason": "Magic numbers em configurações, testes e scripts são aceitáveis",
+      "pattern": "Magic numbers"
+    },
+    {
+      "file": "Torre/torre-llm/.torre/audit/audit-20250825-151714.json",
+      "smell": "Magic numbers: 29 encontrados",
+      "status": "JUSTIFIED",
+      "reason": "Magic numbers em configurações, testes e scripts são aceitáveis",
+      "pattern": "Magic numbers"
+    },
+    {
+      "file": "Torre/torre-llm/.torre/audit/audit-20250825-112458.json",
+      "smell": "Magic numbers: 29 encontrados",
+      "status": "JUSTIFIED",
+      "reason": "Magic numbers em configurações, testes e scripts são aceitáveis",
+      "pattern": "Magic numbers"
+    },
+    {
+      "file": "Torre/torre-llm/.torre/audit/audit-20250825-135348.json",
+      "smell": "Magic numbers: 29 encontrados",
+      "status": "JUSTIFIED",
+      "reason": "Magic numbers em configurações, testes e scripts são aceitáveis",
+      "pattern": "Magic numbers"
+    },
+    {
+      "file": "Torre/torre-llm/.torre/audit/audit-20250825-135759.json",
+      "smell": "Magic numbers: 29 encontrados",
+      "status": "JUSTIFIED",
+      "reason": "Magic numbers em configurações, testes e scripts são aceitáveis",
+      "pattern": "Magic numbers"
+    },
+    {
+      "file": "Torre/torre-llm/.torre/audit/audit-20250825-122906.json",
+      "smell": "Magic numbers: 29 encontrados",
+      "status": "JUSTIFIED",
+      "reason": "Magic numbers em configurações, testes e scripts são aceitáveis",
+      "pattern": "Magic numbers"
+    },
+    {
+      "file": "Torre/torre-llm/.torre/audit/audit-20250825-111840.json",
+      "smell": "Magic numbers: 29 encontrados",
+      "status": "JUSTIFIED",
+      "reason": "Magic numbers em configurações, testes e scripts são aceitáveis",
+      "pattern": "Magic numbers"
+    },
+    {
+      "file": "Torre/torre-llm/.torre/audit/audit-20250825-134149.json",
+      "smell": "Magic numbers: 29 encontrados",
+      "status": "JUSTIFIED",
+      "reason": "Magic numbers em configurações, testes e scripts são aceitáveis",
+      "pattern": "Magic numbers"
+    },
+    {
+      "file": "Torre/torre-llm/.torre/audit/audit-20250825-121832.json",
+      "smell": "Magic numbers: 29 encontrados",
+      "status": "JUSTIFIED",
+      "reason": "Magic numbers em configurações, testes e scripts são aceitáveis",
+      "pattern": "Magic numbers"
+    },
+    {
+      "file": "Torre/.torre/evals/bakeoff-20250824-105920.json",
+      "smell": "Long file: 644 linhas de código",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/.torre/evals/bakeoff-20250824-105920.json",
+      "smell": "Magic numbers: 28 encontrados",
+      "status": "JUSTIFIED",
+      "reason": "Magic numbers em configurações, testes e scripts são aceitáveis",
+      "pattern": "Magic numbers"
+    },
+    {
+      "file": "Torre/.torre/evals/bakeoff-20250824-105920.json",
+      "smell": "Possível código duplicado",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/.torre/evals/bakeoff-20250824-105717.json",
+      "smell": "Long file: 644 linhas de código",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/.torre/evals/bakeoff-20250824-105717.json",
+      "smell": "Magic numbers: 28 encontrados",
+      "status": "JUSTIFIED",
+      "reason": "Magic numbers em configurações, testes e scripts são aceitáveis",
+      "pattern": "Magic numbers"
+    },
+    {
+      "file": "Torre/.torre/evals/bakeoff-20250824-105717.json",
+      "smell": "Possível código duplicado",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/.torre/evals/bakeoff-20250824-105852.json",
+      "smell": "Long file: 644 linhas de código",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/.torre/evals/bakeoff-20250824-105852.json",
+      "smell": "Magic numbers: 28 encontrados",
+      "status": "JUSTIFIED",
+      "reason": "Magic numbers em configurações, testes e scripts são aceitáveis",
+      "pattern": "Magic numbers"
+    },
+    {
+      "file": "Torre/.torre/evals/bakeoff-20250824-105852.json",
+      "smell": "Possível código duplicado",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/.torre/evals/bakeoff-20250824-110938.json",
+      "smell": "Long file: 644 linhas de código",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/.torre/evals/bakeoff-20250824-110938.json",
+      "smell": "Magic numbers: 28 encontrados",
+      "status": "JUSTIFIED",
+      "reason": "Magic numbers em configurações, testes e scripts são aceitáveis",
+      "pattern": "Magic numbers"
+    },
+    {
+      "file": "Torre/.torre/evals/bakeoff-20250824-110938.json",
+      "smell": "Possível código duplicado",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/.torre/evals/bakeoff-20250824-105156.json",
+      "smell": "Long file: 416 linhas de código",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/.torre/evals/bakeoff-20250824-105156.json",
+      "smell": "Magic numbers: 218 encontrados",
+      "status": "JUSTIFIED",
+      "reason": "Magic numbers em configurações, testes e scripts são aceitáveis",
+      "pattern": "Magic numbers"
+    },
+    {
+      "file": "Torre/.torre/evals/bakeoff-20250824-105156.json",
+      "smell": "Possível código duplicado",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/.torre/evals/bakeoff-20250824-105341.json",
+      "smell": "Long file: 620 linhas de código",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/.torre/evals/bakeoff-20250824-105341.json",
+      "smell": "Magic numbers: 27 encontrados",
+      "status": "JUSTIFIED",
+      "reason": "Magic numbers em configurações, testes e scripts são aceitáveis",
+      "pattern": "Magic numbers"
+    },
+    {
+      "file": "Torre/.torre/evals/bakeoff-20250824-105341.json",
+      "smell": "Possível código duplicado",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/.torre/evals/bakeoff-20250824-105622.json",
+      "smell": "Long file: 620 linhas de código",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/.torre/evals/bakeoff-20250824-105622.json",
+      "smell": "Magic numbers: 27 encontrados",
+      "status": "JUSTIFIED",
+      "reason": "Magic numbers em configurações, testes e scripts são aceitáveis",
+      "pattern": "Magic numbers"
+    },
+    {
+      "file": "Torre/.torre/evals/bakeoff-20250824-105622.json",
+      "smell": "Possível código duplicado",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/.torre/evals/bakeoff-20250824-104837.json",
+      "smell": "Long file: 419 linhas de código",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/.torre/evals/bakeoff-20250824-104837.json",
+      "smell": "Magic numbers: 27 encontrados",
+      "status": "JUSTIFIED",
+      "reason": "Magic numbers em configurações, testes e scripts são aceitáveis",
+      "pattern": "Magic numbers"
+    },
+    {
+      "file": "Torre/.torre/evals/bakeoff-20250824-104837.json",
+      "smell": "Possível código duplicado",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/.torre/evals/bakeoff-20250824-105231.json",
+      "smell": "Long file: 620 linhas de código",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/.torre/evals/bakeoff-20250824-105231.json",
+      "smell": "Magic numbers: 27 encontrados",
+      "status": "JUSTIFIED",
+      "reason": "Magic numbers em configurações, testes e scripts são aceitáveis",
+      "pattern": "Magic numbers"
+    },
+    {
+      "file": "Torre/.torre/evals/bakeoff-20250824-105231.json",
+      "smell": "Possível código duplicado",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/.torre/evals/bakeoff-20250824-105358.json",
+      "smell": "Long file: 620 linhas de código",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/.torre/evals/bakeoff-20250824-105358.json",
+      "smell": "Magic numbers: 27 encontrados",
+      "status": "JUSTIFIED",
+      "reason": "Magic numbers em configurações, testes e scripts são aceitáveis",
+      "pattern": "Magic numbers"
+    },
+    {
+      "file": "Torre/.torre/evals/bakeoff-20250824-105358.json",
+      "smell": "Possível código duplicado",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/.torre/evals/bakeoff-20250824-105315.json",
+      "smell": "Long file: 620 linhas de código",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/.torre/evals/bakeoff-20250824-105315.json",
+      "smell": "Magic numbers: 27 encontrados",
+      "status": "JUSTIFIED",
+      "reason": "Magic numbers em configurações, testes e scripts são aceitáveis",
+      "pattern": "Magic numbers"
+    },
+    {
+      "file": "Torre/.torre/evals/bakeoff-20250824-105315.json",
+      "smell": "Possível código duplicado",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/.torre/evals/bakeoff-20250824-105207.json",
+      "smell": "Long file: 620 linhas de código",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/.torre/evals/bakeoff-20250824-105207.json",
+      "smell": "Magic numbers: 32 encontrados",
+      "status": "JUSTIFIED",
+      "reason": "Magic numbers em configurações, testes e scripts são aceitáveis",
+      "pattern": "Magic numbers"
+    },
+    {
+      "file": "Torre/.torre/evals/bakeoff-20250824-105207.json",
+      "smell": "Possível código duplicado",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/.torre/evals/bakeoff-20250824-110018.json",
+      "smell": "Long file: 644 linhas de código",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/.torre/evals/bakeoff-20250824-110018.json",
+      "smell": "Magic numbers: 28 encontrados",
+      "status": "JUSTIFIED",
+      "reason": "Magic numbers em configurações, testes e scripts são aceitáveis",
+      "pattern": "Magic numbers"
+    },
+    {
+      "file": "Torre/.torre/evals/bakeoff-20250824-110018.json",
+      "smell": "Possível código duplicado",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/.torre/evals/bakeoff-20250824-105305.json",
+      "smell": "Long file: 620 linhas de código",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/.torre/evals/bakeoff-20250824-105305.json",
+      "smell": "Magic numbers: 27 encontrados",
+      "status": "JUSTIFIED",
+      "reason": "Magic numbers em configurações, testes e scripts são aceitáveis",
+      "pattern": "Magic numbers"
+    },
+    {
+      "file": "Torre/.torre/evals/bakeoff-20250824-105305.json",
+      "smell": "Possível código duplicado",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/.torre/evals/bakeoff-20250824-104830.json",
+      "smell": "Long file: 215 linhas de código",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/.torre/evals/bakeoff-20250824-104830.json",
+      "smell": "Magic numbers: 218 encontrados",
+      "status": "JUSTIFIED",
+      "reason": "Magic numbers em configurações, testes e scripts são aceitáveis",
+      "pattern": "Magic numbers"
+    },
+    {
+      "file": "Torre/.torre/evals/bakeoff-20250824-104830.json",
+      "smell": "Possível código duplicado",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/.torre/evals/bakeoff-20250824-105519.json",
+      "smell": "Long file: 620 linhas de código",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/.torre/evals/bakeoff-20250824-105519.json",
+      "smell": "Magic numbers: 27 encontrados",
+      "status": "JUSTIFIED",
+      "reason": "Magic numbers em configurações, testes e scripts são aceitáveis",
+      "pattern": "Magic numbers"
+    },
+    {
+      "file": "Torre/.torre/evals/bakeoff-20250824-105519.json",
+      "smell": "Possível código duplicado",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/pipeline.md",
+      "smell": "Long file: 543 linhas de código",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/pipeline.md",
+      "smell": "Magic numbers: 15 encontrados",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/blocos-partidos_rgpd.md",
+      "smell": "Long file: 246 linhas de código",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/relatorio.md",
+      "smell": "Magic numbers: 34 encontrados",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/treino.md",
+      "smell": "Long file: 566 linhas de código",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/treino.md",
+      "smell": "Magic numbers: 37 encontrados",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/curriculum/PLAN.md",
+      "smell": "Magic numbers: 12 encontrados",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/models/ARCHITECTURE.md",
+      "smell": "Long file: 269 linhas de código",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/models/ARCHITECTURE.md",
+      "smell": "Magic numbers: 7 encontrados",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/models/ARCHITECTURE.md",
+      "smell": "Deep nesting: 5 níveis",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/cli/bridge_spec.md",
+      "smell": "Long file: 325 linhas de código",
+      "status": "JUSTIFIED",
+      "reason": "Scripts, arquivos gerados e testes podem ser longos por natureza",
+      "pattern": "Long file"
+    },
+    {
+      "file": "Torre/cli/bridge_spec.md",
+      "smell": "Magic numbers: 21 encontrados",
+      "status": "JUSTIFIED",
+      "reason": "Magic numbers em configurações, testes e scripts são aceitáveis",
+      "pattern": "Magic numbers"
+    },
+    {
+      "file": "Torre/torre-llm/PHASE20_SUMMARY.md",
+      "smell": "Magic numbers: 8 encontrados",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/torre-llm/BADGE_COUNTER_SUMMARY.md",
+      "smell": "Magic numbers: 14 encontrados",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/torre-llm/INTEGRACAO_PLATAFORMA_TORRE.md",
+      "smell": "Long file: 227 linhas de código",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/torre-llm/INTEGRACAO_FORTALEZA.md",
+      "smell": "Magic numbers: 16 encontrados",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/torre-llm/GUIA_CURSOR_TORRE.md",
+      "smell": "Magic numbers: 8 encontrados",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/torre-llm/COMO_VERIFICAR_USO.md",
+      "smell": "Magic numbers: 6 encontrados",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/torre-llm/GRAFANA_METRICS_IMPLEMENTATION.md",
+      "smell": "Magic numbers: 6 encontrados",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/torre-llm/PATCH_CURSOR_TORRE.md",
+      "smell": "Magic numbers: 7 encontrados",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/torre-llm/TESTE_COMPARATIVO_FINAL.md",
+      "smell": "Magic numbers: 6 encontrados",
+      "status": "JUSTIFIED",
+      "reason": "Magic numbers em configurações, testes e scripts são aceitáveis",
+      "pattern": "Magic numbers"
+    },
+    {
+      "file": "Torre/relatorios/treino_G2_log.md",
+      "smell": "Magic numbers: 61 encontrados",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/relatorios/treino_G1_log.md",
+      "smell": "Magic numbers: 58 encontrados",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/relatorios/treino_G3_log.md",
+      "smell": "Magic numbers: 24 encontrados",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/data/SOURCES.md",
+      "smell": "Long file: 226 linhas de código",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/data/SOURCES.md",
+      "smell": "Magic numbers: 16 encontrados",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/reports/EVAL_CRITERIA.md",
+      "smell": "Long file: 272 linhas de código",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/reports/EVAL_CRITERIA.md",
+      "smell": "Magic numbers: 65 encontrados",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/torre-llm/evals/audit_phase13_14.md",
+      "smell": "Magic numbers: 11 encontrados",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "Torre/torre-llm/tests/README.md",
+      "smell": "Magic numbers: 24 encontrados",
+      "status": "JUSTIFIED",
+      "reason": "Magic numbers em configurações, testes e scripts são aceitáveis",
+      "pattern": "Magic numbers"
+    },
+    {
+      "file": "Torre/torre-llm/docs/TORRE_SPEC.md",
+      "smell": "Magic numbers: 17 encontrados",
+      "status": "JUSTIFIED",
+      "reason": "Magic numbers em configurações, testes e scripts são aceitáveis",
+      "pattern": "Magic numbers"
+    },
+    {
+      "file": "Torre/pins/_deprecated/ENGINEER_PIN_v3_CORE.md",
+      "smell": "Magic numbers: 8 encontrados",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "core/orquestrador/engineer_cli.py",
+      "smell": "Long file: 425 linhas de código",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "core/orquestrador/engineer_cli.py",
+      "smell": "Deep nesting: 5 níveis",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "core/orquestrador/sop_cli.py",
+      "smell": "Long file: 686 linhas de código",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "core/orquestrador/sop_cli.py",
+      "smell": "Magic numbers: 7 encontrados",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "core/orquestrador/sop_cli.py",
+      "smell": "Deep nesting: 8 níveis",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "core/scripts/validator.py",
+      "smell": "Long file: 758 linhas de código",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "core/scripts/validator.py",
+      "smell": "Deep nesting: 6 níveis",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "package-lock.json",
+      "smell": "Long file: 1365 linhas de código",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "package-lock.json",
+      "smell": "Magic numbers: 26 encontrados",
+      "status": "JUSTIFIED",
+      "reason": "Magic numbers em configurações, testes e scripts são aceitáveis",
+      "pattern": "Magic numbers"
+    },
+    {
+      "file": "ordem/ordens/engineer.in.yaml",
+      "smell": "Long file: 448 linhas de código",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "ordem/ordens/engineer.in.yaml",
+      "smell": "Magic numbers: 27 encontrados",
+      "status": "JUSTIFIED",
+      "reason": "Magic numbers em configurações, testes e scripts são aceitáveis",
+      "pattern": "Magic numbers"
+    },
+    {
+      "file": "ordem/ordens/sop.in.yaml",
+      "smell": "Magic numbers: 6 encontrados",
+      "status": "JUSTIFIED",
+      "reason": "Magic numbers em configurações, testes e scripts são aceitáveis",
+      "pattern": "Magic numbers"
+    },
+    {
+      "file": "factory/pins/_deprecated/engineer_executor.py",
+      "smell": "Long file: 923 linhas de código",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "factory/pins/_deprecated/engineer_executor.py",
+      "smell": "Magic numbers: 11 encontrados",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "factory/pins/_deprecated/engineer_executor.py",
+      "smell": "Deep nesting: 8 níveis",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "factory/pins/_deprecated/cli_gatekeeper_torre.py",
+      "smell": "Long file: 295 linhas de código",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "factory/pins/_deprecated/cli_gatekeeper_torre.py",
+      "smell": "Magic numbers: 8 encontrados",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "factory/pins/_deprecated/cli_gatekeeper_torre.py",
+      "smell": "Deep nesting: 6 níveis",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "factory/pins/_deprecated/PIN_TORRE_v2.md",
+      "smell": "Magic numbers: 6 encontrados",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "relatorios/para_estado_maior/pins_inventory_sop.json",
+      "smell": "Magic numbers: 19 encontrados",
+      "status": "JUSTIFIED",
+      "reason": "Magic numbers em configurações, testes e scripts são aceitáveis",
+      "pattern": "Magic numbers"
+    },
+    {
+      "file": "relatorios/autoexec_log.md",
+      "smell": "Magic numbers: 11 encontrados",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "relatorios/torre_setup.md",
+      "smell": "Magic numbers: 28 encontrados",
+      "status": "JUSTIFIED",
+      "reason": "Magic numbers em configurações, testes e scripts são aceitáveis",
+      "pattern": "Magic numbers"
+    },
+    {
+      "file": "relatorios/respostas_llm_engenheira.md",
+      "smell": "Long file: 322 linhas de código",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "relatorios/respostas_llm_engenheira.md",
+      "smell": "Magic numbers: 11 encontrados",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "docs/ENGINEER_PIN.md",
+      "smell": "Magic numbers: 8 encontrados",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    },
+    {
+      "file": "logs/mitigacao_incongruencias.md",
+      "smell": "Magic numbers: 6 encontrados",
+      "status": "DOCUMENTED",
+      "reason": "Smell documentado - não crítico para operação",
+      "priority": "low"
+    }
+  ],
+  "total_smells": 292,
+  "justified_count": 85,
+  "documented_count": 207,
+  "cross_ecosystem_conflicts": [
+    {
+      "project": "Torre",
+      "languages": [
+        "bash",
+        "json",
+        "python",
+        "yaml",
+        "typescript",
+        "javascript",
+        "markdown"
+      ],
+      "severity": "medium"
+    },
+    {
+      "project": "core",
+      "languages": [
+        "bash",
+        "json",
+        "python",
+        "yaml",
+        "markdown"
+      ],
+      "severity": "medium"
+    }
+  ]
+}

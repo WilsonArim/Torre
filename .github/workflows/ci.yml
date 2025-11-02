@@ -10,6 +10,21 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2  # Precisamos de pelo menos 2 commits para comparar
+      - name: 🔒 Validate Constitution immutability
+        run: |
+          if git diff --name-only HEAD~1 HEAD 2>/dev/null | grep -q "core/sop/constituição.yaml"; then
+            echo "⚠️ ERRO CRÍTICO: Tentativa de modificação da Constituição detectada!"
+            echo "A Constituição da FÁBRICA é imutável e não pode ser alterada."
+            echo "Nenhum agente, humano ou LLM pode modificar core/sop/constituição.yaml"
+            exit 1
+          fi
+          echo "✅ Constituição intacta (imutável)"
+      - name: ❌ Block legacy pipeline scripts
+        run: |
+          if git diff --name-only HEAD~1 | grep -E '^ordem/|^deprecated/ordem/'; then
+            echo "Uso/modificação de scripts legados de pipeline é proibido."; exit 1; fi
       - name: Set up Python
         uses: actions/setup-python@v5
         with:

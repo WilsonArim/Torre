@@ -1,0 +1,26 @@
+language: java
+version: ">=11"
+toolchain:
+  - openjdk
+  - maven
+frameworks:
+  - optional: [spring, quarkus]
+dependencies:
+  - pom.xml
+structure:
+  - src/main/java/
+  - src/test/java/
+lint:
+  - checkstyle
+  - spotbugs
+  - pmd
+commands:
+  - mvn clean verify
+  - mvn checkstyle:check
+  - mvn spotbugs:check
+build_container: "docker.io/library/openjdk:17"
+minimum_coverage: 80
+archetype_policy:
+  diff_minimum: true
+  rollback_ready: true
+  patch_review: true

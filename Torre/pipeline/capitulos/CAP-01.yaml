@@ -1,0 +1,16 @@
+id: CAP-01
+nome: "Fundação Constitucional"
+gates_alvo: [G0]
+modulos: ["FUNDAÇÃO"]
+objetivo: "Compreender 100% Constituição e Tríade"
+tarefas:
+  - "Estudar ART-01 a ART-10 (core/sop/constituição.yaml)"
+  - "Mapear papéis e estruturas"
+  - "Testar rastreabilidade com casos edge"
+checkpoint: "Checkpoint 0: Teste de compreensão 100%"
+deliverables:
+  - "Relatório de compreensão constitucional"
+  - "Mapa de estrutura da FÁBRICA"
+métricas:
+  - "Precisão: 100% de identificação ARTs"
+  - "Cobertura: Todos papéis e diretórios mapeados"

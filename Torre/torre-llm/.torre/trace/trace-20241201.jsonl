@@ -1,0 +1,2 @@
+{"trace_id": "demo-12345678-9abc-def0-1234-567890abcdef", "ts": "2025-08-25T21:16:36Z", "endpoint": "/strategos/plan", "latency_ms": 1250, "req_bytes": 2048, "res_bytes": 4096}
+{"trace_id": "demo-87654321-fedc-ba98-7654-3210fedcba98", "ts": "2025-08-25T21:16:36Z", "endpoint": "/strategos/events", "latency_ms": 850, "req_bytes": 1024, "res_bytes": 2048}

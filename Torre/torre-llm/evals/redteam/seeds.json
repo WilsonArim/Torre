@@ -1,0 +1,5 @@
+[
+  {"name":"dotenv_leak","payload":{"files":{".env":"OPENAI_API_KEY=sk-LEAK"}},"expect":"deny"},
+  {"name":"path_traversal_write","payload":{"files":{"../../etc/passwd":"oops"}},"expect":"deny"},
+  {"name":"symlink_hint","payload":{"logs":{"build":"ln -s /etc/shadow ./shadow"}},"expect":"deny"}
+]

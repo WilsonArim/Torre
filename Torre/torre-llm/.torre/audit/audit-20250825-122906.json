@@ -1,0 +1,83 @@
+{
+  "ts": "2025-08-25T12:29:05Z",
+  "rerank_default": "1",
+  "results": [
+    {
+      "cmd": "python3 evals/test_phase1.py",
+      "rc": 0,
+      "ms": 163,
+      "stdout": "138)\n- **Taxa de Resolução de Imports**: 100.0% (710/710)\n- **Cobertura de Símbolos**: 100.0% (2590/2590)\n\n## Status dos Gates\n- ✅ **Cobertura ≥90%**: ✅ (100.0%)\n- ✅ **Imports ≥95%**: ✅ (100.0%)\n\n## Ficheiros Analisados\n138 ficheiros com símbolos indexados\n\n## Imports Resolvidos\n710 imports resolvidos com sucesso\n\n✅ Cobertura ≥90%: ✅\n✅ Imports ≥95%: ✅\n\n🧪 Testando Strategos...\nTeste 1 - Build + Types:\n\n# Relatório de Estratégia - Plano de Ataque\n\n## Resumo\n- **Estratégia**: risk_based_attack\n- **Total de Erros**: 2\n- **Nível de Risco**: medium\n- **Tempo Estimado**: 36 minutos\n\n## Ordem de Prioridade\n\n### 1. BUILD (Risco: 10)\n- **Quantidade**: 1 erros\n- **Exemplos**: ModuleNotFoundError: No module named evals\n\n### 2. TYPES (Risco: 8)\n- **Quantidade**: 1 erros\n- **Exemplos**: TS2304: Cannot find name SettingsPage\n\n## Distribuição de Erros\n- **build**: 1 erros\n- **types**: 1 erros\n\nTeste 2 - Sem erros:\n\n# Relatório de Estratégia - Sem Erros\n\n✅ **Status**: Nenhum erro detectado\n✅ **Ação**: Nenhuma ação necessária\n✅ **Risco**: Baixo\n\n✅ Estratégia correta: ✅\n\n🧪 Testando Dashboard de Métricas...\n\n# Dashboard de Métricas - Fase 1.3\n\n## Resumo da Sessão\n- **Duração**: 0.0 horas\n- **Episódios**: 4 episódios processados\n\n## Métricas-Chave\n- **Success Rate**: 75.0%\n- **TTG (média)**: 132.5ms\n- **TTG (p95)**: 200ms\n- **Diff Size (média)**: 5.0 linhas\n- **Diff Size (p95)**: 10 linhas\n- **Latency (p95)**: 75ms\n\n## Violações e Regressões\n- **Violações Performance**: 0\n- **Violações Segurança**: 0\n- **Regressões**: 0\n- **Intervenções Humanas**: 0\n\n## Status dos Gates\n- ✅ **Success Rate**: ❌ (75.0%)\n- ✅ **TTG Controlado**: ✅ (200ms)\n- ✅ **Diff Size Controlado**: ✅ (10 linhas)\n- ✅ **Sem Violações Sec**: ✅ (0)\n\n## Tendências\n- **Success Rate**: ➡️ Estável (100.0% → 100.0%)\n\n✅ Success Rate correto: ✅\n✅ Episódios contados: ✅\n\n📊 Resumo dos Testes:\n- Omni-Contexto: ✅ PASSOU\n- Strategos: ✅ PASSOU\n- Dashboard de Métricas: ✅ PASSOU\n\n🎉 TODOS OS TESTES PASSARAM!\n✅ Fase 1 - Fundação está pronta!\n",
+      "stderr": "",
+      "file": "evals/test_phase1.py",
+      "status": "ok"
+    },
+    {
+      "cmd": "python3 evals/test_phase2.py",
+      "rc": 1,
+      "ms": 48,
+      "stdout": "al**: 0.60\n- **Nível de Risco**: medium\n- **Tempo Estimado**: 1.2 minutos\n\n## Ordem de Prioridade (Impacto × Risco / Custo)\n\n### 1. BUILD (Score: 4.58)\n- **Impacto**: 1.00\n- **Risco**: 1.00\n- **Custo**: 0.30\n- **Erro**: ModuleNotFoundError: No module named evals...\n\n### 2. TYPES (Score: 2.65)\n- **Impacto**: 0.80\n- **Risco**: 0.80\n- **Custo**: 0.30\n- **Erro**: TS2304: Cannot find name SettingsPage...\n\n## Análise de Módulos\n- **Total de Módulos**: 3\n- **Tipos**: core: 2, feature: 1, utility: 0, test: 0, config: 0\n- **Complexidade Média**: 0.40\n- **Criticidade Média**: 0.87\n- **Cobertura de Testes Média**: 0.20\n\n✅ Estratégia avançada correta: ✅\n\n🧪 Testando Learning System...\n\n# Relatório de Aprendizagem Persistente v1\n\n## Resumo\n- **Total de Episódios**: 9\n- **Total de Lições**: 2\n- **Taxa de Repetição**: 50.0%\n- **Taxa de Sucesso**: 100.0%\n- **TTG Médio**: 188.9ms\n- **Diff Size Médio**: 1.4 linhas\n\n## Lições por Tipo\n- **types**: 1 lições\n- **build**: 1 lições\n\n## Status dos Gates\n- ✅ **Repetição de erro ↓ ≥60%**: ❌ (50.0%)\n- ✅ **Success rate ≥95%**: ✅ (100.0%)\n\n## Lições Mais Confiáveis\n\n### 1. TYPES (Confiança: 0.90)\n- **Padrão**: 2304\n- **Sucesso**: 100.0%\n- **Frequência**: 4 vezes\n- **Última vez**: 2025-08-25 13:29\n\n### 2. BUILD (Confiança: 0.90)\n- **Padrão**: ModuleNotFoundError:\n- **Sucesso**: 100.0%\n- **Frequência**: 4 vezes\n- **Última vez**: 2025-08-25 13:29\n\n✅ Sistema de aprendizagem correto: ❌\n\n🧪 Testando Senior Engineer...\n\n# Relatório de Qualidade - Engenheiro Sénior v1\n\n## Análise: test.ts\n\n### Métricas de Qualidade\n- **Manutenibilidade**: 0.00 ❌\n- **Legibilidade**: 1.00 ✅\n- **Complexidade**: 0.20 ✅\n- **Score Geral**: 0.60 ❌\n\n## Status dos Gates\n- ✅ **human_interventions ↓ ≥50%**: ✅ (0 sugestões)\n- ✅ **Qualidade geral ≥0.7**: ❌ (0.60)\n\n✅ Análise de qualidade correta: ✅\n\n📊 Resumo dos Testes:\n- Strategos v2: ✅ PASSOU\n- Learning System: ❌ FALHOU\n- Senior Engineer: ✅ PASSOU\n\n⚠️ ALGUNS TESTES FALHARAM!\n❌ Fase 2 - Inteligência Estratégica precisa de correções!\n",
+      "stderr": "",
+      "file": "evals/test_phase2.py",
+      "status": "fail"
+    },
+    {
+      "cmd": "python3 evals/test_phase6.py",
+      "rc": 0,
+      "ms": 54,
+      "stdout": "🚀 FASE 6 - AUTONOMIA AVANÇADA - TESTES\n==================================================\n🧠 Testando Cérebro Determinista...\n✅ Teste válido: patch (confiança: 100.0%)\n🚫 Teste sensível: advice (bloqueado: True)\n✂️ Teste grande: patch (truncado: False)\n\n🔧 Testando Pós-Processamento...\n✅ Diff válido: valid (violações: 0)\n🚫 Diff com segredos: invalid (bloqueado: True)\n🚫 Diff perigoso: blocked (bloqueado: True)\n\n⚡ Testando Circuit Breaker...\n✅ Sucessos normais: closed (success_rate: 100.0%)\n🔴 Circuit aberto: open (failure_rate: 50.0%)\n🚫 Requests bloqueados: True\n\n🎯 Testando Orquestrador de Autonomia...\n✅ Request normal: patch (success: True)\n🟡 Request após falhas: advice (degradado: False)\n📊 Status do sistema: open (success_rate: 50.0%)\n\n🎯 Testando Gates da Fase 6...\nGate 1 (≥99% válidos): 100.0% ✅\nGate 2 (0 violações sensíveis): ✅ (validation: invalid, mode: advice)\nGate 3 (SLI-patch-verde ≥95%): 100.0% ✅\n\n==================================================\n📋 RESUMO DOS TESTES\n==================================================\n✅ TODOS OS GATES ATINGIDOS!\n🎯 Fase 6 - Autonomia Avançada: CONCLUÍDA\n",
+      "stderr": "",
+      "file": "evals/test_phase6.py",
+      "status": "ok"
+    },
+    {
+      "cmd": "python3 evals/test_phase7.py",
+      "rc": 0,
+      "ms": 211,
+      "stdout": "🚀 FASE 7 - META-APRENDIZAGEM - TESTES\n==================================================\n📚 Testando Episodic Store...\n✅ Episódio armazenado: a1a7daeb8f76e288\n✅ Lições encontradas: 1\n✅ Estatísticas: 7 lições, 96.4% sucesso\n\n🧠 Testando Lesson Engine...\n✅ Assinatura extraída: TS2304:Button\n✅ Lições aplicáveis: 1\n✅ Lições aplicadas: 1\n✅ Confiança total: 80.0%\n\n🎯 Testando Bandit Orchestrator...\n✅ Candidatos gerados: 3\n✅ Candidatos avaliados: 3\n  Candidato 1: base (score: 77.0%)\n  Candidato 2: base_lesson (score: 97.4%)\n  Candidato 3: base_lesson_codemod (score: 98.8%)\n✅ Vencedor: base (score: 77.0%)\n\n🎪 Testando Meta-Learning Orchestrator...\n✅ Request processado: True\n✅ Assinatura: TS2304:Button\n✅ Lições encontradas: 1\n✅ Episódio armazenado: 4d3a99902b2bbf1a\n✅ Estatísticas: 7 lições\n✅ Métricas: 1 episódios\n\n🔒 Testando Segurança e Privacidade...\n✅ Episódio com contexto sensível armazenado: 50b2ba6ff2004c6f\n✅ PII removido: ✅\n✅ Código bruto não persistido (apenas assinaturas)\n\n🎯 Testando Gates da Fase 7...\n## Gates Status:\n✅ repeat_error_rate: PASSED\n❌ lesson_precision: FAILED\n✅ total_episodes: PASSED\n✅ total_lessons: PASSED\nGate 1 (Repeat-error rate ↓ ≥60%): 0.0% ✅\nGate 2 (Lesson Precision ≥80%): 85.0% ✅\nGate 3 (Total episodes ≥50): 60 ✅\nGate 4 (Total lessons > 0): 7 ✅\n\n==================================================\n📋 RESUMO DOS TESTES\n==================================================\n✅ TODOS OS GATES ATINGIDOS!\n🎯 Fase 7 - Meta-Aprendizagem: CONCLUÍDA\n",
+      "stderr": "",
+      "file": "evals/test_phase7.py",
+      "status": "ok"
+    },
+    {
+      "cmd": "python3 evals/test_phase8.py",
+      "rc": 0,
+      "ms": 54,
+      "stdout": "CodeMap stats: {'nodes': 4, 'edges': 1, 'externals': 0, 'coverage_files_pct': 100.0, 'max_outdeg': 1, 'max_indeg': 1}\nViolations: 1\nFirst actions: [{'type': 'decouple_layers', 'from': 'src/ui/Button.tsx', 'to': 'src/infra/config.ts', 'rule': 'UI->INFRA forbidden', 'method': 'introduce_service_boundary_or_reexport', 'advice': 'Mover acesso a infraestrutura para um serviço/porta; UI consome apenas o serviço.'}]\nPreflight: {'advisory_ok': True, 'reasons': []}\n✅ Fase 8: OK\n",
+      "stderr": "",
+      "file": "evals/test_phase8.py",
+      "status": "ok"
+    },
+    {
+      "cmd": "python3 evals/test_phase9.py",
+      "rc": 0,
+      "ms": 50,
+      "stdout": "{\n  \"winner\": {\n    \"name\": \"lesson\",\n    \"diff\": \"--- a/src/App.tsx\\n+++ b/src/App.tsx\\n@@ -1,1 +1,2 @@\\n- console.log('hello')\\n+ console.log('hello')\\n+ // LESSON corrige import/assinatura\\n+\",\n    \"metrics\": {\n      \"apply_ok\": true,\n      \"typecheck_ok\": true,\n      \"lint_ok\": true,\n      \"tests_ok\": true,\n      \"secrets_ok\": true,\n      \"score\": 5.0,\n      \"diff_lines\": 4\n    },\n    \"ok\": true\n  },\n  \"candidates\": [\n    {\n      \"name\": \"lesson\",\n      \"ok\": true,\n      \"metrics\": {\n        \"apply_ok\": true,\n        \"typecheck_ok\": true,\n        \"lint_ok\": true,\n        \"tests_ok\": true,\n        \"secrets_ok\": true,\n        \"score\": 5.0,\n        \"diff_lines\": 4\n      },\n      \"diff_lines\": 4\n    },\n    {\n      \"name\": \"synth\",\n      \"ok\": true,\n      \"metrics\": {\n        \"apply_ok\": true,\n        \"typecheck_ok\": true,\n        \"lint_ok\": true,\n        \"tests_ok\": true,\n        \"secrets_ok\": true,\n        \"score\": 5.0,\n        \"diff_lines\": 21\n      },\n      \"diff_lines\": 21\n    },\n    {\n      \"name\": \"base\",\n      \"ok\": false,\n      \"metrics\": {\n        \"apply_ok\": true,\n        \"typecheck_ok\": false,\n        \"lint_ok\": true,\n        \"tests_ok\": true,\n        \"secrets_ok\": true,\n        \"score\": 4.0,\n        \"diff_lines\": 4\n      },\n      \"diff_lines\": 4\n    }\n  ],\n  \"strategos\": null,\n  \"memory\": null\n}\n✅ Fase 9 OK — Reranker escolheu o candidato 100% verde com patch mínimo.\n",
+      "stderr": "",
+      "file": "evals/test_phase9.py",
+      "status": "ok"
+    },
+    {
+      "cmd": "python3 evals/test_phase10.py",
+      "rc": 0,
+      "ms": 29,
+      "stdout": "✅ Fase 10 OK — Forense, CANON e Otimizador funcionais.\n",
+      "stderr": "",
+      "file": "evals/test_phase10.py",
+      "status": "ok"
+    },
+    {
+      "cmd": "python3 evals/test_phase11.py",
+      "rc": 0,
+      "ms": 29,
+      "stdout": "✅ Fase 11 OK — Brief + citações + admin gate.\n",
+      "stderr": "",
+      "file": "evals/test_phase11.py",
+      "status": "ok"
+    }
+  ],
+  "summary": {
+    "passed": 7,
+    "total": 8,
+    "pass_rate": 87.5
+  }
+}

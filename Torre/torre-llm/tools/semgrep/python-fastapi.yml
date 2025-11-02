@@ -1,0 +1,7 @@
+rules:
+  - id: fastapi-path-join
+    languages: [python]
+    message: "Use os.path.join or pathlib for path concatenation (auto-fix)"
+    pattern: os.path.dirname(__file__) + "/$SUF"
+    fix: os.path.join(os.path.dirname(__file__), "$SUF")
+    severity: WARNING

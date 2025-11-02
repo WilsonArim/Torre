@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste Torre Models</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        select { margin: 10px; padding: 5px; min-width: 200px; }
+        .container { margin: 20px 0; }
+    </style>
+</head>
+<body>
+    <h1>🏰 Teste dos Modelos Torre</h1>
+    
+    <div class="container">
+        <h3>Select com GPT:</h3>
+        <select id="modelo-gpt">
+            <option value="gpt-4">GPT-4</option>
+            <option value="gpt-3.5">GPT-3.5</option>
+        </select>
+    </div>
+
+    <div class="container">
+        <h3>Select sem GPT:</h3>
+        <select id="outro-modelo">
+            <option value="claude">Claude</option>
+            <option value="gemini">Gemini</option>
+        </select>
+    </div>
+
+    <button onclick="adicionarTorre()">🏰 Adicionar Torres</button>
+    <button onclick="limparTorres()">🗑️ Limpar Torres</button>
+
+    <script>
+        function adicionarTorre() {
+            console.log('🏰 Adicionando Torre...');
+
+            const torreModels = [
+                {id: 'torre-auto', name: '🏰 Torre Auto'},
+                {id: 'torre-base', name: '🏰 Torre Base'},
+                {id: 'torre-advice', name: '🏰 Torre Advice'},
+                {id: 'torre-review', name: '🏰 Torre Review'},
+                {id: 'torre-explain', name: '🏰 Torre Explain'}
+            ];
+
+            document.querySelectorAll('select').forEach(select => {
+                if (select.options.length > 0 && select.options[0].text.includes('GPT')) {
+                    // Verifica se já tem Torres para não duplicar
+                    const jaTemTorre = Array.from(select.options).some(opt => opt.value.includes('torre-'));
+                    
+                    if (!jaTemTorre) {
+                        torreModels.forEach(model => {
+                            const option = document.createElement('option');
+                            option.value = model.id;
+                            option.textContent = model.name;
+                            select.appendChild(option);
+                        });
+                        console.log('🏰 Torres adicionadas ao select:', select.id);
+                    } else {
+                        console.log('🏰 Torres já existem no select:', select.id);
+                    }
+                }
+            });
+        }
+
+        function limparTorres() {
+            document.querySelectorAll('select').forEach(select => {
+                const options = Array.from(select.options);
+                options.forEach(option => {
+                    if (option.value.includes('torre-')) {
+                        select.removeChild(option);
+                    }
+                });
+            });
+            console.log('🗑️ Torres removidas');
+        }
+    </script>
+</body>
+</html>

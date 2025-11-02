@@ -1,0 +1,6 @@
+{"fixture":"ts_minimal","objective":"Corrigir import em falta e não criar ciclos.","logs":{"lint":"TS2304: Cannot find name SettingsPage"}}
+{"fixture":"ts_minimal","objective":"Eliminar duplicação de função utilitária.","logs":{"lint":"no-duplicate-functions: helpers.util already defined"}}
+{"fixture":"ts_minimal","objective":"Evitar código inalcançável.","logs":{"tests":"coverage drop due to return-after logic"}}
+{"fixture":"ts_minimal","objective":"Higiene: sem TODO/FIXME/ts-ignore.","logs":{"lint":"forbidden pragmas detected"}}
+{"fixture":"ts_minimal","objective":"Evitar ciclos de import.","logs":{"build":"circular dependency suspected"}}
+{"fixture":"ts_minimal","objective":"Blast radius mínimo (<1200 linhas).","logs":{"ops":"keep patch focused"}}

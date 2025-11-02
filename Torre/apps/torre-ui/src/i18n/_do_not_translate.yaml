@@ -1,0 +1,20 @@
+---
+# Termos que NÃO devem ser traduzidos em nenhum idioma.
+- patch
+- diff
+- dry-run
+- lint
+- build
+- README
+- pipeline
+- tactic.md
+- report.md
+- Gatekeeper
+- Haystack
+- Advisor
+- workspace
+- repo
+- CI
+- API
+- cache
+- logs

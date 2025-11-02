@@ -1,0 +1,14 @@
+{
+  "root": "/Users/wilsonarim/CURSOR LOCAL/Torre",
+  "files_indexed": 2,
+  "files_with_symbols": 2,
+  "symbols": 2,
+  "by_file": {
+    "/Users/wilsonarim/CURSOR LOCAL/Torre/src/components/SettingsPage.tsx": [
+      "SettingsPage"
+    ],
+    "/Users/wilsonarim/CURSOR LOCAL/Torre/src/components/TestComponent.tsx": [
+      "TestComponent"
+    ]
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "order_id": "9a89e87e-1f62-44e9-a56b-5912d937e355",
+  "timestamp": "2025-11-01T13:00:00Z",
+  "status": "PASS",
+  "blocked_reason": null,
+  "constraints_checked": [
+    "Existência de sbom.json: ✔️",
+    "Existência de pipeline_gate_input.json: ✔️",
+    "pipeline_ok==true: ✔️",
+    "coverage.xml presente: ✔️"
+  ],
+  "artifacts_analyzed": [
+    "relatorios/relatorio_sop.md",
+    "relatorios/pipeline_gate_input.json",
+    "relatorios/sbom.json",
+    "relatorios/coverage.xml",
+    "relatorios/rag_smoke.md"
+  ],
+  "refs": [
+    "ART-04: Verificabilidade",
+    "ART-07: Transparência",
+    "ART-09: Evidência",
+    "ART-10: Compliance"
+  ],
+  "steps_executed": [
+    "Validar todos artefatos obrigatórios",
+    "Verificar métricas e conformidade",
+    "Emitir parecer PASS"
+  ],
+  "escalation": null,
+  "progresso_capitulo": "3/5",
+  "sig": "Gatekeeper (assinatura automatizada)",
+  "emissao": "2025-11-01T13:00:00Z"
+}

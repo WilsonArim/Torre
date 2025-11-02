@@ -1,0 +1,128 @@
+{
+  "timestamp": "2025-11-01T00:19:47.311293Z",
+  "agente": "ENGENHEIRO-TORRE",
+  "order_id": "b18c87e2-0cbe-49ac-ada2-6136cea5e1b2",
+  "arquivos_analisados": [
+    "core/orquestrador/cli.py",
+    "core/scripts/validator.py",
+    "core/scripts/plugins/semgrep.py",
+    "core/scripts/plugins/cov.py",
+    "core/scripts/plugins/sbom.py",
+    "core/scripts/plugins/trivy.py",
+    "core/scripts/plugins/bandit.py",
+    "core/scripts/plugins/junit.py",
+    "core/scripts/plugins/licenses.py",
+    "core/scripts/plugins/npm_audit.py"
+  ],
+  "dependencias": {
+    "cli.py": {
+      "imports": [
+        "import argparse",
+        "import json",
+        "import os",
+        "import shutil",
+        "import subprocess",
+        "import sys",
+        "from datetime import datetime",
+        "from pathlib import Path",
+        "import re",
+        "import yaml  # type: ignore",
+        "import openai  # type: ignore",
+        "import sys, re, json"
+      ],
+      "funcoes": [
+        "def run(cmd: list[str], cwd: Path | None = None) -> int:",
+        "def cmd_init(dest: Path) -> None:",
+        "def cmd_sync(proj_path: Path) -> None:",
+        "def cmd_validate(proj_path: Path) -> int:",
+        "def cmd_report(proj_path: Path) -> None:",
+        "def _simple_yaml_list(val: str):",
+        "def yload(p: Path):",
+        "def ydump(p: Path, data: dict) -> None:",
+        "def cmd_gen_pipeline() -> None:",
+        "def cmd_validate_pipeline() -> int:"
+      ],
+      "dependencias_externas": [
+        "import json",
+        "import subprocess",
+        "import yaml  # type: ignore",
+        "import sys, re, json"
+      ]
+    },
+    "validator.py": {
+      "imports": [
+        "import json",
+        "import os",
+        "import subprocess",
+        "import sys",
+        "from dataclasses import dataclass",
+        "from datetime import datetime",
+        "from pathlib import Path",
+        "from typing import Any, Dict, List, Optional",
+        "import xml.etree.ElementTree as ET",
+        "import yaml  # type: ignore"
+      ],
+      "funcoes": [
+        "def read_yaml(path: Path) -> Dict[str, Any]:",
+        "def parse_coverage(coverage_xml: Path) -> float:",
+        "def load_json(path: Path) -> Any:",
+        "def find_junit_xml() -> Optional[Path]:",
+        "def eval_junit(junit_path: Optional[Path]) -> MetricResult:",
+        "def eval_semgrep(sarif_path: Path, blocking_levels: List[str]) -> MetricResult:",
+        "def eval_bandit(bandit_path: Path, min_level: str) -> MetricResult:",
+        "def eval_npm_audit(audit_path: Path) -> MetricResult:",
+        "def eval_trivy(trivy_path: Path, block_levels: List[str]) -> MetricResult:",
+        "def eval_sbom(sbom_path: Path) -> MetricResult:"
+      ],
+      "dependencias_externas": [
+        "import json",
+        "import xml.etree.ElementTree as ET",
+        "import yaml  # type: ignore"
+      ]
+    },
+    "plugins": {
+      "lista": [
+        "semgrep.py",
+        "cov.py",
+        "sbom.py",
+        "trivy.py",
+        "bandit.py",
+        "junit.py",
+        "licenses.py",
+        "npm_audit.py"
+      ],
+      "total": 8
+    }
+  },
+  "fluxos_principais": [
+    {
+      "nome": "Validação SOP",
+      "entrada": "leis.yaml, exceptions.yaml, artefactos",
+      "saida": "relatorio_sop.md, sop_status.json",
+      "componentes": [
+        "validator.py",
+        "plugins/*"
+      ]
+    },
+    {
+      "nome": "Pipeline Validation",
+      "entrada": "superpipeline.yaml",
+      "saida": "pipeline_audit.json",
+      "componentes": [
+        "cli.py (cmd_validate_pipeline)"
+      ]
+    }
+  ],
+  "casos_uso": [
+    {
+      "tipo": "validação",
+      "descricao": "Validar coverage, SBOM, semgrep, bandit",
+      "componente": "validator.py"
+    },
+    {
+      "tipo": "análise",
+      "descricao": "Detectar dependências faltantes e ciclos",
+      "componente": "cli.py (cmd_validate_pipeline)"
+    }
+  ]
+}

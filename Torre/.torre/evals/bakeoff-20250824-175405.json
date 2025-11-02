@@ -1,0 +1,22 @@
+{
+  "ts": "20250824-175405",
+  "dataset": "fortaleza-llm/evals/datasets/strategic.sample.jsonl",
+  "providers": {
+    "our_llm_cli": {
+      "success_rate": 100.0,
+      "diff_size_mean": 1.0,
+      "diff_size_p95": 1,
+      "latency_p95_ms": 66,
+      "count": 6,
+      "violations_samples": []
+    },
+    "claude": {
+      "success_rate": 100.0,
+      "diff_size_mean": 1.0,
+      "diff_size_p95": 1,
+      "latency_p95_ms": 0,
+      "count": 6,
+      "violations_samples": []
+    }
+  }
+}

@@ -1,0 +1,34 @@
+language: python
+version: ">=3.8"
+toolchain:
+  - python3
+  - pip
+  - venv
+frameworks:
+  - optional: [fastapi, django, flask]
+dependencies:
+  - pyproject.toml
+  - requirements.txt
+structure:
+  - src/
+  - tests/
+  - setup.cfg
+  - setup.py (opcional)
+lint:
+  - ruff
+  - black
+  - mypy
+commands:
+  - pytest
+  - ruff check src/
+  - black --check src/
+  - mypy src/
+golden_files:
+  - tests/test_*.py
+  - src/**/*.py
+build_container: "docker.io/library/python:3.11"
+minimum_coverage: 80
+archetype_policy:
+  diff_minimum: true
+  rollback_ready: true
+  patch_review: true

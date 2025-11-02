@@ -1,0 +1,17 @@
+rules:
+  - id: ts-missing-react-import
+    languages: [typescript, javascript]
+    message: "Add missing React import (auto-fix)"
+    pattern: |
+      export default function $COMP($ARGS...) { ... }
+    fix: |
+      import React from 'react';
+      export default function $COMP($ARGS...) { ... }
+    severity: INFO
+
+  - id: fetch-no-unsafe-http
+    languages: [typescript, javascript]
+    message: "Use https in fetch URLs"
+    pattern: fetch("http://$HOST/$PATH", ...)
+    fix: fetch("https://$HOST/$PATH", ...)
+    severity: WARNING

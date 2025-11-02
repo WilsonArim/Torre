@@ -1,0 +1,18 @@
+id: CAP-05
+nome: "Auditoria, Integração e Operação Real"
+gates_alvo: [G4]
+modulos: ["AUDITORIA"]
+objetivo: "Auditar sistema, pipelines e operar integrado ao Estado-Maior e Gatekeeper"
+tarefas:
+  - "Executar auditorias estruturais completas"
+  - "Simular integrações SOP/Gatekeeper"
+  - "Gerar relatórios pós-release"
+  - "Testar rollback e continuidade (ART-10)"
+checkpoint: "Checkpoint 4-5: Produção e integração OK"
+deliverables:
+  - "Relatórios forenses"
+  - "Logs de operação integrados"
+  - "Parecer gatekeeper"
+métricas:
+  - "0 gaps estruturais"
+  - "Produção: 99.9% disponibilidade"

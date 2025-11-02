@@ -1,0 +1,106 @@
+diff --git a/llm/cli.py b/llm/cli.py
+index 1234567..abcdefg 100644
+--- a/llm/cli.py
++++ b/llm/cli.py
+@@ -15,6 +15,7 @@ import subprocess
+ import tempfile
+ import json
+ import os
++from pathlib import Path
+ 
+ # ... existing imports ...
+ 
+@@ -45,6 +46,25 @@ def run_llm_fix(
+     max_retries: int = 3,
+     **kwargs
+ ) -> Dict[str, Any]:
++    """
++    Executa pipeline de correção automática antes do LLM.
++    """
++    
++    # 1. Executar fixers determinísticos pré-LLM
++    print("🔧 Executando pipeline de correção automática...")
++    try:
++        result = subprocess.run(
++            ["make", "pre-llm"], 
++            capture_output=True, 
++            text=True, 
++            cwd=Path(__file__).parent.parent,
++            timeout=300
++        )
++        if result.returncode == 0:
++            print("✅ Correção automática aplicada com sucesso")
++        else:
++            print(f"⚠️  Correção automática falhou: {result.stderr}")
++    except Exception as e:
++        print(f"⚠️  Erro na correção automática: {e}")
+ 
+     # ... existing LLM fix logic ...
+ 
+@@ -120,6 +140,25 @@ def run_llm_fix(
+         # ... existing error handling ...
+         
+         # 2. Se falhou, tentar APR baseado em padrões
++        print("🔍 Tentando APR baseado em padrões...")
++        try:
++            apr_result = subprocess.run(
++                ["make", "apr"],
++                capture_output=True,
++                text=True,
++                cwd=Path(__file__).parent.parent,
++                timeout=600
++            )
++            if apr_result.returncode == 0:
++                apr_data = json.loads(apr_result.stdout)
++                if apr_data.get("validation", {}).get("ok"):
++                    print("✅ APR aplicado com sucesso")
++                    return {"success": True, "method": "apr", "data": apr_data}
++                else:
++                    print(f"⚠️  APR falhou na validação: {apr_data}")
++        except Exception as e:
++            print(f"⚠️  Erro no APR: {e}")
+ 
+         # ... continue with LLM ...
+ 
+@@ -180,6 +219,15 @@ def run_llm_fix(
+             # ... existing success handling ...
+             
+             # 3. Gravar episódio para mineração futura
++            try:
++                episode = {
++                    "timestamp": datetime.now().isoformat(),
++                    "err_code": error_code,
++                    "diff": diff_output,
++                    "success": True,
++                    "method": "llm"
++                }
++                _save_episode(episode)
++            except Exception as e:
++                print(f"⚠️  Erro ao salvar episódio: {e}")
+ 
+             return {"success": True, "diff": diff_output}
+ 
+@@ -200,6 +248,25 @@ def run_llm_fix(
+     return {"success": False, "error": "Max retries exceeded"}
+ 
+ 
++def _save_episode(episode: Dict[str, Any]) -> None:
++    """
++    Salva episódio para mineração de padrões.
++    """
++    episodes_file = Path(__file__).parent.parent / ".fortaleza" / "memory" / "episodes.jsonl"
++    episodes_file.parent.mkdir(parents=True, exist_ok=True)
++    
++    with open(episodes_file, "a") as f:
++        f.write(json.dumps(episode) + "\n")
+
+
++def run_fixer_pipeline() -> Dict[str, Any]:
++    """
++    Executa pipeline completa de correção (1→11).
++    """
++    result = subprocess.run(["make", "fix-all"], capture_output=True, text=True)
++    return {"success": result.returncode == 0, "output": result.stdout, "error": result.stderr}
++
++
+ # ... rest of existing code ...

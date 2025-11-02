@@ -1,41 +1,53 @@
-versao: 1
-gates_ordem: [G0, G1, G2, G3, G4, G5]
-
-modulos:
-  - id: IDENTIDADE
-    tipo: fundacao
-    depende: []
-  - id: DEVSECOPS
-    tipo: fundacao
-    depende: []
-  - id: OBSERVABILIDADE
-    tipo: suporte
-    depende: [DEVSECOPS]
-  - id: ALVORA
-    tipo: executor
-    depende: [IDENTIDADE, DEVSECOPS, OBSERVABILIDADE]
-  - id: HORUS
-    tipo: executor
-    depende: [IDENTIDADE, DEVSECOPS, OBSERVABILIDADE]
-
-capitulos:
-  - id: CAP-01
-    nome: "Fundação & Bootstrap"
-    inicia: [IDENTIDADE, DEVSECOPS]
-    continua: [OBSERVABILIDADE]
-    termina: [DEVSECOPS]
-    gates_alvo: [G0, G1]
-  - id: CAP-02
-    nome: "MVPs executores"
-    inicia: []
-    continua: [ALVORA, HORUS, OBSERVABILIDADE]
-    termina: [ALVORA@MVP, HORUS@MVP]
-    gates_alvo: [G2]
-  - id: CAP-03
-    nome: "Piloto & Produção"
-    inicia: []
-    continua: [TODOS]
-    termina: [ALVORA@1.0, HORUS@1.0]
-    gates_alvo: [G3, G4, G5]
+superpipeline:
+  titulo: "SUPERPIPELINE FÁBRICA 2.0 — Robustez, Autonomia, Compliance"
+  versao: 1.0
+  data_inicio: "2025-11-02"
+  capitulos:
+    - id: RAG_MEMORIA_VIVA
+      titulo: "Memória Viva/RAG Constitucional"
+      objetivo: "Buscar/citar info normativa, histórico e decisões por RAG"
+    - id: FINGERPRINT_CONFORMIDADE
+      titulo: "Fingerprint de Conformidade"
+      objetivo: "Hash/checksum automático de artefatos, pipelines e leis"
+    - id: TORRE_REFLEXIVA
+      titulo: "Torre Reflexiva"
+      objetivo: "Pesquisa/síntese automatizada externa (apenas YAML/MD, auditado)"
+      pasta: "Torre/reflexiva/"
+    - id: REPLICACAO_INSTANTANEA
+      titulo: "Replicação Instantânea"
+      objetivo: "Script de copiar pipelines/projetos, herdando Tríade e Leis"
+      checklist:
+        - Validar Tríade (White Paper, Arquitetura, Base Operacional)
+        - Herdar leis e regras da FÁBRICA
+    - id: PADRONIZACAO_FORMATOS
+      titulo: "Padronização de formato/relatório"
+      objetivo: "Formato obrigatório: PIPELINE/FORA_PIPELINE + COMANDO A EXECUTAR + metadados"
+    - id: PAINEL_AUDITORIA_ATIVO
+      titulo: "Painel de Auditoria Ativo"
+      objetivo: "Dashboard com estado/alerta de todos os pipelines e agentes"
+    - id: VALIDACAO_CROSS_PIPELINE
+      titulo: "Validação cross-pipeline automática"
+      objetivo: "Detecção automática de duplicatas, paradoxos ou conflitos nas pipelines"
+    - id: ANALISE_IMPACTO
+      titulo: "Análise de impacto de alterações"
+      objetivo: "Script/CI mostra tudo diretamente impactado antes de major change"
+    - id: BOT_COMPLIANCE
+      titulo: "Bot de Compliance/chat assistente"
+      objetivo: "Agente responde validando ações conforme Constituição/Leis/Doutrina"
+    - id: REVISAO_PERIODICA_AUTO
+      titulo: "Revisão periódica automatizada"
+      objetivo: "Scheduler para realertar sobre leis, ficheiros e pipelines obsoletos/não revisados"
+    - id: STRESS_AUDITORIA
+      titulo: "Testes de Stress/Auditoria real autônoma"
+      objetivo: "Simulações automáticas de casos extremos/adversariais"
+    - id: WATCHDOGS_AUTO_RECUP
+      titulo: "Watchdogs/timeout/auto-recuperação"
+      objetivo: "Scripts detectam loops/bloqueios e pedem/fazem auto-ajuda"
+    - id: HEALTHCHECK_GLOBAL
+      titulo: "Painel global de healthcheck/status"
+      objetivo: "Estado online e integridade de todos os agentes e pipelines"
+    - id: MIGRACAO_VSCODE
+      titulo: "Migração/integração para VS Code e LLM própria multiagente"
+      objetivo: "Preparar Fábrica/LLM e infraestrutura para rodar plenamente com bot/CLI e agentes orquestráveis em VS Code"
 
 

@@ -1,0 +1,10 @@
+{
+  "pins_a_apagar": [],
+  "efeitos": [
+    "Mantido apenas PIN_ESTADO_MAIOR v3 (Torre/orquestrador/PIN_ESTADO_MAIOR.yaml)",
+    "Fluxo total via mailbox; ordens automáticas antigas (auto-exec/auto-gate/etc) já não existem",
+    "Zero conflito encontrado: apenas who_acts+mailbox no fluxo"
+  ],
+  "ficheiros_alvo": ["Torre/orquestrador/PIN_ESTADO_MAIOR.yaml"],
+  "ação_se_proceed": "Nada a mover. PIN v3 está correto e sem resquícios de ordens embutidas antigas."
+}

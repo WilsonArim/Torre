@@ -1,0 +1,129 @@
+{
+  "name": "torre-models-extension",
+  "displayName": "Torre Models Extension",
+  "description": "Integração dos modelos da Torre com Cursor",
+  "version": "1.0.0",
+  "publisher": "fortaleza",
+  "engines": {
+    "vscode": "^1.60.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "torre.enableAuto",
+        "title": "Torre: Enable Torre Auto",
+        "category": "Torre"
+      },
+      {
+        "command": "torre.enableBase",
+        "title": "Torre: Enable Torre Base",
+        "category": "Torre"
+      },
+      {
+        "command": "torre.enableAdvice",
+        "title": "Torre: Enable Torre Advice",
+        "category": "Torre"
+      },
+      {
+        "command": "torre.enableReview",
+        "title": "Torre: Enable Torre Review",
+        "category": "Torre"
+      },
+      {
+        "command": "torre.enableExplain",
+        "title": "Torre: Enable Torre Explain",
+        "category": "Torre"
+      },
+      {
+        "command": "torre.autoFix",
+        "title": "Torre: Auto Fix Code",
+        "category": "Torre"
+      },
+      {
+        "command": "torre.disableAll",
+        "title": "Torre: Disable All Models",
+        "category": "Torre"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "torre.autoFix",
+        "key": "ctrl+shift+t",
+        "mac": "cmd+shift+t",
+        "when": "editorTextFocus"
+      }
+    ],
+    "menus": {
+      "commandPalette": [
+        {
+          "command": "torre.enableAuto",
+          "when": "true"
+        },
+        {
+          "command": "torre.enableBase",
+          "when": "true"
+        },
+        {
+          "command": "torre.enableAdvice",
+          "when": "true"
+        },
+        {
+          "command": "torre.enableReview",
+          "when": "true"
+        },
+        {
+          "command": "torre.enableExplain",
+          "when": "true"
+        },
+        {
+          "command": "torre.disableAll",
+          "when": "true"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "Torre Models",
+      "properties": {
+        "torre.apiUrl": {
+          "type": "string",
+          "default": "http://localhost:8000",
+          "description": "URL da API da Torre"
+        },
+        "torre.autoEnable": {
+          "type": "boolean",
+          "default": true,
+          "description": "Ativar modelos automaticamente"
+        },
+        "torre.showNotifications": {
+          "type": "boolean",
+          "default": true,
+          "description": "Mostrar notificações"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "package": "vsce package",
+    "publish": "vsce publish",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "torre",
+    "ai",
+    "code-fix",
+    "cursor"
+  ],
+  "author": "Torre Team",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fortaleza/torre-extension"
+  }
+}

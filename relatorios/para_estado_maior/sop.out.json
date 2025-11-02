@@ -1,0 +1,34 @@
+[
+  {
+    "timestamp": "2025-11-02T16:00:00Z",
+    "evento": "Fecho formal da superpipeline",
+    "progresso_capitulo": "5/5",
+    "status": "FINALIZADO",
+    "release": "relatorios/RELEASE_FINAL_SUPERPIPELINE.md"
+  },
+  {
+    "report_id": "sop-20251102-210030",
+    "order_id": "a2cdff8b-03f7-4f96-bc95-ddc6ccb98bb0",
+    "from_role": "SOP",
+    "to_role": "EstadoMaior",
+    "started_at": "2025-11-02T21:00:30.840078+00:00",
+    "finished_at": "2025-11-02T21:00:30.840114+00:00",
+    "status": "BLOQUEADO",
+    "gate": "G0",
+    "violations": [
+      "ART-02: White Paper ausente"
+    ],
+    "artefactos_citados": [
+      "core/sop/constituição.yaml",
+      "core/sop/leis.yaml",
+      "core/sop/exceptions.yaml",
+      "relatorios/torre_status.json",
+      "relatorios/para_estado_maior/sop_status.json",
+      "relatorios/relatorio_sop.md"
+    ],
+    "constitution_ok": true,
+    "triade_ok": false,
+    "timestamp": "2025-11-02T21:00:30.840120+00:00",
+    "agente": "SOP-v3.0"
+  }
+]

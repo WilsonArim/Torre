@@ -1,0 +1,12 @@
+{"id":"b1","domain":"programming","logs":{"lint":"TS2304: Cannot find name 'SettingsPage'"},"files_before":{"src/components/Test.tsx":"export function Test(){ return <SettingsPage/> }"}}
+{"id":"b2","domain":"problem_solving","logs":{"runtime":"ReferenceError: base is not defined at SettingsPage.tsx:1"},"files_before":{"src/components/SettingsPage.tsx":"import React from 'react';\nexport function SettingsPage(){ return <div/> }\n"}}
+{"id":"b3","domain":"forensic_audit","logs":{"tests":"1 failing: invariant violated"},"files_before":{"src/lib/calc.ts":"export function div(a:number,b:number){ return a/b }\n"}}
+{"id":"b4","domain":"programming","logs":{"lint":"ESLint: no-unused-vars 'unusedVar'"},"files_before":{"src/x.ts":"const unusedVar = 1;\nexport const sum=(a:number,b:number)=>a+b\n"}}
+{"id":"b5","domain":"problem_solving","logs":{"build":"TS2741: Property 'id' is missing"},"files_before":{"src/model.ts":"export type User={id:string;name:string}\nexport const mk=():User=>({name:'x'} as any)\n"}}
+{"id":"b6","domain":"programming","logs":{"lint":"ESLint: 'Button' is defined but never used"},"files_before":{"src/ui/Button.tsx":"export function Button(){ return <button/> }\nexport function Use(){ return <div/> }\n"}}
+{"id":"b7","domain":"programming","logs":{"lint":"TS2307: Cannot find module './Foo'"},"files_before":{"src/App.tsx":"import { Foo } from './Foo';\nexport function App(){ return <Foo/> }\n"}}
+{"id":"b8","domain":"forensic_audit","logs":{"tests":"2 failing: edge cases not covered"},"files_before":{"src/math/sum.ts":"export const sum=(a:number,b:number)=>a+b\n"}}
+{"id":"b9","domain":"problem_solving","logs":{"runtime":"TypeError: cannot read properties of undefined (reading 'x')"},"files_before":{"src/lib/safe.ts":"export const getX=(o:any)=>o.x\n"}}
+{"id":"b10","domain":"programming","logs":{"lint":"Ruff: F401 'os' imported but unused"},"files_before":{"src/py/a.py":"import os\n\ndef f(a,b):\n    return a+b\n"}}
+{"id":"b11","domain":"programming","logs":{"build":"NameError: name 'Optional' is not defined"},"files_before":{"src/py/types.py":"def f(x: 'Optional[int]'):\n    return x\n"}}
+{"id":"b12","domain":"programming","logs":{"build":"ModuleNotFoundError: No module named 'requests'"},"files_before":{"src/py/http.py":"import requests\nprint('ok')\n"}}

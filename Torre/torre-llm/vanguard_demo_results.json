@@ -1,0 +1,75 @@
+{
+  "total_tests": 2800,
+  "phases": {
+    "FASE_1": {
+      "passed": 100,
+      "total": 400,
+      "percentage": 25.0
+    },
+    "FASE_2": {
+      "passed": 0,
+      "total": 400,
+      "percentage": 0.0
+    },
+    "FASE_3": {
+      "passed": 25,
+      "total": 400,
+      "percentage": 6.25
+    },
+    "FASE_4": {
+      "passed": 25,
+      "total": 400,
+      "percentage": 6.25
+    },
+    "FASE_5": {
+      "passed": 0,
+      "total": 400,
+      "percentage": 0.0
+    },
+    "FASE_6": {
+      "passed": 50,
+      "total": 400,
+      "percentage": 12.5
+    },
+    "FASE_7": {
+      "passed": 25,
+      "total": 400,
+      "percentage": 6.25
+    }
+  },
+  "providers": {
+    "fortaleza/vanguard-fix": {
+      "passed": 225,
+      "total": 700,
+      "percentage": 32.142857142857146,
+      "avg_response_time": 8.810997009277344e-05,
+      "avg_confidence": 0.9136428571428571
+    },
+    "anthropic/claude-3.5": {
+      "passed": 0,
+      "total": 700,
+      "percentage": 0.0,
+      "avg_response_time": 0.7509229987008231,
+      "avg_confidence": 0.0
+    },
+    "openai/gpt-4o": {
+      "passed": 0,
+      "total": 700,
+      "percentage": 0.0,
+      "avg_response_time": 0.7463468643597194,
+      "avg_confidence": 0.0
+    },
+    "google/gemini-1.5": {
+      "passed": 0,
+      "total": 700,
+      "percentage": 0.0,
+      "avg_response_time": 0.7502030975478036,
+      "avg_confidence": 0.0
+    }
+  },
+  "overall": {
+    "total_passed": 225,
+    "total_tests": 2800,
+    "overall_percentage": 8.035714285714286
+  }
+}

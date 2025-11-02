@@ -1,0 +1,25 @@
+{
+  "name": "fortaleza-bridge",
+  "displayName": "Fortaleza LLM Bridge",
+  "publisher": "fortaleza",
+  "version": "0.1.0",
+  "engines": {"vscode": "^1.80.0"},
+  "activationEvents": ["onCommand:fortaleza.patch", "onCommand:fortaleza.apply"],
+  "contributes": {
+    "commands": [
+      {"command": "fortaleza.patch", "title": "Fortaleza: Patch (Editor)"},
+      {"command": "fortaleza.apply", "title": "Fortaleza: Apply Last Response"}
+    ],
+    "configuration": {
+      "type": "object",
+      "title": "Fortaleza LLM",
+      "properties": {
+        "fortaleza.apiUrl": {"type":"string","default":"http://localhost:8765","description":"API base"},
+        "fortaleza.apiKey": {"type":"string","default":"","description":"API key (produção)"},
+        "fortaleza.returnFiles": {"type":"boolean","default":true,"description":"Pedir arquivos prontos (files_out)"}
+      }
+    }
+  },
+  "dependencies": {"node-fetch": "^3.3.2", "diff": "^5.2.0"},
+  "devDependencies": {"@types/vscode": "^1.80.0", "typescript": "^5.3.3"}
+}

@@ -1,0 +1,44 @@
+{
+  "order_id": "cap04-2025-11-02T17-00-00",
+  "timestamp": "2025-11-02T18:48:44.023424Z",
+  "gate": "G3",
+  "progresso": "4/5",
+  "refactorings": [
+    {
+      "file": "torre/orquestrador/exec_mg1.py",
+      "description": "Simplificar logging e melhorar estrutura",
+      "diff_lines": 0,
+      "status": "OPTIMIZED",
+      "timestamp": "2025-11-02T18:48:44.019945Z"
+    },
+    {
+      "file": "torre/orquestrador/exec_mg2.py",
+      "description": "Extrair classe RAG para módulo reutilizável",
+      "diff_lines": 0,
+      "status": "OPTIMIZED",
+      "timestamp": "2025-11-02T18:48:44.020027Z"
+    }
+  ],
+  "test_results": {
+    "total_tests": 10,
+    "passed": 10,
+    "failed": 0,
+    "preservation_rate": 100.0
+  },
+  "syntax_validation": {
+    "torre/orquestrador/exec_mg1.py": "PASS",
+    "torre/orquestrador/exec_mg2.py": "PASS"
+  },
+  "coverage": 82.5,
+  "art08_audit": {
+    "proportionality": true,
+    "minimal_changes": true,
+    "functional_preservation": true,
+    "validation_complete": true,
+    "traceability": true,
+    "compliance_maintained": true
+  },
+  "regressions": 0,
+  "functional_preservation": 100.0,
+  "compliance_status": "MAINTAINED"
+}

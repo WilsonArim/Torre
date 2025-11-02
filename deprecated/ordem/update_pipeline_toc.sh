@@ -6,6 +6,8 @@ TOC="$ROOT/pipeline/PIPELINE_TOC.md"
 echo "# PIPELINE TOC" > "$TOC"
 echo "" >> "$TOC"
 shopt -s nullglob
+# DEPRECATED — NÃO USAR. Substituído por core/orquestrador/cli.py e Makefile.
+exit 1
 for MOD in "$BASE"/M*-*; do
   [ -d "$MOD" ] || continue
   M="$(basename "$MOD")"

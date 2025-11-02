@@ -1,0 +1,16 @@
+id: CAP-03
+nome: "Validação e Conformidade SOP"
+gates_alvo: [G2]
+modulos: ["VALIDAÇÃO"]
+objetivo: "Validar códigos, pipelines e detectar violações"
+tarefas:
+  - "Executar validações completas SOP"
+  - "Testar casos reais de aceitação/rejeição"
+  - "Gerar relatórios para cada cenário"
+checkpoint: "Checkpoint 2: Recall >98%, Precision >95%"
+deliverables:
+  - "Relatórios de validação"
+  - "Lista de violações detectadas"
+métricas:
+  - "Recall violações: 98%+"
+  - "Precision: 95%+"

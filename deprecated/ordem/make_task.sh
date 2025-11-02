@@ -6,6 +6,8 @@ M="$1"; E="$2"; T="$3"; SLUG="$4"
 [[ "$M" =~ ^M[0-9]{2}$ ]] || { echo "Capítulo inválido (ex.: M01)"; exit 1; }
 [[ "$E" =~ ^E[0-9]{2}$ ]] || { echo "Etapa inválida (ex.: E01)"; exit 1; }
 [[ "$T" =~ ^T[0-9]{3}$ ]] || { echo "Tarefa inválida (ex.: T001)"; exit 1; }
+# DEPRECATED — NÃO USAR. Substituído por core/orquestrador/cli.py e Makefile.
+exit 1
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 TPL="$ROOT/pipeline/_templates/TASK.md"
 BASE="$ROOT/pipeline/modulos"

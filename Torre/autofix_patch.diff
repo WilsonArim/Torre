@@ -1,0 +1,150 @@
+diff --git a/fortaleza-llm/utils/diff_utils.py b/fortaleza-llm/utils/diff_utils.py
+index 8888888..c1a2d3f 100644
+--- a/fortaleza-llm/utils/diff_utils.py
++++ b/fortaleza-llm/utils/diff_utils.py
+@@ -1,16 +1,39 @@
+ from pathlib import Path
+-from typing import List
++from typing import List
++import difflib
+ 
+ def make_new_file_diff(path: Path, content: str) -> str:
+     """Cria diff unificado para um novo ficheiro."""
+     b = str(path).replace("\\", "/")
+     header = f"diff --git a/{b} b/{b}\nnew file mode 100644\nindex 0000000..0000001\n--- /dev/null\n+++ b/{b}\n"
+     body_lines = content.splitlines()
+     body = "".join([f"+{line}\n" for line in body_lines])
+     return header + f"@@ -0,0 +1,{len(body_lines)} @@\n" + body
+ 
+ def join_unified_diffs(diffs: List[str]) -> str:
+     return "".join(diffs)
+ 
+ def validate_unified_diff(diff: str) -> bool:
+     """Validação mínima: contém 'diff --git', não contém múltiplos blocos em excesso, sem linhas em branco perigosas."""
+     return diff.strip().startswith("diff --git")
++
++def make_replace_file_diff(path: Path, old_text: str, new_text: str) -> str:
++    """
++    Cria diff unificado (modify-in-place) para ficheiro existente, usando difflib.
++    Gera cabeçalho 'diff --git' + hunks '--- a/...', '+++ b/...'.
++    """
++    posix = path.as_posix()
++    old_lines = old_text.splitlines(keepends=True)
++    new_lines = new_text.splitlines(keepends=True)
++    hunks = "".join(difflib.unified_diff(
++        old_lines, new_lines,
++        fromfile=f"a/{posix}", tofile=f"b/{posix}", n=3
++    ))
++    header = f"diff --git a/{posix} b/{posix}\n"
++    return header + hunks
+diff --git a/fortaleza-llm/strategies/autofix_base_shim.py b/fortaleza-llm/strategies/autofix_base_shim.py
+new file mode 100644
+index 0000000..7ab1e55
+--- /dev/null
++++ b/fortaleza-llm/strategies/autofix_base_shim.py
+@@ -0,0 +1,98 @@
++from __future__ import annotations
++from pathlib import Path
++from typing import Dict, Any, List
++import re
++from ..utils.diff_utils import make_replace_file_diff
++
++SHIM = (
++    "// @fortaleza: shim para garantir que `base` existe em runtime (Vite/Tauri)\n"
++    "// Evita \"ReferenceError: base is not defined\".\n"
++    "const base: string =\n"
++    "  ((globalThis as any).__FORTALEZA_BASE__ as string) ??\n"
++    "  (((import.meta as any)?.env?.BASE_URL as string) ?? '/');\n"
++    "(globalThis as any).__FORTALEZA_BASE__ = base;\n"
++    "\n"
++)
++
++def _find_target_tsx(root: Path) -> Path | None:
++    preferred = root / "src" / "components" / "SettingsPage.tsx"
++    preferred = root / "src" / "components" / "SettingsPage.tsx"
++    if preferred.exists():
++        return preferred
++    # fallback: procurar primeiro *.tsx que refira 'base'
++    for p in (root / "src").rglob("*.tsx"):
++        try:
++            txt = p.read_text(encoding="utf-8", errors="ignore")
++        except Exception:
++            continue
++        if "base" in txt and "__FORTALEZA_BASE__" not in txt:
++            return p
++    return None
++
++def _needs_shim(txt: str) -> bool:
++    if "__FORTALEZA_BASE__" in txt:
++        return False
++    # heurística: uso de variável 'base' isolada ou acesso aparente
++    return re.search(r"(^|\W)base(\W)", txt) is not None
++
++def generate_diffs(root: Path, classification: Dict[str, Any]) -> List[str]:
++    """
++    Se detetar `base` usado sem shim, gera um diff que insere o SHIM no topo do ficheiro alvo.
++    Idempotente: se o SHIM já existe, não gera nada.
++    """
++    diffs: List[str] = []
++    target = _find_target_tsx(root)
++    if not target or not target.exists():
++        return diffs
++    try:
++        original = target.read_text(encoding="utf-8", errors="ignore")
++    except Exception:
++        return diffs
++    if not _needs_shim(original):
++        return diffs
++    new_text = SHIM + original
++    diffs.append(make_replace_file_diff(target, original, new_text))
++    return diffs
+diff --git a/fortaleza-llm/orchestrator.py b/fortaleza-llm/orchestrator.py
+index 1a2b3c4..3c4d5e6 100644
+--- a/fortaleza-llm/orchestrator.py
++++ b/fortaleza-llm/orchestrator.py
+@@ -8,6 +8,7 @@ from .adapters.run_build import run_build
+ from .strategies.playbook_simple import propose_patch
+ from .utils.diff_utils import make_new_file_diff, join_unified_diffs, validate_unified_diff
+ from .client import ingest_report, get_pipeline_state, write_pipeline_state
++from importlib import import_module
+ 
+ 
+ ROOT = Path(os.getenv("REPO_ROOT", ".")).resolve()
+@@ -41,16 +42,31 @@ def main() -> None:
+     classification = classify_errors(lint, tests, build)
+ 
+     # 2) Propor patch mínimo com base nos erros
+-    file_changes: List[Tuple[str, str]] = propose_patch(ROOT, classification)
++    file_changes: List[Tuple[str, str]] = propose_patch(ROOT, classification)
+ 
+     # 3) Se não houver mudanças, criar no máximo um README de progresso (idempotente)
+     if not file_changes:
+         onboarding_path = "fortaleza-llm/ONBOARDING.md"
+         content = (
+             "# Fortaleza LLM-Engenheira — Progresso\n\n"
+             "- Ciclo inicial: esqueleto criado.\n"
+             "- Próximo passo: executar orquestrador em CI para gerar patch baseado nos erros reais.\n"
+         )
+         file_changes = [(onboarding_path, content)]
+ 
+-    # 4) Construir UM diff unificado
+-    diffs = [make_new_file_diff(Path(p), c) for (p, c) in file_changes]
++    # 4) Construir diffs (novos ficheiros) e recolher diffs de auto-fix (ficheiros existentes)
++    diffs = [make_new_file_diff(Path(p), c) for (p, c) in file_changes]
++
++    # Auto-fix opcional: se existir strategies.autofix_base_shim, inclui os seus diffs
++    try:
++        af = import_module(".strategies.autofix_base_shim", package=__package__)
++        extra_diffs = af.generate_diffs(ROOT, classification) or []
++        diffs.extend(extra_diffs)
++    except Exception:
++        # silencioso: se não existir ou falhar, seguimos apenas com diffs base
++        pass
++
++    # Se nada para fazer, abortar de forma limpa
++    if not diffs:
++        print(json.dumps({"metrics": {"apply_clean": False}, "summary": "sem alterações"}))
++        return
++
+     unified = join_unified_diffs(diffs)
+     guardrails_diff(unified)

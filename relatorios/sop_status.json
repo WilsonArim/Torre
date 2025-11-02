@@ -1,31 +1,12 @@
 {
-  "gate": "G2",
+  "gate": "G0",
   "status": "PASS",
-  "metrics": {
-    "coverage": 90.0,
-    "tests": {
-      "ok": true,
-      "suite": "pytest|jest"
-    },
-    "semgrep": {
-      "ok": true,
-      "findings": 0,
-      "blocking": 0
-    },
-    "bandit": {
-      "ok": true
-    },
-    "npm_audit": {
-      "ok": true,
-      "critical": 0
-    },
-    "trivy": {
-      "ok": true,
-      "critical": 0
-    },
-    "sbom": {
-      "ok": true
-    }
-  },
-  "exceptions_used": []
+  "violations": [],
+  "constitution_ok": true,
+  "triade_ok": true,
+  "timestamp": "2025-11-02T22:21:34.944974",
+  "agente": "SOP",
+  "artefactos_citados": {
+    "torre_status": "relatorios/torre_status.json"
+  }
 }

@@ -1,0 +1,30 @@
+{
+  "versao": "1.0",
+  "data_criacao": "2025-11-02T19:54:05.295758+00:00",
+  "documentos": [
+    {
+      "tipo": "constituicao",
+      "caminho": "core/sop/constituição.yaml",
+      "tamanho": 4259,
+      "linhas": 109
+    },
+    {
+      "tipo": "leis",
+      "caminho": "core/sop/leis.yaml",
+      "tamanho": 1187,
+      "linhas": 27
+    },
+    {
+      "tipo": "exceptions",
+      "caminho": "core/sop/exceptions.yaml",
+      "tamanho": 156,
+      "linhas": 4
+    },
+    {
+      "tipo": "doutrina",
+      "caminho": "core/sop/doutrina.yaml",
+      "tamanho": 4604,
+      "linhas": 135
+    }
+  ]
+}

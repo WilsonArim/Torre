@@ -1,0 +1,15 @@
+version: 1
+type: "master_card"
+fields:
+  name: "string"
+  domain_tags: ["logic","method","algorithms","architecture","types","concurrency","verification","security","operability"]
+  principles:
+    - "enunciado curto e operacional (≤120 caracteres)"
+  rules:
+    - "regra testável (ex.: 'patch único, idempotente, valida lint/tests')"
+  anti_patterns:
+    - "anti-padrão + porque é mau + como evitar"
+  examples:
+    - "antes/depois curto (pode referir diff noutra ficha)"
+notes:
+  - "Cartas destinam-se a RAG. Não incluir texto filosófico extenso; focar operação."

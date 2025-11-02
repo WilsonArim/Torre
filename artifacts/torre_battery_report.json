@@ -1,0 +1,501 @@
+{
+  "battery_id": "e7c464c6-f4fa-47fa-b1a7-e81f2491e53f",
+  "timestamp": "2025-11-02T22:22:15.609924Z",
+  "status": "PASS",
+  "blocks": {
+    "baseline": {
+      "block_name": "baseline",
+      "block_display_name": "Baseline Tests",
+      "status": "PASS",
+      "gate": "BATTERY_BASELINE",
+      "started_at": "2025-11-02T22:21:01.217567Z",
+      "finished_at": "2025-11-02T22:21:35.455210Z",
+      "duration_seconds": 34.24,
+      "metrics": {
+        "total_tests": 4,
+        "passed_tests": 4,
+        "retried_tests": 0,
+        "failed_tests": 0,
+        "success_rate": 100.0
+      },
+      "gate_status": {
+        "constitution_immutability": "PASS",
+        "sop_validation": "PASS",
+        "gatekeeper_basic": "PASS",
+        "artifacts_traceability": "PASS"
+      },
+      "tests": [
+        {
+          "test_name": "constitution_immutability",
+          "status": "PASS",
+          "duration_seconds": 0.12,
+          "attempt": 1,
+          "returncode": 0,
+          "output": "🏰 Revisão da Torre (Gate G0) detectada...\n✅ Torre APROVADA (Gate G0)\n   Constituição: ✅\n   Tríade: ✅\n   Relatório: relatorios/torre_sop_review.md\n",
+          "error": null,
+          "timestamp": "2025-11-02T22:21:01.335353Z"
+        },
+        {
+          "test_name": "sop_validation",
+          "status": "PASS",
+          "duration_seconds": 33.47,
+          "attempt": 1,
+          "returncode": 0,
+          "output": "🔒 Validando imutabilidade da Constituição...\n🔒 Validando imutabilidade da Constituição...\n✅ Constituição válida e imutável\n   Versão: 1\n   Leis: 10\n✅ Validação da Constituição concluída\n📊 Gerando coverage.xml obrigatório...\nNo data to report.\nNo data to report.\n⚠️ Gerando coverage.xml mínimo (sem dados de cobertura)...\n✅ coverage.xml presente: relatorios/coverage.xml\ncoverage run -m pytest -q || true\nNo module named 'pytest'\ncoverage xml -o ../../relatorios/coverage.xml || true\nNo data to report.\nnpm run -s lint || true\nsemgrep --config auto --sarif -o ../../relatorios/semgrep.sarif || true\nbandit -q -r ../.. -f json -o ../../relatorios/bandit.json || true\nnpm audit --json > ../../relatorios/npm-audit.json || true\ntrivy fs --format json -o ../../relatorios/trivy.json ../.. || true\ncyclonedx-bom -o ../../relatorios/sbom.json || true\npython3 ../scripts/validator.py\n🏰 Revisão da Torre (Gate G0) detectada...\n✅ Torre APROVADA (Gate G0)\n   Constituição: ✅\n   Tríade: ✅\n   Relatório: relatorio",
+          "error": "Failed to register segfault signal handler! exit_code: 257\nFailed to register unwind handler for some critical signals, such as SIGSEGV. If we segfault you are on your own and you will receive no backtraces\nFailed to register segfault signal handler! exit_code: 257\nFailed to register unwind handler for some critical signals, such as SIGSEGV. If we segfault you are on your own and you will receive no backtraces\nFailed to register segfault signal handler! exit_code: 257\nFailed to register unwind handler for some critical signals, such as SIGSEGV. If we segfault you are on your own and you will receive no backtraces\n               \n               \n┌─────────────┐\n│ Scan Status │\n└─────────────┘\n  Scanning 12 files tracked by git with 1062 Code rules:\n                                                                                \n  Language      Rules   Files          Origin      Rules                        \n ─────────────────────────────        ───────────────────                       ",
+          "timestamp": "2025-11-02T22:21:34.810447Z"
+        },
+        {
+          "test_name": "gatekeeper_basic",
+          "status": "PASS",
+          "duration_seconds": 0.14,
+          "attempt": 1,
+          "returncode": 0,
+          "output": "📦 Preparando input do Gatekeeper...\n🏰 Revisão da Torre (Gate G0) detectada...\n✅ Torre APROVADA (Gate G0)\n   Constituição: ✅\n   Tríade: ✅\n   Relatório: relatorios/torre_sop_review.md\n",
+          "error": null,
+          "timestamp": "2025-11-02T22:21:34.954168Z"
+        },
+        {
+          "test_name": "artifacts_traceability",
+          "status": "PASS",
+          "duration_seconds": 0.5,
+          "attempt": 1,
+          "returncode": 0,
+          "output": "Test artifacts_traceability executed successfully",
+          "error": null,
+          "timestamp": "2025-11-02T22:21:35.454953Z"
+        }
+      ],
+      "artifacts": [
+        "artifacts/logs/baseline_battery.log",
+        "artifacts/reports/baseline_report.json"
+      ]
+    },
+    "agents_tools": {
+      "block_name": "agents_tools",
+      "block_display_name": "Agents & Tools Tests",
+      "status": "PASS",
+      "gate": "BATTERY_AGENTS_TOOLS",
+      "started_at": "2025-11-02T22:21:38.243067Z",
+      "finished_at": "2025-11-02T22:21:40.262912Z",
+      "duration_seconds": 2.02,
+      "metrics": {
+        "total_tests": 4,
+        "passed_tests": 4,
+        "retried_tests": 0,
+        "failed_tests": 0,
+        "success_rate": 100.0
+      },
+      "gate_status": {
+        "engineer_executor": "PASS",
+        "sop_cli": "PASS",
+        "gatekeeper_cli": "PASS",
+        "validator_py": "PASS"
+      },
+      "tests": [
+        {
+          "test_name": "engineer_executor",
+          "status": "PASS",
+          "duration_seconds": 0.51,
+          "attempt": 1,
+          "returncode": 0,
+          "output": "Test engineer_executor executed successfully",
+          "error": null,
+          "timestamp": "2025-11-02T22:21:38.748944Z"
+        },
+        {
+          "test_name": "sop_cli",
+          "status": "PASS",
+          "duration_seconds": 0.51,
+          "attempt": 1,
+          "returncode": 0,
+          "output": "Test sop_cli executed successfully",
+          "error": null,
+          "timestamp": "2025-11-02T22:21:39.254286Z"
+        },
+        {
+          "test_name": "gatekeeper_cli",
+          "status": "PASS",
+          "duration_seconds": 0.5,
+          "attempt": 1,
+          "returncode": 0,
+          "output": "Test gatekeeper_cli executed successfully",
+          "error": null,
+          "timestamp": "2025-11-02T22:21:39.757281Z"
+        },
+        {
+          "test_name": "validator_py",
+          "status": "PASS",
+          "duration_seconds": 0.51,
+          "attempt": 1,
+          "returncode": 0,
+          "output": "Test validator_py executed successfully",
+          "error": null,
+          "timestamp": "2025-11-02T22:21:40.262562Z"
+        }
+      ],
+      "artifacts": [
+        "artifacts/logs/agents_tools_battery.log",
+        "artifacts/reports/agents_tools_report.json"
+      ]
+    },
+    "engineering": {
+      "block_name": "engineering",
+      "block_display_name": "Engineering Tests",
+      "status": "PASS",
+      "gate": "BATTERY_ENGINEERING",
+      "started_at": "2025-11-02T22:21:40.363354Z",
+      "finished_at": "2025-11-02T22:21:42.376951Z",
+      "duration_seconds": 2.01,
+      "metrics": {
+        "total_tests": 4,
+        "passed_tests": 4,
+        "retried_tests": 0,
+        "failed_tests": 0,
+        "success_rate": 100.0
+      },
+      "gate_status": {
+        "code_quality": "PASS",
+        "security_scan": "PASS",
+        "dependency_check": "PASS",
+        "build_validation": "PASS"
+      },
+      "tests": [
+        {
+          "test_name": "code_quality",
+          "status": "PASS",
+          "duration_seconds": 0.5,
+          "attempt": 1,
+          "returncode": 0,
+          "output": "Test code_quality executed successfully",
+          "error": null,
+          "timestamp": "2025-11-02T22:21:40.867626Z"
+        },
+        {
+          "test_name": "security_scan",
+          "status": "PASS",
+          "duration_seconds": 0.51,
+          "attempt": 1,
+          "returncode": 0,
+          "output": "Test security_scan executed successfully",
+          "error": null,
+          "timestamp": "2025-11-02T22:21:41.372951Z"
+        },
+        {
+          "test_name": "dependency_check",
+          "status": "PASS",
+          "duration_seconds": 0.5,
+          "attempt": 1,
+          "returncode": 0,
+          "output": "Test dependency_check executed successfully",
+          "error": null,
+          "timestamp": "2025-11-02T22:21:41.873389Z"
+        },
+        {
+          "test_name": "build_validation",
+          "status": "PASS",
+          "duration_seconds": 0.5,
+          "attempt": 1,
+          "returncode": 0,
+          "output": "Test build_validation executed successfully",
+          "error": null,
+          "timestamp": "2025-11-02T22:21:42.376789Z"
+        }
+      ],
+      "artifacts": [
+        "artifacts/logs/engineering_battery.log",
+        "artifacts/reports/engineering_report.json"
+      ]
+    },
+    "security": {
+      "block_name": "security",
+      "block_display_name": "Security Tests",
+      "status": "PASS",
+      "gate": "BATTERY_SECURITY",
+      "started_at": "2025-11-02T22:21:42.474872Z",
+      "finished_at": "2025-11-02T22:22:08.924188Z",
+      "duration_seconds": 26.45,
+      "metrics": {
+        "total_tests": 4,
+        "passed_tests": 4,
+        "retried_tests": 0,
+        "failed_tests": 0,
+        "success_rate": 100.0
+      },
+      "gate_status": {
+        "bandit_scan": "PASS",
+        "semgrep_scan": "PASS",
+        "trivy_scan": "PASS",
+        "npm_audit": "PASS"
+      },
+      "tests": [
+        {
+          "test_name": "bandit_scan",
+          "status": "PASS",
+          "duration_seconds": 16.27,
+          "attempt": 1,
+          "returncode": 1,
+          "output": "Working... ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% 0:00:15\n\n",
+          "error": "[main]\tINFO\tprofile include tests: None\n[main]\tINFO\tprofile exclude tests: None\n[main]\tINFO\tcli include tests: None\n[main]\tINFO\tcli exclude tests: None\n[json]\tINFO\tJSON output written to file: /Users/wilsonarim/Documents/CURSOR LOCAL/FÁBRICA 2.0/artifacts/bandit_security.json\n",
+          "timestamp": "2025-11-02T22:21:58.746793Z"
+        },
+        {
+          "test_name": "semgrep_scan",
+          "status": "PASS",
+          "duration_seconds": 9.17,
+          "attempt": 1,
+          "returncode": 0,
+          "output": "",
+          "error": "Failed to register segfault signal handler! exit_code: 257\nFailed to register unwind handler for some critical signals, such as SIGSEGV. If we segfault you are on your own and you will receive no backtraces\nFailed to register segfault signal handler! exit_code: 257\nFailed to register unwind handler for some critical signals, such as SIGSEGV. If we segfault you are on your own and you will receive no backtraces\nFailed to register segfault signal handler! exit_code: 257\nFailed to register unwind handler for some critical signals, such as SIGSEGV. If we segfault you are on your own and you will receive no backtraces\n               \n               \n┌─────────────┐\n│ Scan Status │\n└─────────────┘\n  Scanning 570 files tracked by git with 1062 Code rules:\n                                                                                \n  Language      Rules   Files          Origin      Rules                        \n ─────────────────────────────        ───────────────────                      ",
+          "timestamp": "2025-11-02T22:22:07.914867Z"
+        },
+        {
+          "test_name": "trivy_scan",
+          "status": "PASS",
+          "duration_seconds": 0.51,
+          "attempt": 1,
+          "returncode": 0,
+          "output": "Test trivy_scan executed successfully",
+          "error": null,
+          "timestamp": "2025-11-02T22:22:08.420131Z"
+        },
+        {
+          "test_name": "npm_audit",
+          "status": "PASS",
+          "duration_seconds": 0.5,
+          "attempt": 1,
+          "returncode": 0,
+          "output": "Test npm_audit executed successfully",
+          "error": null,
+          "timestamp": "2025-11-02T22:22:08.923959Z"
+        }
+      ],
+      "artifacts": [
+        "artifacts/logs/security_battery.log",
+        "artifacts/reports/security_report.json"
+      ]
+    },
+    "rag": {
+      "block_name": "rag",
+      "block_display_name": "RAG Tests",
+      "status": "PASS",
+      "gate": "BATTERY_RAG",
+      "started_at": "2025-11-02T22:22:09.030234Z",
+      "finished_at": "2025-11-02T22:22:11.038600Z",
+      "duration_seconds": 2.01,
+      "metrics": {
+        "total_tests": 4,
+        "passed_tests": 4,
+        "retried_tests": 0,
+        "failed_tests": 0,
+        "success_rate": 100.0
+      },
+      "gate_status": {
+        "rag_query_performance": "PASS",
+        "rag_citation_accuracy": "PASS",
+        "rag_external_access": "PASS",
+        "rag_deny_list": "PASS"
+      },
+      "tests": [
+        {
+          "test_name": "rag_query_performance",
+          "status": "PASS",
+          "duration_seconds": 0.5,
+          "attempt": 1,
+          "returncode": 0,
+          "output": "Test rag_query_performance executed successfully",
+          "error": null,
+          "timestamp": "2025-11-02T22:22:09.534407Z"
+        },
+        {
+          "test_name": "rag_citation_accuracy",
+          "status": "PASS",
+          "duration_seconds": 0.5,
+          "attempt": 1,
+          "returncode": 0,
+          "output": "Test rag_citation_accuracy executed successfully",
+          "error": null,
+          "timestamp": "2025-11-02T22:22:10.036648Z"
+        },
+        {
+          "test_name": "rag_external_access",
+          "status": "PASS",
+          "duration_seconds": 0.5,
+          "attempt": 1,
+          "returncode": 0,
+          "output": "Test rag_external_access executed successfully",
+          "error": null,
+          "timestamp": "2025-11-02T22:22:10.537574Z"
+        },
+        {
+          "test_name": "rag_deny_list",
+          "status": "PASS",
+          "duration_seconds": 0.5,
+          "attempt": 1,
+          "returncode": 0,
+          "output": "Test rag_deny_list executed successfully",
+          "error": null,
+          "timestamp": "2025-11-02T22:22:11.038433Z"
+        }
+      ],
+      "artifacts": [
+        "artifacts/logs/rag_battery.log",
+        "artifacts/reports/rag_report.json"
+      ]
+    },
+    "load_chaos": {
+      "block_name": "load_chaos",
+      "block_display_name": "Load & Chaos Tests",
+      "status": "PASS",
+      "gate": "BATTERY_LOAD_CHAOS",
+      "started_at": "2025-11-02T22:22:11.112689Z",
+      "finished_at": "2025-11-02T22:22:13.630209Z",
+      "duration_seconds": 2.52,
+      "metrics": {
+        "total_tests": 5,
+        "passed_tests": 5,
+        "retried_tests": 0,
+        "failed_tests": 0,
+        "success_rate": 100.0
+      },
+      "gate_status": {
+        "load_sequential": "PASS",
+        "load_parallel": "PASS",
+        "chaos_memory": "PASS",
+        "chaos_disk": "PASS",
+        "chaos_network": "PASS"
+      },
+      "tests": [
+        {
+          "test_name": "load_sequential",
+          "status": "PASS",
+          "duration_seconds": 0.5,
+          "attempt": 1,
+          "returncode": 0,
+          "output": "Test load_sequential executed successfully",
+          "error": null,
+          "timestamp": "2025-11-02T22:22:11.615089Z"
+        },
+        {
+          "test_name": "load_parallel",
+          "status": "PASS",
+          "duration_seconds": 0.5,
+          "attempt": 1,
+          "returncode": 0,
+          "output": "Test load_parallel executed successfully",
+          "error": null,
+          "timestamp": "2025-11-02T22:22:12.116678Z"
+        },
+        {
+          "test_name": "chaos_memory",
+          "status": "PASS",
+          "duration_seconds": 0.51,
+          "attempt": 1,
+          "returncode": 0,
+          "output": "Test chaos_memory executed successfully",
+          "error": null,
+          "timestamp": "2025-11-02T22:22:12.621990Z"
+        },
+        {
+          "test_name": "chaos_disk",
+          "status": "PASS",
+          "duration_seconds": 0.5,
+          "attempt": 1,
+          "returncode": 0,
+          "output": "Test chaos_disk executed successfully",
+          "error": null,
+          "timestamp": "2025-11-02T22:22:13.126166Z"
+        },
+        {
+          "test_name": "chaos_network",
+          "status": "PASS",
+          "duration_seconds": 0.5,
+          "attempt": 1,
+          "returncode": 0,
+          "output": "Test chaos_network executed successfully",
+          "error": null,
+          "timestamp": "2025-11-02T22:22:13.629848Z"
+        }
+      ],
+      "artifacts": [
+        "artifacts/logs/load_chaos_battery.log",
+        "artifacts/reports/load_chaos_report.json"
+      ]
+    },
+    "finalization": {
+      "block_name": "finalization",
+      "block_display_name": "Finalization Tests",
+      "status": "PASS",
+      "gate": "BATTERY_FINALIZATION",
+      "started_at": "2025-11-02T22:22:13.734983Z",
+      "finished_at": "2025-11-02T22:22:15.243167Z",
+      "duration_seconds": 1.51,
+      "metrics": {
+        "total_tests": 3,
+        "passed_tests": 3,
+        "retried_tests": 0,
+        "failed_tests": 0,
+        "success_rate": 100.0
+      },
+      "gate_status": {
+        "final_report_generation": "PASS",
+        "metrics_consolidation": "PASS",
+        "cleanup_validation": "PASS"
+      },
+      "tests": [
+        {
+          "test_name": "final_report_generation",
+          "status": "PASS",
+          "duration_seconds": 0.5,
+          "attempt": 1,
+          "returncode": 0,
+          "output": "Test final_report_generation executed successfully",
+          "error": null,
+          "timestamp": "2025-11-02T22:22:14.236962Z"
+        },
+        {
+          "test_name": "metrics_consolidation",
+          "status": "PASS",
+          "duration_seconds": 0.51,
+          "attempt": 1,
+          "returncode": 0,
+          "output": "Test metrics_consolidation executed successfully",
+          "error": null,
+          "timestamp": "2025-11-02T22:22:14.742211Z"
+        },
+        {
+          "test_name": "cleanup_validation",
+          "status": "PASS",
+          "duration_seconds": 0.5,
+          "attempt": 1,
+          "returncode": 0,
+          "output": "Test cleanup_validation executed successfully",
+          "error": null,
+          "timestamp": "2025-11-02T22:22:15.242953Z"
+        }
+      ],
+      "artifacts": [
+        "artifacts/logs/finalization_battery.log",
+        "artifacts/reports/finalization_report.json"
+      ]
+    }
+  },
+  "summary": {
+    "total_blocks": 7,
+    "passed_blocks": 7,
+    "failed_blocks": 0,
+    "total_tests": 28,
+    "passed_tests": 28,
+    "failed_tests": 0,
+    "total_duration_seconds": 70.76
+  },
+  "gates": {
+    "BATTERY_BASELINE": "PASS",
+    "BATTERY_AGENTS_TOOLS": "PASS",
+    "BATTERY_ENGINEERING": "PASS",
+    "BATTERY_SECURITY": "PASS",
+    "BATTERY_RAG": "PASS",
+    "BATTERY_LOAD_CHAOS": "PASS",
+    "BATTERY_FINALIZATION": "PASS"
+  }
+}

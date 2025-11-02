@@ -1,0 +1,148 @@
+diff --git a/fortaleza-llm/parsers/__init__.py b/fortaleza-llm/parsers/__init__.py
+new file mode 100644
+index 0000000..a1b2c3d
+--- /dev/null
++++ b/fortaleza-llm/parsers/__init__.py
+@@ -0,0 +1 @@
++# Parsers module
+diff --git a/fortaleza-llm/parsers/error_patterns.py b/fortaleza-llm/parsers/error_patterns.py
+new file mode 100644
+index 0000000..d00df00
+--- /dev/null
++++ b/fortaleza-llm/parsers/error_patterns.py
+@@ -0,0 +1,155 @@
++from __future__ import annotations
++import re
++from typing import List, Dict
++
++# Padrões comuns em Vite/React/TypeScript/ESLint/Jest/Pytest
++RX = {
++    "ref_is_not_defined": re.compile(r"(?:Uncaught\s+)?ReferenceError:\s*(?P<name>[A-Za-z_]\w*)\s+is\s+not\s+defined"),
++    "ts_cannot_find_name": re.compile(r"Cannot\s+find\s+name\s+'(?P<name>[^']+)'"),
++    "module_not_found": re.compile(r"Module\s+not\s+found:\s*Can't\s+resolve\s+['\"](?P<mod>[^'\"]+)['\"]"),
++    "react_hook_rule": re.compile(r"React\s+Hook\s+['\"]?(?P<hook>use\w+)['\"]?\s+is\s+called\s+in\s+function\s+['\"]?(?P<fn>[^'\"()]+)"),
++    "eslint_unused": re.compile(r"no-unused-vars"),
++    "parsing_error": re.compile(r"Parsing error:\s*(?P<msg>.+)"),
++}
++
++def _hint_for_reference(name: str) -> str:
++    if name == "base":
++        return ("`ReferenceError: base is not defined` → "
++                "definir shim seguro (Vite/Tauri) no topo do ficheiro que usa `base`:\n"
++                "```ts\n"
++                "const base: string = ((globalThis as any).__FORTALEZA_BASE__ as string)\n"
++                "  ?? (((import.meta as any)?.env?.BASE_URL as string) ?? '/');\n"
++                "(globalThis as any).__FORTALEZA_BASE__ = base;\n"
++                "```\n")
++    return (f"`ReferenceError: {name} is not defined` → importar/definir `{name}`; "
++            "se global, declarar tipo em `global.d.ts`.")
++
++def _hint_for_ts_name(name: str) -> str:
++    return (f"TypeScript: `Cannot find name '{name}'` → adicionar import, "
++            f"ou declarar como global em `global.d.ts` se aplicável.")
++
++def _hint_for_module(mod: str) -> str:
++    return (f"Module not found: `{mod}` → verificar caminho relativo/alias (tsconfig/vite.config) "
++            "ou instalar dependência (npm/pnpm).")
++
++def _hint_for_hook(hook: str, fn: str) -> str:
++    return (f"Regra React Hooks: `{hook}` usado em `{fn}` → mover hooks para o topo do componente "
++            "ou converter função para componente custom hook.")
++
++def extract_hints(log_text: str) -> List[str]:
++    """Extrai dicas acionáveis a partir do texto de logs."""
++    hints: List[str] = []
++    seen: Dict[str, bool] = {}
++
++    for m in RX["ref_is_not_defined"].finditer(log_text):
++        name = m.group("name")
++        h = _hint_for_reference(name)
++        if h not in seen:
++            hints.append(h); seen[h] = True
++
++    for m in RX["ts_cannot_find_name"].finditer(log_text):
++        name = m.group("name")
++        h = _hint_for_ts_name(name)
++        if h not in seen:
++            hints.append(h); seen[h] = True
++
++    for m in RX["module_not_found"].finditer(log_text):
++        mod = m.group("mod")
++        h = _hint_for_module(mod)
++        if h not in seen:
++            hints.append(h); seen[h] = True
++
++    for m in RX["react_hook_rule"].finditer(log_text):
++        h = _hint_for_hook(m.group("hook"), m.group("fn"))
++        if h not in seen:
++            hints.append(h); seen[h] = True
++
++    if RX["eslint_unused"].search(log_text):
++        hints.append("ESLint: `no-unused-vars` → remover variáveis não usadas ou prefixar com `_`.")
++
++    for m in RX["parsing_error"].finditer(log_text):
++        msg = m.group("msg")
++        h = f"Parsing error: {msg} → rever sintaxe/TSConfig/ESLint parser."
++        if h not in seen:
++            hints.append(h); seen[h] = True
++
++    # Prioridade simples: ReferenceError/Module not found primeiro
++    hints.sort(key=lambda s: (0 if "ReferenceError" in s else 1 if "Module not found" in s else 2))
++    return hints
+diff --git a/fortaleza-llm/strategies/playbook_simple.py b/fortaleza-llm/strategies/playbook_simple.py
+index 7777777..7abc123 100644
+--- a/fortaleza-llm/strategies/playbook_simple.py
++++ b/fortaleza-llm/strategies/playbook_simple.py
+@@ -1,16 +1,39 @@
+ from pathlib import Path
+ from typing import Dict, Any, List, Tuple
+ from . import pick_strategy
++try:
++    from ..parsers.error_patterns import extract_hints
++except ImportError:
++    # Fallback para quando executado diretamente
++    import sys
++    import os
++    sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
++    from parsers.error_patterns import extract_hints
+ 
+ README = """# Fortaleza LLM-Engenheira — Estratégia mínima
+ Este patch é idempotente e não toca em segredos. Em ciclos seguintes, substituir por correções cirúrgicas reais.
+ """
+ 
+ def propose_patch(root: Path, classification: Dict[str, Any]) -> List[Tuple[str, str]]:
+-    # Ciclo 0: se não existir um marcador, cria ficheiro de estratégia para sinalizar ciclo.
+-    out = Path("fortaleza-llm/STRATEGY.md")
+-    if not (root / out).exists():
+-        return [(str(out), README)]
+-    return []
++    """
++    Mantém o comportamento idempotente e acrescenta ADVICE.md com dicas
++    baseadas nos summaries de lint/tests/build.
++    """
++    changes: List[Tuple[str, str]] = []
++
++    # 1) marcador de estratégia (idempotente)
++    strat = Path("fortaleza-llm/STRATEGY.md")
++    if not (root / strat).exists():
++        changes.append((str(strat), README))
++
++    # 2) gerar conselhos acionáveis a partir dos logs
++    summaries = []
++    for key in ("lint", "tests", "build"):
++        part = classification.get(key) or {}
++        s = part.get("summary") or ""
++        if isinstance(s, str) and s.strip():
++            summaries.append(s)
++    combined = "\n".join(summaries)
++    hints = extract_hints(combined) if combined else []
++
++    advice_path = Path("fortaleza-llm/ADVICE.md")
++    advice = "# ADVICE — Fortaleza LLM-Engenheira\n\n"
++    if hints:
++        advice += "## Dicas priorizadas\n\n" + "\n".join([f"- {h}" for h in hints]) + "\n"
++    else:
++        advice += "_Sem erros detetados nos summaries — nada a aconselhar neste ciclo._\n"
++
++    changes.append((str(advice_path), advice))
++    return changes

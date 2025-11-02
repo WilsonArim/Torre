@@ -1,0 +1,443 @@
+diff --git a/torre-llm/docs/AST_CODEMODS_V1.md b/torre-llm/docs/AST_CODEMODS_V1.md
+new file mode 100644
+index 0000000..a11ce55
+--- /dev/null
++++ b/torre-llm/docs/AST_CODEMODS_V1.md
+@@ -0,0 +1,86 @@
++# AST Codemods v1 (TypeScript)
++
++Regras implementadas:
++
++1. **no-unused → prefixar `_`** em variáveis/param declaradas e não usadas.
++2. **Missing import** (`Cannot find name 'X'`) → adiciona `import { X } from '<path-relativo>'` se o símbolo existir no índice (`.torre/code_index.json`).
++3. **Fix import path** (module not found) → corrige `from './Foo'` para `from './Foo.tsx'` quando o ficheiro existe.
++
++Execução:
++- Preferência por **AST (Node + ts-morph)** via `codemods/ts/apply_codemods.mjs`.
++- Se Node/ts-morph não disponíveis, aplica **fallback Python** (heurístico) apenas quando seguro.
++
++Garantias:
++- **Idempotência**: não duplica `_` nem imports; verifica antes de alterar.
++- **Escopo**: só `.ts/.tsx` em `src/**`; sem tocar em paths sensíveis.
++- **Reversível**: diffs pequenos e claros.
++
++Limitações v1:
++- O mapeamento de imports usa o índice de símbolos (melhorar com AST completo no v2).
++- `no-unused` em destructuring complexos é ignorado no fallback.
++
++Como validar:
++```bash
++python -m torre-llm.run_offline
++git apply -p0 .torre/outbox/patch-apply-*.diff --check
++```
+diff --git a/torre-llm/strategies/ts_codemods.py b/torre-llm/strategies/ts_codemods.py
+new file mode 100644
+index 0000000..c0d3e7a
+--- /dev/null
++++ b/torre-llm/strategies/ts_codemods.py
+@@ -0,0 +1,255 @@
++from __future__ import annotations
++from pathlib import Path
++from typing import Dict, Any, List, Tuple, Optional
++import json, re, subprocess, sys, shutil
++try:
++    from ..utils.diff_utils import make_replace_file_diff
++except ImportError:
++    # Fallback para quando executado diretamente
++    import sys
++    import os
++    sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
++    from utils.diff_utils import make_replace_file_diff
++
++SRC_GLOB_EXTS = (".ts", ".tsx")
++
++RX_UNUSED = re.compile(r"[\"'](?P<name>[A-Za-z_][A-Za-z0-9_]*)[\"'].*?(?:never used|never read)")
++RX_TS_CANNOT_FIND = re.compile(r"Cannot\s+find\s+name\s+'(?P<name>[^']+)'")
++RX_MODULE_NOT_FOUND = re.compile(r"Module\s+not\s+found:\s*Can't\s+resolve\s+['\"](?P<mod>[^'\"]+)['\"]")
++
++def _load_index() -> Dict[str, Any]:
++    p = Path(".torre/code_index.json")
++    if p.exists():
++        try:
++            return json.loads(p.read_text(encoding="utf-8"))
++        except Exception:
++            return {}
++    return {}
++
++def _iter_src_files(root: Path) -> List[Path]:
++    out: List[Path] = []
++    src = root / "src"
++    if not src.exists():
++        return out
++    for p in src.rglob("*"):
++        if p.is_file() and p.suffix in SRC_GLOB_EXTS:
++            out.append(p)
++    return out
++
++def _guess_file_for_symbol(root: Path, symbol: str) -> Optional[Path]:
++    """Procura em .torre/code_index.json um ficheiro que exporte `symbol`."""
++    idx = _load_index()
++    by_file = idx.get("by_file", {})
++    for path, syms in by_file.items():
++        try:
++            if symbol in syms:
++                p = Path(path)
++                if p.exists():
++                    return p
++        except Exception:
++            continue
++    return None
++
++def _relative_import(from_file: Path, to_file: Path) -> str:
++    try:
++        rel = Path(Path(to_file).with_suffix("")).relative_to(from_file.parent)
++        s = str(rel).replace("\\", "/")
++        if not s.startswith("."):
++            s = "./" + s
++        return s
++    except ValueError:
++        # Se não conseguir calcular caminho relativo, usar caminho absoluto
++        return str(to_file.with_suffix(""))
++
++def _python_fallback_prefix_unused(path: Path, text: str, names: List[str]) -> Optional[str]:
++    """Heurística: prefixa identificadores declarados (const/let/function param) com '_' se não começarem por '_'."""
++    new = text
++    changed = False
++    for name in names:
++        if name.startswith("_"):
++            continue
++        # const/let/var name = ...
++        new2, n = re.subn(rf"\b(const|let|var)\s+{re.escape(name)}\b", rf"\1 _{name}", new)
++        if n > 0:
++            new = new2; changed = True; continue
++        # function foo(name) { ... }  or  (name: T) => ...
++        new2, n = re.subn(rf"\(([^)]*?)\b{re.escape(name)}\b", lambda m: m.group(0).replace(name, f"_{name}"), new, count=1)
++        if n > 0:
++            new = new2; changed = True
++    return new if changed else None
++
++def _python_fallback_add_import(path: Path, text: str, symbol: str, from_path: Path) -> Optional[str]:
++    """Adiciona import simples se não existir já."""
++    escaped_symbol = re.escape(symbol)
++    pattern1 = r"\bimport\s+\{[^}]*\b" + escaped_symbol + r"\b[^}]*\}\s+from\s+['\"]"
++    pattern2 = r"\bimport\s+\*\s+as\s+\w+\s+from\s+['\"]"
++    if re.search(pattern1, text) or re.search(pattern2, text):
++        return None
++    module = _relative_import(path, from_path)
++    line = f"import {{ {symbol} }} from '{module}';\n"
++    # inserir após imports existentes ou no topo
++    m = re.search(r"^(import[^\n]*;\n)+", text, flags=re.M)
++    if m:
++        i = m.end(0)
++        return text[:i] + line + text[i:]
++    return line + text
++
++def _python_fallback_fix_import_path(path: Path, text: str) -> Optional[str]:
++    """Corrige imports sem extensão quando existe ficheiro correspondente com extensão adequada."""
++    changed = False
++    def repl(m):
++        nonlocal changed
++        mod = m.group("mod")
++        if not (mod.startswith(".") or mod.startswith("/")):
++            return m.group(0)
++        base = (path.parent / mod)
++        for ext in (".tsx", ".ts", ".jsx", ".js"):
++            cand = base.with_suffix(ext)
++            if cand.exists():
++                changed = True
++                return f"{m.group('pre')}{mod+ext}{m.group('post')}"
++        return m.group(0)
++    new = re.sub(r"(?P<pre>from\s+['\"])(?P<mod>[^'\"]+)(?P<post>['\"];)", repl, text)
++    return new if changed else None
++
++def _build_plan(root: Path, classification: Dict[str, Any]) -> Dict[str, Any]:
++    plan: Dict[str, Any] = {"ops": []}
++    summaries = []
++    for key in ("lint", "tests", "build"):
++        s = (classification.get(key) or {}).get("summary") or ""
++        if isinstance(s, str) and s.strip():
++            summaries.append(s)
++    text = "\n".join(summaries)
++    if not text.strip():
++        return plan
++    # no-unused
++    unused = list({m.group("name") for m in RX_UNUSED.finditer(text)})
++    for name in unused:
++        plan["ops"].append({"type": "prefixUnused", "name": name})
++    # Cannot find name
++    missing = list({m.group("name") for m in RX_TS_CANNOT_FIND.finditer(text)})
++    for name in missing:
++        src = _guess_file_for_symbol(root, name)
++        if src:
++            plan["ops"].append({"type": "addImport", "symbol": name, "from": str(src)})
++    # Module not found (we try to fix missing extension)
++    if RX_MODULE_NOT_FOUND.search(text):
++        plan["ops"].append({"type": "fixImportPath"})
++    return plan
++
++def _node_apply_codemods(root: Path, plan: Dict[str, Any]) -> List[Tuple[Path, str]]:
++    node = shutil.which("node")
++    script = Path(__file__).resolve().parent.parent / "codemods" / "ts" / "apply_codemods.mjs"
++    if not node or not script.exists():
++        return []
++    try:
++        p = subprocess.Popen([node, str(script)], cwd=str(root), stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
++        out, err = p.communicate(json.dumps(plan), timeout=20)
++        if p.returncode != 0:
++            return []
++        result = json.loads(out or "{}").get("files", [])
++        out_changes: List[Tuple[Path, str]] = []
++        for item in result:
++            try:
++                out_changes.append((Path(item["path"]), item["content"]))
++            except Exception:
++                continue
++        return out_changes
++    except Exception:
++        return []
++
++def _python_apply_codemods(root: Path, plan: Dict[str, Any]) -> List[Tuple[Path, str]]:
++    changes: List[Tuple[Path, str]] = []
++    names_unused = [op["name"] for op in plan.get("ops", []) if op.get("type") == "prefixUnused"]
++    add_imports = [op for op in plan.get("ops", []) if op.get("type") == "addImport"]
++    fix_import = any(op.get("type") == "fixImportPath" for op in plan.get("ops", []))
++    for path in _iter_src_files(root):
++        try:
++            text = path.read_text(encoding="utf-8")
++        except Exception:
++            continue
++        updated = text
++        # A) prefixUnused
++        if names_unused:
++            v = _python_fallback_prefix_unused(path, updated, names_unused) or updated
++            updated = v
++        # B) addImport (para primeiro match por ficheiro)
++        for op in add_imports:
++            sym = op["symbol"]
++            src = Path(op["from"])
++            if sym in updated and not re.search(rf"\bimport\s+.*\b{re.escape(sym)}\b.*from\s+['\"]", updated):
++                v = _python_fallback_add_import(path, updated, sym, src)
++                if v:
++                    updated = v
++        # C) fixImportPath
++        if fix_import:
++            v = _python_fallback_fix_import_path(path, updated)
++            if v:
++                updated = v
++        if updated != text:
++            changes.append((path, updated))
++    return changes
++
++def generate_diffs(root: Path, classification: Dict[str, Any]) -> List[str]:
++    """
++    Estratégia: construir plano a partir de logs e índice; tentar Node/AST; fallback Python.
++    Retorna lista de diffs unificados (modify-in-place) prontos a concatenar.
++    """
++    plan = _build_plan(root, classification)
++    if not plan.get("ops"):
++        return []
++    # 1) Node/AST (preferido)
++    changes = _node_apply_codemods(root, plan)
++    diffs: List[str] = []
++    if not changes:
++        # 2) Fallback Python
++        changes = _python_apply_codemods(root, plan)
++    for path, new_text in changes:
++        try:
++            old_text = path.read_text(encoding="utf-8")
++        except Exception:
++            continue
++        # Idempotência: se já igual, ignora
++        if old_text == new_text:
++            continue
++        diffs.append(make_replace_file_diff(path, old_text, new_text))
++    return diffs
+diff --git a/torre-llm/codemods/ts/apply_codemods.mjs b/torre-llm/codemods/ts/apply_codemods.mjs
+new file mode 100644
+index 0000000..b33fd10
+--- /dev/null
++++ b/torre-llm/codemods/ts/apply_codemods.mjs
+@@ -0,0 +1,146 @@
++// AST codemods com ts-morph (não escreve em disco; devolve JSON {files:[{path,content}]}).
++// Se ts-morph não estiver disponível, termina com código != 0.
++import { readFileSync, existsSync } from "node:fs";
++import { resolve, dirname, relative } from "node:path";
++
++let Project, SyntaxKind;
++try {
++  ({ Project, SyntaxKind } = await import("ts-morph"));
++} catch (e) {
++  process.stderr.write("ts-morph not available\n");
++  process.exit(2);
++}
++
++const plan = JSON.parse(readFileSync(0, "utf8") || "{}");
++const ops = Array.isArray(plan.ops) ? plan.ops : [];
++
++function loadProject(files) {
++  const project = new Project({ skipAddingFilesFromTsConfig: true, manipulationSettings: { indentationText: "  " } });
++  // Adiciona só ficheiros relevantes para performance
++  new Set(files).forEach((f) => {
++    if (existsSync(f)) project.addSourceFileAtPath(f);
++  });
++  return project;
++}
++
++function setFromImport(sourceFile, symbol, fromPath) {
++  const existing = sourceFile.getImportDeclarations().find((d) => {
++    const n = d.getNamedImports().map((ni) => ni.getName());
++    return n.includes(symbol);
++  });
++  if (exist
++ing) return;
++  sourceFile.addImportDeclaration({ moduleSpecifier: fromPath, namedImports: [symbol] });
++}
++
++function prefixUnusedInFile(sourceFile, names) {
++  let changed = false;
++  const set = new Set(names.filter((n) => !n.startsWith("_")));
++  if (set.size === 0) return false;
++  // variáveis
++  sourceFile.getVariableDeclarations().forEach((decl) => {
++    const n = decl.getName();
++    if (set.has(n)) {
++      decl.rename(`_${n}`); changed = true;
++    }
++  });
++  // parâmetros de função
++  sourceFile.getFunctions().forEach((fn) => {
++    fn.getParameters().forEach((p) => {
++      const n = p.getName();
++      if (set.has(n)) { p.rename(`_${n}`); changed = true; }
++    });
++  });
++  // parâmetros em arrows
++  sourceFile.getDescendantsOfKind(SyntaxKind.ArrowFunction).forEach((af) => {
++    af.getParameters().forEach((p) => {
++      const n = p.getName();
++      if (set.has(n)) { p.rename(`_${n}`); changed = true; }
++    });
++  });
++  return changed;
++}
++
++function fixImportPath(sourceFile) {
++  let changed = false;
++  sourceFile.getImportDeclarations().forEach((d) => {
++    const spec = d.getModuleSpecifierValue();
++    if (!(spec.startsWith(".") || spec.startsWith("/"))) return;
++    const base = resolve(dirname(sourceFile.getFilePath()), spec);
++    for (const ext of [".tsx", ".ts", ".jsx", ".js"]) {
++      const cand = base + ext;
++      if (existsSync(cand)) {
++        if (!spec.endsWith(ext)) {
++          d.setModuleSpecifier(spec + ext);
++          changed = true;
++        }
++        break;
++      }
++    }
++  });
++  return changed;
++}
++
++function addMissingImports(project, symbolToFileMap) {
++  let changed = false;
++  for (const [file, froms] of symbolToFileMap.entries()) {
++    const sf = project.getSourceFile(file);
++    if "sf) continue;
++    for (const { symbol, from } of froms) {
++      const rel = relative(dirname(file), from).replaceAll("\\", "/");
++      const module = rel.startsWith(".") ? rel : `./${rel}`;
++      const has = sf.getImportDeclarations().some((d) => d.getNamedImports().some((ni) => ni.getName() === symbol));
++      if (!has) { setFromImport(sf, symbol, module.replace(/\.(tsx|ts|jsx|js)$/,"")); changed = true; }
++    }
++  }
++  return changed;
++}
++
++// Construir conjunto de ficheiros potencialmente afetados
++const projectFiles = new Set();
++// prefixUnused aplica-se a todos os .ts/.tsx; mas vamos limitar aos ficheiros abertos depois
++// addImport/fixImportPath precisam de alvos concretos; vamos tentar todos .ts/.tsx que existam
++import { readdirSync } from "node:fs";
++import { glob } from "node:fs/promises";
++const candidateFiles = await glob("src/**/*.{ts,tsx}", { withFileTypes: false });
++candidateFiles.forEach((f) => projectFiles.add(resolve(f)));
++
++const project = loadProject(projectFiles);
++
++// Preparar mapas para addImport
++const addImportOps = ops.filter((o) => o.type === "addImport");
++const symbolToFileMap = new Map(); // file -> [{symbol, from}]
++for (const op of addImportOps) {
++  const symbol = op.symbol;
++  const from = resolve(op.from);
++  // heurística: aplicar aos ficheiros que mencionem o símbolo
++  project.getSourceFiles().forEach((sf) => {
++    if (sf.getText().includes(symbol)) {
++      const arr = symbolToFileMap.get(sf.getFilePath()) || [];
++      arr.push({ symbol, from });
++      symbolToFileMap.set(sf.getFilePath(), arr);
++    }
++  });
++}
++
++let anyChange = false;
++// 1) prefixUnused
++const names = ops.filter((o) => o.type === "prefixUnused").map((o) => o.name);
++if (names.length) {
++  project.getSourceFiles().forEach((sf) => { if (prefixUnusedInFile(sf, names)) anyChange = true; });
++}
++// 2) addImport
++if (addMissingImports(project, symbolToFileMap)) anyChange = true;
++// 3) fixImportPath
++if (ops.some((o) => o.type === "fixImportPath")) {
++  project.getSourceFiles().forEach((sf) => { if (fixImportPath(sf)) anyChange = true; });
++}
++
++const files = [];
++if (anyChange) {
++  project.getSourceFiles().forEach((sf) => {
++    if (sf.isSaved()) return; // não usamos save; mas guardamos todos para simplificar
++    files.push({ path: sf.getFilePath(), content: sf.getFullText() });
++  });
++}
++process.stdout.write(JSON.stringify({ files }));
+diff --git a/torre-llm/orchestrator.py b/torre-llm/orchestrator.py
+index 8ac3d22..b7edc10 100644
+--- a/torre-llm/orchestrator.py
++++ b/torre-llm/orchestrator.py
+@@ -14,6 +14,7 @@ from .code_index import build_code_index, write_index_json, make_overview_md
+ from .logic.aristotelian import verify_invariants
+ from importlib import import_module
++from .strategies import ts_codemods as _ts_codemods
+ 
+ 
+ ROOT = Path(os.getenv("REpo_ROOT", ".")).resolve()
+@@ -61,6 +62,12 @@ def main() -> None:
+         evidence_md = make_evidence(classification, [p for (p, _) in file_changes], notes=note)
+         file_changes.append(("fortaleza-llm/EVIDENCE.md", evidence_md))
+     except Exception:
+         pass
+ 
+     # 3.2) Adicionar overview do índice ao patch
+     file_changes.append(("fortaleza-llm/INDEX_OVERVIEW.md", index_overview))
+ 
+     # 4) Construir diffs (novos ficheiros) e recolher diffs de auto-fix (ficheiros existentes)
+     diffs = [make_new_file_diff(Path(p), c) for (p, c) in file_changes]
+ 
+     # Auto-fix opcional: se existir strategies.autofix_base_shim, inclui os seus diffs
+     try:
+         af = import_module(".strategies.autofix_base_shim", package=__package__)
+         extra_diffs = af.generate_diffs(ROOT, classification) or []
+         diffs.extend(extra_diffs)
+     except Exception:
+         # silencioso
+         pass
++    # Codemods TS v1 (AST preferido; fallback Python)
++    try:
++        extra_diffs = _ts_codemods.generate_diffs(ROOT, classification) or []
++        diffs.extend(extra_diffs)
++    except Exception:
++        pass

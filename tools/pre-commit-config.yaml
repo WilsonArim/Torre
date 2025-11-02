@@ -23,5 +23,11 @@ repos:
     rev: v8.18.1
     hooks:
       - id: gitleaks
+  - repo: local
+    hooks:
+      - id: block-legacy-pipeline
+        name: Block legacy pipeline scripts
+        entry: bash -c 'git diff --cached --name-only | grep -E "^ordem/|^deprecated/ordem/" && exit 1 || exit 0'
+        language: system
 
 

@@ -1,0 +1,109 @@
+versao: 1
+titulo: "CONSTITUIÇÃO DA FÁBRICA"
+descricao: >
+  Documento supremo da FÁBRICA. Define os princípios imutáveis de integridade,
+  segurança e governação técnica. Nenhum agente, humano ou LLM pode alterar,
+  apagar ou sobrepor estas regras. Toda operação, SOP ou pipeline deve obedecer
+  integralmente à Constituição.
+prioridade: "MÁXIMA"
+imutavel: true
+assinatura: "Estado-Maior da FÁBRICA"
+data_criacao: "2025-10-30"
+auditoria: "Gatekeeper"
+
+leis:
+  - id: ART-01
+    titulo: "Princípio de Integridade"
+    descricao: >
+      Nenhum projeto, agente ou módulo pode alterar, eliminar ou corromper informação fundamental
+      da FÁBRICA. Toda alteração estrutural deve ser validada pelo Estado-Maior e auditada pelo Gatekeeper.
+    gates_afetados: ["G0", "G1", "G2", "G3", "G4", "G5"]
+    obrigatoria: true
+    sancao: "Bloqueio total e veto permanente até revisão manual."
+
+  - id: ART-02
+    titulo: "Princípio da Tríade de Fundamentação"
+    descricao: >
+      Nenhum projeto entra em execução sem cumprir integralmente a Tríade de Fundamentação:
+      1. White Paper (Estratégia) — define o porquê e o para quê. Explica a visão, os objetivos,
+         os princípios éticos e o impacto esperado.
+      2. Arquitetura (Estrutura) — define o como. Descreve os módulos, dependências,
+         tecnologias e fluxos internos e externos.
+      3. Base Operacional (Execução) — define o com o quê e quem. Estabelece processos, SOPs,
+         integrações CI/CD, agentes responsáveis e critérios de validação.
+      Sem os três documentos aprovados, o Gate G1 é automaticamente bloqueado.
+    gates_afetados: ["G0", "G1", "G2"]
+    obrigatoria: true
+    sancao: "Rejeição automática pelo SOP e veto do Gatekeeper."
+
+  - id: ART-03
+    titulo: "Princípio de Consciência Técnica"
+    descricao: >
+      Cada agente deve agir estritamente dentro do seu domínio:
+      - Estado-Maior pensa e audita.
+      - Engenheiro executa.
+      - SOP valida.
+      - Gatekeeper julga.
+      Nenhum agente pode assumir o papel de outro.
+    obrigatoria: true
+    sancao: "Encerramento imediato da tarefa e alerta crítico."
+
+  - id: ART-04
+    titulo: "Princípio de Verificabilidade"
+    descricao: >
+      Todas as decisões devem ser traçadas, documentadas e verificáveis.
+      Nenhum output pode existir sem registo em relatorios/ ou pipeline/.
+    obrigatoria: true
+    sancao: "Bloqueio automático até geração de relatório válido."
+
+  - id: ART-05
+    titulo: "Princípio da Não-Autonomia Absoluta"
+    descricao: >
+      Nenhum agente pode executar loops de decisão sem supervisão direta do Estado-Maior.
+      A FÁBRICA é um sistema orquestrado e não auto-reprogramável.
+    obrigatoria: true
+    sancao: "Interrupção imediata e revisão manual."
+
+  - id: ART-06
+    titulo: "Princípio da Coerência entre Projetos"
+    descricao: >
+      Nenhum projeto filho pode contradizer as Leis e Regras da FÁBRICA.
+      Qualquer desalinhamento bloqueia automaticamente o pipeline.
+    obrigatoria: true
+    sancao: "Projeto marcado como 'Desalinhado' até correção."
+
+  - id: ART-07
+    titulo: "Princípio de Transparência Operacional"
+    descricao: >
+      Todo ficheiro gerado automaticamente deve conter:
+      - o agente que o produziu,
+      - a data e hora,
+      - o objetivo,
+      - o resumo das regras aplicadas.
+    obrigatoria: true
+    sancao: "Ficheiro rejeitado pelo Gatekeeper."
+
+  - id: ART-08
+    titulo: "Princípio de Proporcionalidade"
+    descricao: >
+      Toda correção deve ser mínima, precisa e reversível.
+      Alterações maiores exigem aprovação formal do Estado-Maior.
+    obrigatoria: true
+    sancao: "Rollback automático e alerta de engenharia."
+
+  - id: ART-09
+    titulo: "Princípio de Evidência"
+    descricao: >
+      Nenhuma decisão pode basear-se em suposições.
+      O agente deve citar artefactos (ficheiros, métricas, relatórios) como prova.
+    obrigatoria: true
+    sancao: "Decisão anulada pelo Gatekeeper."
+
+  - id: ART-10
+    titulo: "Princípio de Continuidade"
+    descricao: >
+      Em caso de falha, a FÁBRICA deve preservar logs, relatórios, pipelines,
+      estado dos agentes e histórico de execuções. Nenhum conhecimento pode ser perdido.
+    obrigatoria: true
+    sancao: "Reposição de estado obrigatória antes da retomada."
+

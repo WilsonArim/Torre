@@ -1,0 +1,52 @@
+{
+  "types:2304": {
+    "id": "types:2304",
+    "signature": {
+      "error_code": "types",
+      "pattern": "2304"
+    },
+    "action": {
+      "kind": "prompt_nudge"
+    },
+    "stats": {
+      "applied": 0,
+      "wins": 0,
+      "fails": 0,
+      "last_ts": 0
+    },
+    "pattern": "2304",
+    "error_type": "types",
+    "solution_template": "import { SettingsPage } from './SettingsPage';",
+    "success_rate": 1.0,
+    "avg_ttg": 100.0,
+    "avg_diff_size": 5.0,
+    "frequency": 12,
+    "last_seen": 1756135033.7857778,
+    "confidence": 1.0
+  },
+  "build:ModuleNotFoundError:": {
+    "id": "build:ModuleNotFoundError:",
+    "signature": {
+      "error_code": "build",
+      "pattern": "ModuleNotFoundError:"
+    },
+    "action": {
+      "kind": "prompt_nudge"
+    },
+    "stats": {
+      "applied": 0,
+      "wins": 0,
+      "fails": 0,
+      "last_ts": 0
+    },
+    "pattern": "ModuleNotFoundError:",
+    "error_type": "build",
+    "solution_template": "npm install evals",
+    "success_rate": 1.0,
+    "avg_ttg": 200.0,
+    "avg_diff_size": 1.0,
+    "frequency": 12,
+    "last_seen": 1756135033.786436,
+    "confidence": 1.0
+  }
+}

@@ -1,0 +1,10 @@
+[
+  {
+    "key": "0009b6084972|TS2307|src|vite",
+    "confidence": 0.8,
+    "hits": 0,
+    "regressions": 0,
+    "policy": "apply_priors",
+    "created_at": "2025-08-25T19:36:49Z"
+  }
+]

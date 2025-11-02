@@ -1,0 +1,61 @@
+{
+  "name": "fortaleza-cursor-extension",
+  "displayName": "Fortaleza LLM",
+  "description": "Correção automática de erros com Fortaleza LLM",
+  "version": "1.0.0",
+  "engines": {
+    "vscode": "^1.60.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "fortaleza.enable",
+        "title": "Enable Fortaleza"
+      },
+      {
+        "command": "fortaleza.disable",
+        "title": "Disable Fortaleza"
+      },
+      {
+        "command": "fortaleza.fix",
+        "title": "Fix with Fortaleza"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "fortaleza.fix",
+        "key": "ctrl+shift+f",
+        "mac": "cmd+shift+f"
+      }
+    ],
+    "statusBar": {
+      "items": [
+        {
+          "id": "fortaleza.status",
+          "name": "Fortaleza Status",
+          "text": "Fortaleza: Ready",
+          "tooltip": "Click to toggle Fortaleza"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "fortaleza",
+    "llm",
+    "autofix",
+    "typescript",
+    "error-correction"
+  ],
+  "author": "Fortaleza Team",
+  "license": "MIT"
+}

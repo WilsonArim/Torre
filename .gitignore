@@ -110,3 +110,6 @@ jspm_packages/
 
 # DynamoDB Local files
 .dynamodb/
+
+# Constituição é imutável - NÃO IGNORAR
+# !core/sop/constituição.yaml

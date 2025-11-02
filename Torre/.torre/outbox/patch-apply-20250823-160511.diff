@@ -1,0 +1,55 @@
+diff --git a/fortaleza-llm/STRATEGY.md b/fortaleza-llm/STRATEGY.md
+new file mode 100644
+index 0000000..0000001
+--- /dev/null
++++ b/fortaleza-llm/STRATEGY.md
+@@ -0,0 +1,2 @@
++# Fortaleza LLM-Engenheira — Estratégia mínima
++Este patch é idempotente e não toca em segredos. Em ciclos seguintes, substituir por correções cirúrgicas reais.
+diff --git a/fortaleza-llm/ADVICE.md b/fortaleza-llm/ADVICE.md
+new file mode 100644
+index 0000000..0000001
+--- /dev/null
++++ b/fortaleza-llm/ADVICE.md
+@@ -0,0 +1,3 @@
++# ADVICE — Fortaleza LLM-Engenheira
++
++_Sem erros detetados nos summaries — nada a aconselhar neste ciclo._
+diff --git a/fortaleza-llm/EVIDENCE.md b/fortaleza-llm/EVIDENCE.md
+new file mode 100644
+index 0000000..0000001
+--- /dev/null
++++ b/fortaleza-llm/EVIDENCE.md
+@@ -0,0 +1,17 @@
++# EVIDENCE — Fortaleza LLM-Engenheira
++
++*timestamp*: 2025-08-23T16:05:11.788745
++*files_changed*: 2
++
++## Classificação de Erros
++- Sem erros detetados
++- lint: ✅ ...
++- tests: ✅ ...
++- build: ✅ ...
++
++## Ficheiros Alterados
++- `fortaleza-llm/STRATEGY.md`
++- `fortaleza-llm/ADVICE.md`
++
++## Notas
++index: files=1, symbols=1
+diff --git a/fortaleza-llm/INDEX_OVERVIEW.md b/fortaleza-llm/INDEX_OVERVIEW.md
+new file mode 100644
+index 0000000..0000001
+--- /dev/null
++++ b/fortaleza-llm/INDEX_OVERVIEW.md
+@@ -0,0 +1,9 @@
++# INDEX_OVERVIEW — Fortaleza RAG-of-Code (mínimo)
++
++*root*: `/Users/wilsonarim/CURSOR/fortaleza 4.0`
++*files_indexed*: 1
++*files_with_symbols*: 1
++*symbols*: 1
++
++## Exemplos (até 10 ficheiros)
++- `/Users/wilsonarim/CURSOR/fortaleza 4.0/src/components/SettingsPage.tsx`: SettingsPage

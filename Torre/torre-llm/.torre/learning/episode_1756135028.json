@@ -1,0 +1,11 @@
+{
+  "timestamp": 1756135028.813427,
+  "error_type": "build",
+  "error_content": "ModuleNotFoundError: No module named evals",
+  "solution_applied": "npm install evals",
+  "success": true,
+  "ttg_ms": 200,
+  "diff_size": 1,
+  "violations": [],
+  "module_affected": "package.json"
+}

@@ -1,0 +1,198 @@
+{
+  "agent": "ENGENHEIRO-TORRE",
+  "inventory_date": "2025-11-01T11:40:00Z",
+  "purpose": "Inventário consolidado de PINs - remover conflitos",
+  "status": "READY",
+  
+  "pins_found": [
+    {
+      "id": "PIN_ENGINEER_V3_CORE",
+      "version": "3.0",
+      "location": "docs/ENGINEER_PIN.md",
+      "status": "ACTIVE",
+      "scope": "CORE/ORQUESTRADOR",
+      "description": "PIN do Engenheiro v3.0 para core/orquestrador",
+      "features": [
+        "Comandos via Makefile e CLI",
+        "Formato de ordens YAML",
+        "Tipos de steps: command, make, validation",
+        "Relatórios JSON",
+        "Política Zero Risco"
+      ],
+      "schema_reports": {
+        "path": "relatorios/para_estado_maior/engineer.out.json",
+        "fields": ["order_id", "order_title", "status", "executed_at", "executed_by", "metrics", "artefacts", "failures", "recommendations"]
+      },
+      "conflicts": []
+    },
+    {
+      "id": "PIN_TORRE_V2_DEPRECATED",
+      "version": "2.0",
+      "location": "factory/pins/_deprecated/PIN_TORRE_v2.md",
+      "status": "DEPRECATED",
+      "scope": "TORRE",
+      "description": "PIN TORRE v2.0 (deprecated)",
+      "features": [],
+      "conflicts": [
+        "Marcado como deprecated",
+        "Localização em factory/pins/_deprecated/"
+      ]
+    },
+    {
+      "id": "PIN_TORRE_V2_README",
+      "version": "2.0",
+      "location": "torre/orquestrador/README.md",
+      "status": "ACTIVE",
+      "scope": "TORRE",
+      "description": "Referência a PIN v2.0 no README",
+      "features": [
+        "Modos STANDBY e EXECUÇÃO",
+        "Ciclo de 5 fases",
+        "Frases obrigatórias",
+        "Regra-Mãe de Ownership",
+        "Schema de relatório PIN v2.0"
+      ],
+      "schema_reports": {
+        "path": "relatorios/para_estado_maior/engineer.out.json",
+        "fields": ["order_id", "report_id", "version", "from_role", "to_role", "project", "module", "gate", "started_at", "finished_at", "status", "findings", "metrics", "risks", "artifacts", "references", "signature"]
+      },
+      "conflicts": [
+        "Referencia PIN.md que foi deletado",
+        "Schema diferente do PIN v3.0 core"
+      ]
+    },
+    {
+      "id": "MINI_PIN_VALIDATIONS",
+      "version": "1.0",
+      "location": "torre/orquestrador/mini_pin_validations.py",
+      "status": "ACTIVE",
+      "scope": "TORRE",
+      "description": "Mini-PIN: Verificações de Linguagem e Arquétipo",
+      "features": [
+        "Frase inicial obrigatória: 'Quem age: ENG. Linguagem: <X> (confiança <p>). Ação: <ler/refatorar/validar>. Estado: PROFILE=<PASS/FAIL>, ARQUETIPO=<PASS/FAIL>, SMELLS=<0/N>.'",
+        "Detecção de linguagem",
+        "Geração de language_profile.json",
+        "archetype_check",
+        "cross_smells",
+        "build_lang",
+        "Validação antes de refatorações"
+      ],
+      "conflicts": []
+    },
+    {
+      "id": "PIN_MISSING",
+      "version": "unknown",
+      "location": "torre/orquestrador/PIN.md",
+      "status": "DELETED",
+      "scope": "TORRE",
+      "description": "PIN.md referenciado mas deletado",
+      "features": [],
+      "conflicts": [
+        "Arquivo deletado mas ainda referenciado em README.md",
+        "Conteúdo incluía Mini-PIN e PIN v2.0 completo"
+      ]
+    }
+  ],
+  
+  "conflicts_identified": [
+    {
+      "type": "SCHEMA_MISMATCH",
+      "severity": "HIGH",
+      "description": "Diferença entre schema de relatórios PIN v3.0 (core) vs PIN v2.0 (torre)",
+      "details": {
+        "pin_v3_core": {
+          "fields": ["order_id", "order_title", "status", "executed_at", "executed_by", "metrics", "artefacts", "failures", "recommendations"]
+        },
+        "pin_v2_torre": {
+          "fields": ["order_id", "report_id", "version", "from_role", "to_role", "project", "module", "gate", "started_at", "finished_at", "status", "findings", "metrics", "risks", "artifacts", "references", "signature"]
+        }
+      },
+      "recommendation": "Unificar schema ou documentar quando usar cada um"
+    },
+    {
+      "type": "MISSING_FILE",
+      "severity": "MEDIUM",
+      "description": "PIN.md deletado mas ainda referenciado",
+      "location": "torre/orquestrador/PIN.md",
+      "referenced_in": ["torre/orquestrador/README.md"],
+      "recommendation": "Recriar PIN.md consolidado ou atualizar referências"
+    },
+    {
+      "type": "VERSION_MISMATCH",
+      "severity": "LOW",
+      "description": "Múltiplas versões de PIN ativas",
+      "versions": ["3.0 (core)", "2.0 (torre)"],
+      "recommendation": "Documentar quando cada versão se aplica"
+    }
+  ],
+  
+  "consolidated_features": {
+    "modos_operacionais": {
+      "STANDBY": {
+        "trigger": "mailbox vazio ou inválido",
+        "frase_abertura": "🛠️ MODO STANDBY — A aguardar ordens válidas do Estado-Maior.",
+        "acoes": ["Validar formato de ordem (YAML) e schema", "Não executar nada sem 'order_id', 'objective' e 'deliverables'"]
+      },
+      "EXECUCAO": {
+        "trigger": "nova entrada em ordem/ordens/engineer.in.yaml com status OPEN",
+        "frase_abertura": "🛠️ MODO EXECUÇÃO — A executar a tarefa técnica atribuída (sem papéis de Gatekeeper/SOP).",
+        "ciclo_5_fases": ["ACK", "Execução", "Validação", "Relatório", "Fecho"],
+        "frase_fechamento": "✅ RELATÓRIO EMITIDO — Estado-Maior pode avaliar (Gatekeeper+SOP). Avanço de gate só após PASS."
+      }
+    },
+    "frases_obrigatorias": {
+      "mini_pin": "Quem age: ENG. Linguagem: <X> (confiança <p>). Ação: <ler/refatorar/validar>. Estado: PROFILE=<PASS/FAIL>, ARQUETIPO=<PASS/FAIL>, SMELLS=<0/N>.",
+      "standby": "🛠️ MODO STANDBY — A aguardar ordens válidas do Estado-Maior.",
+      "execucao": "🛠️ MODO EXECUÇÃO — A executar a tarefa técnica atribuída (sem papéis de Gatekeeper/SOP).",
+      "fechamento": "✅ RELATÓRIO EMITIDO — Estado-Maior pode avaliar (Gatekeeper+SOP). Avanço de gate só após PASS."
+    },
+    "regras_criticas": {
+      "zero_riscos": {
+        "regra": "NUNCA, MAS NUNCA DEVE HAVER RISCOS. RISCOS AGORA SÃO FALHAS GRAVES NO FUTURO.",
+        "aplicacao": "Campo 'risks' sempre vazio [], bloqueio automático se menção a riscos"
+      },
+      "separacao_papeis": {
+        "gatekeeper": false,
+        "sop": false,
+        "descricao": "Engenheiro NUNCA assume papéis de Gatekeeper ou SOP"
+      },
+      "mini_pin_refatoracao": {
+        "se_profile_ou_arquetipo_falharem": "NÃO tocar no código, emitir plano de correção",
+        "validações_obrigatorias": ["language_profile.json", "archetype_check", "cross_smells", "build_lang"]
+      }
+    },
+    "ownership": {
+      "bootstrap": {
+        "estado_maior": ["estratégia", "decisões", "criação/alteração de regras/constituição/pipeline", "aprovação de gates", "emitir ordens"],
+        "engenheiro": ["execução prática", "escrever/alterar código", "correr make/scripts", "gerar artefactos", "testes", "refatoração"]
+      },
+      "pipeline": {
+        "G0_G2_G4": "Estado-Maior",
+        "G1_G3": "Engenheiro"
+      }
+    }
+  },
+  
+  "paths": {
+    "ordens_input": "ordem/ordens/engineer.in.yaml",
+    "relatorios_output": "relatorios/para_estado_maior/engineer.out.json",
+    "logs": "torre/relatorios/autoexec_log_torre.md",
+    "language_profile": "torre/relatorios/language_profile.json"
+  },
+  
+  "recommendations": [
+    "Consolidar PIN.md em torre/orquestrador/ com versão única",
+    "Unificar schema de relatórios ou documentar quando usar cada formato",
+    "Manter Mini-PIN como extensão separada",
+    "Deprecar factory/pins/_deprecated/PIN_TORRE_v2.md oficialmente",
+    "Documentar diferenças entre PIN v3.0 (core) e PIN v2.0 (torre)"
+  ],
+  
+  "next_steps": [
+    "Estado-Maior revisa conflitos identificados",
+    "Decisão sobre consolidação de PINs",
+    "Recriação de PIN.md consolidado se necessário",
+    "Atualização de referências"
+  ]
+}
+

@@ -10,6 +10,8 @@ DST_DIR="$ROOT/pipeline/modulos/${M}-${SLUG}"
 DST="$DST_DIR/${M}.md"
 mkdir -p "$DST_DIR"
 ID="$(date +%F)-$(printf "%03d" $(( RANDOM % 900 + 100 )))"
+# DEPRECATED — NÃO USAR. Substituído por core/orquestrador/cli.py e Makefile.
+exit 1
 # HEADER fill
 awk -v ID="$ID" -v M="$M" '
 BEGIN{FS=OFS="\n"}

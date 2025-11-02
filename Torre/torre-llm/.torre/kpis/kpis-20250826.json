@@ -1,0 +1,11 @@
+{
+  "ts": "2025-08-26T07:20:16Z",
+  "golden_success_rate": 100.0,
+  "redteam_denials_rate": null,
+  "repeat_error_rate": null,
+  "rules_promoted": null,
+  "rules_hit_rate": null,
+  "requests_today": 0,
+  "latency_ms_avg": null,
+  "latency_ms_p95": null
+}

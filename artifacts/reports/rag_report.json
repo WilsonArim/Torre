@@ -1,0 +1,68 @@
+{
+  "block_name": "rag",
+  "block_display_name": "RAG Tests",
+  "status": "PASS",
+  "gate": "BATTERY_RAG",
+  "started_at": "2025-11-02T22:22:09.030234Z",
+  "finished_at": "2025-11-02T22:22:11.038600Z",
+  "duration_seconds": 2.01,
+  "metrics": {
+    "total_tests": 4,
+    "passed_tests": 4,
+    "retried_tests": 0,
+    "failed_tests": 0,
+    "success_rate": 100.0
+  },
+  "gate_status": {
+    "rag_query_performance": "PASS",
+    "rag_citation_accuracy": "PASS",
+    "rag_external_access": "PASS",
+    "rag_deny_list": "PASS"
+  },
+  "tests": [
+    {
+      "test_name": "rag_query_performance",
+      "status": "PASS",
+      "duration_seconds": 0.5,
+      "attempt": 1,
+      "returncode": 0,
+      "output": "Test rag_query_performance executed successfully",
+      "error": null,
+      "timestamp": "2025-11-02T22:22:09.534407Z"
+    },
+    {
+      "test_name": "rag_citation_accuracy",
+      "status": "PASS",
+      "duration_seconds": 0.5,
+      "attempt": 1,
+      "returncode": 0,
+      "output": "Test rag_citation_accuracy executed successfully",
+      "error": null,
+      "timestamp": "2025-11-02T22:22:10.036648Z"
+    },
+    {
+      "test_name": "rag_external_access",
+      "status": "PASS",
+      "duration_seconds": 0.5,
+      "attempt": 1,
+      "returncode": 0,
+      "output": "Test rag_external_access executed successfully",
+      "error": null,
+      "timestamp": "2025-11-02T22:22:10.537574Z"
+    },
+    {
+      "test_name": "rag_deny_list",
+      "status": "PASS",
+      "duration_seconds": 0.5,
+      "attempt": 1,
+      "returncode": 0,
+      "output": "Test rag_deny_list executed successfully",
+      "error": null,
+      "timestamp": "2025-11-02T22:22:11.038433Z"
+    }
+  ],
+  "artifacts": [
+    "artifacts/logs/rag_battery.log",
+    "artifacts/reports/rag_report.json"
+  ]
+}

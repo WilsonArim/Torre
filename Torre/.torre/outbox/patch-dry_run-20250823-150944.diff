@@ -1,0 +1,31 @@
+diff --git a/fortaleza-llm/STRATEGY.md b/fortaleza-llm/STRATEGY.md
+new file mode 100644
+index 0000000..0000001
+--- /dev/null
++++ b/fortaleza-llm/STRATEGY.md
+@@ -0,0 +1,2 @@
++# Fortaleza LLM-Engenheira — Estratégia mínima
++Este patch é idempotente e não toca em segredos. Em ciclos seguintes, substituir por correções cirúrgicas reais.
+diff --git a/fortaleza-llm/ADVICE.md b/fortaleza-llm/ADVICE.md
+new file mode 100644
+index 0000000..0000001
+--- /dev/null
++++ b/fortaleza-llm/ADVICE.md
+@@ -0,0 +1,3 @@
++# ADVICE — Fortaleza LLM-Engenheira
++
++_Sem erros detetados nos summaries — nada a aconselhar neste ciclo._
+diff --git a//Users/wilsonarim/CURSOR/fortaleza 4.0/src/components/SettingsPage.tsx b//Users/wilsonarim/CURSOR/fortaleza 4.0/src/components/SettingsPage.tsx
+--- a//Users/wilsonarim/CURSOR/fortaleza 4.0/src/components/SettingsPage.tsx
++++ b//Users/wilsonarim/CURSOR/fortaleza 4.0/src/components/SettingsPage.tsx
+@@ -1,3 +1,10 @@
++// @fortaleza: shim para garantir que `base` existe em runtime (Vite/Tauri)
++// Evita "ReferenceError: base is not defined".
++const base: string =
++  ((globalThis as any).__FORTALEZA_BASE__ as string) ??
++  (((import.meta as any)?.env?.BASE_URL as string) ?? '/');
++(globalThis as any).__FORTALEZA_BASE__ = base;
++
+ import React from 'react';
+ 
+ export function SettingsPage() {
