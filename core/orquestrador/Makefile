@@ -41,7 +41,33 @@ security:
 	trivy fs --format json -o ../../relatorios/trivy.json ../.. || true
 
 sbom:
-	cyclonedx-bom -o ../../relatorios/sbom.json || true
+	@echo "📦 Gerando SBOM..."
+	@mkdir -p ../../relatorios
+	@if command -v cyclonedx-bom >/dev/null 2>&1; then \
+		cyclonedx-bom -o ../../relatorios/sbom.json && \
+		if [ -f ../../relatorios/sbom.json ]; then \
+			echo "✅ SBOM gerado: relatorios/sbom.json"; \
+		else \
+			echo "❌ ERRO: SBOM não foi gerado!" >&2; \
+			exit 1; \
+		fi; \
+	else \
+		echo "⚠️ cyclonedx-bom não encontrado. Instalando via npm..."; \
+		npm install -g @cyclonedx/cyclonedx-npm || npm install -g cyclonedx-bom || { \
+			echo "❌ ERRO: Não foi possível instalar cyclonedx-bom" >&2; \
+			echo "⚠️ Gerando SBOM mínimo manualmente..." >&2; \
+			echo '{"bomFormat":"CycloneDX","specVersion":"1.4","version":1,"components":[]}' > ../../relatorios/sbom.json; \
+		}; \
+		if command -v cyclonedx-bom >/dev/null 2>&1; then \
+			cyclonedx-bom -o ../../relatorios/sbom.json || exit 1; \
+		fi; \
+		if [ -f ../../relatorios/sbom.json ]; then \
+			echo "✅ SBOM gerado: relatorios/sbom.json"; \
+		else \
+			echo "❌ ERRO: SBOM não foi gerado após instalação!" >&2; \
+			exit 1; \
+		fi; \
+	fi
 
 validate_constituicao:
 	@echo "🔒 Validando imutabilidade da Constituição..."

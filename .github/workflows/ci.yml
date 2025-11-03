@@ -33,11 +33,31 @@ jobs:
         run: |
           pip install pre-commit
           make -C core/orquestrador precommit || true
-      - name: Security and SBOM
+      - name: Install security tools
         run: |
           pip install bandit coverage
-          npm --version || true
-          make -C core/orquestrador security sbom || true
+          npm --version || echo "npm não disponível"
+      
+      - name: Generate security reports (Bandit, Semgrep, etc)
+        run: |
+          make -C core/orquestrador security || {
+            echo "ERRO: Falha ao gerar relatórios de segurança" >&2
+            exit 1
+          }
+      
+      - name: Generate SBOM
+        run: |
+          make -C core/orquestrador sbom || {
+            echo "ERRO: Falha ao gerar SBOM" >&2
+            exit 1
+          }
+          # Verificar se SBOM foi gerado
+          if [ ! -f "relatorios/sbom.json" ]; then
+            echo "ERRO CRÍTICO: SBOM não foi gerado em relatorios/sbom.json" >&2
+            exit 1
+          fi
+          echo "✅ SBOM gerado em relatorios/sbom.json"
+      
       - name: SOP validation
         run: |
           if [ ! -f "core/scripts/validator.py" ]; then

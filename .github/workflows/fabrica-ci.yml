@@ -39,6 +39,30 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
+      
+      - name: Install security tools
+        run: |
+          pip install bandit coverage || true
+          npm --version || echo "npm não disponível"
+      
+      - name: Generate security reports (Bandit, Semgrep, etc)
+        run: |
+          make -C core/orquestrador security || {
+            echo "AVISO: Falha ao gerar alguns relatórios de segurança (continuando...)" >&2
+          }
+      
+      - name: Generate SBOM
+        run: |
+          make -C core/orquestrador sbom || {
+            echo "ERRO: Falha ao gerar SBOM" >&2
+            exit 1
+          }
+          # Verificar se SBOM foi gerado
+          if [ ! -f "relatorios/sbom.json" ]; then
+            echo "ERRO CRÍTICO: SBOM não foi gerado em relatorios/sbom.json" >&2
+            exit 1
+          fi
+          echo "✅ SBOM gerado em relatorios/sbom.json"
 
       - name: Validate SOP
         run: ./ordem/validate_sop.sh
