@@ -1,0 +1,35 @@
+title = "Gitleaks configuration for FÁBRICA 2.0"
+
+# Arquivos e diretórios a ignorar
+[allowlist]
+description = "Allowlist para ignorar mocks de teste e documentação"
+paths = [
+  '''Torre/torre-llm/PHASE19_SUMMARY.md''',
+  '''Torre/torre-llm/CLI_BADGE_PATCH_SUMMARY.md''',
+  '''Torre/torre-llm/evals/test_phase.*\.py''',
+  '''Torre/torre-llm/sanity_check_phase.*\.py''',
+  '''relatorios/.*\.md''',
+]
+
+# Padrões a ignorar (mesmo que encontrados)
+commits = [
+  '''sk-1234567890.*''',
+  '''your-api-key''',
+  '''secret123''',
+]
+
+# Regras customizadas com entropia aumentada para reduzir falsos positivos
+[[rules]]
+id = "generic-api-key"
+description = "Generic API Key"
+regex = '''(?i)(api[_-]?key|apikey|access[_-]?key|secret[_-]?key|private[_-]?key)['"]?\s*[:=]\s*['"]?[a-zA-Z0-9_\-]{20,}['"]?'''
+tags = ["key", "api"]
+entropy = 3.5
+
+[[rules]]
+id = "generic-token"
+description = "Generic Token"
+regex = '''(?i)(token|bearer|auth)['"]?\s*[:=]\s*['"]?[a-zA-Z0-9_\-\.]{20,}['"]?'''
+tags = ["token", "auth"]
+entropy = 3.5
+

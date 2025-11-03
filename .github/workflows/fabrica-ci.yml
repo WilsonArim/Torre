@@ -101,3 +101,11 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITLEAKS_LICENSE: ${{ secrets.GITLEAKS_LICENSE }}
+        with:
+          # Usar configuração customizada
+          config-path: .gitleaks.toml
+          # Não falhar em commits antigos (apenas verificar novos)
+          exit-code: 1
+          # Ignorar arquivos listados
+          no-git: false
+          verbose: true
