@@ -8,12 +8,14 @@ paths = [
   '''Torre/torre-llm/CLI_BADGE_PATCH_SUMMARY.md''',
   '''Torre/torre-llm/evals/test_phase.*\.py''',
   '''Torre/torre-llm/sanity_check_phase.*\.py''',
+  '''Torre/torre-llm/evals/redteam/seeds.json''',
   '''relatorios/.*\.md''',
 ]
 
 # Padrões a ignorar (mesmo que encontrados)
 commits = [
   '''sk-1234567890.*''',
+  '''sk-LEAK''',
   '''your-api-key''',
   '''secret123''',
 ]
