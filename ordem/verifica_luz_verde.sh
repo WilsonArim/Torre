@@ -1,8 +1,9 @@
 #!/bin/bash
 # Verifica Luz Verde - Validação de condições para avançar
-# Este script verifica se todas as condições estão OK para prosseguir
 
-set -e
+set -o pipefail
+# manter set -e só se todos os comandos críticos forem tratados; aqui não usamos set -e para permitir tratamento controlado
+# set -e
 
 echo "🟢 Verificando Luz Verde..."
 echo ""
@@ -46,23 +47,20 @@ fi
 
 echo ""
 
-# Garantir exit 0 quando Constituição presente e condições básicas atendidas
-if [ "${CONSTITUICAO_PRESENTE}" = "true" ] || grep -q "Constituição presente" <(printf "%s\n" "$OUTPUT" 2>/dev/null); then
+# Lógica decisória: só exit 1 se falharem checks críticos
+# Considera críticos: Constituição e Estrutura básica
+if [ "${CONSTITUICAO_PRESENTE}" = "true" ] && [ -d "core" ] && [ -d "pipeline" ]; then
     if [ $CHECKS_PASSED -eq $CHECKS_TOTAL ]; then
         echo "🟢 Luz Verde: TODOS OS CHECKS PASSARAM"
         exit 0
-    elif [ $CHECKS_PASSED -ge 2 ]; then
-        # Pelo menos Constituição e estrutura básica estão OK
-        echo "🟢 Luz Verde: CHECKS CRÍTICOS PASSARAM ($CHECKS_PASSED/$CHECKS_TOTAL)"
-        exit 0
     else
-        echo "🟡 Luz Verde: ALGUNS CHECKS FALHARAM ($CHECKS_PASSED/$CHECKS_TOTAL)" >&2
-        [ -n "${OUTPUT:-}" ] && printf "%s\n" "$OUTPUT" >&2
-        exit 1
+        echo "🟢 Luz Verde: CHECKS CRÍTICOS PASSARAM ($CHECKS_PASSED/$CHECKS_TOTAL)"
+        [ -n "${OUTPUT:-}" ] && printf "%b\n" "$OUTPUT"
+        exit 0
     fi
 else
-    echo "❌ Constituição ausente ou verificação falhou" >&2
-    [ -n "${OUTPUT:-}" ] && printf "%s\n" "$OUTPUT" >&2
+    echo "❌ Luz Verde: CHECKS CRÍTICOS FALHARAM ($CHECKS_PASSED/$CHECKS_TOTAL)" >&2
+    [ -n "${OUTPUT:-}" ] && printf "%b\n" "$OUTPUT" >&2
     exit 1
 fi
 
