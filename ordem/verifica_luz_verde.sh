@@ -52,10 +52,11 @@ echo ""
 if [ "${CONSTITUICAO_PRESENTE}" = "true" ] && [ -d "core" ] && [ -d "pipeline" ]; then
     if [ $CHECKS_PASSED -eq $CHECKS_TOTAL ]; then
         echo "🟢 Luz Verde: TODOS OS CHECKS PASSARAM"
+        printf "%b\n" "$OUTPUT"
         exit 0
     else
         echo "🟢 Luz Verde: CHECKS CRÍTICOS PASSARAM ($CHECKS_PASSED/$CHECKS_TOTAL)"
-        [ -n "${OUTPUT:-}" ] && printf "%b\n" "$OUTPUT"
+        printf "%b\n" "$OUTPUT"
         exit 0
     fi
 else

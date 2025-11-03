@@ -2,7 +2,7 @@
 # Gatekeeper Script - Validação de gates conforme Constituição
 # Este script executa validações do Gatekeeper
 
-set -e
+set -o pipefail
 
 echo "🛡️  Executando Gatekeeper..."
 echo ""
@@ -14,11 +14,17 @@ if [ -f "core/orquestrador/cli.py" ]; then
     # Tentar executar via Makefile primeiro
     if [ -f "core/orquestrador/Makefile" ]; then
         echo "   Executando via Makefile..."
-        make -C core/orquestrador gatekeeper_prep || true
-        make -C core/orquestrador gatekeeper_run || true
+        make -C core/orquestrador gatekeeper_prep || {
+            echo "⚠️  Aviso: make gatekeeper_prep falhou, continuando..." >&2
+        }
+        make -C core/orquestrador gatekeeper_run || {
+            echo "⚠️  Aviso: make gatekeeper_run falhou, continuando..." >&2
+        }
     else
         # Fallback para execução direta
-        python3 core/orquestrador/cli.py gatekeeper_run || true
+        python3 core/orquestrador/cli.py gatekeeper_run || {
+            echo "⚠️  Aviso: gatekeeper CLI falhou, continuando..." >&2
+        }
     fi
     
     echo ""
