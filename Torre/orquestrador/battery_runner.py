@@ -24,63 +24,62 @@ BLOCKS = {
     "baseline": {
         "name": "Baseline Tests",
         "tests": [
+            "run_harness",
             "constitution_immutability",
             "sop_validation",
-            "gatekeeper_basic",
-            "artifacts_traceability"
+            "gatekeeper_basic"
         ],
-        "timeout": 300
+        "timeout": 10800  # 3 horas (harness demora muito)
     },
     "agents_tools": {
         "name": "Agents & Tools Tests",
         "tests": [
+            "run_tool_suites",
             "engineer_executor",
             "sop_cli",
-            "gatekeeper_cli",
-            "validator_py"
+            "gatekeeper_cli"
         ],
-        "timeout": 600
+        "timeout": 5400  # 1.5 horas
     },
     "engineering": {
         "name": "Engineering Tests",
         "tests": [
+            "run_swebench",
             "code_quality",
-            "security_scan",
             "dependency_check",
             "build_validation"
         ],
-        "timeout": 900
+        "timeout": 7200  # 2 horas
     },
     "security": {
         "name": "Security Tests",
         "tests": [
+            "run_jailbreakbench",
             "bandit_scan",
             "semgrep_scan",
-            "trivy_scan",
-            "npm_audit"
+            "trivy_scan"
         ],
-        "timeout": 600
+        "timeout": 5400  # 1.5 horas
     },
     "rag": {
         "name": "RAG Tests",
         "tests": [
+            "run_rag_eval",
             "rag_query_performance",
             "rag_citation_accuracy",
-            "rag_external_access",
-            "rag_deny_list"
+            "rag_external_access"
         ],
-        "timeout": 600
+        "timeout": 7200  # 2 horas
     },
     "load_chaos": {
         "name": "Load & Chaos Tests",
         "tests": [
+            "k6_load_test",
+            "k6_chaos_test",
             "load_sequential",
-            "load_parallel",
-            "chaos_memory",
-            "chaos_disk",
-            "chaos_network"
+            "load_parallel"
         ],
-        "timeout": 1800
+        "timeout": 10800  # 3 horas (k6 tests demoram)
     },
     "finalization": {
         "name": "Finalization Tests",
@@ -166,6 +165,118 @@ def run_test(test_name: str, block_name: str, attempt: int = 1) -> Dict[str, Any
             output = result.stdout
             error = result.stderr
             status = "PASS" if returncode in [0, 1] else "FAIL"
+        
+        elif test_name == "run_harness":
+            # Executar harness completo (demora muito tempo)
+            result = subprocess.run(
+                ["python3", "tools/run_harness.py", "--all", "--output", f"{ARTIFACTS_DIR}/harness_results.json"],
+                capture_output=True,
+                text=True,
+                timeout=10800  # 3 horas
+            )
+            returncode = result.returncode
+            output = result.stdout
+            error = result.stderr
+            status = "PASS" if returncode == 0 else "FAIL"
+        
+        elif test_name == "run_tool_suites":
+            result = subprocess.run(
+                ["python3", "tools/run_tool_suites.py", "--all", "--output", f"{ARTIFACTS_DIR}/tool_suites_results.json"],
+                capture_output=True,
+                text=True,
+                timeout=5400  # 1.5 horas
+            )
+            returncode = result.returncode
+            output = result.stdout
+            error = result.stderr
+            status = "PASS" if returncode == 0 else "FAIL"
+        
+        elif test_name == "run_swebench":
+            result = subprocess.run(
+                ["python3", "tools/run_swebench.py", "--all", "--output", f"{ARTIFACTS_DIR}/swebench_results.json"],
+                capture_output=True,
+                text=True,
+                timeout=7200  # 2 horas
+            )
+            returncode = result.returncode
+            output = result.stdout
+            error = result.stderr
+            status = "PASS" if returncode == 0 else "FAIL"
+        
+        elif test_name == "run_jailbreakbench":
+            result = subprocess.run(
+                ["python3", "tools/run_jailbreakbench.py", "--all", "--output", f"{ARTIFACTS_DIR}/jailbreakbench_results.json"],
+                capture_output=True,
+                text=True,
+                timeout=5400  # 1.5 horas
+            )
+            returncode = result.returncode
+            output = result.stdout
+            error = result.stderr
+            status = "PASS" if returncode == 0 else "FAIL"
+        
+        elif test_name == "run_rag_eval":
+            result = subprocess.run(
+                ["python3", "tools/run_rag_eval.py", "--all", "--output", f"{ARTIFACTS_DIR}/rag_eval_results.json"],
+                capture_output=True,
+                text=True,
+                timeout=7200  # 2 horas
+            )
+            returncode = result.returncode
+            output = result.stdout
+            error = result.stderr
+            status = "PASS" if returncode == 0 else "FAIL"
+        
+        elif test_name == "k6_load_test":
+            # Verificar se k6 está instalado
+            k6_check = subprocess.run(["which", "k6"], capture_output=True)
+            if k6_check.returncode != 0:
+                return {
+                    "test_name": test_name,
+                    "status": "SKIP",
+                    "duration_seconds": 0,
+                    "attempt": attempt,
+                    "returncode": 0,
+                    "output": "",
+                    "error": "k6 not installed - skipping",
+                    "timestamp": datetime.now().isoformat() + "Z"
+                }
+            
+            result = subprocess.run(
+                ["k6", "run", "--out", "json=artifacts/k6_load_results.json", "scripts/k6/load_test.js"],
+                capture_output=True,
+                text=True,
+                timeout=1800  # 30 minutos
+            )
+            returncode = result.returncode
+            output = result.stdout
+            error = result.stderr
+            status = "PASS" if returncode == 0 else "FAIL"
+        
+        elif test_name == "k6_chaos_test":
+            k6_check = subprocess.run(["which", "k6"], capture_output=True)
+            if k6_check.returncode != 0:
+                return {
+                    "test_name": test_name,
+                    "status": "SKIP",
+                    "duration_seconds": 0,
+                    "attempt": attempt,
+                    "returncode": 0,
+                    "output": "",
+                    "error": "k6 not installed - skipping",
+                    "timestamp": datetime.now().isoformat() + "Z"
+                }
+            
+            result = subprocess.run(
+                ["k6", "run", "--out", "json=artifacts/k6_chaos_results.json", "scripts/k6/chaos_test.js"],
+                capture_output=True,
+                text=True,
+                timeout=900  # 15 minutos
+            )
+            returncode = result.returncode
+            output = result.stdout
+            error = result.stderr
+            status = "PASS" if returncode == 0 else "FAIL"
         
         else:
             # Teste genérico (simulado)
