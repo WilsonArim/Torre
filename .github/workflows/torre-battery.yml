@@ -53,8 +53,20 @@ jobs:
       - name: Install dependencies
         run: |
           pip install --upgrade pip
-          pip install -r requirements.txt || true
-          pip install bandit coverage pytest semgrep || true
+          # Instalar requirements.txt - falhar se crítico não instalar
+          if [ -f requirements.txt ]; then
+            pip install -r requirements.txt || {
+              echo "ERRO: Falha ao instalar requirements.txt" >&2
+              exit 1
+            }
+          else
+            echo "Aviso: requirements.txt não encontrado, continuando..."
+          fi
+          # Instalar ferramentas de teste - falhar se crítico não instalar
+          pip install bandit coverage pytest semgrep || {
+            echo "ERRO: Falha ao instalar ferramentas de teste (bandit, coverage, pytest, semgrep)" >&2
+            exit 1
+          }
       
       - name: Install k6 (for load tests)
         run: |

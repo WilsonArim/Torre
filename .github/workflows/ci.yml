@@ -40,9 +40,22 @@ jobs:
           make -C core/orquestrador security sbom || true
       - name: SOP validation
         run: |
-          python3 core/scripts/validator.py
+          if [ ! -f "core/scripts/validator.py" ]; then
+            echo "ERRO CRÍTICO: core/scripts/validator.py não encontrado" >&2
+            exit 1
+          fi
+          python3 core/scripts/validator.py || {
+            echo "ERRO: SOP validation falhou" >&2
+            exit 1
+          }
       - name: 🛡️ Run Gatekeeper (Composer Edition)
-        run: make -C core/orquestrador gatekeeper_run
+        continue-on-error: false
+        run: |
+          make -C core/orquestrador gatekeeper_run || {
+            echo "ERRO CRÍTICO: Gatekeeper falhou" >&2
+            echo "Verifique logs em relatorios/parecer_gatekeeper.md" >&2
+            exit 1
+          }
       - name: 📄 Upload Gatekeeper report
         if: always()
         uses: actions/upload-artifact@v4
