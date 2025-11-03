@@ -6,7 +6,7 @@ on:
       run_full_battery:
         description: 'Run full battery (all blocks)'
         required: false
-        default: 'true'
+        default: true
         type: boolean
       blocks_to_run:
         description: 'Comma-separated list of blocks (baseline,agents,engineering,security,rag,load,chaos,finalization)'
