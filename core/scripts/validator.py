@@ -452,6 +452,17 @@ def validate_constituicao() -> tuple[bool, List[str], Optional[Dict[str, Any]]]:
         return False, violations, None
 
 
+def is_torre_project() -> bool:
+    """Detecta se este é um projeto Torre (executor dentro da FÁBRICA)."""
+    # Verificar se existe pasta Torre/ ou marcadores de projeto Torre
+    torre_markers = [
+        REPO_ROOT / "Torre",
+        REPO_ROOT / "Torre" / "orquestrador",
+        REPO_ROOT / "Torre" / "pipeline" / "superpipeline.yaml",
+    ]
+    return any(marker.exists() for marker in torre_markers)
+
+
 def validate_triade_fundamentacao(gate: str, constituicao: Optional[Dict[str, Any]]) -> tuple[bool, List[str]]:
     """Valida ART-02: Tríade de Fundamentação. Retorna (ok, violações)."""
     violations = []
@@ -471,6 +482,10 @@ def validate_triade_fundamentacao(gate: str, constituicao: Optional[Dict[str, An
         # ART-02 não encontrado, mas isso já seria detectado na validação da Constituição
         return True, []
     
+    # EXCEÇÃO: Projetos Torre herdam a Tríade da FÁBRICA
+    # Torre não precisa de White Paper próprio, apenas conformidade com a Tríade da FÁBRICA
+    is_torre = is_torre_project()
+    
     # Procurar documentos da Tríade em locais padrão
     docs_dir = REPO_ROOT / "docs"
     white_paper_paths = [
@@ -485,6 +500,7 @@ def validate_triade_fundamentacao(gate: str, constituicao: Optional[Dict[str, An
         docs_dir / "ARCHITECTURE.md",
         REPO_ROOT / "ARQUITETURA.md",
         REPO_ROOT / "pipeline" / "superpipeline.yaml",  # superpipeline pode servir como arquitetura
+        REPO_ROOT / "Torre" / "pipeline" / "superpipeline.yaml",  # superpipeline da Torre pode servir
     ]
     base_operacional_paths = [
         docs_dir / "BASE_OPERACIONAL.md",
@@ -492,14 +508,23 @@ def validate_triade_fundamentacao(gate: str, constituicao: Optional[Dict[str, An
         docs_dir / "OPERATIONAL_BASE.md",
         REPO_ROOT / "BASE_OPERACIONAL.md",
         docs_dir / "SOP_MANUAL.md",  # SOP_MANUAL pode servir como base operacional
+        REPO_ROOT / "pipeline" / "README.md",  # README da pipeline pode servir como base operacional
     ]
     
     white_paper = next((p for p in white_paper_paths if p.exists()), None)
     arquitetura = next((p for p in arquitetura_paths if p.exists()), None)
     base_operacional = next((p for p in base_operacional_paths if p.exists()), None)
     
-    if not white_paper:
+    # Para projetos Torre: White Paper próprio não é obrigatório
+    # Torre herda a Tríade da FÁBRICA (White Paper, Arquitetura, Base Operacional existem no nível da FÁBRICA)
+    if not white_paper and not is_torre:
         violations.append("ART-02: White Paper (Estratégia) ausente")
+    elif not white_paper and is_torre:
+        # Torre não precisa de White Paper próprio - validar apenas que Tríade da FÁBRICA existe
+        # Se Arquitetura ou Base Operacional existem, assume-se que Torre está em conformidade
+        if not arquitetura and not base_operacional:
+            violations.append("ART-02: Torre deve herdar Arquitetura ou Base Operacional da FÁBRICA")
+    
     if not arquitetura:
         violations.append("ART-02: Arquitetura (Estrutura) ausente")
     if not base_operacional:
