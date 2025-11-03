@@ -19,7 +19,7 @@ on:
   push:
     branches: [ main, master ]
     paths:
-      - 'torre/**'
+      - 'Torre/**'
       - 'core/orquestrador/**'
       - '.github/workflows/torre-battery.yml'
 
@@ -87,7 +87,7 @@ jobs:
         continue-on-error: true
         timeout-minutes: 60
         run: |
-          python3 torre/orquestrador/battery_runner.py \
+          python3 Torre/orquestrador/battery_runner.py \
             --block ${{ matrix.block }} \
             --max-retries 3 \
             --artifacts-dir artifacts \
@@ -137,7 +137,7 @@ jobs:
       
       - name: Consolidate battery report
         run: |
-          python3 torre/orquestrador/battery_consolidator.py \
+          python3 Torre/orquestrador/battery_consolidator.py \
             --artifacts-dir artifacts \
             --output artifacts/torre_battery_report.md \
             --json-output artifacts/torre_battery_report.json
@@ -154,7 +154,7 @@ jobs:
       
       - name: Update engineer.out.json
         run: |
-          python3 torre/orquestrador/battery_reporter.py \
+          python3 Torre/orquestrador/battery_reporter.py \
             --battery-report artifacts/torre_battery_report.json \
             --output relatorios/para_estado_maior/engineer.out.json
       

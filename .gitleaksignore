@@ -1,2 +1,17 @@
 # Ignorar README.md - contém apenas exemplos de chaves AWS, não credenciais reais
 README.md
+
+# Ignorar arquivos de teste e documentação com mocks de API keys
+# Estes são mocks intencionais para testar detecção de segredos, não credenciais reais
+
+# Documentação com exemplos
+Torre/torre-llm/PHASE19_SUMMARY.md
+
+# Arquivos de teste com mocks
+Torre/torre-llm/evals/test_phase*.py
+Torre/torre-llm/sanity_check_phase*.py
+
+# Padrões de mocks (sk-1234567890* são claramente falsos)
+sk-1234567890*
+your-api-key
+secret123
