@@ -1,6 +1,6 @@
 {
   "errors": [],
-  "generated_at": "2025-11-18T09:53:06Z",
+  "generated_at": "2025-11-18T09:55:38Z",
   "metrics": {
     "../../Torre/cli/create_checkpoint.py": {
       "CONFIDENCE.HIGH": 0,
@@ -635,7 +635,7 @@
       "SEVERITY.LOW": 6,
       "SEVERITY.MEDIUM": 0,
       "SEVERITY.UNDEFINED": 0,
-      "loc": 784,
+      "loc": 792,
       "nosec": 0,
       "skipped_tests": 0
     },
@@ -804,7 +804,7 @@
       "SEVERITY.LOW": 159,
       "SEVERITY.MEDIUM": 0,
       "SEVERITY.UNDEFINED": 0,
-      "loc": 11785,
+      "loc": 11793,
       "nosec": 0,
       "skipped_tests": 0
     }

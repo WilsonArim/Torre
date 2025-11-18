@@ -46,10 +46,10 @@
     }
   ],
   "violations": [],
-  "pipeline_ok": false,
+  "pipeline_ok": true,
   "constituicao_validada": true,
   "triade_validada": true,
-  "timestamp": "2025-11-18T09:53:42.605495",
+  "timestamp": "2025-11-18T09:55:52.248427",
   "agente": "SOP",
   "artefactos_citados": {
     "coverage": "relatorios/coverage.xml",

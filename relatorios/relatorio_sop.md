@@ -16,7 +16,7 @@ Resultado: **PASS**
 - Testes: ok=True tests=0 failures=0 errors=0
 
 ## Pipeline
-- Pipeline válida: False
+- Pipeline válida: True
 
 ## Artefactos Citados (ART-09)
 - Coverage: `relatorios/coverage.xml`
@@ -37,6 +37,6 @@ Resultado: **PASS**
 
 ---
 **Agente**: SOP (FÁBRICA 2.0)
-**Data/Hora**: 2025-11-18 09:53:42 UTC
+**Data/Hora**: 2025-11-18 09:55:52 UTC
 **Objetivo**: Validação de gate G2 conforme Constituição e leis.yaml
 **Regras aplicadas**: Constituição (10 artigos), leis.yaml, exceptions.yaml
