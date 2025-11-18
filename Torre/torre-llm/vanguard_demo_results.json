@@ -42,7 +42,7 @@
       "passed": 225,
       "total": 700,
       "percentage": 32.142857142857146,
-      "avg_response_time": 8.810997009277344e-05,
+      "avg_response_time": 8.810997009277344e-5,
       "avg_confidence": 0.9136428571428571
     },
     "anthropic/claude-3.5": {

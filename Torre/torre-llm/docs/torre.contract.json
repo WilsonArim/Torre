@@ -22,8 +22,14 @@
     "request_schema": {
       "required": ["model", "messages"],
       "optional": [
-        "stream", "temperature", "max_tokens", "top_p", "top_k",
-        "presence_penalty", "frequency_penalty", "stop"
+        "stream",
+        "temperature",
+        "max_tokens",
+        "top_p",
+        "top_k",
+        "presence_penalty",
+        "frequency_penalty",
+        "stop"
       ],
       "defaults": {
         "stream": false,
@@ -95,10 +101,7 @@
         "macos": "brew services start ollama",
         "linux": "ollama serve"
       },
-      "model_setup": [
-        "ollama create torre -f Modelfile",
-        "ollama run torre"
-      ],
+      "model_setup": ["ollama create torre -f Modelfile", "ollama run torre"],
       "verification": "ollama list | grep torre"
     },
     "cursor_integration": {

@@ -5,8 +5,17 @@
 export type GraphTop = { path: string; degree: number };
 export type GraphSummary = { nodes: number; edges: number; top: GraphTop[] };
 
-export type StrategosWeights = { impact?: number; risk?: number; cost?: number };
-export type StrategosBoosts = { build?: number; types?: number; tests?: number; style?: number };
+export type StrategosWeights = {
+  impact?: number;
+  risk?: number;
+  cost?: number;
+};
+export type StrategosBoosts = {
+  build?: number;
+  types?: number;
+  tests?: number;
+  style?: number;
+};
 
 export type PlanStep = {
   stage: "build" | "types" | "tests" | "style";
@@ -33,7 +42,11 @@ export type StrategosBadge = {
   recent_posts_1h?: number;
 };
 
-export type StrategosEventStep = { stage: string; target: string; score?: number };
+export type StrategosEventStep = {
+  stage: string;
+  target: string;
+  score?: number;
+};
 export type StrategosEvent = {
   mode: "PATCH" | "ADVICE" | "NONE";
   attempts_to_green_est?: number;
@@ -43,15 +56,23 @@ export type StrategosEvent = {
 
 const API_BASE =
   (window as any).__TORRE_API__ ||
-localStorage.getItem("torre:api_base") ||
+  localStorage.getItem("torre:api_base") ||
   "http://localhost:8765";
 
 async function req<T>(path: string, init?: RequestInit): Promise<T> {
-  const r = await fetch(`${API_BASE}${path}`, { ...init, headers: { "Content-Type": "application/json", ...(init?.headers||{}) } });
+  const r = await fetch(`${API_BASE}${path}`, {
+    ...init,
+    headers: { "Content-Type": "application/json", ...(init?.headers || {}) },
+  });
   const text = await r.text();
   let data: any = null;
-  try { data = text ? JSON.parse(text) : null; } catch { data = text; }
-  if (!r.ok) throw new Error((data && (data.detail || data.message)) || r.statusText);
+  try {
+    data = text ? JSON.parse(text) : null;
+  } catch {
+    data = text;
+  }
+  if (!r.ok)
+    throw new Error((data && (data.detail || data.message)) || r.statusText);
   return data as T;
 }
 
@@ -75,15 +96,22 @@ export async function getStrategosBadge(): Promise<StrategosBadge> {
   return req<StrategosBadge>("/strategos/badge", { method: "GET" });
 }
 
-export async function postStrategosBadge(badge: StrategosBadge): Promise<{ ok: boolean }> {
+export async function postStrategosBadge(
+  badge: StrategosBadge,
+): Promise<{ ok: boolean }> {
   return req<{ ok: boolean }>("/strategos/badge", {
     method: "POST",
     body: JSON.stringify(badge),
   });
 }
 
-export async function getStrategosEvents(limit = 3): Promise<{ events: StrategosEvent[] }> {
-  return req<{ events: StrategosEvent[] }>(`/strategos/events?limit=${encodeURIComponent(limit)}`, {
-    method: "GET",
-  });
+export async function getStrategosEvents(
+  limit = 3,
+): Promise<{ events: StrategosEvent[] }> {
+  return req<{ events: StrategosEvent[] }>(
+    `/strategos/events?limit=${encodeURIComponent(limit)}`,
+    {
+      method: "GET",
+    },
+  );
 }

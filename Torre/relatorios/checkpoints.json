@@ -1,6 +1,26 @@
 [
-  {"gate": "G0", "by": "@EstadoMaior", "status": "APPROVED", "timestamp": "2025-11-01T01:25Z"},
-  {"gate": "G1", "by": "@EstadoMaior", "status": "APPROVED", "timestamp": "2025-11-01T15:12Z"},
-  {"gate": "ENTRY_MULTILANG", "by": "@EstadoMaior", "status": "APPROVED", "timestamp": "2025-11-01T15:19Z"},
-  {"gate": "MG1", "by": "@EstadoMaior", "status": "APPROVED", "timestamp": "2025-11-01T16:21Z"}
+  {
+    "gate": "G0",
+    "by": "@EstadoMaior",
+    "status": "APPROVED",
+    "timestamp": "2025-11-01T01:25Z"
+  },
+  {
+    "gate": "G1",
+    "by": "@EstadoMaior",
+    "status": "APPROVED",
+    "timestamp": "2025-11-01T15:12Z"
+  },
+  {
+    "gate": "ENTRY_MULTILANG",
+    "by": "@EstadoMaior",
+    "status": "APPROVED",
+    "timestamp": "2025-11-01T15:19Z"
+  },
+  {
+    "gate": "MG1",
+    "by": "@EstadoMaior",
+    "status": "APPROVED",
+    "timestamp": "2025-11-01T16:21Z"
+  }
 ]

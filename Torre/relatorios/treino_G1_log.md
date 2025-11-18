@@ -15,11 +15,13 @@
 Treino G1 executado com sucesso. LLM-Engenheira iniciou ciclo controlado de compreensão profunda de código da FÁBRICA.
 
 ### Status
+
 - ✅ **Status**: COMPLETED
 - ✅ **Epochs**: 10/10 completados
 - ✅ **Conformidade**: ART-04, ART-07, ART-09 respeitados
 
 ### Métricas Finais
+
 - **Loss**: 0.2000
 - **Precision**: 0.9500 (95.0%)
 - **Recall**: 0.9500 (95.0%)
@@ -27,11 +29,13 @@ Treino G1 executado com sucesso. LLM-Engenheira iniciou ciclo controlado de comp
 - **F1-Score**: 0.9500 (95.0%)
 
 ### Dataset Processado
+
 - **Arquivos processados**: 6
 - **Formato**: Código anotado com contexto FÁBRICA
 - **Compliance**: ✅ Validado
 
 ### Arquivos Analisados
+
 - `core/scripts/validator.py`
 - `core/scripts/plugins/bandit.py`
 - `core/scripts/plugins/semgrep.py`
@@ -43,18 +47,18 @@ Treino G1 executado com sucesso. LLM-Engenheira iniciou ciclo controlado de comp
 
 ## Progresso por Epoch
 
-| Epoch | Loss | Precision | Recall | Accuracy | F1-Score |
-|-------|------|-----------|--------|----------|----------|
-| 1 | 0.7400 | 0.3650 | 0.4100 | 0.4550 | 0.3862 |
-| 2 | 0.6800 | 0.4300 | 0.4700 | 0.5100 | 0.4491 |
-| 3 | 0.6200 | 0.4950 | 0.5300 | 0.5650 | 0.5119 |
-| 4 | 0.5600 | 0.5600 | 0.5900 | 0.6200 | 0.5746 |
-| 5 | 0.5000 | 0.6250 | 0.6500 | 0.6750 | 0.6373 |
-| 6 | 0.4400 | 0.6900 | 0.7100 | 0.7300 | 0.6999 |
-| 7 | 0.3800 | 0.7550 | 0.7700 | 0.7850 | 0.7624 |
-| 8 | 0.3200 | 0.8200 | 0.8300 | 0.8400 | 0.8250 |
-| 9 | 0.2600 | 0.8850 | 0.8900 | 0.8950 | 0.8875 |
-| 10 | 0.2000 | 0.9500 | 0.9500 | 0.9500 | 0.9500 |
+| Epoch | Loss   | Precision | Recall | Accuracy | F1-Score |
+| ----- | ------ | --------- | ------ | -------- | -------- |
+| 1     | 0.7400 | 0.3650    | 0.4100 | 0.4550   | 0.3862   |
+| 2     | 0.6800 | 0.4300    | 0.4700 | 0.5100   | 0.4491   |
+| 3     | 0.6200 | 0.4950    | 0.5300 | 0.5650   | 0.5119   |
+| 4     | 0.5600 | 0.5600    | 0.5900 | 0.6200   | 0.5746   |
+| 5     | 0.5000 | 0.6250    | 0.6500 | 0.6750   | 0.6373   |
+| 6     | 0.4400 | 0.6900    | 0.7100 | 0.7300   | 0.6999   |
+| 7     | 0.3800 | 0.7550    | 0.7700 | 0.7850   | 0.7624   |
+| 8     | 0.3200 | 0.8200    | 0.8300 | 0.8400   | 0.8250   |
+| 9     | 0.2600 | 0.8850    | 0.8900 | 0.8950   | 0.8875   |
+| 10    | 0.2000 | 0.9500    | 0.9500 | 0.9500   | 0.9500   |
 
 ---
 

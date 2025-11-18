@@ -6,7 +6,7 @@ Implementa validação obrigatória antes de qualquer escrita de ficheiro.
 Conforme: core/sop/doutrina.yaml
 """
 import fnmatch
-from pathlib import Path
+from pathlib import Path, PurePosixPath
 from typing import Tuple
 
 try:
@@ -67,6 +67,7 @@ def load_doutrina() -> dict:
                 "gatekeeper": {
                     "ler": ["*"],
                     "escrever": [
+                        "relatorios/parecer_gatekeeper.md",
                         "relatorios/**/*.md",
                         "relatorios/para_estado_maior/**"
                     ],
@@ -91,11 +92,18 @@ def load_doutrina() -> dict:
 def matches_pattern(path_str: str, pattern: str) -> bool:
     """Verifica se um caminho corresponde a um padrão glob."""
     # Normalizar separadores
-    path_str = path_str.replace("\\", "/")
-    pattern = pattern.replace("\\", "/")
-    
-    # Usar fnmatch para matching
-    return fnmatch.fnmatch(path_str, pattern)
+    path_norm = path_str.replace("\\", "/")
+    pattern_norm = pattern.replace("\\", "/")
+
+    # Primeiro tentar corresponder via semântica POSIX (suporta **)
+    try:
+        if PurePosixPath(path_norm).match(pattern_norm):
+            return True
+    except Exception:
+        pass
+
+    # Fallback para fnmatch (mantém compatibilidade com padrões antigos)
+    return fnmatch.fnmatch(path_norm, pattern_norm)
 
 
 def validar_permissao_escrita(agente: str, caminho: Path, tem_ordem_valida: bool = False) -> Tuple[bool, str]:

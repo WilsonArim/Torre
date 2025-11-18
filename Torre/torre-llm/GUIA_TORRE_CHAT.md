@@ -3,6 +3,7 @@
 ## 🎯 **O que é o Torre Chat:**
 
 ### **Interface para usar a TUA LLM da Torre:**
+
 - **Como ChatGPT/Claude** - interface de chat
 - **Seleção de modelos** - diferentes especializações
 - **Histórico de conversas** - salva automaticamente
@@ -13,11 +14,13 @@
 ## 🚀 **Como usar:**
 
 ### **1. Iniciar o Chat:**
+
 ```bash
 ./start_chat.sh
 ```
 
 ### **2. Selecionar Modelo:**
+
 ```
 🏰 MODELOS DA TORRE DISPONÍVEIS:
 ==================================================
@@ -44,6 +47,7 @@ torre-explain:
 ```
 
 ### **3. Fazer Perguntas:**
+
 ```
 🤔 Tu: Como corrigir erro TS2304?
 🏰 Torre Base: A variável undefinedVariable não está definida...
@@ -54,21 +58,25 @@ torre-explain:
 ## 🎯 **Modelos Disponíveis:**
 
 ### **1. Torre Base** (`torre-base`)
+
 - **Função**: Correção de erros
 - **Uso**: "Como corrigir este erro?"
 - **Exemplo**: "Corrige o erro TS2304 neste código"
 
 ### **2. Torre Advice** (`torre-advice`)
+
 - **Função**: Conselhos de código
 - **Uso**: "Dá-me conselhos sobre..."
 - **Exemplo**: "Como melhorar este código?"
 
 ### **3. Torre Review** (`torre-review`)
+
 - **Função**: Revisão de código
 - **Uso**: "Revisa este código"
 - **Exemplo**: "Analisa este arquivo e encontra problemas"
 
 ### **4. Torre Explain** (`torre-explain`)
+
 - **Função**: Explicações
 - **Uso**: "Explica este conceito"
 - **Exemplo**: "O que é TypeScript?"
@@ -78,6 +86,7 @@ torre-explain:
 ## 🛠️ **Comandos Disponíveis:**
 
 ### **Comandos Principais:**
+
 - `models` - Mostrar modelos disponíveis
 - `select` - Selecionar modelo
 - `chat` - Iniciar chat com modelo
@@ -87,6 +96,7 @@ torre-explain:
 - `quit` - Sair
 
 ### **Comandos do Chat:**
+
 - `quit` - Sair do chat
 - `clear` - Limpar histórico
 
@@ -95,6 +105,7 @@ torre-explain:
 ## 💬 **Exemplos de Uso:**
 
 ### **Exemplo 1: Correção de Erro**
+
 ```
 🎯 Modelo atual: Torre Base
 Digite comando (help para ajuda): chat
@@ -110,6 +121,7 @@ Descrição: Modelo base da Torre para correção de erros
 ```
 
 ### **Exemplo 2: Conselhos de Código**
+
 ```
 🎯 Modelo atual: Torre Advice
 Digite comando (help para ajuda): chat
@@ -125,6 +137,7 @@ Descrição: Modelo especializado em dar conselhos de código
 ```
 
 ### **Exemplo 3: Revisão de Código**
+
 ```
 🎯 Modelo atual: Torre Review
 Digite comando (help para ajuda): chat
@@ -144,21 +157,25 @@ Descrição: Modelo para revisão e análise de código
 ## 📊 **Funcionalidades:**
 
 ### **✅ Histórico Automático:**
+
 - Salva todas as conversas
 - Acesso via comando `history`
 - Contexto para próximas perguntas
 
 ### **✅ Configuração Persistente:**
+
 - Lembra modelo escolhido
 - Salva em `.fortaleza/chat_config.json`
 - Carrega automaticamente
 
 ### **✅ Múltiplos Modelos:**
+
 - 4 modelos especializados
 - Troca fácil entre modelos
 - Cada modelo tem função específica
 
 ### **✅ Interface Intuitiva:**
+
 - Comandos simples
 - Ajuda integrada
 - Feedback claro
@@ -168,6 +185,7 @@ Descrição: Modelo para revisão e análise de código
 ## 🔧 **Configuração:**
 
 ### **Arquivo de Configuração:**
+
 ```json
 {
   "current_model": "fortaleza-base",
@@ -176,25 +194,27 @@ Descrição: Modelo para revisão e análise de código
 ```
 
 ### **Localização:**
+
 - `.fortaleza/chat_config.json`
 
 ---
 
 ## 🎯 **Vantagens vs ChatGPT/Claude:**
 
-| **ChatGPT/Claude** | **Torre Chat** |
-|-------------------|-------------------|
-| Modelo genérico | Modelos especializados |
-| Sem contexto | Histórico persistente |
-| Sem configuração | Configuração salva |
-| Interface web | Interface local |
-| Dependência externa | Tua LLM local |
+| **ChatGPT/Claude**  | **Torre Chat**         |
+| ------------------- | ---------------------- |
+| Modelo genérico     | Modelos especializados |
+| Sem contexto        | Histórico persistente  |
+| Sem configuração    | Configuração salva     |
+| Interface web       | Interface local        |
+| Dependência externa | Tua LLM local          |
 
 ---
 
 ## 🚀 **Como começar:**
 
 ### **1. Primeira vez:**
+
 ```bash
 ./start_chat.sh
 # Selecionar modelo
@@ -202,6 +222,7 @@ Descrição: Modelo para revisão e análise de código
 ```
 
 ### **2. Uso normal:**
+
 ```bash
 ./start_chat.sh
 # Comando: chat
@@ -209,6 +230,7 @@ Descrição: Modelo para revisão e análise de código
 ```
 
 ### **3. Trocar modelo:**
+
 ```bash
 # Comando: select
 # Escolher novo modelo
@@ -220,6 +242,7 @@ Descrição: Modelo para revisão e análise de código
 ## 🎉 **Resultado:**
 
 **Tu agora tens:**
+
 - ✅ **Interface de chat** para tua LLM
 - ✅ **Seleção de modelos** especializados
 - ✅ **Histórico persistente** de conversas

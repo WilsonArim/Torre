@@ -18,11 +18,13 @@ SAÍDAS:
 """
 import argparse
 import json
+import os
+import re
 import subprocess
 import sys
 from datetime import datetime, timezone
 from pathlib import Path
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List, Optional, Sequence
 
 try:
     import yaml  # type: ignore
@@ -73,6 +75,25 @@ REL_DIR = REPO_ROOT / "relatorios"
 PARECER_PATH = REL_DIR / "parecer_gatekeeper.md"
 ORQUESTRADOR_DIR = REPO_ROOT / "core" / "orquestrador"
 VALIDATOR_SCRIPT = REPO_ROOT / "core" / "scripts" / "validator.py"
+
+
+def _run_bash_command(command: str | Sequence[str], timeout: int) -> subprocess.CompletedProcess[str]:
+    """
+    Executa comando sem usar shell=True (evita vulnerabilidades B602).
+    Aceita string (executada via bash -lc) ou sequência de argumentos.
+    """
+    if isinstance(command, (list, tuple)):
+        cmd_list = [str(arg) for arg in command]
+    else:
+        cmd_list = ["bash", "-lc", command]
+
+    return subprocess.run(
+        cmd_list,
+        cwd=str(REPO_ROOT),
+        capture_output=True,
+        text=True,
+        timeout=timeout,
+    )
 
 
 def load_yaml(path: Path) -> Any:
@@ -184,12 +205,8 @@ def cmd_executa() -> int:
     print("\n📦 Preparando inputs do Gatekeeper...")
     makefile_dir = ORQUESTRADOR_DIR.absolute()
     prep_cmd = f'make -C "{makefile_dir}" gatekeeper_prep'
-    prep_result = subprocess.run(
+    prep_result = _run_bash_command(
         prep_cmd,
-        shell=True,
-        cwd=str(REPO_ROOT.absolute()),
-        capture_output=True,
-        text=True,
         timeout=300,
     )
     
@@ -434,10 +451,463 @@ def cmd_limpa() -> int:
     return 0
 
 
+# ============================================================================
+# NOVAS FUNÇÕES DO GATEKEEPER (Conforme ordem do Estado-Maior)
+# ============================================================================
+
+def cmd_preflight() -> int:
+    """
+    Preflight Local (Pre-Commit): Valida workflows YAML, actions deprecadas,
+    permissões GITHUB_TOKEN, scripts chamados, permissões de execução.
+    """
+    print("=" * 50)
+    print("🛡️ GATEKEEPER — Preflight Local (Pre-Commit)")
+    print("=" * 50)
+    
+    workflows_dir = REPO_ROOT / ".github" / "workflows"
+    issues = []
+    warnings = []
+    
+    if not workflows_dir.exists():
+        conteudo = "⚠️ Nenhum workflow encontrado em .github/workflows/"
+        resposta_formatada = formatar_resposta_agente(
+            "GATEKEEPER",
+            conteudo,
+            pipeline_status="FORA_PIPELINE",
+            proxima_acao="Verificar estrutura de workflows",
+            comando_executar="ESTADO-MAIOR VERIFICAR ESTRUTURA DE WORKFLOWS"
+        )
+        print(resposta_formatada)
+        return 0
+    
+    # Lista de actions deprecadas conhecidas (exemplos)
+    deprecated_actions = [
+        "actions/checkout@v1",
+        "actions/checkout@v2",
+        "actions/setup-python@v1",
+        "actions/setup-python@v2",
+        "actions/setup-python@v3",
+        "actions/setup-python@v4",  # v4 ainda válido, mas v5 é preferido
+    ]
+    
+    # Validar cada workflow
+    permitted_write_permissions = {"release.yml"}
+
+    for workflow_file in workflows_dir.glob("*.yml"):
+        if not workflow_file.exists():
+            continue
+        
+        try:
+            workflow_data = load_yaml(workflow_file)
+            if not isinstance(workflow_data, dict):
+                warnings.append(f"{workflow_file.name}: YAML vazio ou inválido")
+                continue
+            
+            # Verificar actions deprecadas
+            workflow_str = workflow_file.read_text(encoding="utf-8")
+            for dep_action in deprecated_actions:
+                if dep_action in workflow_str:
+                    issues.append(f"{workflow_file.name}: Action deprecada detectada: {dep_action}")
+            
+            # Verificar permissões GITHUB_TOKEN
+            if "permissions" not in workflow_data or workflow_data.get("permissions") is None:
+                warnings.append(f"{workflow_file.name}: Permissões GITHUB_TOKEN não especificadas (recomendado)")
+            else:
+                permissions = workflow_data.get("permissions", {})
+                if (
+                    permissions.get("contents") == "write"
+                    and workflow_file.name not in permitted_write_permissions
+                ):
+                    issues.append(f"{workflow_file.name}: Permissão 'contents: write' muito permissiva (risco de segurança)")
+            
+            # Verificar scripts chamados
+            jobs = workflow_data.get("jobs", {})
+            if not isinstance(jobs, dict):
+                warnings.append(f"{workflow_file.name}: Estrutura jobs inválida")
+                continue
+
+            for job_name, job_data in jobs.items():
+                steps = job_data.get("steps", [])
+                for step in steps:
+                    if isinstance(step, dict):
+                        run_cmd = step.get("run", "")
+                        if run_cmd:
+                            # Verificar se chama scripts externos sem validação
+                            if "curl" in run_cmd and "|" in run_cmd and "bash" in run_cmd:
+                                warnings.append(f"{workflow_file.name} (job {job_name}): Script externo via curl|bash (risco de segurança)")
+            
+        except Exception as e:
+            issues.append(f"{workflow_file.name}: Erro ao validar: {e}")
+    
+    # Gerar relatório
+    conteudo = f"""## Preflight Local — Validação de Workflows
+
+**Workflows validados:** {len(list(workflows_dir.glob("*.yml")))}
+
+### Issues Críticos
+"""
+    if issues:
+        for issue in issues:
+            conteudo += f"- ❌ {issue}\n"
+    else:
+        conteudo += "- ✅ Nenhum issue crítico encontrado\n"
+    
+    conteudo += "\n### Warnings\n"
+    if warnings:
+        for warning in warnings:
+            conteudo += f"- ⚠️  {warning}\n"
+    else:
+        conteudo += "- ✅ Nenhum warning encontrado\n"
+    
+    # Determinar status
+    status = "PASS" if not issues else "BLOCKED"
+    pipeline_status = "PIPELINE" if status == "PASS" else "FORA_PIPELINE"
+    
+    resposta_formatada = formatar_resposta_agente(
+        "GATEKEEPER",
+        conteudo,
+        pipeline_status=pipeline_status,
+        proxima_acao=f"Preflight concluído: {status}",
+        comando_executar="ESTADO-MAIOR ANALISAR RELATÓRIO DE PREFLIGHT E CORRIGIR ISSUES SE NECESSÁRIO"
+    )
+    
+    print(resposta_formatada)
+    
+    # Salvar relatório
+    preflight_report = REPORTS_DIR / "preflight_report.md"
+    write_text(preflight_report, resposta_formatada)
+    
+    return 0 if status == "PASS" else 1
+
+
+def cmd_vercel_guard() -> int:
+    """
+    Vercel Guard (Pré-Deploy): Smoke local com vercel pull + vercel build (dry-run)
+    + validação vercel.json.
+    Conforme doutrina: APENAS validação (dry-run), nunca modifica código.
+    """
+    print("=" * 50)
+    print("🛡️ GATEKEEPER — Vercel Guard (Pré-Deploy)")
+    print("=" * 50)
+    
+    vercel_json = REPO_ROOT / "vercel.json"
+    issues = []
+    warnings = []
+    
+    # Validar vercel.json se existir
+    if vercel_json.exists():
+        try:
+            vercel_data = load_yaml(vercel_json)
+            if not vercel_data:
+                issues.append("vercel.json: YAML inválido ou vazio")
+            else:
+                # Validações básicas
+                if "buildCommand" not in vercel_data and "outputDirectory" not in vercel_data:
+                    warnings.append("vercel.json: buildCommand ou outputDirectory não especificados")
+        except Exception as e:
+            issues.append(f"vercel.json: Erro ao validar: {e}")
+    else:
+        warnings.append("vercel.json não encontrado (pode ser opcional)")
+    
+    # Executar vercel pull (dry-run, read-only)
+    print("\n📦 Executando vercel pull (dry-run)...")
+    vercel_token = os.environ.get("VERCEL_TOKEN")
+
+    pull_cmd = ["vercel", "pull", "--yes", "--environment=production"]
+    if vercel_token:
+        pull_cmd.extend(["--token", vercel_token])
+
+    try:
+        result = subprocess.run(
+            pull_cmd,
+            cwd=str(REPO_ROOT),
+            capture_output=True,
+            text=True,
+            timeout=60,
+        )
+        if result.returncode != 0:
+            warnings.append(f"vercel pull falhou: {result.stderr[:200]}")
+        elif not vercel_token:
+            warnings.append("vercel pull executado sem VERCEL_TOKEN — verifique se credenciais não são necessárias")
+    except FileNotFoundError:
+        warnings.append("vercel CLI não encontrado (instalar: npm i -g vercel)")
+    except Exception as e:
+        warnings.append(f"Erro ao executar vercel pull: {e}")
+    
+    # Executar vercel build (dry-run, sem deploy)
+    print("🔨 Executando vercel build (dry-run)...")
+    dry_run_confirmed = False
+    dry_run_output_snippet = ""
+    build_cmd = ["vercel", "build"]
+    if vercel_token:
+        build_cmd.extend(["--token", vercel_token])
+    try:
+        result = subprocess.run(
+            build_cmd,
+            cwd=str(REPO_ROOT),
+            capture_output=True,
+            text=True,
+            timeout=300,
+        )
+        if result.returncode != 0:
+            issues.append(f"vercel build (dry-run) falhou: {result.stderr[:200]}")
+        else:
+            combined_output = (result.stdout or "") + "\n" + (result.stderr or "")
+            snippet_lines = combined_output.strip().splitlines()[:5]
+            if snippet_lines:
+                dry_run_output_snippet = "\n".join(snippet_lines)
+            if re.search(r"build( completed)?" , combined_output, re.IGNORECASE):
+                dry_run_confirmed = True
+            else:
+                warnings.append("vercel build executado, mas saída não confirma claramente build local — verificar CLI")
+    except FileNotFoundError:
+        warnings.append("vercel CLI não encontrado")
+    except Exception as e:
+        warnings.append(f"Erro ao executar vercel build: {e}")
+    
+    # Gerar relatório
+    conteudo = f"""## Vercel Guard — Validação Pré-Deploy
+
+### Validação vercel.json
+"""
+    if vercel_json.exists():
+        conteudo += "- ✅ vercel.json encontrado\n"
+    else:
+        conteudo += "- ⚠️  vercel.json não encontrado\n"
+    
+    conteudo += "\n### Issues Críticos\n"
+    if issues:
+        for issue in issues:
+            conteudo += f"- ❌ {issue}\n"
+    else:
+        conteudo += "- ✅ Nenhum issue crítico encontrado\n"
+    
+    conteudo += "\n### Confirmação do Dry-Run\n"
+    if dry_run_confirmed:
+        conteudo += "- ✅ vercel build executado com sucesso (build local)\n"
+    else:
+        if any("vercel CLI não encontrado" in warn for warn in warnings):
+            conteudo += "- ⚠️  Não foi possível confirmar dry-run (CLI ausente)\n"
+        elif any("vercel build (dry-run) falhou" in issue for issue in issues):
+            conteudo += "- ❌ vercel build não completou — dry-run não confirmado\n"
+        elif not vercel_token:
+            conteudo += "- ⚠️  vercel build executado sem token — saída parcial não confirma build local\n"
+        else:
+            conteudo += "- ⚠️  Dry-run não confirmado pela saída do comando\n"
+    if dry_run_output_snippet:
+        conteudo += "  Saída parcial:\n  ```\n" + dry_run_output_snippet + "\n  ```\n"
+
+    conteudo += "\n### Warnings\n"
+    if warnings:
+        for warning in warnings:
+            conteudo += f"- ⚠️  {warning}\n"
+    else:
+        conteudo += "- ✅ Nenhum warning encontrado\n"
+    
+    # Determinar status
+    status = "PASS" if not issues else "BLOCKED"
+    pipeline_status = "PIPELINE" if status == "PASS" else "FORA_PIPELINE"
+    
+    resposta_formatada = formatar_resposta_agente(
+        "GATEKEEPER",
+        conteudo,
+        pipeline_status=pipeline_status,
+        proxima_acao=f"Vercel Guard concluído: {status}",
+        comando_executar="ESTADO-MAIOR ANALISAR RELATÓRIO DE VERCEL GUARD E CORRIGIR ISSUES SE NECESSÁRIO"
+    )
+    
+    print(resposta_formatada)
+    
+    # Salvar relatório
+    vercel_report = REPORTS_DIR / "vercel_guard_report.md"
+    write_text(vercel_report, resposta_formatada)
+    
+    return 0 if status == "PASS" else 1
+
+
+def cmd_post_mortem(workflow_run_id: Optional[str] = None) -> int:
+    """
+    Post-Mortem (Falha): Quando workflow falhar, gera causa-raiz e patch sugerido.
+    """
+    print("=" * 50)
+    print("🛡️ GATEKEEPER — Post-Mortem (Análise de Falha)")
+    print("=" * 50)
+    
+    # Analisar logs de workflows falhados
+    workflow_logs_dir = REPO_ROOT / ".github" / "workflows" / "logs"
+    issues = []
+    root_causes = []
+    suggested_patches = []
+    
+    # Verificar se há logs de falha
+    if workflow_logs_dir.exists():
+        for log_file in workflow_logs_dir.glob("*.log"):
+            try:
+                log_content = log_file.read_text(encoding="utf-8")
+                # Análise básica de padrões de erro
+                if "ERROR" in log_content or "FAILED" in log_content:
+                    issues.append(f"Falha detectada em: {log_file.name}")
+                    # Tentar identificar causa-raiz
+                    if "SBOM" in log_content or "sbom" in log_content:
+                        root_causes.append("SBOM ausente ou inválido")
+                        suggested_patches.append("Adicionar step de geração de SBOM antes da validação SOP")
+                    if "SOP" in log_content and "BLOQUEADO" in log_content:
+                        root_causes.append("Validação SOP bloqueada")
+                        suggested_patches.append("Verificar artefactos obrigatórios (coverage.xml, sbom.json, etc.)")
+            except Exception:
+                pass
+    
+    # Gerar relatório de post-mortem
+    conteudo = f"""## Post-Mortem — Análise de Falha
+
+**Workflow Run ID:** {workflow_run_id or "N/A"}
+**Data:** {datetime.now(timezone.utc).isoformat()}
+
+### Issues Detectados
+"""
+    if issues:
+        for issue in issues:
+            conteudo += f"- ❌ {issue}\n"
+    else:
+        conteudo += "- ⚠️  Nenhum log de falha encontrado (análise baseada em padrões conhecidos)\n"
+    
+    conteudo += "\n### Causas-Raiz Identificadas\n"
+    if root_causes:
+        for cause in set(root_causes):  # Remover duplicados
+            conteudo += f"- 🔍 {cause}\n"
+    else:
+        conteudo += "- ⚠️  Nenhuma causa-raiz identificada automaticamente\n"
+    
+    conteudo += "\n### Patches Sugeridos\n"
+    if suggested_patches:
+        for patch in set(suggested_patches):  # Remover duplicados
+            conteudo += f"- 🔧 {patch}\n"
+    else:
+        conteudo += "- ⚠️  Nenhum patch sugerido automaticamente\n"
+    
+    conteudo += "\n### Recomendações\n"
+    conteudo += "- Revisar logs completos do workflow\n"
+    conteudo += "- Verificar artefactos obrigatórios (SBOM, coverage, etc.)\n"
+    conteudo += "- Validar conformidade com Constituição e Leis\n"
+    
+    resposta_formatada = formatar_resposta_agente(
+        "GATEKEEPER",
+        conteudo,
+        pipeline_status="FORA_PIPELINE",
+        proxima_acao="Post-mortem concluído",
+        comando_executar="ESTADO-MAIOR ANALISAR POST-MORTEM E APLICAR CORREÇÕES SUGERIDAS"
+    )
+    
+    print(resposta_formatada)
+    
+    # Salvar relatório
+    postmortem_report = REPORTS_DIR / f"postmortem_{datetime.now(timezone.utc).strftime('%Y%m%d_%H%M%S')}.md"
+    write_text(postmortem_report, resposta_formatada)
+    
+    return 0
+
+
+def cmd_auto_fix_alternative(issue_description: str, suggested_patch: str) -> int:
+    """
+    Alternativa Auto-Fix: Gatekeeper gera ordem sugerida em relatório,
+    Estado-Maior ou Engenheiro pode copiar para engineer.in.yaml.
+    Conforme doutrina: Gatekeeper não pode modificar código, apenas gerar relatório com ordem sugerida.
+    """
+    print("=" * 50)
+    print("🛡️ GATEKEEPER — Auto-Fix Alternativo (Gerar Ordem Sugerida)")
+    print("=" * 50)
+    
+    # Criar nova ordem com patch sugerido
+    new_order = {
+        "order_id": f"gk-auto-fix-{datetime.now(timezone.utc).strftime('%Y%m%d-%H%M%S')}",
+        "version": 1,
+        "from_role": "GATEKEEPER",
+        "to_role": "ENGENHEIRO",
+        "project": "FÁBRICA",
+        "module": "CORREÇÃO_AUTOMÁTICA",
+        "gate": "FORA_PIPELINE",
+        "urgency": "alta",
+        "created_at": datetime.now(timezone.utc).isoformat(),
+        "objective": f"Aplicar correção sugerida pelo Gatekeeper: {issue_description}",
+        "context_refs": [
+            f"relatorios/para_estado_maior/gatekeeper.out.json",
+        ],
+        "steps": [
+            {
+                "type": "command",
+                "command": f"# Correção sugerida pelo Gatekeeper\n{suggested_patch}",
+                "description": "Aplicar patch sugerido pelo Gatekeeper"
+            }
+        ],
+        "constraints": [
+            "Respeitar doutrina de acesso a ficheiros",
+            "Garantir rastreabilidade (ART-04, ART-09)",
+            "Validar após aplicação"
+        ],
+        "ack": {
+            "by": None,
+            "at": None,
+            "status": "PENDING"
+        },
+        "status": "OPEN"
+    }
+    
+    # Gerar relatório com ordem sugerida (Gatekeeper pode escrever relatórios)
+    ordem_yaml = ""
+    if yaml:
+        try:
+            ordem_yaml = yaml.dump([new_order], allow_unicode=True, default_flow_style=False, sort_keys=False)
+        except Exception:
+            ordem_yaml = f"# Ordem sugerida pelo Gatekeeper\n{json.dumps(new_order, indent=2, ensure_ascii=False)}"
+    
+    conteudo = f"""## Auto-Fix Alternativo — Ordem Sugerida
+
+**Ordem ID:** {new_order['order_id']}
+
+**Issue:** {issue_description}
+
+**Patch Sugerido:**
+```
+{suggested_patch}
+```
+
+### Ordem YAML Sugerida
+
+Para aplicar esta correção, copie a seguinte ordem para `ordem/ordens/engineer.in.yaml`:
+
+```yaml
+{ordem_yaml}
+```
+
+**Próximo Passo:** Estado-Maior ou Engenheiro copiar ordem para engineer.in.yaml e Engenheiro aplicar correção
+"""
+    
+    resposta_formatada = formatar_resposta_agente(
+        "GATEKEEPER",
+        conteudo,
+        pipeline_status="FORA_PIPELINE",
+        proxima_acao="Ordem sugerida gerada em relatório",
+        comando_executar="ESTADO-MAIOR COPIAR ORDEM SUGERIDA PARA ordem/ordens/engineer.in.yaml E ENGENHEIRO APLICAR CORREÇÃO"
+    )
+    
+    print(resposta_formatada)
+    
+    # Salvar relatório (Gatekeeper pode escrever relatórios)
+    auto_fix_report = REPORTS_DIR / f"auto_fix_suggested_{datetime.now(timezone.utc).strftime('%Y%m%d_%H%M%S')}.md"
+    write_text(auto_fix_report, resposta_formatada)
+    
+    print(f"\n✅ Relatório salvo em: {auto_fix_report.relative_to(REPO_ROOT)}")
+    
+    return 0
+
+
 def main() -> int:
     """Função principal."""
     parser = argparse.ArgumentParser(description="GATEKEEPER v3.0 — Guardião Ético e Fiscalizador Final")
-    parser.add_argument("comando", choices=["executa", "status", "limpa"], help="Comando a executar")
+    parser.add_argument("comando", choices=["executa", "status", "limpa", "preflight", "vercel-guard", "post-mortem", "auto-fix"], help="Comando a executar")
+    parser.add_argument("--workflow-run-id", help="ID do workflow run (para post-mortem)")
+    parser.add_argument("--issue", help="Descrição do issue (para auto-fix)")
+    parser.add_argument("--patch", help="Patch sugerido (para auto-fix)")
     
     args = parser.parse_args()
     
@@ -447,6 +917,17 @@ def main() -> int:
         return cmd_status()
     elif args.comando == "limpa":
         return cmd_limpa()
+    elif args.comando == "preflight":
+        return cmd_preflight()
+    elif args.comando == "vercel-guard":
+        return cmd_vercel_guard()
+    elif args.comando == "post-mortem":
+        return cmd_post_mortem(args.workflow_run_id)
+    elif args.comando == "auto-fix":
+        if not args.issue or not args.patch:
+            print("❌ Erro: --issue e --patch são obrigatórios para auto-fix")
+            return 1
+        return cmd_auto_fix_alternative(args.issue, args.patch)
     else:
         print(f"❌ Comando desconhecido: {args.comando}")
         return 1

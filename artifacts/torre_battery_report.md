@@ -76,7 +76,6 @@
 - **Taxa de Sucesso**: 100.00%
 - **Testes**: 3/3 passados
 
-
 ---
 
 ## 🛡️ Status dos Gates
@@ -98,4 +97,4 @@
 
 ---
 
-*Gerado automaticamente pelo Engenheiro da TORRE*
+_Gerado automaticamente pelo Engenheiro da TORRE_

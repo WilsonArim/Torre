@@ -1,6 +1,6 @@
 perfeito — aqui vai o patch “2-em-1”: cria o ficheiro **Blocos Partidos & Proteção de Dados** e **insere o link no README**.
 
-> Cola no Cursor como *Apply Patch*. Se a segunda parte (README) não aplicar por diferenças de formatação, deixo logo abaixo um “plano B” de 1 linha para acrescentar o link.
+> Cola no Cursor como _Apply Patch_. Se a segunda parte (README) não aplicar por diferenças de formatação, deixo logo abaixo um “plano B” de 1 linha para acrescentar o link.
 
 ---
 
@@ -29,7 +29,7 @@ perfeito — aqui vai o patch “2-em-1”: cria o ficheiro **Blocos Partidos & 
 +---
 +
 +## 2) Âmbito & Limites de Acesso
-+- **Raiz de trabalho**: definido por ti ao registar o workspace.  
++- **Raiz de trabalho**: definido por ti ao registar o workspace.
 +  Caminhos absolutos e `../` são **bloqueados**.
 +- **Egress de rede**: por defeito, **OFF** (modo offline). Só sai para a internet em endpoints **explicitamente** permitidos.
 +- **LLMs externas**: só com consentimento e **redação automática** de segredos/PII.
@@ -42,7 +42,7 @@ perfeito — aqui vai o patch “2-em-1”: cria o ficheiro **Blocos Partidos & 
 +- **Estrutura do diff**: unificado, linhas de contexto, sem binários escondidos.
 +- **Caminhos**: dentro do workspace, sem absolutos, sem `..`.
 +- **Tamanho**: limites de bytes/ficheiros (configurável).
-+- **Ficheiros proibidos (hard-deny)**: `.env`, `.ssh/**`, `id_rsa`, `*.pem`, `*.key`, `secrets.*`, `*token*`, `*credential*`, `*passwd*`, etc.  
++- **Ficheiros proibidos (hard-deny)**: `.env`, `.ssh/**`, `id_rsa`, `*.pem`, `*.key`, `secrets.*`, `*token*`, `*credential*`, `*passwd*`, etc.
 +  _Hard-deny = ninguém consegue forçar._
 +- **Dry-run**: aplica num modo simulado; se falhar → **não aplica**.
 +
@@ -52,7 +52,7 @@ perfeito — aqui vai o patch “2-em-1”: cria o ficheiro **Blocos Partidos & 
 +1. **Ingestão**: recebes patch do engenheiro (LLM/humano) → Torre normaliza.
 +2. **Validação**: Guardião analisa (estrutura, caminhos, hard-deny, tamanho).
 +3. **Dry-run**: simula aplicação; corre `lint/tests/build` no *sandbox*.
-+4. **Aplicação**: preferencialmente **PR-only** (cria branch/PR).  
++4. **Aplicação**: preferencialmente **PR-only** (cria branch/PR).
 +   (Write direto a `main` pode ser desativado por política.)
 +5. **Auditoria**: evento gravado com métricas (tempo, ficheiros, resultado).
 +6. **Rollback**: em caso de falha pós-merge, reverte o commit/PR.
@@ -73,12 +73,12 @@ perfeito — aqui vai o patch “2-em-1”: cria o ficheiro **Blocos Partidos & 
 +---
 +
 +## 6) Definições “Enterprise” (ativar já)
-+- **PR-only** por defeito (sem write direto a `main`).  
-+- **Validação obrigatória** (não desativável).  
-+- **Redação de segredos/PII** sempre ON.  
-+- **Assinatura de commits** (GPG/SSH) + `Signed-off-by`.  
-+- **Runner sandbox** (limites de CPU/RAM/tempo/rede).  
-+- **Políticas por pasta** (`.torre/policy.yml`): allow/deny globais, áreas críticas com 2 aprovações.  
++- **PR-only** por defeito (sem write direto a `main`).
++- **Validação obrigatória** (não desativável).
++- **Redação de segredos/PII** sempre ON.
++- **Assinatura de commits** (GPG/SSH) + `Signed-off-by`.
++- **Runner sandbox** (limites de CPU/RAM/tempo/rede).
++- **Políticas por pasta** (`.torre/policy.yml`): allow/deny globais, áreas críticas com 2 aprovações.
 +- **Logs com retenção curta** (ex.: 14 dias) e sem PII por defeito.
 +
 +---
@@ -128,37 +128,37 @@ perfeito — aqui vai o patch “2-em-1”: cria o ficheiro **Blocos Partidos & 
 +## 8) SOPs (procedimentos simples)
 +
 +### 8.1 Onboarding de Repositório
-+1) Criar pasta raiz do workspace.  
-+2) `policy.yml` com allow/deny.  
-+3) Ativar `PR-only` + assinatura de commits.  
-+4) Correr **haystack scan** (segredos, conflitos, CRLF, binários).  
++1) Criar pasta raiz do workspace.
++2) `policy.yml` com allow/deny.
++3) Ativar `PR-only` + assinatura de commits.
++4) Correr **haystack scan** (segredos, conflitos, CRLF, binários).
 +5) Guardar baseline de métricas.
 +
 +### 8.2 Antes de aplicar qualquer patch
-+- Validar diff (guardião) → **OK**?  
-+- Correr `lint/tests/build` em *dry-run* → **OK**?  
-+- Áreas críticas? → pedir aprovação dupla.  
++- Validar diff (guardião) → **OK**?
++- Correr `lint/tests/build` em *dry-run* → **OK**?
++- Áreas críticas? → pedir aprovação dupla.
 +- Criar **PR** com escopo pequeno e descrição objetiva.
 +
 +### 8.3 Depois de aplicar
-+- Atualizar **pipeline_state** (etapa concluída).  
-+- Guardar métricas: `apply_clean`, `tests_pass`, `lint_clean`, `perf_p95`.  
++- Atualizar **pipeline_state** (etapa concluída).
++- Guardar métricas: `apply_clean`, `tests_pass`, `lint_clean`, `perf_p95`.
 +- Registrar em `.torre/history`.
 +
 +### 8.4 Incidentes (resumo do playbook)
-+- **Build partiu**: rollback PR/commit → abrir issue com log → hotfix via patch mínimo.  
-+- **Segredo exposto**: revogar chave → rodar secret scan → pós-mortem com causa-raiz.  
++- **Build partiu**: rollback PR/commit → abrir issue com log → hotfix via patch mínimo.
++- **Segredo exposto**: revogar chave → rodar secret scan → pós-mortem com causa-raiz.
 +- **RGPD – direito do titular**: localizar artefactos, apagar/anonimizar, responder no prazo legal, registar.
 +
 +---
 +
 +## 9) Proteção de Dados (RGPD) — “o essencial”
-+- **Minimização**: só processamos o necessário para gerar/validar patches.  
-+- **Base legal**: execução do serviço solicitado (contratual) + legítimo interesse (segurança/qualidade), quando aplicável.  
-+- **Consentimento explícito**: para envio de artefactos a LLMs externas.  
-+- **Direitos**: acesso/retificação/apagamento/portabilidade/oposição — processo documentado.  
-+- **Retenção**: logs mínimos e por tempo curto (ex.: 14 dias, configurável).  
-+- **Sub-processadores**: listados e contratualizados (DPA).  
++- **Minimização**: só processamos o necessário para gerar/validar patches.
++- **Base legal**: execução do serviço solicitado (contratual) + legítimo interesse (segurança/qualidade), quando aplicável.
++- **Consentimento explícito**: para envio de artefactos a LLMs externas.
++- **Direitos**: acesso/retificação/apagamento/portabilidade/oposição — processo documentado.
++- **Retenção**: logs mínimos e por tempo curto (ex.: 14 dias, configurável).
++- **Sub-processadores**: listados e contratualizados (DPA).
 +- **Registos**: `.torre/history` + export de auditoria.
 +
 +> Nota: isto é **ponto de partida técnico**. Para produção, ter **DPA**, política de privacidade e checklist de segurança assinados.
@@ -166,22 +166,22 @@ perfeito — aqui vai o patch “2-em-1”: cria o ficheiro **Blocos Partidos & 
 +---
 +
 +## 10) Auditoria & Logs
-+- **Evento por operação**: quem, quando, o quê, resultado, métricas.  
-+- **Sem PII por defeito**; hash para correlacionar sem identificar.  
++- **Evento por operação**: quem, quando, o quê, resultado, métricas.
++- **Sem PII por defeito**; hash para correlacionar sem identificar.
 +- **Export on-demand** (ZIP assinado) para auditorias externas.
 +
 +---
 +
 +## 11) Segurança Operacional
-+- **Sandbox**: limites de CPU/RAM/tempo; rede desligada salvo allowlist.  
-+- **Kill-switch**: “parar aplicações” e “modo leitura” imediatos.  
++- **Sandbox**: limites de CPU/RAM/tempo; rede desligada salvo allowlist.
++- **Kill-switch**: “parar aplicações” e “modo leitura” imediatos.
 +- **Assinatura**: commits, tags e artefactos assinados.
 +
 +---
 +
 +## 12) Diferença face ao mercado
-+- A maioria **sugere** (chat); nós **aplicamos** com segurança e rasto.  
-+- Tudo é **medido e reversível**: `diff → dry-run → PR → métricas`.  
++- A maioria **sugere** (chat); nós **aplicamos** com segurança e rasto.
++- Tudo é **medido e reversível**: `diff → dry-run → PR → métricas`.
 +- **Privacy-first** por design: escopo limitado, redacção, consentimento, retenção mínima.
 +
 +---
@@ -189,20 +189,20 @@ perfeito — aqui vai o patch “2-em-1”: cria o ficheiro **Blocos Partidos & 
 +## 13) Checklists rápidas
 +
 +**Novo repo**
-+- [ ] Definir raiz e `policy.yml`  
-+- [ ] Ativar PR-only + assinatura  
-+- [ ] Haystack scan sem segredos  
++- [ ] Definir raiz e `policy.yml`
++- [ ] Ativar PR-only + assinatura
++- [ ] Haystack scan sem segredos
 +- [ ] Baseline de lint/tests/perf
 +
 +**Antes de aplicar**
-+- [ ] Guardião OK  
-+- [ ] Dry-run OK (lint/tests/build)  
-+- [ ] Áreas críticas aprovadas  
++- [ ] Guardião OK
++- [ ] Dry-run OK (lint/tests/build)
++- [ ] Áreas críticas aprovadas
 +- [ ] PR criado (pequeno, reversível)
 +
 +**Após aplicar**
-+- [ ] Pipeline atualizada  
-+- [ ] Métricas guardadas  
++- [ ] Pipeline atualizada
++- [ ] Métricas guardadas
 +- [ ] Logs/auditoria OK
 +
 +---
@@ -228,7 +228,7 @@ perfeito — aqui vai o patch “2-em-1”: cria o ficheiro **Blocos Partidos & 
 +
 +---
 +
-+**Em 1 frase final:**  
++**Em 1 frase final:**
 +A Torre torna **aplicar** tão seguro quanto **sugerir** — com limites fortes, validação obrigatória e respeito por dados — e dá-te sempre um caminho de **backout** se algo fugir do plano.
 +
 *** End Patch

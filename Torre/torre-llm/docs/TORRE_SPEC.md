@@ -1,6 +1,7 @@
 # TORRE — Especificação de Integração
 
 ## 1) Identidade & arranque
+
 - **Nome do modelo (exibição):** `torre`
 - **Repositório/pasta local:** `../Torre` (caminho relativo ao projeto Fortaleza)
 - **Forma de arranque preferida:** Ollama (serviço local)
@@ -8,6 +9,7 @@
 - **Healthcheck disponível?** `GET /api/tags` → 200 + lista de modelos
 
 ### Comandos de arranque (local)
+
 ```bash
 # Instalar Ollama (macOS)
 brew install ollama
@@ -28,9 +30,11 @@ ollama list | grep torre
 ## 2) API — Contrato dos endpoints
 
 ### 2.1 Endpoint principal de geração
+
 - **Método + Rota:** `POST /v1/chat/completions`
 - **Autenticação:** Nenhuma (local)
 - **Request JSON (esperado pela Torre):**
+
 ```json
 {
   "model": "torre",
@@ -50,6 +54,7 @@ ollama list | grep torre
 ```
 
 - **Response JSON (quando `stream=false`):**
+
 ```json
 {
   "id": "chatcmpl-123",
@@ -76,11 +81,13 @@ ollama list | grep torre
 ```
 
 ### 2.2 Streaming (suportado)
+
 - **Tipo:** `text/event-stream`
 - **Evento/dado por chunk:** `data: {"id":"...","choices":[{"delta":{"content":"..."}}]}`
 - **Sinal de fim:** `data: [DONE]`
 
 ### 2.3 Outros endpoints úteis
+
 - **`GET /v1/models`** → lista de modelos disponíveis
 - **`GET /api/tags`** → detalhes dos modelos (Ollama nativo)
 - **`POST /v1/embeddings`** → embeddings (se suportado)
@@ -88,6 +95,7 @@ ollama list | grep torre
 ---
 
 ## 3) Parametrização suportada
+
 - `temperature` (0.0-2.0, default: 0.7)
 - `top_p` (0.0-1.0, default: 0.9)
 - `top_k` (1-100, default: 40)
@@ -102,6 +110,7 @@ ollama list | grep torre
 ---
 
 ## 4) Segurança & limites
+
 - **Autenticação:** Nenhuma (serviço local)
 - **CORS:** Não aplicável (local)
 - **Rate limit:** Não aplicável (local)
@@ -111,10 +120,12 @@ ollama list | grep torre
 ---
 
 ## 5) Qualidade/observabilidade
+
 - **Logs:** Ollama logs via `brew services log ollama`
 - **Métricas:** Não disponível
 - **Tracing:** Não disponível
 - **Erro típico:**
+
 ```json
 {
   "error": {
@@ -128,6 +139,7 @@ ollama list | grep torre
 ---
 
 ## 6) Performance
+
 - **RPS alvo** (1x instância): 2-5 RPS
 - **Latência P50/P95** (prompt padrão): 2-5s / 5-10s
 - **Context window** (tokens): 32K
@@ -136,6 +148,7 @@ ollama list | grep torre
 ---
 
 ## 7) Mapeamento para OpenAI (adapter)
+
 - **`messages[]`** → formato OpenAI padrão (role + content)
 - **Resposta** → `choices[0].message.content`
 - **Streaming** → `choices[0].delta.content` por chunk
@@ -144,7 +157,9 @@ ollama list | grep torre
 ---
 
 ## 8) Exemplo real (end-to-end)
+
 ### Request (cURL)
+
 ```bash
 curl -sS -X POST "http://localhost:11434/v1/chat/completions" \
   -H "Content-Type: application/json" \
@@ -157,6 +172,7 @@ curl -sS -X POST "http://localhost:11434/v1/chat/completions" \
 ```
 
 ### Response (JSON)
+
 ```json
 {
   "id": "chatcmpl-146",
@@ -185,6 +201,7 @@ curl -sS -X POST "http://localhost:11434/v1/chat/completions" \
 ---
 
 ## 9) Variáveis de ambiente recomendadas
+
 - `TORRE_BASE=http://localhost:11434`
 - `TORRE_MODEL=torre`
 - `TORRE_TIMEOUT_MS=300000`
@@ -195,6 +212,7 @@ curl -sS -X POST "http://localhost:11434/v1/chat/completions" \
 ---
 
 ## 10) Check rápido (pre-flight)
+
 - [x] Consigo `curl http://localhost:11434/api/tags` com 200
 - [x] `POST /v1/chat/completions` responde com JSON válido
 - [x] Streaming emite chunks + fim
@@ -204,6 +222,7 @@ curl -sS -X POST "http://localhost:11434/v1/chat/completions" \
 ---
 
 ## 11) Configuração Cursor
+
 Para usar a Torre no Cursor IDE:
 
 1. **Settings → Models → API Keys**
@@ -221,6 +240,7 @@ Para usar a Torre no Cursor IDE:
 ---
 
 ## 12) Troubleshooting
+
 - **"model not found: torre"** → `ollama create torre -f Modelfile`
 - **"connection refused"** → `brew services start ollama`
 - **"lento/memória"** → use quantização Q4_K_M (já configurada)

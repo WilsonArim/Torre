@@ -19,21 +19,27 @@ fallback_strategy: "Se bloqueado → MISSING:<item> e parar"
 notes:
   - "Shim de base com fallback: __FORTALEZA_BASE__ → import.meta.env.BASE_URL → '/'"
 ---
+
 ## Premissas & Invariantes
+
 - Projeto Vite/Tauri expõe `import.meta.env.BASE_URL`.
 - Evitar alterações globais fora do ficheiro afetado.
 
 ## Contratos (funções críticas)
+
 - Pré: `src/components/SettingsPage.tsx` existe (ou será criado).
 - Pós: `base` definido em runtime; componente renderiza sem crash.
 
 ## Esboço Algorítmico
+
 - Inserir shim no topo do ficheiro; persistir em `globalThis.__FORTALEZA_BASE__`.
 - Smoke manual: arrancar app, abrir Settings, confirmar ausência de erro.
 
 ## Threat Model (curto)
+
 - Regressão: Garantir idempotência do shim (verificação de global antes de set).
 
 ## Plano de Testes
+
 - smoke: `npm run dev` → abrir Settings → consola sem `ReferenceError`.
 - unit (futuro): helper para normalizar base.

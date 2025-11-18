@@ -1,71 +1,297 @@
-# Estado-Maior → Gatekeeper
-[]
-
-- order_id: "9a89e87e-1f62-44e9-a56b-5912d937e355"
-  version: 1
-  from_role: "ESTADO-MAIOR"
-  to_role: "GATEKEEPER"
-  project: "FABRICA"
-  module: "TORRE"
-  gate: "G3"
-  urgency: "normal"
-  created_at: "2025-10-31T16:40:00Z"
-  expires_at: "2025-11-07T23:59:59Z"
-  context_refs:
-    - "relatorios/relatorio_sop.md"
-    - "relatorios/pipeline_gate_input.json"
-  objective: "Auditar conformidade do RAG e dos artefactos gerados pelo Engenheiro para avanço do G2→G3."
+- ack:
+    at: "2025-11-13T12:45:00Z"
+    by: ESTADO-MAIOR
+    status: ACCEPTED
+  checksum: ""
+  completed_at: "2025-11-13T16:09:04.213329+00:00"
   constraints:
-    - "Bloquear se faltar sbom.json, coverage.xml ou pipeline_ok=false"
-    - "Verificar ART-04/07/09/10 no relatório"
-  steps:
-    - "Executar make -C core/orquestrador pipeline_validate"
-    - "Verificar relatorios/rag_smoke.md: 3 queries e citações"
-    - "Emitir parecer com PASS|WARN|BLOCKED e riscos"
+    - Bloquear se faltar sbom.json, coverage.xml ou pipeline_ok=false
+    - Verificar ART-04/07/09/10 no relatório
+  context_refs:
+    - relatorios/relatorio_sop.md
+    - relatorios/pipeline_gate_input.json
+  created_at: "2025-10-31T16:40:00Z"
   deliverables:
-    - { path: "relatorios/parecer_gatekeeper.md", type: "markdown" }
-  success_criteria:
-    - "parecer_gatekeeper.md com decisão e referências"
-    - "Semgap crítico = 0; pipeline_ok = true"
+    - path: relatorios/parecer_gatekeeper.md
+      type: markdown
   escalation:
     owner: "@EstadoMaior"
-    when: "violação constitucional ou ausência de artefacto"
-  checksum: ""
+    when: violação constitucional ou ausência de artefacto
+  expires_at: "2025-11-07T23:59:59Z"
+  from_role: ESTADO-MAIOR
+  gate: G3
+  module: TORRE
+  objective:
+    Auditar conformidade do RAG e dos artefactos gerados pelo Engenheiro
+    para avanço do G2→G3.
+  order_id: 9a89e87e-1f62-44e9-a56b-5912d937e355
+  project: FABRICA
   signature: ""
-  ack: { by: null, at: null, status: "PENDING" }
-  status: "OPEN"
-
-- order_id: "ba7bf26e-7b26-446f-bc60-06bfa9bb6079"
-  version: 1
-  from_role: "ESTADO-MAIOR"
-  to_role: "GATEKEEPER"
-  project: "FABRICA"
-  module: "TORRE"
-  gate: "Gx"
-  urgency: "alta"
-  created_at: "2025-11-01T12:30:00Z"
-  expires_at: "2025-11-08T23:59:59Z"
-  context_refs:
-    - "relatorios/para_estado_maior/engineer.out.json"
-    - "relatorios/torre_sop_review.md"
-  objective: "Iniciar auditoria formal do gate e de rastreabilidade — garantir conformidade total técnica, validar logs e artefactos, emitir parecer e registar progresso N/M no relatório final."
-  constraints:
-    - "Parecer só é válido se indicar progresso (N/M) explícito no artefacto ou mailbox."
-    - "BLOQUEAR se encontrar risco não mitigado, log inconsistente ou falta de evidência."
+  status: DONE
   steps:
-    - "Auditar entrada recente do Engenheiro"
+    - Executar make -C core/orquestrador pipeline_validate
+    - "Verificar relatorios/rag_smoke.md: 3 queries e citações"
+    - Emitir parecer com PASS|WARN|BLOCKED e riscos
+  success_criteria:
+    - parecer_gatekeeper.md com decisão e referências
+    - Semgap crítico = 0; pipeline_ok = true
+  to_role: GATEKEEPER
+  urgency: normal
+  version: 1
+- ack:
+    at: "2025-11-13T16:40:00Z"
+    by: ESTADO-MAIOR
+    status: ACCEPTED
+  checksum: ""
+  completed_at: "2025-11-13T16:14:56.984657+00:00"
+  constraints:
+    - Utilizar VERCEL_TOKEN read-only apenas em memória/ambiente temporário.
+    - Bloquear se coverage.xml, sbom.json, pipeline_gate_input.json ou bandit.json estiverem
+      ausentes ou desatualizados.
+    - Bloquear se vercel-guard não confirmar dry-run PASS ou se preflight relatar WARN/BLOCKED.
+    - Registrar progresso_capitulo ou marcador N/M no relatório final.
+  context_refs:
+    - relatorios/para_estado_maior/preflight_report.md
+    - relatorios/para_estado_maior/vercel_guard_report.md
+    - relatorios/para_estado_maior/estado_situacao_fabrica_torre_gatekeeper.md
+    - relatorios/pipeline_gate_input.json
+    - relatorios/sop_status.json
+    - coverage.xml
+  created_at: "2025-11-13T13:05:00Z"
+  deliverables:
+    - path: relatorios/para_estado_maior/preflight_report.md
+      type: markdown
+    - path: relatorios/para_estado_maior/vercel_guard_report.md
+      type: markdown
+    - path: relatorios/para_estado_maior/estado_situacao_fabrica_torre_gatekeeper.md
+      type: markdown
+    - path: relatorios/parecer_gatekeeper.md
+      type: markdown
+    - path: relatorios/para_estado_maior/gatekeeper.out.json
+      type: json
+  escalation:
+    owner: "@EstadoMaior"
+    when:
+      Falha em qualquer etapa, ausência de artefato obrigatório ou impossibilidade
+      de confirmar dry-run PASS.
+  expires_at: "2025-11-20T23:59:59Z"
+  from_role: ESTADO-MAIOR
+  gate: FORA_PIPELINE
+  module: TORRE
+  objective:
+    Reexecutar ciclo completo após regeneração de coverage.xml, confirmando
+    que todos os guardas e validadores permanecem PASS antes do próximo push.
+  order_id: 2aa1a1f9-2f8e-4f2d-9c2f-08f0f8e7f0e4
+  project: FABRICA
+  signature: ""
+  status: DONE
+  steps:
+    - command: python3 core/orquestrador/gatekeeper_cli.py preflight
+      description: Validar workflows, artefatos e dependências (preflight).
+      type: command
+    - command:
+        VERCEL_TOKEN=$VERCEL_TOKEN python3 core/orquestrador/gatekeeper_cli.py
+        vercel-guard
+      description:
+        Executar Vercel Guard oficial (dry-run) garantindo validação read-only
+        documentada.
+      type: command
+    - command: python3 core/orquestrador/gatekeeper_cli.py status
+      description: Verificar presença e integridade de coverage.xml, sbom.json, pipeline_gate_input.json.
+      type: command
+    - command: python3 core/orquestrador/gatekeeper_cli.py executa
+      description: Emitir parecer final (PASS/WARN/BLOCKED) atualizando mailbox e artefatos.
+      type: command
+  success_criteria:
+    - Preflight, vercel-guard e status retornam PASS sem riscos.
+    - Parecer final registra progresso_capitulo ou marcador N/M e cita evidências.
+    - Nenhum segredo persistido; token removido após execução.
+  to_role: GATEKEEPER
+  urgency: alta
+  version: 1
+- ack:
+    at: null
+    by: null
+    status: PENDING
+  checksum: ""
+  completed_at: "2025-11-13T16:32:36.279490+00:00"
+  constraints:
+    - Utilizar VERCEL_TOKEN read-only apenas durante o comando gatekeeper_cli.py vercel-guard.
+    - Bloquear se relatorios/relatorio_sop.md ou relatorios/sop_status.json estiverem
+      desatualizados (timestamp anterior a 2025-11-13T16:28:00Z).
+    - Bloquear se coverage.xml, sbom.json ou pipeline_gate_input.json estiverem ausentes.
+  context_refs:
+    - relatorios/relatorio_sop.md
+    - relatorios/sop_status.json
+    - relatorios/pipeline_gate_input.json
+    - relatorios/para_estado_maior/preflight_report.md
+    - relatorios/para_estado_maior/vercel_guard_report.md
+  created_at: "2025-11-13T16:35:00Z"
+  deliverables:
+    - path: relatorios/parecer_gatekeeper.md
+      type: markdown
+    - path: relatorios/para_estado_maior/gatekeeper.out.json
+      type: json
+    - path: relatorios/para_estado_maior/estado_situacao_fabrica_torre_gatekeeper.md
+      type: markdown
+  escalation:
+    owner: "@EstadoMaior"
+    when:
+      Falha em qualquer etapa, ausência de artefato obrigatório ou divergência
+      entre SOP e status reportado.
+  expires_at: "2025-11-20T23:59:59Z"
+  from_role: ESTADO-MAIOR
+  gate: FORA_PIPELINE
+  module: TORRE
+  objective:
+    Confirmar ciclo completo com SOP recém-regenerado e emitir parecer final
+    desbloqueando a Torre.
+  order_id: 6d3e4379-6f62-4d09-a8d8-3e4f4a0fdc8a
+  project: FABRICA
+  signature: ""
+  status: DONE
+  steps:
+    - command: python3 core/orquestrador/gatekeeper_cli.py preflight
+      description: Validar workflows, artefatos e dependências (preflight).
+      type: command
+    - command:
+        VERCEL_TOKEN=$VERCEL_TOKEN python3 core/orquestrador/gatekeeper_cli.py
+        vercel-guard
+      description:
+        Executar Vercel Guard oficial (dry-run) garantindo validação read-only
+        documentada.
+      type: command
+    - command: python3 core/orquestrador/gatekeeper_cli.py status
+      description:
+        Confirmar integridade de coverage.xml, sbom.json, pipeline_gate_input.json
+        e timestamps do SOP.
+      type: command
+    - command: python3 core/orquestrador/gatekeeper_cli.py executa
+      description: Emitir parecer final (PASS/WARN/BLOCKED) registrando marcador N/M.
+      type: command
+  success_criteria:
+    - Preflight, vercel-guard e status retornam PASS reconhecendo SOP atualizado (>=2025-11-13T16:28:00Z).
+    - Parecer final registra progresso_capitulo ou marcador N/M e cita evidências.
+    - Nenhum segredo persistido; token removido após execução.
+  to_role: GATEKEEPER
+  urgency: alta
+  version: 1
+- ack:
+    at: null
+    by: null
+    status: PENDING
+  checksum: ""
+  completed_at: "2025-11-14T10:32:36.827256+00:00"
+  constraints:
+    - Parecer só é válido se indicar progresso (N/M) explícito no artefacto ou mailbox.
+    - BLOQUEAR se encontrar risco não mitigado, log inconsistente ou falta de evidência.
+  context_refs:
+    - relatorios/para_estado_maior/engineer.out.json
+    - relatorios/torre_sop_review.md
+  created_at: "2025-11-01T12:30:00Z"
+  deliverables:
+    - path: relatorios/parecer_gatekeeper.md
+      type: markdown
+    - path: relatorios/para_estado_maior/gatekeeper.out.json
+      type: json
+  escalation:
+    owner: "@EstadoMaior"
+    when: Risco ou artefacto duvidoso não for corrigido.
+  expires_at: "2025-11-08T23:59:59Z"
+  from_role: ESTADO-MAIOR
+  gate: Gx
+  module: TORRE
+  objective:
+    Iniciar auditoria formal do gate e de rastreabilidade — garantir conformidade
+    total técnica, validar logs e artefactos, emitir parecer e registar progresso
+    N/M no relatório final.
+  order_id: ba7bf26e-7b26-446f-bc60-06bfa9bb6079
+  project: FABRICA
+  signature: ""
+  status: DONE
+  steps:
+    - Auditar entrada recente do Engenheiro
     - "Verificar logs e artefactos: conformidade, rastreabilidade, estado dos gates"
     - "Emitir parecer no mailbox/outbox com progresso_capitulo: N/M"
-  deliverables:
-    - { path: "relatorios/parecer_gatekeeper.md", type: "markdown" }
-    - { path: "relatorios/para_estado_maior/gatekeeper.out.json", type: "json" }
   success_criteria:
-    - "Parecer auditado, logado e registrado N/M no fecho do capítulo/gate."
-    - "Status = PASS, salvo se incongruências."
+    - Parecer auditado, logado e registrado N/M no fecho do capítulo/gate.
+    - Status = PASS, salvo se incongruências.
+  to_role: GATEKEEPER
+  urgency: alta
+  version: 1
+- ack:
+    at: null
+    by: null
+    status: PENDING
+  checksum: ""
+  completed_at: "2025-11-14T10:33:10.727120+00:00"
+  constraints:
+    - Utilizar VERCEL_TOKEN fornecido em ambiente temporário exclusivamente para validação
+      read-only.
+    - Bloquear se vercel guard não conseguir confirmar execução read-only ou se faltar
+      artefacto obrigatório (coverage.xml, pipeline_gate_input.json, sbom.json).
+    - Não gravar o token em ficheiros ou logs persistentes (somente variável de ambiente).
+  context_refs:
+    - relatorios/para_estado_maior/preflight_report.md
+    - relatorios/para_estado_maior/vercel_guard_report.md
+    - relatorios/para_estado_maior/dependency_radar_run.md
+    - relatorios/pipeline_gate_input.json
+    - relatorios/sop_status.json
+  created_at: "2025-11-07T16:00:00Z"
+  deliverables:
+    - path: relatorios/para_estado_maior/preflight_report.md
+      type: markdown
+    - path: relatorios/para_estado_maior/vercel_guard_report.md
+      type: markdown
+    - path: relatorios/para_estado_maior/estado_situacao_fabrica_torre_gatekeeper.md
+      type: markdown
+    - path: relatorios/parecer_gatekeeper.md
+      type: markdown
+    - path: relatorios/para_estado_maior/gatekeeper.out.json
+      type: json
   escalation:
     owner: "@EstadoMaior"
-    when: "Risco ou artefacto duvidoso não for corrigido."
-  checksum: ""
+    when:
+      Token inválido, ausência de artefactos, ou impossibilidade de confirmar
+      read-only.
+  expires_at: "2025-11-14T23:59:59Z"
+  from_role: ESTADO-MAIOR
+  gate: FORA_PIPELINE
+  module: TORRE
+  objective:
+    Rerrodar preflight, vercel guard e status com VERCEL_TOKEN temporário
+    e emitir parecer final antes do push.
+  order_id: gatekeeper-vercel-guard-revalidacao-2025-11-07
+  project: FABRICA
   signature: ""
-  ack: { by: null, at: null, status: "PENDING" }
-  status: "OPEN"
+  status: DONE
+  steps:
+    - command:
+        Executar preflight local (python3 core/orquestrador/gatekeeper_cli.py
+        preflight)
+      description: Confirmar que workflows permanecem válidos sem warnings.
+      type: command
+    - command: Executar Vercel Guard com VERCEL_TOKEN definido
+      description:
+        Rerrodar vercel-guard garantindo confirmação do modo read-only; reportar
+        evidências no relatório.
+      type: command
+    - command: Executar gatekeeper status
+      description:
+        Registrar estado dos artefactos obrigatórios (coverage.xml, pipeline_gate_input.json,
+        sbom.json).
+      type: command
+    - command: Executar gatekeeper executa, se condições atendidas
+      description:
+        Em caso de PASS, emitir parecer final atualizando gatekeeper.out.json
+        e parecer_gatekeeper.md.
+      type: command
+  success_criteria:
+    - Vercel Guard reporta dry-run confirmado com token fornecido (ou falha explícita
+      documentada).
+    - Status final PASS/WARN/BLOCKED documentado com referências e progresso_capitulo
+      atualizado se aplicável.
+    - Nenhum segredo persistido nos relatórios; token removido após execução.
+  to_role: GATEKEEPER
+  urgency: alta
+  version: 1

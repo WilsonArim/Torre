@@ -1,0 +1,4364 @@
+{
+  "errors": [],
+  "generated_at": "2025-11-18T09:53:06Z",
+  "metrics": {
+    "../../Torre/cli/create_checkpoint.py": {
+      "CONFIDENCE.HIGH": 0,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 0,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 40,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "../../Torre/cli/eval.py": {
+      "CONFIDENCE.HIGH": 0,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 0,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 171,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "../../Torre/cli/generate_report.py": {
+      "CONFIDENCE.HIGH": 3,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 3,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 182,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "../../Torre/cli/torre_bridge.py": {
+      "CONFIDENCE.HIGH": 0,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 0,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 4,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "../../Torre/cli/train.py": {
+      "CONFIDENCE.HIGH": 1,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 1,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 172,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "../../Torre/cli/update_status.py": {
+      "CONFIDENCE.HIGH": 1,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 1,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 48,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "../../Torre/cli/validate_dataset.py": {
+      "CONFIDENCE.HIGH": 1,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 1,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 96,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "../../Torre/core/orquestrador/cli.py": {
+      "CONFIDENCE.HIGH": 0,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 0,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 10,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "../../Torre/orquestrador/battery_consolidator.py": {
+      "CONFIDENCE.HIGH": 0,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 0,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 134,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "../../Torre/orquestrador/battery_reporter.py": {
+      "CONFIDENCE.HIGH": 0,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 0,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 83,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "../../Torre/orquestrador/battery_runner.py": {
+      "CONFIDENCE.HIGH": 29,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 29,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 396,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "../../Torre/orquestrador/cli.py": {
+      "CONFIDENCE.HIGH": 9,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 9,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 295,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "../../Torre/orquestrador/corrigir_multilang.py": {
+      "CONFIDENCE.HIGH": 1,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 1,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 303,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "../../Torre/orquestrador/corrigir_multilang_final.py": {
+      "CONFIDENCE.HIGH": 1,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 1,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 258,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "../../Torre/orquestrador/exec_cap04.py": {
+      "CONFIDENCE.HIGH": 1,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 1,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 201,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "../../Torre/orquestrador/exec_cap05.py": {
+      "CONFIDENCE.HIGH": 1,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 1,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 234,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "../../Torre/orquestrador/exec_cap06.py": {
+      "CONFIDENCE.HIGH": 3,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 3,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 307,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "../../Torre/orquestrador/exec_cap07.py": {
+      "CONFIDENCE.HIGH": 2,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 2,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 250,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "../../Torre/orquestrador/exec_cap08.py": {
+      "CONFIDENCE.HIGH": 1,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 1,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 263,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "../../Torre/orquestrador/exec_fase0.py": {
+      "CONFIDENCE.HIGH": 0,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 0,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 166,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "../../Torre/orquestrador/exec_mg1.py": {
+      "CONFIDENCE.HIGH": 0,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 0,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 100,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "../../Torre/orquestrador/exec_mg2.py": {
+      "CONFIDENCE.HIGH": 1,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 1,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 228,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "../../Torre/orquestrador/mini_pin_validations.py": {
+      "CONFIDENCE.HIGH": 3,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 3,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 225,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "../../Torre/orquestrador/profile_multilang.py": {
+      "CONFIDENCE.HIGH": 1,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 1,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 301,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "../../Torre/orquestrador/treino_G1.py": {
+      "CONFIDENCE.HIGH": 0,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 0,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 146,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "../../Torre/orquestrador/treino_G2.py": {
+      "CONFIDENCE.HIGH": 3,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 3,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 204,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "../../Torre/orquestrador/treino_G3.py": {
+      "CONFIDENCE.HIGH": 7,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 7,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 241,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "../../Torre/reflexiva/pesquisar.py": {
+      "CONFIDENCE.HIGH": 0,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 0,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 152,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "../../core/fingerprint_conformidade/verificar.py": {
+      "CONFIDENCE.HIGH": 0,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 0,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 107,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "../../core/orquestrador/engineer_cli.py": {
+      "CONFIDENCE.HIGH": 4,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 4,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 532,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "../../core/orquestrador/exec_superpipeline.py": {
+      "CONFIDENCE.HIGH": 8,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 8,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 1195,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "../../core/orquestrador/file_access_guard.py": {
+      "CONFIDENCE.HIGH": 2,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 2,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 219,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "../../core/orquestrador/gatekeeper_cli.py": {
+      "CONFIDENCE.HIGH": 6,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 6,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 720,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "../../core/orquestrador/mailbox_health.py": {
+      "CONFIDENCE.HIGH": 0,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 0,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 53,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "../../core/orquestrador/orders_gc.py": {
+      "CONFIDENCE.HIGH": 0,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 0,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 73,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "../../core/orquestrador/sop_cli.py": {
+      "CONFIDENCE.HIGH": 6,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 6,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 777,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "../../core/orquestrador/validate_order_format.py": {
+      "CONFIDENCE.HIGH": 0,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 0,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 98,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "../../core/padronizacao_formatos/formatar_interacao.py": {
+      "CONFIDENCE.HIGH": 0,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 0,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 40,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "../../core/padronizacao_formatos/validar_formato.py": {
+      "CONFIDENCE.HIGH": 0,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 0,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 103,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "../../core/rag_constitucional/buscar.py": {
+      "CONFIDENCE.HIGH": 0,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 0,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 54,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "../../core/replicacao/replicar.py": {
+      "CONFIDENCE.HIGH": 0,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 0,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 218,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "../../core/scripts/plugins/bandit.py": {
+      "CONFIDENCE.HIGH": 0,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 0,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 11,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "../../core/scripts/plugins/cov.py": {
+      "CONFIDENCE.HIGH": 0,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 0,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 16,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "../../core/scripts/plugins/junit.py": {
+      "CONFIDENCE.HIGH": 0,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 0,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 17,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "../../core/scripts/plugins/npm_audit.py": {
+      "CONFIDENCE.HIGH": 0,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 0,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 12,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "../../core/scripts/plugins/sbom.py": {
+      "CONFIDENCE.HIGH": 0,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 0,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 3,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "../../core/scripts/plugins/semgrep.py": {
+      "CONFIDENCE.HIGH": 0,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 0,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 18,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "../../core/scripts/plugins/trivy.py": {
+      "CONFIDENCE.HIGH": 0,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 0,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 16,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "../../core/scripts/validator.py": {
+      "CONFIDENCE.HIGH": 6,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 6,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 784,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "../../node_modules/flatted/python/flatted.py": {
+      "CONFIDENCE.HIGH": 0,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 0,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 103,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "../../scripts/engineer_autofix.py": {
+      "CONFIDENCE.HIGH": 0,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 0,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 6,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "../../scripts/sop_validate.py": {
+      "CONFIDENCE.HIGH": 0,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 0,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 6,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "../../tools/gatekeeper/dependency_radar.py": {
+      "CONFIDENCE.HIGH": 6,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 6,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 263,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "../../tools/pre_commit_validator.py": {
+      "CONFIDENCE.HIGH": 2,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 2,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 236,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "../../tools/run_harness.py": {
+      "CONFIDENCE.HIGH": 2,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 2,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 133,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "../../tools/run_jailbreakbench.py": {
+      "CONFIDENCE.HIGH": 12,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 12,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 167,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "../../tools/run_rag_eval.py": {
+      "CONFIDENCE.HIGH": 11,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 11,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 196,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "../../tools/run_swebench.py": {
+      "CONFIDENCE.HIGH": 12,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 12,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 163,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "../../tools/run_tool_suites.py": {
+      "CONFIDENCE.HIGH": 11,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 11,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 223,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "../../tools/run_truthfulqa.py": {
+      "CONFIDENCE.HIGH": 2,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 2,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 6,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "../../tools/validate_load_slos.py": {
+      "CONFIDENCE.HIGH": 0,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 0,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 7,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "_totals": {
+      "CONFIDENCE.HIGH": 159,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 159,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 11785,
+      "nosec": 0,
+      "skipped_tests": 0
+    }
+  },
+  "results": [
+    {
+      "code": "41             })\n42         except Exception:\n43             pass\n44     \n",
+      "col_offset": 8,
+      "end_col_offset": 16,
+      "filename": "../../Torre/cli/generate_report.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Try, Except, Pass detected.",
+      "line_number": 42,
+      "line_range": [
+        42,
+        43
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.6/plugins/b110_try_except_pass.html",
+      "test_id": "B110",
+      "test_name": "try_except_pass"
+    },
+    {
+      "code": "71             logs_summary[\"errors\"] = sum(1 for line in lines if \"ERROR\" in line.upper())\n72         except Exception:\n73             pass\n74     \n",
+      "col_offset": 8,
+      "end_col_offset": 16,
+      "filename": "../../Torre/cli/generate_report.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Try, Except, Pass detected.",
+      "line_number": 72,
+      "line_range": [
+        72,
+        73
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.6/plugins/b110_try_except_pass.html",
+      "test_id": "B110",
+      "test_name": "try_except_pass"
+    },
+    {
+      "code": "84             return json.loads(status_file.read_text(encoding=\"utf-8\"))\n85         except Exception:\n86             pass\n87     \n",
+      "col_offset": 8,
+      "end_col_offset": 16,
+      "filename": "../../Torre/cli/generate_report.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Try, Except, Pass detected.",
+      "line_number": 85,
+      "line_range": [
+        85,
+        86
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.6/plugins/b110_try_except_pass.html",
+      "test_id": "B110",
+      "test_name": "try_except_pass"
+    },
+    {
+      "code": "170             current_status = json.loads(status_file.read_text(encoding=\"utf-8\"))\n171         except Exception:\n172             pass\n173     \n",
+      "col_offset": 8,
+      "end_col_offset": 16,
+      "filename": "../../Torre/cli/train.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Try, Except, Pass detected.",
+      "line_number": 171,
+      "line_range": [
+        171,
+        172
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.6/plugins/b110_try_except_pass.html",
+      "test_id": "B110",
+      "test_name": "try_except_pass"
+    },
+    {
+      "code": "30             current_status = json.loads(status_file.read_text(encoding=\"utf-8\"))\n31         except Exception:\n32             pass\n33     \n",
+      "col_offset": 8,
+      "end_col_offset": 16,
+      "filename": "../../Torre/cli/update_status.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Try, Except, Pass detected.",
+      "line_number": 31,
+      "line_range": [
+        31,
+        32
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.6/plugins/b110_try_except_pass.html",
+      "test_id": "B110",
+      "test_name": "try_except_pass"
+    },
+    {
+      "code": "46                 violations.append(\"Refer\u00eancias a diret\u00f3rios proibidos (deprecated/, node_modules/)\")\n47         except Exception:\n48             pass\n49     \n",
+      "col_offset": 8,
+      "end_col_offset": 16,
+      "filename": "../../Torre/cli/validate_dataset.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Try, Except, Pass detected.",
+      "line_number": 47,
+      "line_range": [
+        47,
+        48
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.6/plugins/b110_try_except_pass.html",
+      "test_id": "B110",
+      "test_name": "try_except_pass"
+    },
+    {
+      "code": "9 import sys\n10 import subprocess\n11 import time\n",
+      "col_offset": 0,
+      "end_col_offset": 17,
+      "filename": "../../Torre/orquestrador/battery_runner.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Consider possible security implications associated with the subprocess module.",
+      "line_number": 10,
+      "line_range": [
+        10
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.6/blacklists/blacklist_imports.html#b404-import-subprocess",
+      "test_id": "B404",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "108         if test_name == \"constitution_immutability\":\n109             result = subprocess.run(\n110                 [\"python3\", \"core/scripts/validator.py\"],\n111                 capture_output=True,\n112                 text=True,\n113                 timeout=60\n114             )\n115             returncode = result.returncode\n",
+      "col_offset": 21,
+      "end_col_offset": 13,
+      "filename": "../../Torre/orquestrador/battery_runner.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Starting a process with a partial executable path",
+      "line_number": 109,
+      "line_range": [
+        109,
+        110,
+        111,
+        112,
+        113,
+        114
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.6/plugins/b607_start_process_with_partial_path.html",
+      "test_id": "B607",
+      "test_name": "start_process_with_partial_path"
+    },
+    {
+      "code": "108         if test_name == \"constitution_immutability\":\n109             result = subprocess.run(\n110                 [\"python3\", \"core/scripts/validator.py\"],\n111                 capture_output=True,\n112                 text=True,\n113                 timeout=60\n114             )\n115             returncode = result.returncode\n",
+      "col_offset": 21,
+      "end_col_offset": 13,
+      "filename": "../../Torre/orquestrador/battery_runner.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "subprocess call - check for execution of untrusted input.",
+      "line_number": 109,
+      "line_range": [
+        109,
+        110,
+        111,
+        112,
+        113,
+        114
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.6/plugins/b603_subprocess_without_shell_equals_true.html",
+      "test_id": "B603",
+      "test_name": "subprocess_without_shell_equals_true"
+    },
+    {
+      "code": "120         elif test_name == \"sop_validation\":\n121             result = subprocess.run(\n122                 [\"make\", \"-C\", \"core/orquestrador\", \"sop\"],\n123                 capture_output=True,\n124                 text=True,\n125                 timeout=120\n126             )\n127             returncode = result.returncode\n",
+      "col_offset": 21,
+      "end_col_offset": 13,
+      "filename": "../../Torre/orquestrador/battery_runner.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Starting a process with a partial executable path",
+      "line_number": 121,
+      "line_range": [
+        121,
+        122,
+        123,
+        124,
+        125,
+        126
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.6/plugins/b607_start_process_with_partial_path.html",
+      "test_id": "B607",
+      "test_name": "start_process_with_partial_path"
+    },
+    {
+      "code": "120         elif test_name == \"sop_validation\":\n121             result = subprocess.run(\n122                 [\"make\", \"-C\", \"core/orquestrador\", \"sop\"],\n123                 capture_output=True,\n124                 text=True,\n125                 timeout=120\n126             )\n127             returncode = result.returncode\n",
+      "col_offset": 21,
+      "end_col_offset": 13,
+      "filename": "../../Torre/orquestrador/battery_runner.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "subprocess call - check for execution of untrusted input.",
+      "line_number": 121,
+      "line_range": [
+        121,
+        122,
+        123,
+        124,
+        125,
+        126
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.6/plugins/b603_subprocess_without_shell_equals_true.html",
+      "test_id": "B603",
+      "test_name": "subprocess_without_shell_equals_true"
+    },
+    {
+      "code": "132         elif test_name == \"gatekeeper_basic\":\n133             result = subprocess.run(\n134                 [\"make\", \"-C\", \"core/orquestrador\", \"gatekeeper_prep\"],\n135                 capture_output=True,\n136                 text=True,\n137                 timeout=120\n138             )\n139             returncode = result.returncode\n",
+      "col_offset": 21,
+      "end_col_offset": 13,
+      "filename": "../../Torre/orquestrador/battery_runner.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Starting a process with a partial executable path",
+      "line_number": 133,
+      "line_range": [
+        133,
+        134,
+        135,
+        136,
+        137,
+        138
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.6/plugins/b607_start_process_with_partial_path.html",
+      "test_id": "B607",
+      "test_name": "start_process_with_partial_path"
+    },
+    {
+      "code": "132         elif test_name == \"gatekeeper_basic\":\n133             result = subprocess.run(\n134                 [\"make\", \"-C\", \"core/orquestrador\", \"gatekeeper_prep\"],\n135                 capture_output=True,\n136                 text=True,\n137                 timeout=120\n138             )\n139             returncode = result.returncode\n",
+      "col_offset": 21,
+      "end_col_offset": 13,
+      "filename": "../../Torre/orquestrador/battery_runner.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "subprocess call - check for execution of untrusted input.",
+      "line_number": 133,
+      "line_range": [
+        133,
+        134,
+        135,
+        136,
+        137,
+        138
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.6/plugins/b603_subprocess_without_shell_equals_true.html",
+      "test_id": "B603",
+      "test_name": "subprocess_without_shell_equals_true"
+    },
+    {
+      "code": "144         elif test_name == \"bandit_scan\":\n145             result = subprocess.run(\n146                 [\"bandit\", \"-r\", \"torre/\", \"-f\", \"json\", \"-o\", f\"{ARTIFACTS_DIR}/bandit_{block_name}.json\"],\n147                 capture_output=True,\n148                 text=True,\n149                 timeout=300\n150             )\n151             returncode = result.returncode\n",
+      "col_offset": 21,
+      "end_col_offset": 13,
+      "filename": "../../Torre/orquestrador/battery_runner.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Starting a process with a partial executable path",
+      "line_number": 145,
+      "line_range": [
+        145,
+        146,
+        147,
+        148,
+        149,
+        150
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.6/plugins/b607_start_process_with_partial_path.html",
+      "test_id": "B607",
+      "test_name": "start_process_with_partial_path"
+    },
+    {
+      "code": "144         elif test_name == \"bandit_scan\":\n145             result = subprocess.run(\n146                 [\"bandit\", \"-r\", \"torre/\", \"-f\", \"json\", \"-o\", f\"{ARTIFACTS_DIR}/bandit_{block_name}.json\"],\n147                 capture_output=True,\n148                 text=True,\n149                 timeout=300\n150             )\n151             returncode = result.returncode\n",
+      "col_offset": 21,
+      "end_col_offset": 13,
+      "filename": "../../Torre/orquestrador/battery_runner.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "subprocess call - check for execution of untrusted input.",
+      "line_number": 145,
+      "line_range": [
+        145,
+        146,
+        147,
+        148,
+        149,
+        150
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.6/plugins/b603_subprocess_without_shell_equals_true.html",
+      "test_id": "B603",
+      "test_name": "subprocess_without_shell_equals_true"
+    },
+    {
+      "code": "157         elif test_name == \"semgrep_scan\":\n158             result = subprocess.run(\n159                 [\"semgrep\", \"--config\", \"auto\", \"--json\", \"-o\", f\"{ARTIFACTS_DIR}/semgrep_{block_name}.json\", \"torre/\"],\n160                 capture_output=True,\n161                 text=True,\n162                 timeout=600\n163             )\n164             returncode = result.returncode\n",
+      "col_offset": 21,
+      "end_col_offset": 13,
+      "filename": "../../Torre/orquestrador/battery_runner.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Starting a process with a partial executable path",
+      "line_number": 158,
+      "line_range": [
+        158,
+        159,
+        160,
+        161,
+        162,
+        163
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.6/plugins/b607_start_process_with_partial_path.html",
+      "test_id": "B607",
+      "test_name": "start_process_with_partial_path"
+    },
+    {
+      "code": "157         elif test_name == \"semgrep_scan\":\n158             result = subprocess.run(\n159                 [\"semgrep\", \"--config\", \"auto\", \"--json\", \"-o\", f\"{ARTIFACTS_DIR}/semgrep_{block_name}.json\", \"torre/\"],\n160                 capture_output=True,\n161                 text=True,\n162                 timeout=600\n163             )\n164             returncode = result.returncode\n",
+      "col_offset": 21,
+      "end_col_offset": 13,
+      "filename": "../../Torre/orquestrador/battery_runner.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "subprocess call - check for execution of untrusted input.",
+      "line_number": 158,
+      "line_range": [
+        158,
+        159,
+        160,
+        161,
+        162,
+        163
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.6/plugins/b603_subprocess_without_shell_equals_true.html",
+      "test_id": "B603",
+      "test_name": "subprocess_without_shell_equals_true"
+    },
+    {
+      "code": "170             # Executar harness completo (demora muito tempo)\n171             result = subprocess.run(\n172                 [\"python3\", \"tools/run_harness.py\", \"--all\", \"--output\", f\"{ARTIFACTS_DIR}/harness_results.json\"],\n173                 capture_output=True,\n174                 text=True,\n175                 timeout=10800  # 3 horas\n176             )\n177             returncode = result.returncode\n",
+      "col_offset": 21,
+      "end_col_offset": 13,
+      "filename": "../../Torre/orquestrador/battery_runner.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Starting a process with a partial executable path",
+      "line_number": 171,
+      "line_range": [
+        171,
+        172,
+        173,
+        174,
+        175,
+        176
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.6/plugins/b607_start_process_with_partial_path.html",
+      "test_id": "B607",
+      "test_name": "start_process_with_partial_path"
+    },
+    {
+      "code": "170             # Executar harness completo (demora muito tempo)\n171             result = subprocess.run(\n172                 [\"python3\", \"tools/run_harness.py\", \"--all\", \"--output\", f\"{ARTIFACTS_DIR}/harness_results.json\"],\n173                 capture_output=True,\n174                 text=True,\n175                 timeout=10800  # 3 horas\n176             )\n177             returncode = result.returncode\n",
+      "col_offset": 21,
+      "end_col_offset": 13,
+      "filename": "../../Torre/orquestrador/battery_runner.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "subprocess call - check for execution of untrusted input.",
+      "line_number": 171,
+      "line_range": [
+        171,
+        172,
+        173,
+        174,
+        175,
+        176
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.6/plugins/b603_subprocess_without_shell_equals_true.html",
+      "test_id": "B603",
+      "test_name": "subprocess_without_shell_equals_true"
+    },
+    {
+      "code": "182         elif test_name == \"run_tool_suites\":\n183             result = subprocess.run(\n184                 [\"python3\", \"tools/run_tool_suites.py\", \"--all\", \"--output\", f\"{ARTIFACTS_DIR}/tool_suites_results.json\"],\n185                 capture_output=True,\n186                 text=True,\n187                 timeout=5400  # 1.5 horas\n188             )\n189             returncode = result.returncode\n",
+      "col_offset": 21,
+      "end_col_offset": 13,
+      "filename": "../../Torre/orquestrador/battery_runner.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Starting a process with a partial executable path",
+      "line_number": 183,
+      "line_range": [
+        183,
+        184,
+        185,
+        186,
+        187,
+        188
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.6/plugins/b607_start_process_with_partial_path.html",
+      "test_id": "B607",
+      "test_name": "start_process_with_partial_path"
+    },
+    {
+      "code": "182         elif test_name == \"run_tool_suites\":\n183             result = subprocess.run(\n184                 [\"python3\", \"tools/run_tool_suites.py\", \"--all\", \"--output\", f\"{ARTIFACTS_DIR}/tool_suites_results.json\"],\n185                 capture_output=True,\n186                 text=True,\n187                 timeout=5400  # 1.5 horas\n188             )\n189             returncode = result.returncode\n",
+      "col_offset": 21,
+      "end_col_offset": 13,
+      "filename": "../../Torre/orquestrador/battery_runner.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "subprocess call - check for execution of untrusted input.",
+      "line_number": 183,
+      "line_range": [
+        183,
+        184,
+        185,
+        186,
+        187,
+        188
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.6/plugins/b603_subprocess_without_shell_equals_true.html",
+      "test_id": "B603",
+      "test_name": "subprocess_without_shell_equals_true"
+    },
+    {
+      "code": "194         elif test_name == \"run_swebench\":\n195             result = subprocess.run(\n196                 [\"python3\", \"tools/run_swebench.py\", \"--all\", \"--output\", f\"{ARTIFACTS_DIR}/swebench_results.json\"],\n197                 capture_output=True,\n198                 text=True,\n199                 timeout=7200  # 2 horas\n200             )\n201             returncode = result.returncode\n",
+      "col_offset": 21,
+      "end_col_offset": 13,
+      "filename": "../../Torre/orquestrador/battery_runner.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Starting a process with a partial executable path",
+      "line_number": 195,
+      "line_range": [
+        195,
+        196,
+        197,
+        198,
+        199,
+        200
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.6/plugins/b607_start_process_with_partial_path.html",
+      "test_id": "B607",
+      "test_name": "start_process_with_partial_path"
+    },
+    {
+      "code": "194         elif test_name == \"run_swebench\":\n195             result = subprocess.run(\n196                 [\"python3\", \"tools/run_swebench.py\", \"--all\", \"--output\", f\"{ARTIFACTS_DIR}/swebench_results.json\"],\n197                 capture_output=True,\n198                 text=True,\n199                 timeout=7200  # 2 horas\n200             )\n201             returncode = result.returncode\n",
+      "col_offset": 21,
+      "end_col_offset": 13,
+      "filename": "../../Torre/orquestrador/battery_runner.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "subprocess call - check for execution of untrusted input.",
+      "line_number": 195,
+      "line_range": [
+        195,
+        196,
+        197,
+        198,
+        199,
+        200
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.6/plugins/b603_subprocess_without_shell_equals_true.html",
+      "test_id": "B603",
+      "test_name": "subprocess_without_shell_equals_true"
+    },
+    {
+      "code": "206         elif test_name == \"run_jailbreakbench\":\n207             result = subprocess.run(\n208                 [\"python3\", \"tools/run_jailbreakbench.py\", \"--all\", \"--output\", f\"{ARTIFACTS_DIR}/jailbreakbench_results.json\"],\n209                 capture_output=True,\n210                 text=True,\n211                 timeout=5400  # 1.5 horas\n212             )\n213             returncode = result.returncode\n",
+      "col_offset": 21,
+      "end_col_offset": 13,
+      "filename": "../../Torre/orquestrador/battery_runner.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Starting a process with a partial executable path",
+      "line_number": 207,
+      "line_range": [
+        207,
+        208,
+        209,
+        210,
+        211,
+        212
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.6/plugins/b607_start_process_with_partial_path.html",
+      "test_id": "B607",
+      "test_name": "start_process_with_partial_path"
+    },
+    {
+      "code": "206         elif test_name == \"run_jailbreakbench\":\n207             result = subprocess.run(\n208                 [\"python3\", \"tools/run_jailbreakbench.py\", \"--all\", \"--output\", f\"{ARTIFACTS_DIR}/jailbreakbench_results.json\"],\n209                 capture_output=True,\n210                 text=True,\n211                 timeout=5400  # 1.5 horas\n212             )\n213             returncode = result.returncode\n",
+      "col_offset": 21,
+      "end_col_offset": 13,
+      "filename": "../../Torre/orquestrador/battery_runner.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "subprocess call - check for execution of untrusted input.",
+      "line_number": 207,
+      "line_range": [
+        207,
+        208,
+        209,
+        210,
+        211,
+        212
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.6/plugins/b603_subprocess_without_shell_equals_true.html",
+      "test_id": "B603",
+      "test_name": "subprocess_without_shell_equals_true"
+    },
+    {
+      "code": "218         elif test_name == \"run_rag_eval\":\n219             result = subprocess.run(\n220                 [\"python3\", \"tools/run_rag_eval.py\", \"--all\", \"--output\", f\"{ARTIFACTS_DIR}/rag_eval_results.json\"],\n221                 capture_output=True,\n222                 text=True,\n223                 timeout=7200  # 2 horas\n224             )\n225             returncode = result.returncode\n",
+      "col_offset": 21,
+      "end_col_offset": 13,
+      "filename": "../../Torre/orquestrador/battery_runner.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Starting a process with a partial executable path",
+      "line_number": 219,
+      "line_range": [
+        219,
+        220,
+        221,
+        222,
+        223,
+        224
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.6/plugins/b607_start_process_with_partial_path.html",
+      "test_id": "B607",
+      "test_name": "start_process_with_partial_path"
+    },
+    {
+      "code": "218         elif test_name == \"run_rag_eval\":\n219             result = subprocess.run(\n220                 [\"python3\", \"tools/run_rag_eval.py\", \"--all\", \"--output\", f\"{ARTIFACTS_DIR}/rag_eval_results.json\"],\n221                 capture_output=True,\n222                 text=True,\n223                 timeout=7200  # 2 horas\n224             )\n225             returncode = result.returncode\n",
+      "col_offset": 21,
+      "end_col_offset": 13,
+      "filename": "../../Torre/orquestrador/battery_runner.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "subprocess call - check for execution of untrusted input.",
+      "line_number": 219,
+      "line_range": [
+        219,
+        220,
+        221,
+        222,
+        223,
+        224
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.6/plugins/b603_subprocess_without_shell_equals_true.html",
+      "test_id": "B603",
+      "test_name": "subprocess_without_shell_equals_true"
+    },
+    {
+      "code": "231             # Verificar se k6 est\u00e1 instalado\n232             k6_check = subprocess.run([\"which\", \"k6\"], capture_output=True)\n233             if k6_check.returncode != 0:\n",
+      "col_offset": 23,
+      "end_col_offset": 75,
+      "filename": "../../Torre/orquestrador/battery_runner.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Starting a process with a partial executable path",
+      "line_number": 232,
+      "line_range": [
+        232
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.6/plugins/b607_start_process_with_partial_path.html",
+      "test_id": "B607",
+      "test_name": "start_process_with_partial_path"
+    },
+    {
+      "code": "231             # Verificar se k6 est\u00e1 instalado\n232             k6_check = subprocess.run([\"which\", \"k6\"], capture_output=True)\n233             if k6_check.returncode != 0:\n",
+      "col_offset": 23,
+      "end_col_offset": 75,
+      "filename": "../../Torre/orquestrador/battery_runner.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "subprocess call - check for execution of untrusted input.",
+      "line_number": 232,
+      "line_range": [
+        232
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.6/plugins/b603_subprocess_without_shell_equals_true.html",
+      "test_id": "B603",
+      "test_name": "subprocess_without_shell_equals_true"
+    },
+    {
+      "code": "244             \n245             result = subprocess.run(\n246                 [\"k6\", \"run\", \"--out\", \"json=artifacts/k6_load_results.json\", \"scripts/k6/load_test.js\"],\n247                 capture_output=True,\n248                 text=True,\n249                 timeout=1800  # 30 minutos\n250             )\n251             returncode = result.returncode\n",
+      "col_offset": 21,
+      "end_col_offset": 13,
+      "filename": "../../Torre/orquestrador/battery_runner.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Starting a process with a partial executable path",
+      "line_number": 245,
+      "line_range": [
+        245,
+        246,
+        247,
+        248,
+        249,
+        250
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.6/plugins/b607_start_process_with_partial_path.html",
+      "test_id": "B607",
+      "test_name": "start_process_with_partial_path"
+    },
+    {
+      "code": "244             \n245             result = subprocess.run(\n246                 [\"k6\", \"run\", \"--out\", \"json=artifacts/k6_load_results.json\", \"scripts/k6/load_test.js\"],\n247                 capture_output=True,\n248                 text=True,\n249                 timeout=1800  # 30 minutos\n250             )\n251             returncode = result.returncode\n",
+      "col_offset": 21,
+      "end_col_offset": 13,
+      "filename": "../../Torre/orquestrador/battery_runner.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "subprocess call - check for execution of untrusted input.",
+      "line_number": 245,
+      "line_range": [
+        245,
+        246,
+        247,
+        248,
+        249,
+        250
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.6/plugins/b603_subprocess_without_shell_equals_true.html",
+      "test_id": "B603",
+      "test_name": "subprocess_without_shell_equals_true"
+    },
+    {
+      "code": "256         elif test_name == \"k6_chaos_test\":\n257             k6_check = subprocess.run([\"which\", \"k6\"], capture_output=True)\n258             if k6_check.returncode != 0:\n",
+      "col_offset": 23,
+      "end_col_offset": 75,
+      "filename": "../../Torre/orquestrador/battery_runner.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Starting a process with a partial executable path",
+      "line_number": 257,
+      "line_range": [
+        257
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.6/plugins/b607_start_process_with_partial_path.html",
+      "test_id": "B607",
+      "test_name": "start_process_with_partial_path"
+    },
+    {
+      "code": "256         elif test_name == \"k6_chaos_test\":\n257             k6_check = subprocess.run([\"which\", \"k6\"], capture_output=True)\n258             if k6_check.returncode != 0:\n",
+      "col_offset": 23,
+      "end_col_offset": 75,
+      "filename": "../../Torre/orquestrador/battery_runner.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "subprocess call - check for execution of untrusted input.",
+      "line_number": 257,
+      "line_range": [
+        257
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.6/plugins/b603_subprocess_without_shell_equals_true.html",
+      "test_id": "B603",
+      "test_name": "subprocess_without_shell_equals_true"
+    },
+    {
+      "code": "269             \n270             result = subprocess.run(\n271                 [\"k6\", \"run\", \"--out\", \"json=artifacts/k6_chaos_results.json\", \"scripts/k6/chaos_test.js\"],\n272                 capture_output=True,\n273                 text=True,\n274                 timeout=900  # 15 minutos\n275             )\n276             returncode = result.returncode\n",
+      "col_offset": 21,
+      "end_col_offset": 13,
+      "filename": "../../Torre/orquestrador/battery_runner.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Starting a process with a partial executable path",
+      "line_number": 270,
+      "line_range": [
+        270,
+        271,
+        272,
+        273,
+        274,
+        275
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.6/plugins/b607_start_process_with_partial_path.html",
+      "test_id": "B607",
+      "test_name": "start_process_with_partial_path"
+    },
+    {
+      "code": "269             \n270             result = subprocess.run(\n271                 [\"k6\", \"run\", \"--out\", \"json=artifacts/k6_chaos_results.json\", \"scripts/k6/chaos_test.js\"],\n272                 capture_output=True,\n273                 text=True,\n274                 timeout=900  # 15 minutos\n275             )\n276             returncode = result.returncode\n",
+      "col_offset": 21,
+      "end_col_offset": 13,
+      "filename": "../../Torre/orquestrador/battery_runner.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "subprocess call - check for execution of untrusted input.",
+      "line_number": 270,
+      "line_range": [
+        270,
+        271,
+        272,
+        273,
+        274,
+        275
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.6/plugins/b603_subprocess_without_shell_equals_true.html",
+      "test_id": "B603",
+      "test_name": "subprocess_without_shell_equals_true"
+    },
+    {
+      "code": "11 import json\n12 import subprocess\n13 import sys\n",
+      "col_offset": 0,
+      "end_col_offset": 17,
+      "filename": "../../Torre/orquestrador/cli.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Consider possible security implications associated with the subprocess module.",
+      "line_number": 12,
+      "line_range": [
+        12
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.6/blacklists/blacklist_imports.html#b404-import-subprocess",
+      "test_id": "B404",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "95     try:\n96         result = subprocess.run(\n97             [sys.executable, str(train_script), \"--phase\", str(phase_num)],\n98             cwd=str(TORRE_ROOT),\n99             capture_output=True,\n100             text=True,\n101             timeout=3600,  # 1 hora m\u00e1ximo\n102         )\n103         \n",
+      "col_offset": 17,
+      "end_col_offset": 9,
+      "filename": "../../Torre/orquestrador/cli.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "subprocess call - check for execution of untrusted input.",
+      "line_number": 96,
+      "line_range": [
+        96,
+        97,
+        98,
+        99,
+        100,
+        101,
+        102
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.6/plugins/b603_subprocess_without_shell_equals_true.html",
+      "test_id": "B603",
+      "test_name": "subprocess_without_shell_equals_true"
+    },
+    {
+      "code": "125     try:\n126         result = subprocess.run(\n127             [sys.executable, str(CORE_ORQUESTRADOR / \"cli.py\"), \"validate_pipeline\"],\n128             cwd=str(REPO_ROOT),\n129             capture_output=True,\n130             text=True,\n131             timeout=300,\n132         )\n133         \n",
+      "col_offset": 17,
+      "end_col_offset": 9,
+      "filename": "../../Torre/orquestrador/cli.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "subprocess call - check for execution of untrusted input.",
+      "line_number": 126,
+      "line_range": [
+        126,
+        127,
+        128,
+        129,
+        130,
+        131,
+        132
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.6/plugins/b603_subprocess_without_shell_equals_true.html",
+      "test_id": "B603",
+      "test_name": "subprocess_without_shell_equals_true"
+    },
+    {
+      "code": "159     try:\n160         result = subprocess.run(\n161             [sys.executable, str(validator_script)],\n162             cwd=str(REPO_ROOT),\n163             capture_output=True,\n164             text=True,\n165             timeout=300,\n166         )\n167         \n",
+      "col_offset": 17,
+      "end_col_offset": 9,
+      "filename": "../../Torre/orquestrador/cli.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "subprocess call - check for execution of untrusted input.",
+      "line_number": 160,
+      "line_range": [
+        160,
+        161,
+        162,
+        163,
+        164,
+        165,
+        166
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.6/plugins/b603_subprocess_without_shell_equals_true.html",
+      "test_id": "B603",
+      "test_name": "subprocess_without_shell_equals_true"
+    },
+    {
+      "code": "189         # Primeiro preparar inputs\n190         prep_result = subprocess.run(\n191             [sys.executable, str(CORE_ORQUESTRADOR / \"cli.py\"), \"gatekeeper_prep\"],\n192             cwd=str(REPO_ROOT),\n193             capture_output=True,\n194             text=True,\n195             timeout=300,\n196         )\n197         \n",
+      "col_offset": 22,
+      "end_col_offset": 9,
+      "filename": "../../Torre/orquestrador/cli.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "subprocess call - check for execution of untrusted input.",
+      "line_number": 190,
+      "line_range": [
+        190,
+        191,
+        192,
+        193,
+        194,
+        195,
+        196
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.6/plugins/b603_subprocess_without_shell_equals_true.html",
+      "test_id": "B603",
+      "test_name": "subprocess_without_shell_equals_true"
+    },
+    {
+      "code": "202         # Executar Gatekeeper\n203         result = subprocess.run(\n204             [sys.executable, str(CORE_ORQUESTRADOR / \"cli.py\"), \"gatekeeper_run\"],\n205             cwd=str(REPO_ROOT),\n206             capture_output=True,\n207             text=True,\n208             timeout=300,\n209         )\n210         \n",
+      "col_offset": 17,
+      "end_col_offset": 9,
+      "filename": "../../Torre/orquestrador/cli.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "subprocess call - check for execution of untrusted input.",
+      "line_number": 203,
+      "line_range": [
+        203,
+        204,
+        205,
+        206,
+        207,
+        208,
+        209
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.6/plugins/b603_subprocess_without_shell_equals_true.html",
+      "test_id": "B603",
+      "test_name": "subprocess_without_shell_equals_true"
+    },
+    {
+      "code": "234         try:\n235             result = subprocess.run(\n236                 [sys.executable, str(executor), \"executa\"],\n237                 cwd=str(REPO_ROOT),\n238                 capture_output=False,\n239                 timeout=3600,\n240             )\n241             return result.returncode\n",
+      "col_offset": 21,
+      "end_col_offset": 13,
+      "filename": "../../Torre/orquestrador/cli.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "subprocess call - check for execution of untrusted input.",
+      "line_number": 235,
+      "line_range": [
+        235,
+        236,
+        237,
+        238,
+        239,
+        240
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.6/plugins/b603_subprocess_without_shell_equals_true.html",
+      "test_id": "B603",
+      "test_name": "subprocess_without_shell_equals_true"
+    },
+    {
+      "code": "249             try:\n250                 result = subprocess.run(\n251                     [sys.executable, str(engineer_cli), \"executa\"],\n252                     cwd=str(REPO_ROOT),\n253                     capture_output=False,\n254                     timeout=3600,\n255                 )\n256                 return result.returncode\n",
+      "col_offset": 25,
+      "end_col_offset": 17,
+      "filename": "../../Torre/orquestrador/cli.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "subprocess call - check for execution of untrusted input.",
+      "line_number": 250,
+      "line_range": [
+        250,
+        251,
+        252,
+        253,
+        254,
+        255
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.6/plugins/b603_subprocess_without_shell_equals_true.html",
+      "test_id": "B603",
+      "test_name": "subprocess_without_shell_equals_true"
+    },
+    {
+      "code": "285             reports = json.loads(ENGINEER_OUT.read_text(encoding=\"utf-8\"))\n286         except Exception:\n287             pass\n288     \n",
+      "col_offset": 8,
+      "end_col_offset": 16,
+      "filename": "../../Torre/orquestrador/cli.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Try, Except, Pass detected.",
+      "line_number": 286,
+      "line_range": [
+        286,
+        287
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.6/plugins/b110_try_except_pass.html",
+      "test_id": "B110",
+      "test_name": "try_except_pass"
+    },
+    {
+      "code": "8 import json\n9 import subprocess\n10 import sys\n",
+      "col_offset": 0,
+      "end_col_offset": 17,
+      "filename": "../../Torre/orquestrador/corrigir_multilang.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Consider possible security implications associated with the subprocess module.",
+      "line_number": 9,
+      "line_range": [
+        9
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.6/blacklists/blacklist_imports.html#b404-import-subprocess",
+      "test_id": "B404",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "8 import json\n9 import subprocess\n10 import sys\n",
+      "col_offset": 0,
+      "end_col_offset": 17,
+      "filename": "../../Torre/orquestrador/corrigir_multilang_final.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Consider possible security implications associated with the subprocess module.",
+      "line_number": 9,
+      "line_range": [
+        9
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.6/blacklists/blacklist_imports.html#b404-import-subprocess",
+      "test_id": "B404",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "8 import json\n9 import subprocess\n10 import sys\n",
+      "col_offset": 0,
+      "end_col_offset": 17,
+      "filename": "../../Torre/orquestrador/exec_cap04.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Consider possible security implications associated with the subprocess module.",
+      "line_number": 9,
+      "line_range": [
+        9
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.6/blacklists/blacklist_imports.html#b404-import-subprocess",
+      "test_id": "B404",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "8 import json\n9 import subprocess\n10 import sys\n",
+      "col_offset": 0,
+      "end_col_offset": 17,
+      "filename": "../../Torre/orquestrador/exec_cap05.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Consider possible security implications associated with the subprocess module.",
+      "line_number": 9,
+      "line_range": [
+        9
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.6/blacklists/blacklist_imports.html#b404-import-subprocess",
+      "test_id": "B404",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "8 import json\n9 import subprocess\n10 import sys\n",
+      "col_offset": 0,
+      "end_col_offset": 17,
+      "filename": "../../Torre/orquestrador/exec_cap06.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Consider possible security implications associated with the subprocess module.",
+      "line_number": 9,
+      "line_range": [
+        9
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.6/blacklists/blacklist_imports.html#b404-import-subprocess",
+      "test_id": "B404",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "44     elif mutation_type == \"type_confusion\":\n45         return str(random.randint(0, 100))\n46     else:\n",
+      "col_offset": 19,
+      "end_col_offset": 41,
+      "filename": "../../Torre/orquestrador/exec_cap06.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 330,
+        "link": "https://cwe.mitre.org/data/definitions/330.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Standard pseudo-random generators are not suitable for security/cryptographic purposes.",
+      "line_number": 45,
+      "line_range": [
+        45
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.6/blacklists/blacklist_calls.html#b311-random",
+      "test_id": "B311",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "81     # Outros casos simulam 95% de passagem\n82     return random.random() > 0.05\n83 \n",
+      "col_offset": 11,
+      "end_col_offset": 26,
+      "filename": "../../Torre/orquestrador/exec_cap06.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 330,
+        "link": "https://cwe.mitre.org/data/definitions/330.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Standard pseudo-random generators are not suitable for security/cryptographic purposes.",
+      "line_number": 82,
+      "line_range": [
+        82
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.6/blacklists/blacklist_calls.html#b311-random",
+      "test_id": "B311",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "8 import json\n9 import subprocess\n10 import sys\n",
+      "col_offset": 0,
+      "end_col_offset": 17,
+      "filename": "../../Torre/orquestrador/exec_cap07.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Consider possible security implications associated with the subprocess module.",
+      "line_number": 9,
+      "line_range": [
+        9
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.6/blacklists/blacklist_imports.html#b404-import-subprocess",
+      "test_id": "B404",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "95                     })\n96             except Exception:\n97                 pass\n98 \n",
+      "col_offset": 12,
+      "end_col_offset": 20,
+      "filename": "../../Torre/orquestrador/exec_cap07.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Try, Except, Pass detected.",
+      "line_number": 96,
+      "line_range": [
+        96,
+        97
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.6/plugins/b110_try_except_pass.html",
+      "test_id": "B110",
+      "test_name": "try_except_pass"
+    },
+    {
+      "code": "8 import json\n9 import subprocess\n10 import sys\n",
+      "col_offset": 0,
+      "end_col_offset": 17,
+      "filename": "../../Torre/orquestrador/exec_cap08.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Consider possible security implications associated with the subprocess module.",
+      "line_number": 9,
+      "line_range": [
+        9
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.6/blacklists/blacklist_imports.html#b404-import-subprocess",
+      "test_id": "B404",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "126                 \n127                 except Exception as e:\n128                     continue\n129                 \n",
+      "col_offset": 16,
+      "end_col_offset": 28,
+      "filename": "../../Torre/orquestrador/exec_mg2.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Try, Except, Continue detected.",
+      "line_number": 127,
+      "line_range": [
+        127,
+        128
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.6/plugins/b112_try_except_continue.html",
+      "test_id": "B112",
+      "test_name": "try_except_continue"
+    },
+    {
+      "code": "7 import re\n8 import subprocess\n9 from pathlib import Path\n",
+      "col_offset": 0,
+      "end_col_offset": 17,
+      "filename": "../../Torre/orquestrador/mini_pin_validations.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Consider possible security implications associated with the subprocess module.",
+      "line_number": 8,
+      "line_range": [
+        8
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.6/blacklists/blacklist_imports.html#b404-import-subprocess",
+      "test_id": "B404",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "211         try:\n212             result = subprocess.run(\n213                 [\"node\", \"--check\", str(file_path)],\n214                 capture_output=True,\n215                 text=True,\n216                 timeout=5\n217             )\n218             return result.returncode == 0, result.stdout + result.stderr\n",
+      "col_offset": 21,
+      "end_col_offset": 13,
+      "filename": "../../Torre/orquestrador/mini_pin_validations.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Starting a process with a partial executable path",
+      "line_number": 212,
+      "line_range": [
+        212,
+        213,
+        214,
+        215,
+        216,
+        217
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.6/plugins/b607_start_process_with_partial_path.html",
+      "test_id": "B607",
+      "test_name": "start_process_with_partial_path"
+    },
+    {
+      "code": "211         try:\n212             result = subprocess.run(\n213                 [\"node\", \"--check\", str(file_path)],\n214                 capture_output=True,\n215                 text=True,\n216                 timeout=5\n217             )\n218             return result.returncode == 0, result.stdout + result.stderr\n",
+      "col_offset": 21,
+      "end_col_offset": 13,
+      "filename": "../../Torre/orquestrador/mini_pin_validations.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "subprocess call - check for execution of untrusted input.",
+      "line_number": 212,
+      "line_range": [
+        212,
+        213,
+        214,
+        215,
+        216,
+        217
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.6/plugins/b603_subprocess_without_shell_equals_true.html",
+      "test_id": "B603",
+      "test_name": "subprocess_without_shell_equals_true"
+    },
+    {
+      "code": "8 import json\n9 import subprocess\n10 import sys\n",
+      "col_offset": 0,
+      "end_col_offset": 17,
+      "filename": "../../Torre/orquestrador/profile_multilang.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Consider possible security implications associated with the subprocess module.",
+      "line_number": 9,
+      "line_range": [
+        9
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.6/blacklists/blacklist_imports.html#b404-import-subprocess",
+      "test_id": "B404",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "10 import json\n11 import subprocess\n12 import sys\n",
+      "col_offset": 0,
+      "end_col_offset": 17,
+      "filename": "../../Torre/orquestrador/treino_G2.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Consider possible security implications associated with the subprocess module.",
+      "line_number": 11,
+      "line_range": [
+        11
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.6/blacklists/blacklist_imports.html#b404-import-subprocess",
+      "test_id": "B404",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "36 try:\n37     sop_result = subprocess.run(\n38         [\"python3\", \"core/scripts/validator.py\"],\n39         cwd=REPO_ROOT,\n40         capture_output=True,\n41         text=True,\n42         timeout=300\n43     )\n44     sop_output = sop_result.stdout + sop_result.stderr\n",
+      "col_offset": 17,
+      "end_col_offset": 5,
+      "filename": "../../Torre/orquestrador/treino_G2.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Starting a process with a partial executable path",
+      "line_number": 37,
+      "line_range": [
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.6/plugins/b607_start_process_with_partial_path.html",
+      "test_id": "B607",
+      "test_name": "start_process_with_partial_path"
+    },
+    {
+      "code": "36 try:\n37     sop_result = subprocess.run(\n38         [\"python3\", \"core/scripts/validator.py\"],\n39         cwd=REPO_ROOT,\n40         capture_output=True,\n41         text=True,\n42         timeout=300\n43     )\n44     sop_output = sop_result.stdout + sop_result.stderr\n",
+      "col_offset": 17,
+      "end_col_offset": 5,
+      "filename": "../../Torre/orquestrador/treino_G2.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "subprocess call - check for execution of untrusted input.",
+      "line_number": 37,
+      "line_range": [
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.6/plugins/b603_subprocess_without_shell_equals_true.html",
+      "test_id": "B603",
+      "test_name": "subprocess_without_shell_equals_true"
+    },
+    {
+      "code": "10 import json\n11 import subprocess\n12 import sys\n",
+      "col_offset": 0,
+      "end_col_offset": 17,
+      "filename": "../../Torre/orquestrador/treino_G3.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Consider possible security implications associated with the subprocess module.",
+      "line_number": 11,
+      "line_range": [
+        11
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.6/blacklists/blacklist_imports.html#b404-import-subprocess",
+      "test_id": "B404",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "63     # Verificar se h\u00e1 testes dispon\u00edveis\n64     test_result_pre = subprocess.run(\n65         [\"python3\", \"-m\", \"pytest\", \"--co\", \"--tb=short\"],\n66         cwd=REPO_ROOT,\n67         capture_output=True,\n68         text=True,\n69         timeout=60\n70     )\n71     tests_pre_pass = test_result_pre.returncode == 0\n",
+      "col_offset": 22,
+      "end_col_offset": 5,
+      "filename": "../../Torre/orquestrador/treino_G3.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Starting a process with a partial executable path",
+      "line_number": 64,
+      "line_range": [
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.6/plugins/b607_start_process_with_partial_path.html",
+      "test_id": "B607",
+      "test_name": "start_process_with_partial_path"
+    },
+    {
+      "code": "63     # Verificar se h\u00e1 testes dispon\u00edveis\n64     test_result_pre = subprocess.run(\n65         [\"python3\", \"-m\", \"pytest\", \"--co\", \"--tb=short\"],\n66         cwd=REPO_ROOT,\n67         capture_output=True,\n68         text=True,\n69         timeout=60\n70     )\n71     tests_pre_pass = test_result_pre.returncode == 0\n",
+      "col_offset": 22,
+      "end_col_offset": 5,
+      "filename": "../../Torre/orquestrador/treino_G3.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "subprocess call - check for execution of untrusted input.",
+      "line_number": 64,
+      "line_range": [
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.6/plugins/b603_subprocess_without_shell_equals_true.html",
+      "test_id": "B603",
+      "test_name": "subprocess_without_shell_equals_true"
+    },
+    {
+      "code": "145 try:\n146     test_result_post = subprocess.run(\n147         [\"python3\", \"-m\", \"pytest\", \"--co\", \"--tb=short\"],\n148         cwd=REPO_ROOT,\n149         capture_output=True,\n150         text=True,\n151         timeout=60\n152     )\n153     tests_post_pass = test_result_post.returncode == 0\n",
+      "col_offset": 23,
+      "end_col_offset": 5,
+      "filename": "../../Torre/orquestrador/treino_G3.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Starting a process with a partial executable path",
+      "line_number": 146,
+      "line_range": [
+        146,
+        147,
+        148,
+        149,
+        150,
+        151,
+        152
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.6/plugins/b607_start_process_with_partial_path.html",
+      "test_id": "B607",
+      "test_name": "start_process_with_partial_path"
+    },
+    {
+      "code": "145 try:\n146     test_result_post = subprocess.run(\n147         [\"python3\", \"-m\", \"pytest\", \"--co\", \"--tb=short\"],\n148         cwd=REPO_ROOT,\n149         capture_output=True,\n150         text=True,\n151         timeout=60\n152     )\n153     tests_post_pass = test_result_post.returncode == 0\n",
+      "col_offset": 23,
+      "end_col_offset": 5,
+      "filename": "../../Torre/orquestrador/treino_G3.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "subprocess call - check for execution of untrusted input.",
+      "line_number": 146,
+      "line_range": [
+        146,
+        147,
+        148,
+        149,
+        150,
+        151,
+        152
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.6/plugins/b603_subprocess_without_shell_equals_true.html",
+      "test_id": "B603",
+      "test_name": "subprocess_without_shell_equals_true"
+    },
+    {
+      "code": "161 try:\n162     sop_result = subprocess.run(\n163         [\"python3\", \"core/scripts/validator.py\"],\n164         cwd=REPO_ROOT,\n165         capture_output=True,\n166         text=True,\n167         timeout=300\n168     )\n169     sop_pass = sop_result.returncode == 0\n",
+      "col_offset": 17,
+      "end_col_offset": 5,
+      "filename": "../../Torre/orquestrador/treino_G3.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Starting a process with a partial executable path",
+      "line_number": 162,
+      "line_range": [
+        162,
+        163,
+        164,
+        165,
+        166,
+        167,
+        168
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.6/plugins/b607_start_process_with_partial_path.html",
+      "test_id": "B607",
+      "test_name": "start_process_with_partial_path"
+    },
+    {
+      "code": "161 try:\n162     sop_result = subprocess.run(\n163         [\"python3\", \"core/scripts/validator.py\"],\n164         cwd=REPO_ROOT,\n165         capture_output=True,\n166         text=True,\n167         timeout=300\n168     )\n169     sop_pass = sop_result.returncode == 0\n",
+      "col_offset": 17,
+      "end_col_offset": 5,
+      "filename": "../../Torre/orquestrador/treino_G3.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "subprocess call - check for execution of untrusted input.",
+      "line_number": 162,
+      "line_range": [
+        162,
+        163,
+        164,
+        165,
+        166,
+        167,
+        168
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.6/plugins/b603_subprocess_without_shell_equals_true.html",
+      "test_id": "B603",
+      "test_name": "subprocess_without_shell_equals_true"
+    },
+    {
+      "code": "25 import json\n26 import subprocess\n27 import sys\n",
+      "col_offset": 0,
+      "end_col_offset": 17,
+      "filename": "../../core/orquestrador/engineer_cli.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Consider possible security implications associated with the subprocess module.",
+      "line_number": 26,
+      "line_range": [
+        26
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.6/blacklists/blacklist_imports.html#b404-import-subprocess",
+      "test_id": "B404",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "42 \n43     return subprocess.run(\n44         cmd_list,\n45         cwd=str(REPO_ROOT),\n46         capture_output=True,\n47         text=True,\n48         timeout=timeout,\n49     )\n50 \n",
+      "col_offset": 11,
+      "end_col_offset": 5,
+      "filename": "../../core/orquestrador/engineer_cli.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "subprocess call - check for execution of untrusted input.",
+      "line_number": 43,
+      "line_range": [
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.6/plugins/b603_subprocess_without_shell_equals_true.html",
+      "test_id": "B603",
+      "test_name": "subprocess_without_shell_equals_true"
+    },
+    {
+      "code": "191         open_orders.sort(key=lambda x: x.get(\"created_at\", \"\"), reverse=True)\n192     except Exception:\n193         pass\n194     \n",
+      "col_offset": 4,
+      "end_col_offset": 12,
+      "filename": "../../core/orquestrador/engineer_cli.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Try, Except, Pass detected.",
+      "line_number": 192,
+      "line_range": [
+        192,
+        193
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.6/plugins/b110_try_except_pass.html",
+      "test_id": "B110",
+      "test_name": "try_except_pass"
+    },
+    {
+      "code": "652         try:\n653             subprocess.run([sys.executable, str(rotate_script)], cwd=str(REPO_ROOT), check=True)\n654             conteudo_resposta += \"\u2705 Rota\u00e7\u00e3o conclu\u00edda\"\n",
+      "col_offset": 12,
+      "end_col_offset": 96,
+      "filename": "../../core/orquestrador/engineer_cli.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "subprocess call - check for execution of untrusted input.",
+      "line_number": 653,
+      "line_range": [
+        653
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.6/plugins/b603_subprocess_without_shell_equals_true.html",
+      "test_id": "B603",
+      "test_name": "subprocess_without_shell_equals_true"
+    },
+    {
+      "code": "222     print(\"\\n\ud83d\udd0d Testando sistema de busca...\")\n223     import subprocess\n224     result = subprocess.run(\n",
+      "col_offset": 4,
+      "end_col_offset": 21,
+      "filename": "../../core/orquestrador/exec_superpipeline.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Consider possible security implications associated with the subprocess module.",
+      "line_number": 223,
+      "line_range": [
+        223
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.6/blacklists/blacklist_imports.html#b404-import-subprocess",
+      "test_id": "B404",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "223     import subprocess\n224     result = subprocess.run(\n225         [sys.executable, str(busca_script), \"ART-04\", \"constituicao\"],\n226         cwd=str(REPO_ROOT),\n227         capture_output=True,\n228         text=True,\n229         timeout=10,\n230     )\n231     \n",
+      "col_offset": 13,
+      "end_col_offset": 5,
+      "filename": "../../core/orquestrador/exec_superpipeline.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "subprocess call - check for execution of untrusted input.",
+      "line_number": 224,
+      "line_range": [
+        224,
+        225,
+        226,
+        227,
+        228,
+        229,
+        230
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.6/plugins/b603_subprocess_without_shell_equals_true.html",
+      "test_id": "B603",
+      "test_name": "subprocess_without_shell_equals_true"
+    },
+    {
+      "code": "503     print(\"\\n\ud83d\udd0d Testando sistema de verifica\u00e7\u00e3o...\")\n504     import subprocess\n505     result = subprocess.run(\n",
+      "col_offset": 4,
+      "end_col_offset": 21,
+      "filename": "../../core/orquestrador/exec_superpipeline.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Consider possible security implications associated with the subprocess module.",
+      "line_number": 504,
+      "line_range": [
+        504
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.6/blacklists/blacklist_imports.html#b404-import-subprocess",
+      "test_id": "B404",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "504     import subprocess\n505     result = subprocess.run(\n506         [sys.executable, str(verificar_script), \"--todos\"],\n507         cwd=str(REPO_ROOT),\n508         capture_output=True,\n509         text=True,\n510         timeout=10,\n511     )\n512     \n",
+      "col_offset": 13,
+      "end_col_offset": 5,
+      "filename": "../../core/orquestrador/exec_superpipeline.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "subprocess call - check for execution of untrusted input.",
+      "line_number": 505,
+      "line_range": [
+        505,
+        506,
+        507,
+        508,
+        509,
+        510,
+        511
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.6/plugins/b603_subprocess_without_shell_equals_true.html",
+      "test_id": "B603",
+      "test_name": "subprocess_without_shell_equals_true"
+    },
+    {
+      "code": "804     print(\"\\n\ud83d\udd0d Criando exemplo de pesquisa...\")\n805     import subprocess\n806     result = subprocess.run(\n",
+      "col_offset": 4,
+      "end_col_offset": 21,
+      "filename": "../../core/orquestrador/exec_superpipeline.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Consider possible security implications associated with the subprocess module.",
+      "line_number": 805,
+      "line_range": [
+        805
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.6/blacklists/blacklist_imports.html#b404-import-subprocess",
+      "test_id": "B404",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "805     import subprocess\n806     result = subprocess.run(\n807         [sys.executable, str(pesquisa_script), \"Constitui\u00e7\u00e3o da F\u00c1BRICA\", \"documenta\u00e7\u00e3o\"],\n808         cwd=str(REPO_ROOT),\n809         capture_output=True,\n810         text=True,\n811         timeout=10,\n812     )\n813     \n",
+      "col_offset": 13,
+      "end_col_offset": 5,
+      "filename": "../../core/orquestrador/exec_superpipeline.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "subprocess call - check for execution of untrusted input.",
+      "line_number": 806,
+      "line_range": [
+        806,
+        807,
+        808,
+        809,
+        810,
+        811,
+        812
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.6/plugins/b603_subprocess_without_shell_equals_true.html",
+      "test_id": "B603",
+      "test_name": "subprocess_without_shell_equals_true"
+    },
+    {
+      "code": "1544     print(\"\\\\n\ud83d\udd0d Testando valida\u00e7\u00e3o de formato...\")\n1545     import subprocess\n1546     result = subprocess.run(\n",
+      "col_offset": 4,
+      "end_col_offset": 21,
+      "filename": "../../core/orquestrador/exec_superpipeline.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Consider possible security implications associated with the subprocess module.",
+      "line_number": 1545,
+      "line_range": [
+        1545
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.6/blacklists/blacklist_imports.html#b404-import-subprocess",
+      "test_id": "B404",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "1545     import subprocess\n1546     result = subprocess.run(\n1547         [sys.executable, str(validador_script), \"--todos\"],\n1548         cwd=str(REPO_ROOT),\n1549         capture_output=True,\n1550         text=True,\n1551         timeout=10,\n1552     )\n1553     \n",
+      "col_offset": 13,
+      "end_col_offset": 5,
+      "filename": "../../core/orquestrador/exec_superpipeline.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "subprocess call - check for execution of untrusted input.",
+      "line_number": 1546,
+      "line_range": [
+        1546,
+        1547,
+        1548,
+        1549,
+        1550,
+        1551,
+        1552
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.6/plugins/b603_subprocess_without_shell_equals_true.html",
+      "test_id": "B603",
+      "test_name": "subprocess_without_shell_equals_true"
+    },
+    {
+      "code": "101             return True\n102     except Exception:\n103         pass\n104 \n",
+      "col_offset": 4,
+      "end_col_offset": 12,
+      "filename": "../../core/orquestrador/file_access_guard.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Try, Except, Pass detected.",
+      "line_number": 102,
+      "line_range": [
+        102,
+        103
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.6/plugins/b110_try_except_pass.html",
+      "test_id": "B110",
+      "test_name": "try_except_pass"
+    },
+    {
+      "code": "202             f.write(linha)\n203     except Exception:\n204         pass  # Falha silenciosa se n\u00e3o conseguir escrever log\n205 \n",
+      "col_offset": 4,
+      "end_col_offset": 12,
+      "filename": "../../core/orquestrador/file_access_guard.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Try, Except, Pass detected.",
+      "line_number": 203,
+      "line_range": [
+        203,
+        204
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.6/plugins/b110_try_except_pass.html",
+      "test_id": "B110",
+      "test_name": "try_except_pass"
+    },
+    {
+      "code": "22 import re\n23 import subprocess\n24 import sys\n",
+      "col_offset": 0,
+      "end_col_offset": 17,
+      "filename": "../../core/orquestrador/gatekeeper_cli.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Consider possible security implications associated with the subprocess module.",
+      "line_number": 23,
+      "line_range": [
+        23
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.6/blacklists/blacklist_imports.html#b404-import-subprocess",
+      "test_id": "B404",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "89 \n90     return subprocess.run(\n91         cmd_list,\n92         cwd=str(REPO_ROOT),\n93         capture_output=True,\n94         text=True,\n95         timeout=timeout,\n96     )\n97 \n",
+      "col_offset": 11,
+      "end_col_offset": 5,
+      "filename": "../../core/orquestrador/gatekeeper_cli.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "subprocess call - check for execution of untrusted input.",
+      "line_number": 90,
+      "line_range": [
+        90,
+        91,
+        92,
+        93,
+        94,
+        95,
+        96
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.6/plugins/b603_subprocess_without_shell_equals_true.html",
+      "test_id": "B603",
+      "test_name": "subprocess_without_shell_equals_true"
+    },
+    {
+      "code": "234                 sop_status = sop_data[0]\n235         except Exception:\n236             pass\n237     \n",
+      "col_offset": 8,
+      "end_col_offset": 16,
+      "filename": "../../core/orquestrador/gatekeeper_cli.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Try, Except, Pass detected.",
+      "line_number": 235,
+      "line_range": [
+        235,
+        236
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.6/plugins/b110_try_except_pass.html",
+      "test_id": "B110",
+      "test_name": "try_except_pass"
+    },
+    {
+      "code": "620     try:\n621         result = subprocess.run(\n622             pull_cmd,\n623             cwd=str(REPO_ROOT),\n624             capture_output=True,\n625             text=True,\n626             timeout=60,\n627         )\n628         if result.returncode != 0:\n",
+      "col_offset": 17,
+      "end_col_offset": 9,
+      "filename": "../../core/orquestrador/gatekeeper_cli.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "subprocess call - check for execution of untrusted input.",
+      "line_number": 621,
+      "line_range": [
+        621,
+        622,
+        623,
+        624,
+        625,
+        626,
+        627
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.6/plugins/b603_subprocess_without_shell_equals_true.html",
+      "test_id": "B603",
+      "test_name": "subprocess_without_shell_equals_true"
+    },
+    {
+      "code": "644     try:\n645         result = subprocess.run(\n646             build_cmd,\n647             cwd=str(REPO_ROOT),\n648             capture_output=True,\n649             text=True,\n650             timeout=300,\n651         )\n652         if result.returncode != 0:\n",
+      "col_offset": 17,
+      "end_col_offset": 9,
+      "filename": "../../core/orquestrador/gatekeeper_cli.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "subprocess call - check for execution of untrusted input.",
+      "line_number": 645,
+      "line_range": [
+        645,
+        646,
+        647,
+        648,
+        649,
+        650,
+        651
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.6/plugins/b603_subprocess_without_shell_equals_true.html",
+      "test_id": "B603",
+      "test_name": "subprocess_without_shell_equals_true"
+    },
+    {
+      "code": "756                         suggested_patches.append(\"Verificar artefactos obrigat\u00f3rios (coverage.xml, sbom.json, etc.)\")\n757             except Exception:\n758                 pass\n759     \n",
+      "col_offset": 12,
+      "end_col_offset": 20,
+      "filename": "../../core/orquestrador/gatekeeper_cli.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Try, Except, Pass detected.",
+      "line_number": 757,
+      "line_range": [
+        757,
+        758
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.6/plugins/b110_try_except_pass.html",
+      "test_id": "B110",
+      "test_name": "try_except_pass"
+    },
+    {
+      "code": "22 import re\n23 import subprocess\n24 import sys\n",
+      "col_offset": 0,
+      "end_col_offset": 17,
+      "filename": "../../core/orquestrador/sop_cli.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Consider possible security implications associated with the subprocess module.",
+      "line_number": 23,
+      "line_range": [
+        23
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.6/blacklists/blacklist_imports.html#b404-import-subprocess",
+      "test_id": "B404",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "245         open_orders.sort(key=lambda x: x.get(\"created_at\", \"\"), reverse=True)\n246     except Exception:\n247         pass\n248     \n",
+      "col_offset": 4,
+      "end_col_offset": 12,
+      "filename": "../../core/orquestrador/sop_cli.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Try, Except, Pass detected.",
+      "line_number": 246,
+      "line_range": [
+        246,
+        247
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.6/plugins/b110_try_except_pass.html",
+      "test_id": "B110",
+      "test_name": "try_except_pass"
+    },
+    {
+      "code": "255         cmd = [\"make\", \"-C\", str(ORQUESTRADOR_DIR), target]\n256         proc = subprocess.run(\n257             cmd,\n258             cwd=str(REPO_ROOT),\n259             capture_output=True,\n260             text=True,\n261             timeout=300,\n262         )\n263         return proc.returncode == 0, proc.stdout + proc.stderr\n",
+      "col_offset": 15,
+      "end_col_offset": 9,
+      "filename": "../../core/orquestrador/sop_cli.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "subprocess call - check for execution of untrusted input.",
+      "line_number": 256,
+      "line_range": [
+        256,
+        257,
+        258,
+        259,
+        260,
+        261,
+        262
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.6/plugins/b603_subprocess_without_shell_equals_true.html",
+      "test_id": "B603",
+      "test_name": "subprocess_without_shell_equals_true"
+    },
+    {
+      "code": "295         # Executar orders_gc.py que j\u00e1 gera o \u00edndice\n296         subprocess.run(\n297             [sys.executable, str(ORQUESTRADOR_DIR / \"orders_gc.py\")],\n298             cwd=str(REPO_ROOT),\n299             capture_output=True,\n300             timeout=300,\n301         )\n302     except Exception:\n",
+      "col_offset": 8,
+      "end_col_offset": 9,
+      "filename": "../../core/orquestrador/sop_cli.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "subprocess call - check for execution of untrusted input.",
+      "line_number": 296,
+      "line_range": [
+        296,
+        297,
+        298,
+        299,
+        300,
+        301
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.6/plugins/b603_subprocess_without_shell_equals_true.html",
+      "test_id": "B603",
+      "test_name": "subprocess_without_shell_equals_true"
+    },
+    {
+      "code": "468                         break  # Uma ocorr\u00eancia por arquivo \u00e9 suficiente\n469         except Exception:\n470             pass\n471     \n",
+      "col_offset": 8,
+      "end_col_offset": 16,
+      "filename": "../../core/orquestrador/sop_cli.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Try, Except, Pass detected.",
+      "line_number": 469,
+      "line_range": [
+        469,
+        470
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.6/plugins/b110_try_except_pass.html",
+      "test_id": "B110",
+      "test_name": "try_except_pass"
+    },
+    {
+      "code": "535                     })\n536             except Exception:\n537                 pass\n538         \n",
+      "col_offset": 12,
+      "end_col_offset": 20,
+      "filename": "../../core/orquestrador/sop_cli.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Try, Except, Pass detected.",
+      "line_number": 536,
+      "line_range": [
+        536,
+        537
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.6/plugins/b110_try_except_pass.html",
+      "test_id": "B110",
+      "test_name": "try_except_pass"
+    },
+    {
+      "code": "22 import os\n23 import subprocess\n24 import sys\n",
+      "col_offset": 0,
+      "end_col_offset": 17,
+      "filename": "../../core/scripts/validator.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Consider possible security implications associated with the subprocess module.",
+      "line_number": 23,
+      "line_range": [
+        23
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.6/blacklists/blacklist_imports.html#b404-import-subprocess",
+      "test_id": "B404",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "65             return round(float(rate) * 100, 2)\n66     except Exception:\n67         pass\n68     return 0.0\n",
+      "col_offset": 4,
+      "end_col_offset": 12,
+      "filename": "../../core/scripts/validator.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Try, Except, Pass detected.",
+      "line_number": 66,
+      "line_range": [
+        66,
+        67
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.6/plugins/b110_try_except_pass.html",
+      "test_id": "B110",
+      "test_name": "try_except_pass"
+    },
+    {
+      "code": "197                         continue\n198                 except Exception:\n199                     pass\n200             value = ex.get(\"novo_valor\", value)\n",
+      "col_offset": 16,
+      "end_col_offset": 24,
+      "filename": "../../core/scripts/validator.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Try, Except, Pass detected.",
+      "line_number": 198,
+      "line_range": [
+        198,
+        199
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.6/plugins/b110_try_except_pass.html",
+      "test_id": "B110",
+      "test_name": "try_except_pass"
+    },
+    {
+      "code": "215                         continue\n216                 except Exception:\n217                     pass\n218             used.append(ex)\n",
+      "col_offset": 16,
+      "end_col_offset": 24,
+      "filename": "../../core/scripts/validator.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Try, Except, Pass detected.",
+      "line_number": 216,
+      "line_range": [
+        216,
+        217
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.6/plugins/b110_try_except_pass.html",
+      "test_id": "B110",
+      "test_name": "try_except_pass"
+    },
+    {
+      "code": "224     try:\n225         result = subprocess.run(\n226             [sys.executable, str(ORQUESTRADOR_DIR / \"cli.py\"), \"validate_pipeline\"],\n227             cwd=str(REPO_ROOT),\n228             capture_output=True,\n229             text=True,\n230         )\n231         # L\u00ea o audit gerado\n",
+      "col_offset": 17,
+      "end_col_offset": 9,
+      "filename": "../../core/scripts/validator.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "subprocess call - check for execution of untrusted input.",
+      "line_number": 225,
+      "line_range": [
+        225,
+        226,
+        227,
+        228,
+        229,
+        230
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.6/plugins/b603_subprocess_without_shell_equals_true.html",
+      "test_id": "B603",
+      "test_name": "subprocess_without_shell_equals_true"
+    },
+    {
+      "code": "242     try:\n243         subprocess.run(\n244             [sys.executable, str(ORQUESTRADOR_DIR / \"cli.py\"), \"gatekeeper_prep\"],\n245             cwd=str(REPO_ROOT),\n246             capture_output=True,\n247             text=True,\n248         )\n249         # L\u00ea o input gerado\n",
+      "col_offset": 8,
+      "end_col_offset": 9,
+      "filename": "../../core/scripts/validator.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "subprocess call - check for execution of untrusted input.",
+      "line_number": 243,
+      "line_range": [
+        243,
+        244,
+        245,
+        246,
+        247,
+        248
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.6/plugins/b603_subprocess_without_shell_equals_true.html",
+      "test_id": "B603",
+      "test_name": "subprocess_without_shell_equals_true"
+    },
+    {
+      "code": "9 import json\n10 import subprocess\n11 import sys\n",
+      "col_offset": 0,
+      "end_col_offset": 17,
+      "filename": "../../tools/gatekeeper/dependency_radar.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Consider possible security implications associated with the subprocess module.",
+      "line_number": 10,
+      "line_range": [
+        10
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.6/blacklists/blacklist_imports.html#b404-import-subprocess",
+      "test_id": "B404",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "50     try:\n51         result = subprocess.run(\n52             [\"npm\", \"audit\", \"--json\"],\n53             cwd=str(REPO_ROOT),\n54             capture_output=True,\n55             text=True,\n56             timeout=60,\n57         )\n58 \n",
+      "col_offset": 17,
+      "end_col_offset": 9,
+      "filename": "../../tools/gatekeeper/dependency_radar.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Starting a process with a partial executable path",
+      "line_number": 51,
+      "line_range": [
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.6/plugins/b607_start_process_with_partial_path.html",
+      "test_id": "B607",
+      "test_name": "start_process_with_partial_path"
+    },
+    {
+      "code": "50     try:\n51         result = subprocess.run(\n52             [\"npm\", \"audit\", \"--json\"],\n53             cwd=str(REPO_ROOT),\n54             capture_output=True,\n55             text=True,\n56             timeout=60,\n57         )\n58 \n",
+      "col_offset": 17,
+      "end_col_offset": 9,
+      "filename": "../../tools/gatekeeper/dependency_radar.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "subprocess call - check for execution of untrusted input.",
+      "line_number": 51,
+      "line_range": [
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.6/plugins/b603_subprocess_without_shell_equals_true.html",
+      "test_id": "B603",
+      "test_name": "subprocess_without_shell_equals_true"
+    },
+    {
+      "code": "111     try:\n112         result = subprocess.run(\n113             [\"pip-audit\", \"-r\", str(REQUIREMENTS_TXT), \"--format\", \"json\"],\n114             cwd=str(REPO_ROOT),\n115             capture_output=True,\n116             text=True,\n117             timeout=60,\n118         )\n119 \n",
+      "col_offset": 17,
+      "end_col_offset": 9,
+      "filename": "../../tools/gatekeeper/dependency_radar.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Starting a process with a partial executable path",
+      "line_number": 112,
+      "line_range": [
+        112,
+        113,
+        114,
+        115,
+        116,
+        117,
+        118
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.6/plugins/b607_start_process_with_partial_path.html",
+      "test_id": "B607",
+      "test_name": "start_process_with_partial_path"
+    },
+    {
+      "code": "111     try:\n112         result = subprocess.run(\n113             [\"pip-audit\", \"-r\", str(REQUIREMENTS_TXT), \"--format\", \"json\"],\n114             cwd=str(REPO_ROOT),\n115             capture_output=True,\n116             text=True,\n117             timeout=60,\n118         )\n119 \n",
+      "col_offset": 17,
+      "end_col_offset": 9,
+      "filename": "../../tools/gatekeeper/dependency_radar.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "subprocess call - check for execution of untrusted input.",
+      "line_number": 112,
+      "line_range": [
+        112,
+        113,
+        114,
+        115,
+        116,
+        117,
+        118
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.6/plugins/b603_subprocess_without_shell_equals_true.html",
+      "test_id": "B603",
+      "test_name": "subprocess_without_shell_equals_true"
+    },
+    {
+      "code": "206                                         })\n207         except Exception:\n208             pass\n209     \n",
+      "col_offset": 8,
+      "end_col_offset": 16,
+      "filename": "../../tools/gatekeeper/dependency_radar.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 703,
+        "link": "https://cwe.mitre.org/data/definitions/703.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Try, Except, Pass detected.",
+      "line_number": 207,
+      "line_range": [
+        207,
+        208
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.6/plugins/b110_try_except_pass.html",
+      "test_id": "B110",
+      "test_name": "try_except_pass"
+    },
+    {
+      "code": "8 import argparse\n9 import subprocess\n10 import sys\n",
+      "col_offset": 0,
+      "end_col_offset": 17,
+      "filename": "../../tools/pre_commit_validator.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Consider possible security implications associated with the subprocess module.",
+      "line_number": 9,
+      "line_range": [
+        9
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.6/blacklists/blacklist_imports.html#b404-import-subprocess",
+      "test_id": "B404",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "65     try:\n66         result = subprocess.run(\n67             cmd,\n68             cwd=str(cwd) if cwd else str(REPO_ROOT),\n69             capture_output=True,\n70             text=True,\n71             check=False,\n72         )\n73         output = result.stdout + result.stderr\n",
+      "col_offset": 17,
+      "end_col_offset": 9,
+      "filename": "../../tools/pre_commit_validator.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "subprocess call - check for execution of untrusted input.",
+      "line_number": 66,
+      "line_range": [
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.6/plugins/b603_subprocess_without_shell_equals_true.html",
+      "test_id": "B603",
+      "test_name": "subprocess_without_shell_equals_true"
+    },
+    {
+      "code": "72         # Simular tempo de processamento por quest\u00e3o\n73         time.sleep(0.1 + random.random() * 0.2)\n74         \n",
+      "col_offset": 25,
+      "end_col_offset": 40,
+      "filename": "../../tools/run_harness.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 330,
+        "link": "https://cwe.mitre.org/data/definitions/330.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Standard pseudo-random generators are not suitable for security/cryptographic purposes.",
+      "line_number": 73,
+      "line_range": [
+        73
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.6/blacklists/blacklist_calls.html#b311-random",
+      "test_id": "B311",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "75         # Simular taxa de acerto (85-95% dependendo do benchmark)\n76         if random.random() < (0.90 if benchmark_name == \"MMLU\" else 0.87):\n77             correct += 1\n",
+      "col_offset": 11,
+      "end_col_offset": 26,
+      "filename": "../../tools/run_harness.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 330,
+        "link": "https://cwe.mitre.org/data/definitions/330.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Standard pseudo-random generators are not suitable for security/cryptographic purposes.",
+      "line_number": 76,
+      "line_range": [
+        76
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.6/blacklists/blacklist_calls.html#b311-random",
+      "test_id": "B311",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "53         # Tentativa de inje\u00e7\u00e3o de prompt\n54         time.sleep(0.5 + random.random() * 1)\n55         blocked = random.random() > 0.15  # 85% bloqueio\n",
+      "col_offset": 25,
+      "end_col_offset": 40,
+      "filename": "../../tools/run_jailbreakbench.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 330,
+        "link": "https://cwe.mitre.org/data/definitions/330.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Standard pseudo-random generators are not suitable for security/cryptographic purposes.",
+      "line_number": 54,
+      "line_range": [
+        54
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.6/blacklists/blacklist_calls.html#b311-random",
+      "test_id": "B311",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "54         time.sleep(0.5 + random.random() * 1)\n55         blocked = random.random() > 0.15  # 85% bloqueio\n56     \n",
+      "col_offset": 18,
+      "end_col_offset": 33,
+      "filename": "../../tools/run_jailbreakbench.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 330,
+        "link": "https://cwe.mitre.org/data/definitions/330.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Standard pseudo-random generators are not suitable for security/cryptographic purposes.",
+      "line_number": 55,
+      "line_range": [
+        55
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.6/blacklists/blacklist_calls.html#b311-random",
+      "test_id": "B311",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "58         # Tentativa de jailbreak\n59         time.sleep(0.8 + random.random() * 1.5)\n60         blocked = random.random() > 0.20  # 80% bloqueio\n",
+      "col_offset": 25,
+      "end_col_offset": 40,
+      "filename": "../../tools/run_jailbreakbench.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 330,
+        "link": "https://cwe.mitre.org/data/definitions/330.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Standard pseudo-random generators are not suitable for security/cryptographic purposes.",
+      "line_number": 59,
+      "line_range": [
+        59
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.6/blacklists/blacklist_calls.html#b311-random",
+      "test_id": "B311",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "59         time.sleep(0.8 + random.random() * 1.5)\n60         blocked = random.random() > 0.20  # 80% bloqueio\n61     \n",
+      "col_offset": 18,
+      "end_col_offset": 33,
+      "filename": "../../tools/run_jailbreakbench.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 330,
+        "link": "https://cwe.mitre.org/data/definitions/330.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Standard pseudo-random generators are not suitable for security/cryptographic purposes.",
+      "line_number": 60,
+      "line_range": [
+        60
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.6/blacklists/blacklist_calls.html#b311-random",
+      "test_id": "B311",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "63         # Tentativa de confus\u00e3o de pap\u00e9is\n64         time.sleep(0.3 + random.random() * 0.8)\n65         blocked = random.random() > 0.10  # 90% bloqueio\n",
+      "col_offset": 25,
+      "end_col_offset": 40,
+      "filename": "../../tools/run_jailbreakbench.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 330,
+        "link": "https://cwe.mitre.org/data/definitions/330.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Standard pseudo-random generators are not suitable for security/cryptographic purposes.",
+      "line_number": 64,
+      "line_range": [
+        64
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.6/blacklists/blacklist_calls.html#b311-random",
+      "test_id": "B311",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "64         time.sleep(0.3 + random.random() * 0.8)\n65         blocked = random.random() > 0.10  # 90% bloqueio\n66     \n",
+      "col_offset": 18,
+      "end_col_offset": 33,
+      "filename": "../../tools/run_jailbreakbench.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 330,
+        "link": "https://cwe.mitre.org/data/definitions/330.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Standard pseudo-random generators are not suitable for security/cryptographic purposes.",
+      "line_number": 65,
+      "line_range": [
+        65
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.6/blacklists/blacklist_calls.html#b311-random",
+      "test_id": "B311",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "68         # Tentativa de sobrescrever instru\u00e7\u00f5es\n69         time.sleep(0.6 + random.random() * 1.2)\n70         blocked = random.random() > 0.18  # 82% bloqueio\n",
+      "col_offset": 25,
+      "end_col_offset": 40,
+      "filename": "../../tools/run_jailbreakbench.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 330,
+        "link": "https://cwe.mitre.org/data/definitions/330.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Standard pseudo-random generators are not suitable for security/cryptographic purposes.",
+      "line_number": 69,
+      "line_range": [
+        69
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.6/blacklists/blacklist_calls.html#b311-random",
+      "test_id": "B311",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "69         time.sleep(0.6 + random.random() * 1.2)\n70         blocked = random.random() > 0.18  # 82% bloqueio\n71     \n",
+      "col_offset": 18,
+      "end_col_offset": 33,
+      "filename": "../../tools/run_jailbreakbench.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 330,
+        "link": "https://cwe.mitre.org/data/definitions/330.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Standard pseudo-random generators are not suitable for security/cryptographic purposes.",
+      "line_number": 70,
+      "line_range": [
+        70
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.6/blacklists/blacklist_calls.html#b311-random",
+      "test_id": "B311",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "73         # Tentativa de extra\u00e7\u00e3o de dados\n74         time.sleep(0.4 + random.random() * 1)\n75         blocked = random.random() > 0.12  # 88% bloqueio\n",
+      "col_offset": 25,
+      "end_col_offset": 40,
+      "filename": "../../tools/run_jailbreakbench.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 330,
+        "link": "https://cwe.mitre.org/data/definitions/330.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Standard pseudo-random generators are not suitable for security/cryptographic purposes.",
+      "line_number": 74,
+      "line_range": [
+        74
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.6/blacklists/blacklist_calls.html#b311-random",
+      "test_id": "B311",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "74         time.sleep(0.4 + random.random() * 1)\n75         blocked = random.random() > 0.12  # 88% bloqueio\n76     \n",
+      "col_offset": 18,
+      "end_col_offset": 33,
+      "filename": "../../tools/run_jailbreakbench.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 330,
+        "link": "https://cwe.mitre.org/data/definitions/330.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Standard pseudo-random generators are not suitable for security/cryptographic purposes.",
+      "line_number": 75,
+      "line_range": [
+        75
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.6/blacklists/blacklist_calls.html#b311-random",
+      "test_id": "B311",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "77     else:\n78         time.sleep(0.5 + random.random() * 1)\n79         blocked = random.random() > 0.15\n",
+      "col_offset": 25,
+      "end_col_offset": 40,
+      "filename": "../../tools/run_jailbreakbench.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 330,
+        "link": "https://cwe.mitre.org/data/definitions/330.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Standard pseudo-random generators are not suitable for security/cryptographic purposes.",
+      "line_number": 78,
+      "line_range": [
+        78
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.6/blacklists/blacklist_calls.html#b311-random",
+      "test_id": "B311",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "78         time.sleep(0.5 + random.random() * 1)\n79         blocked = random.random() > 0.15\n80     \n",
+      "col_offset": 18,
+      "end_col_offset": 33,
+      "filename": "../../tools/run_jailbreakbench.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 330,
+        "link": "https://cwe.mitre.org/data/definitions/330.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Standard pseudo-random generators are not suitable for security/cryptographic purposes.",
+      "line_number": 79,
+      "line_range": [
+        79
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.6/blacklists/blacklist_calls.html#b311-random",
+      "test_id": "B311",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "51     # 1. Retrieval\n52     retrieval_time = 0.1 + random.random() * 0.3\n53     time.sleep(retrieval_time)\n",
+      "col_offset": 27,
+      "end_col_offset": 42,
+      "filename": "../../tools/run_rag_eval.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 330,
+        "link": "https://cwe.mitre.org/data/definitions/330.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Standard pseudo-random generators are not suitable for security/cryptographic purposes.",
+      "line_number": 52,
+      "line_range": [
+        52
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.6/blacklists/blacklist_calls.html#b311-random",
+      "test_id": "B311",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "55     # 2. Citation\n56     citation_time = 0.05 + random.random() * 0.2\n57     time.sleep(citation_time)\n",
+      "col_offset": 27,
+      "end_col_offset": 42,
+      "filename": "../../tools/run_rag_eval.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 330,
+        "link": "https://cwe.mitre.org/data/definitions/330.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Standard pseudo-random generators are not suitable for security/cryptographic purposes.",
+      "line_number": 56,
+      "line_range": [
+        56
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.6/blacklists/blacklist_calls.html#b311-random",
+      "test_id": "B311",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "59     # 3. Answer generation\n60     answer_time = 0.2 + random.random() * 0.5\n61     time.sleep(answer_time)\n",
+      "col_offset": 24,
+      "end_col_offset": 39,
+      "filename": "../../tools/run_rag_eval.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 330,
+        "link": "https://cwe.mitre.org/data/definitions/330.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Standard pseudo-random generators are not suitable for security/cryptographic purposes.",
+      "line_number": 60,
+      "line_range": [
+        60
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.6/blacklists/blacklist_calls.html#b311-random",
+      "test_id": "B311",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "65     # Simular m\u00e9tricas de qualidade\n66     citation_accuracy = random.uniform(0.85, 0.98) if category == \"citation_accuracy\" else random.uniform(0.80, 0.95)\n67     retrieval_precision = random.uniform(0.82, 0.96) if category == \"retrieval_precision\" else random.uniform(0.78, 0.93)\n",
+      "col_offset": 24,
+      "end_col_offset": 50,
+      "filename": "../../tools/run_rag_eval.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 330,
+        "link": "https://cwe.mitre.org/data/definitions/330.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Standard pseudo-random generators are not suitable for security/cryptographic purposes.",
+      "line_number": 66,
+      "line_range": [
+        66
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.6/blacklists/blacklist_calls.html#b311-random",
+      "test_id": "B311",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "65     # Simular m\u00e9tricas de qualidade\n66     citation_accuracy = random.uniform(0.85, 0.98) if category == \"citation_accuracy\" else random.uniform(0.80, 0.95)\n67     retrieval_precision = random.uniform(0.82, 0.96) if category == \"retrieval_precision\" else random.uniform(0.78, 0.93)\n",
+      "col_offset": 91,
+      "end_col_offset": 117,
+      "filename": "../../tools/run_rag_eval.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 330,
+        "link": "https://cwe.mitre.org/data/definitions/330.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Standard pseudo-random generators are not suitable for security/cryptographic purposes.",
+      "line_number": 66,
+      "line_range": [
+        66
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.6/blacklists/blacklist_calls.html#b311-random",
+      "test_id": "B311",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "66     citation_accuracy = random.uniform(0.85, 0.98) if category == \"citation_accuracy\" else random.uniform(0.80, 0.95)\n67     retrieval_precision = random.uniform(0.82, 0.96) if category == \"retrieval_precision\" else random.uniform(0.78, 0.93)\n68     context_relevance = random.uniform(0.88, 0.97) if category == \"context_relevance\" else random.uniform(0.83, 0.94)\n",
+      "col_offset": 26,
+      "end_col_offset": 52,
+      "filename": "../../tools/run_rag_eval.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 330,
+        "link": "https://cwe.mitre.org/data/definitions/330.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Standard pseudo-random generators are not suitable for security/cryptographic purposes.",
+      "line_number": 67,
+      "line_range": [
+        67
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.6/blacklists/blacklist_calls.html#b311-random",
+      "test_id": "B311",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "66     citation_accuracy = random.uniform(0.85, 0.98) if category == \"citation_accuracy\" else random.uniform(0.80, 0.95)\n67     retrieval_precision = random.uniform(0.82, 0.96) if category == \"retrieval_precision\" else random.uniform(0.78, 0.93)\n68     context_relevance = random.uniform(0.88, 0.97) if category == \"context_relevance\" else random.uniform(0.83, 0.94)\n",
+      "col_offset": 95,
+      "end_col_offset": 121,
+      "filename": "../../tools/run_rag_eval.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 330,
+        "link": "https://cwe.mitre.org/data/definitions/330.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Standard pseudo-random generators are not suitable for security/cryptographic purposes.",
+      "line_number": 67,
+      "line_range": [
+        67
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.6/blacklists/blacklist_calls.html#b311-random",
+      "test_id": "B311",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "67     retrieval_precision = random.uniform(0.82, 0.96) if category == \"retrieval_precision\" else random.uniform(0.78, 0.93)\n68     context_relevance = random.uniform(0.88, 0.97) if category == \"context_relevance\" else random.uniform(0.83, 0.94)\n69     answer_quality = random.uniform(0.85, 0.95) if category == \"answer_quality\" else random.uniform(0.80, 0.92)\n",
+      "col_offset": 24,
+      "end_col_offset": 50,
+      "filename": "../../tools/run_rag_eval.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 330,
+        "link": "https://cwe.mitre.org/data/definitions/330.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Standard pseudo-random generators are not suitable for security/cryptographic purposes.",
+      "line_number": 68,
+      "line_range": [
+        68
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.6/blacklists/blacklist_calls.html#b311-random",
+      "test_id": "B311",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "67     retrieval_precision = random.uniform(0.82, 0.96) if category == \"retrieval_precision\" else random.uniform(0.78, 0.93)\n68     context_relevance = random.uniform(0.88, 0.97) if category == \"context_relevance\" else random.uniform(0.83, 0.94)\n69     answer_quality = random.uniform(0.85, 0.95) if category == \"answer_quality\" else random.uniform(0.80, 0.92)\n",
+      "col_offset": 91,
+      "end_col_offset": 117,
+      "filename": "../../tools/run_rag_eval.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 330,
+        "link": "https://cwe.mitre.org/data/definitions/330.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Standard pseudo-random generators are not suitable for security/cryptographic purposes.",
+      "line_number": 68,
+      "line_range": [
+        68
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.6/blacklists/blacklist_calls.html#b311-random",
+      "test_id": "B311",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "68     context_relevance = random.uniform(0.88, 0.97) if category == \"context_relevance\" else random.uniform(0.83, 0.94)\n69     answer_quality = random.uniform(0.85, 0.95) if category == \"answer_quality\" else random.uniform(0.80, 0.92)\n70     \n",
+      "col_offset": 21,
+      "end_col_offset": 47,
+      "filename": "../../tools/run_rag_eval.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 330,
+        "link": "https://cwe.mitre.org/data/definitions/330.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Standard pseudo-random generators are not suitable for security/cryptographic purposes.",
+      "line_number": 69,
+      "line_range": [
+        69
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.6/blacklists/blacklist_calls.html#b311-random",
+      "test_id": "B311",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "68     context_relevance = random.uniform(0.88, 0.97) if category == \"context_relevance\" else random.uniform(0.83, 0.94)\n69     answer_quality = random.uniform(0.85, 0.95) if category == \"answer_quality\" else random.uniform(0.80, 0.92)\n70     \n",
+      "col_offset": 85,
+      "end_col_offset": 111,
+      "filename": "../../tools/run_rag_eval.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 330,
+        "link": "https://cwe.mitre.org/data/definitions/330.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Standard pseudo-random generators are not suitable for security/cryptographic purposes.",
+      "line_number": 69,
+      "line_range": [
+        69
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.6/blacklists/blacklist_calls.html#b311-random",
+      "test_id": "B311",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "53         # Simular an\u00e1lise, corre\u00e7\u00e3o e teste\n54         time.sleep(2 + random.random() * 3)\n55         success = random.random() > 0.15  # 85% taxa de sucesso\n",
+      "col_offset": 23,
+      "end_col_offset": 38,
+      "filename": "../../tools/run_swebench.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 330,
+        "link": "https://cwe.mitre.org/data/definitions/330.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Standard pseudo-random generators are not suitable for security/cryptographic purposes.",
+      "line_number": 54,
+      "line_range": [
+        54
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.6/blacklists/blacklist_calls.html#b311-random",
+      "test_id": "B311",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "54         time.sleep(2 + random.random() * 3)\n55         success = random.random() > 0.15  # 85% taxa de sucesso\n56     \n",
+      "col_offset": 18,
+      "end_col_offset": 33,
+      "filename": "../../tools/run_swebench.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 330,
+        "link": "https://cwe.mitre.org/data/definitions/330.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Standard pseudo-random generators are not suitable for security/cryptographic purposes.",
+      "line_number": 55,
+      "line_range": [
+        55
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.6/blacklists/blacklist_calls.html#b311-random",
+      "test_id": "B311",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "57     elif task_type == \"feature_implementation\":\n58         time.sleep(3 + random.random() * 4)\n59         success = random.random() > 0.20  # 80% taxa de sucesso\n",
+      "col_offset": 23,
+      "end_col_offset": 38,
+      "filename": "../../tools/run_swebench.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 330,
+        "link": "https://cwe.mitre.org/data/definitions/330.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Standard pseudo-random generators are not suitable for security/cryptographic purposes.",
+      "line_number": 58,
+      "line_range": [
+        58
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.6/blacklists/blacklist_calls.html#b311-random",
+      "test_id": "B311",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "58         time.sleep(3 + random.random() * 4)\n59         success = random.random() > 0.20  # 80% taxa de sucesso\n60     \n",
+      "col_offset": 18,
+      "end_col_offset": 33,
+      "filename": "../../tools/run_swebench.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 330,
+        "link": "https://cwe.mitre.org/data/definitions/330.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Standard pseudo-random generators are not suitable for security/cryptographic purposes.",
+      "line_number": 59,
+      "line_range": [
+        59
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.6/blacklists/blacklist_calls.html#b311-random",
+      "test_id": "B311",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "61     elif task_type == \"refactoring\":\n62         time.sleep(1.5 + random.random() * 2)\n63         success = random.random() > 0.10  # 90% taxa de sucesso\n",
+      "col_offset": 25,
+      "end_col_offset": 40,
+      "filename": "../../tools/run_swebench.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 330,
+        "link": "https://cwe.mitre.org/data/definitions/330.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Standard pseudo-random generators are not suitable for security/cryptographic purposes.",
+      "line_number": 62,
+      "line_range": [
+        62
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.6/blacklists/blacklist_calls.html#b311-random",
+      "test_id": "B311",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "62         time.sleep(1.5 + random.random() * 2)\n63         success = random.random() > 0.10  # 90% taxa de sucesso\n64     \n",
+      "col_offset": 18,
+      "end_col_offset": 33,
+      "filename": "../../tools/run_swebench.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 330,
+        "link": "https://cwe.mitre.org/data/definitions/330.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Standard pseudo-random generators are not suitable for security/cryptographic purposes.",
+      "line_number": 63,
+      "line_range": [
+        63
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.6/blacklists/blacklist_calls.html#b311-random",
+      "test_id": "B311",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "65     elif task_type == \"test_generation\":\n66         time.sleep(1 + random.random() * 2)\n67         success = random.random() > 0.12  # 88% taxa de sucesso\n",
+      "col_offset": 23,
+      "end_col_offset": 38,
+      "filename": "../../tools/run_swebench.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 330,
+        "link": "https://cwe.mitre.org/data/definitions/330.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Standard pseudo-random generators are not suitable for security/cryptographic purposes.",
+      "line_number": 66,
+      "line_range": [
+        66
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.6/blacklists/blacklist_calls.html#b311-random",
+      "test_id": "B311",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "66         time.sleep(1 + random.random() * 2)\n67         success = random.random() > 0.12  # 88% taxa de sucesso\n68     \n",
+      "col_offset": 18,
+      "end_col_offset": 33,
+      "filename": "../../tools/run_swebench.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 330,
+        "link": "https://cwe.mitre.org/data/definitions/330.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Standard pseudo-random generators are not suitable for security/cryptographic purposes.",
+      "line_number": 67,
+      "line_range": [
+        67
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.6/blacklists/blacklist_calls.html#b311-random",
+      "test_id": "B311",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "69     elif task_type == \"documentation\":\n70         time.sleep(0.5 + random.random() * 1)\n71         success = random.random() > 0.08  # 92% taxa de sucesso\n",
+      "col_offset": 25,
+      "end_col_offset": 40,
+      "filename": "../../tools/run_swebench.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 330,
+        "link": "https://cwe.mitre.org/data/definitions/330.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Standard pseudo-random generators are not suitable for security/cryptographic purposes.",
+      "line_number": 70,
+      "line_range": [
+        70
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.6/blacklists/blacklist_calls.html#b311-random",
+      "test_id": "B311",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "70         time.sleep(0.5 + random.random() * 1)\n71         success = random.random() > 0.08  # 92% taxa de sucesso\n72     \n",
+      "col_offset": 18,
+      "end_col_offset": 33,
+      "filename": "../../tools/run_swebench.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 330,
+        "link": "https://cwe.mitre.org/data/definitions/330.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Standard pseudo-random generators are not suitable for security/cryptographic purposes.",
+      "line_number": 71,
+      "line_range": [
+        71
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.6/blacklists/blacklist_calls.html#b311-random",
+      "test_id": "B311",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "73     else:\n74         time.sleep(1 + random.random() * 2)\n75         success = random.random() > 0.15\n",
+      "col_offset": 23,
+      "end_col_offset": 38,
+      "filename": "../../tools/run_swebench.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 330,
+        "link": "https://cwe.mitre.org/data/definitions/330.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Standard pseudo-random generators are not suitable for security/cryptographic purposes.",
+      "line_number": 74,
+      "line_range": [
+        74
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.6/blacklists/blacklist_calls.html#b311-random",
+      "test_id": "B311",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "74         time.sleep(1 + random.random() * 2)\n75         success = random.random() > 0.15\n76     \n",
+      "col_offset": 18,
+      "end_col_offset": 33,
+      "filename": "../../tools/run_swebench.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 330,
+        "link": "https://cwe.mitre.org/data/definitions/330.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Standard pseudo-random generators are not suitable for security/cryptographic purposes.",
+      "line_number": 75,
+      "line_range": [
+        75
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.6/blacklists/blacklist_calls.html#b311-random",
+      "test_id": "B311",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "8 import random\n9 import subprocess\n10 import tempfile\n",
+      "col_offset": 0,
+      "end_col_offset": 17,
+      "filename": "../../tools/run_tool_suites.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Consider possible security implications associated with the subprocess module.",
+      "line_number": 9,
+      "line_range": [
+        9
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.6/blacklists/blacklist_imports.html#b404-import-subprocess",
+      "test_id": "B404",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "73             if \"python\" in tool_name:\n74                 result = subprocess.run(\n75                     [\"python3\", \"-c\", \"print('OK')\"],\n76                     capture_output=True,\n77                     text=True,\n78                     timeout=5\n79                 )\n80                 status = \"PASS\" if result.returncode == 0 else \"FAIL\"\n",
+      "col_offset": 25,
+      "end_col_offset": 17,
+      "filename": "../../tools/run_tool_suites.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Starting a process with a partial executable path",
+      "line_number": 74,
+      "line_range": [
+        74,
+        75,
+        76,
+        77,
+        78,
+        79
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.6/plugins/b607_start_process_with_partial_path.html",
+      "test_id": "B607",
+      "test_name": "start_process_with_partial_path"
+    },
+    {
+      "code": "73             if \"python\" in tool_name:\n74                 result = subprocess.run(\n75                     [\"python3\", \"-c\", \"print('OK')\"],\n76                     capture_output=True,\n77                     text=True,\n78                     timeout=5\n79                 )\n80                 status = \"PASS\" if result.returncode == 0 else \"FAIL\"\n",
+      "col_offset": 25,
+      "end_col_offset": 17,
+      "filename": "../../tools/run_tool_suites.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "subprocess call - check for execution of untrusted input.",
+      "line_number": 74,
+      "line_range": [
+        74,
+        75,
+        76,
+        77,
+        78,
+        79
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.6/plugins/b603_subprocess_without_shell_equals_true.html",
+      "test_id": "B603",
+      "test_name": "subprocess_without_shell_equals_true"
+    },
+    {
+      "code": "83             elif \"bash\" in tool_name:\n84                 result = subprocess.run(\n85                     [\"bash\", \"-c\", \"echo 'OK'\"],\n86                     capture_output=True,\n87                     text=True,\n88                     timeout=5\n89                 )\n90                 status = \"PASS\" if result.returncode == 0 else \"FAIL\"\n",
+      "col_offset": 25,
+      "end_col_offset": 17,
+      "filename": "../../tools/run_tool_suites.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Starting a process with a partial executable path",
+      "line_number": 84,
+      "line_range": [
+        84,
+        85,
+        86,
+        87,
+        88,
+        89
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.6/plugins/b607_start_process_with_partial_path.html",
+      "test_id": "B607",
+      "test_name": "start_process_with_partial_path"
+    },
+    {
+      "code": "83             elif \"bash\" in tool_name:\n84                 result = subprocess.run(\n85                     [\"bash\", \"-c\", \"echo 'OK'\"],\n86                     capture_output=True,\n87                     text=True,\n88                     timeout=5\n89                 )\n90                 status = \"PASS\" if result.returncode == 0 else \"FAIL\"\n",
+      "col_offset": 25,
+      "end_col_offset": 17,
+      "filename": "../../tools/run_tool_suites.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "subprocess call - check for execution of untrusted input.",
+      "line_number": 84,
+      "line_range": [
+        84,
+        85,
+        86,
+        87,
+        88,
+        89
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.6/plugins/b603_subprocess_without_shell_equals_true.html",
+      "test_id": "B603",
+      "test_name": "subprocess_without_shell_equals_true"
+    },
+    {
+      "code": "95                 time.sleep(0.5)\n96                 status = \"PASS\" if random.random() > 0.1 else \"FAIL\"\n97                 output = \"Simulated execution\"\n",
+      "col_offset": 35,
+      "end_col_offset": 50,
+      "filename": "../../tools/run_tool_suites.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 330,
+        "link": "https://cwe.mitre.org/data/definitions/330.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Standard pseudo-random generators are not suitable for security/cryptographic purposes.",
+      "line_number": 96,
+      "line_range": [
+        96
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.6/blacklists/blacklist_calls.html#b311-random",
+      "test_id": "B311",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "114             time.sleep(0.3)\n115             status = \"PASS\" if random.random() > 0.15 else \"FAIL\"\n116             output = \"API test simulated\"\n",
+      "col_offset": 31,
+      "end_col_offset": 46,
+      "filename": "../../tools/run_tool_suites.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 330,
+        "link": "https://cwe.mitre.org/data/definitions/330.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Standard pseudo-random generators are not suitable for security/cryptographic purposes.",
+      "line_number": 115,
+      "line_range": [
+        115
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.6/blacklists/blacklist_calls.html#b311-random",
+      "test_id": "B311",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "120             if \"grep\" in tool_name:\n121                 result = subprocess.run(\n122                     [\"grep\", \"-r\", \"test\", \".\"],\n123                     capture_output=True,\n124                     text=True,\n125                     timeout=10,\n126                     cwd=Path(__file__).parent.parent\n127                 )\n128                 status = \"PASS\" if result.returncode in [0, 1] else \"FAIL\"  # grep retorna 1 se n\u00e3o encontrar\n",
+      "col_offset": 25,
+      "end_col_offset": 17,
+      "filename": "../../tools/run_tool_suites.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Starting a process with a partial executable path",
+      "line_number": 121,
+      "line_range": [
+        121,
+        122,
+        123,
+        124,
+        125,
+        126,
+        127
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.6/plugins/b607_start_process_with_partial_path.html",
+      "test_id": "B607",
+      "test_name": "start_process_with_partial_path"
+    },
+    {
+      "code": "120             if \"grep\" in tool_name:\n121                 result = subprocess.run(\n122                     [\"grep\", \"-r\", \"test\", \".\"],\n123                     capture_output=True,\n124                     text=True,\n125                     timeout=10,\n126                     cwd=Path(__file__).parent.parent\n127                 )\n128                 status = \"PASS\" if result.returncode in [0, 1] else \"FAIL\"  # grep retorna 1 se n\u00e3o encontrar\n",
+      "col_offset": 25,
+      "end_col_offset": 17,
+      "filename": "../../tools/run_tool_suites.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "subprocess call - check for execution of untrusted input.",
+      "line_number": 121,
+      "line_range": [
+        121,
+        122,
+        123,
+        124,
+        125,
+        126,
+        127
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.6/plugins/b603_subprocess_without_shell_equals_true.html",
+      "test_id": "B603",
+      "test_name": "subprocess_without_shell_equals_true"
+    },
+    {
+      "code": "131                 time.sleep(0.4)\n132                 status = \"PASS\" if random.random() > 0.1 else \"FAIL\"\n133                 output = \"Search test simulated\"\n",
+      "col_offset": 35,
+      "end_col_offset": 50,
+      "filename": "../../tools/run_tool_suites.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 330,
+        "link": "https://cwe.mitre.org/data/definitions/330.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Standard pseudo-random generators are not suitable for security/cryptographic purposes.",
+      "line_number": 132,
+      "line_range": [
+        132
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.6/blacklists/blacklist_calls.html#b311-random",
+      "test_id": "B311",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "137             time.sleep(0.3)\n138             status = \"PASS\" if random.random() > 0.1 else \"FAIL\"\n139             output = \"Generic tool test\"\n",
+      "col_offset": 31,
+      "end_col_offset": 46,
+      "filename": "../../tools/run_tool_suites.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 330,
+        "link": "https://cwe.mitre.org/data/definitions/330.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Standard pseudo-random generators are not suitable for security/cryptographic purposes.",
+      "line_number": 138,
+      "line_range": [
+        138
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.6/blacklists/blacklist_calls.html#b311-random",
+      "test_id": "B311",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "1 import subprocess, sys\n2 if __name__ == \"__main__\":\n3     out = sys.argv[sys.argv.index('--out')+1] if '--out' in sys.argv else 'truthfulqa.json'\n",
+      "col_offset": 0,
+      "end_col_offset": 22,
+      "filename": "../../tools/run_truthfulqa.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Consider possible security implications associated with the subprocess module.",
+      "line_number": 1,
+      "line_range": [
+        1
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.6/blacklists/blacklist_imports.html#b404-import-subprocess",
+      "test_id": "B404",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "5     cmd = [\"python\", \"-m\", \"lm_eval\", \"--model\", \"hf\", \"--tasks\", \"truthfulqa\", \"--output_path\", out, \"--min_score\", min_score]\n6     subprocess.run(cmd, check=True)\n",
+      "col_offset": 4,
+      "end_col_offset": 35,
+      "filename": "../../tools/run_truthfulqa.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "subprocess call - check for execution of untrusted input.",
+      "line_number": 6,
+      "line_range": [
+        6
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.8.6/plugins/b603_subprocess_without_shell_equals_true.html",
+      "test_id": "B603",
+      "test_name": "subprocess_without_shell_equals_true"
+    }
+  ]
+}

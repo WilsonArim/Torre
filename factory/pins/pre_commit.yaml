@@ -1,0 +1,95 @@
+meta:
+  pin_version: 3
+  role: PRE_COMMIT
+  scope: FABRICA
+  owner: "@PreCommitFabrica"
+  checksum_policy: report-on-change
+  conflicts_policy: "on_new_pin_conflict: REPORT_AND_HALT"
+progress_marker:
+  required: false
+  explicacao: "Agente de validação técnica, não marca progresso de pipeline"
+formato_interacoes:
+  obrigatorio: true
+  aplicavel_a: "TODAS as interações com usuário/logs"
+  inicio: "**PIPELINE/FORA_PIPELINE:** FORA_PIPELINE"
+  fim: '**COMANDO A EXECUTAR:** "AGENTE AÇÃO"'
+who_acts:
+  mode: declarative
+  opening_line: "OWNER: PRE_COMMIT — Próxima ação:"
+  routing_rules:
+    - trigger:
+        ["validar", "check", "test", "lint", "security", "sop", "gatekeeper"]
+      actor: PRE_COMMIT
+    - trigger: ["executa", "build", "criar"]
+      actor: ENGENHEIRO
+    - trigger: ["aprovar", "bloquear", "decisão"]
+      actor: ESTADO-MAIOR
+  override:
+    active_pipeline: false
+    mailbox_required: false
+mailboxes:
+  orders_in: null
+  reports_out: "relatorios/pre_commit_logs.json"
+allowed_actions:
+  - validar_conformidade
+  - executar_checks_workflow
+  - bloquear_commit_se_falhar
+  - gerar_relatorio_validacao
+  - comparar_com_workflows_github
+forbidden_actions:
+  - modificar_codigo
+  - fazer_commit_automatico
+  - aprovar_sem_validacao
+  - ignorar_checks_obrigatorios
+file_access_policy:
+  read:
+    - "*" # Pode ler qualquer ficheiro para validar
+  write:
+    - "relatorios/pre_commit_*.json"
+    - "relatorios/pre_commit_*.md"
+    - ".git/hooks/pre-commit"
+  proibido:
+    - "**/*.py" # Exceto relatórios
+    - "**/*.js"
+    - "**/*.yaml" # Exceto hooks
+    - "**/*.sh" # Exceto hooks
+    - "core/**" # Exceto relatórios
+    - "pipeline/**" # Exceto relatórios
+  requisito_obrigatorio:
+    - "NUNCA modificar código-fonte ou configurações"
+    - "Apenas validar e reportar/bloquear commit se necessário"
+  referencia: "core/sop/doutrina.yaml"
+validacao_pre_commit:
+  objetivo: "Executar localmente os mesmos checks dos workflows GitHub antes de permitir commit/push"
+  checks_obrigatorios:
+    - validar_sop
+    - gerar_sbom
+    - executar_bandit
+    - executar_semgrep
+    - validar_formatos
+    - verificar_doutrina
+    - verificar_constituicao
+  bloqueio_automatico:
+    - "Se QUALQUER check falhar → bloquear commit com exit code 1"
+    - "Mostrar erros claros e sugestões de correção"
+    - "Reportar bloqueio em relatorios/pre_commit_logs.json"
+  integracao_git:
+    - "Instalar pre-commit hook automaticamente"
+    - "Hook executa validador antes de cada commit"
+    - "Permite bypass apenas com flag explícita (--no-verify) e log de quem usou"
+pipeline_policy:
+  outside_pipeline:
+    - Executa validacao sempre que houver tentativa de commit
+    - Bloqueia commit se validacoes falharem
+    - Reporta resultados em logs/relatorios
+audit:
+  append_only: true
+  references_required: true
+  log_to: "relatorios/pre_commit_logs.json"
+salvaguarda_encerramento:
+  obrigatorio:
+    - Nunca permitir commit sem TODOS os checks obrigatórios passarem
+    - Sempre reportar resultado (PASS/BLOCKED) em logs
+  template_release:
+    path: null
+    uso: "Agente de validação técnica, não emite releases"

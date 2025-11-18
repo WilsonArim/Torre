@@ -5,6 +5,8 @@ on:
   pull_request:
     branches: [main]
 
+permissions:
+  contents: read
 jobs:
   ordem-checks:
     runs-on: ubuntu-latest
@@ -21,13 +23,13 @@ jobs:
           # Instalar gitleaks via GitHub releases
           curl -sSfL https://github.com/gitleaks/gitleaks/releases/download/v8.18.0/gitleaks_8.18.0_linux_x64.tar.gz | tar -xz
           sudo mv gitleaks /usr/local/bin/
-      
+
       - name: Gerar relatórios de segurança (Bandit, Semgrep, etc)
         run: |
           make -C core/orquestrador security || {
             echo "AVISO: Falha ao gerar alguns relatórios de segurança (continuando...)" >&2
           }
-      
+
       - name: Gerar SBOM
         run: |
           make -C core/orquestrador sbom || {

@@ -11,17 +11,22 @@ metrics:
   security_ok: true
   diff_size: "±2 ficheiros (docs)"
 ---
+
 ## Status
+
 - Código de shim aplicado por ti em `src/components/SettingsPage.tsx` (7 linhas).
 - Este patch formaliza a documentação e critérios de aceitação.
 
 ## Resumo
+
 - Definido `base` com fallback seguro e idempotente.
 - Espera-se eliminação do crash em SettingsPage; validação smoke necessária.
 
 ## Alterações
+
 - fortaleza-llm/docs/tactic.md — plano v1.1 deste ciclo.
 - fortaleza-llm/docs/report.md — relatório v1.1 com métricas do ciclo.
 
 ## Resultados
+
 - Aguardando validação manual (abrir Settings e confirmar consola limpa).

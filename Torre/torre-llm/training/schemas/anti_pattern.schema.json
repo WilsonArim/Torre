@@ -15,8 +15,14 @@
       },
       "additionalProperties": false
     },
-    "fix_strategy": { "type": "string", "description": "passos mínimos para corrigir" },
-    "minimal_patch_example": { "type": "string", "description": "UM diff unificado ilustrativo" },
+    "fix_strategy": {
+      "type": "string",
+      "description": "passos mínimos para corrigir"
+    },
+    "minimal_patch_example": {
+      "type": "string",
+      "description": "UM diff unificado ilustrativo"
+    },
     "lenses_applied": { "type": "array", "items": { "type": "string" } }
   },
   "additionalProperties": false

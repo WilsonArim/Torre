@@ -7,78 +7,92 @@ Este patch permite usar a **Torre LLM** diretamente no Cursor via LM Studio ou O
 ## 📋 Opção 1: **LM Studio** (Recomendado)
 
 ### 1. **Configure o LM Studio**
+
 - Abra **LM Studio** → **Developer → Local Server → Start**
 - Anote o endereço: normalmente `http://localhost:1234/v1`
 - [Documentação LM Studio](https://lmstudio.ai/docs/api/openai-api)
 
 ### 2. **Configure o Cursor**
+
 No **Cursor → Settings → Models → API Keys**:
 
-* **Override Base URL (OpenAI-compatible):**
+- **Override Base URL (OpenAI-compatible):**
+
   ```
   http://localhost:1234/v1
   ```
 
-* **API Key:**
+- **API Key:**
+
   ```
   local
   ```
 
-* Clique **Verify/Save**
+- Clique **Verify/Save**
 
 ### 3. **Adicione o Modelo**
+
 Ainda em **Models**, clique **Add model** e preencha:
 
-* **Display name:**
+- **Display name:**
+
   ```
   Torre
   ```
 
-* **Model (ID):**
+- **Model (ID):**
+
   ```
   qwen2.5-7b-instruct
   ```
 
-* Salve
+- Salve
 
 ---
 
 ## 📋 Opção 2: **Ollama** (Alternativo)
 
 ### 1. **Configure o Ollama**
+
 - Garanta o Ollama aberto
 - Ele expõe API OpenAI-compatível em `http://localhost:11434/v1`
 - [GitHub Ollama](https://github.com/cursor/cursor/issues/1380)
 
 ### 2. **Configure o Cursor**
+
 No **Cursor → Settings → Models → API Keys**:
 
-* **Override Base URL:**
+- **Override Base URL:**
+
   ```
   http://localhost:11434/v1
   ```
 
-* **API Key:**
+- **API Key:**
+
   ```
   local
   ```
 
-* **Save/Verify**
+- **Save/Verify**
 
 ### 3. **Adicione o Modelo**
+
 **Models → Add model**:
 
-* **Display name:**
+- **Display name:**
+
   ```
   Torre
   ```
 
-* **Model (ID):**
+- **Model (ID):**
+
   ```
   qwen2.5:7b-instruct
   ```
 
-* Salve
+- Salve
 
 ---
 
@@ -93,9 +107,9 @@ Diga "Olá! Sou a Torre (Qwen2.5-7B)".
 
 ## 💡 **Dicas Importantes**
 
-* O **nome tem que bater** com o ID que o servidor mostra (é sensível a maiúsculas/minúsculas e espaços)
-* Recursos especiais do Cursor (ex.: *tab completion*) podem continuar usando modelos internos; isso é normal
-* Se o LM Studio mostrar um ID ligeiramente diferente, copie exatamente o que aparecer lá
+- O **nome tem que bater** com o ID que o servidor mostra (é sensível a maiúsculas/minúsculas e espaços)
+- Recursos especiais do Cursor (ex.: _tab completion_) podem continuar usando modelos internos; isso é normal
+- Se o LM Studio mostrar um ID ligeiramente diferente, copie exatamente o que aparecer lá
 
 ---
 

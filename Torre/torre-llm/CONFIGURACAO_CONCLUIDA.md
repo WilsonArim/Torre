@@ -7,11 +7,13 @@ A Torre (Qwen2.5-7B) foi configurada e está funcionando perfeitamente!
 ### ✅ Testes Realizados
 
 1. **Ollama instalado e rodando** ✅
+
    ```bash
    brew services start ollama
    ```
 
 2. **Modelo "torre" criado** ✅
+
    ```bash
    ollama list | grep -i torre
    # Resultado: torre:latest a0fd3c59d9be 4.7 GB

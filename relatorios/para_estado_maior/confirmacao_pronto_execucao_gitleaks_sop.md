@@ -29,6 +29,7 @@
 **Localização:** `.gitleaks.toml` (raiz do projeto)
 
 **Allowlist de Paths:**
+
 ```toml
 paths = [
   'Torre/torre-llm/PHASE19_SUMMARY.md',
@@ -41,6 +42,7 @@ paths = [
 ```
 
 **Allowlist de Commits (Padrões):**
+
 ```toml
 commits = [
   'sk-1234567890.*',
@@ -51,6 +53,7 @@ commits = [
 ```
 
 **Regras Customizadas:**
+
 - Entropia aumentada (3.5) para reduzir falsos positivos
 - Regras `generic-api-key` e `generic-token` configuradas
 
@@ -63,6 +66,7 @@ commits = [
 **Localização:** `.github/workflows/fabrica-ci.yml` linhas 99-111
 
 **Configuração:**
+
 ```yaml
 - name: Run Gitleaks
   uses: gitleaks/gitleaks-action@v2
@@ -70,7 +74,7 @@ commits = [
     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     GITLEAKS_LICENSE: ${{ secrets.GITLEAKS_LICENSE }}
   with:
-    config-path: .gitleaks.toml  # ✅ Configurado
+    config-path: .gitleaks.toml # ✅ Configurado
     exit-code: 1
     no-git: false
     verbose: true
@@ -120,21 +124,27 @@ commits = [
 ## ⚖️ CONFORMIDADE CONSTITUCIONAL
 
 ### ART-04 (Verificabilidade)
+
 ✅ **CONFORME**
+
 - Configuração rastreável (`.gitleaks.toml`)
 - Workflow usa configuração adequada
 - Allowlist explícita e verificável
 - Todas as correções aplicadas e documentadas
 
 ### ART-07 (Transparência)
+
 ✅ **CONFORME**
+
 - Configuração transparente e documentada
 - Falhas reconhecidas e corrigidas
 - Correções aplicadas com clareza
 - Relatórios completos gerados
 
 ### ART-09 (Evidência)
+
 ✅ **CONFORME**
+
 - Evidências de configuração são citadas
 - Falsos positivos serão adequadamente ignorados
 - Apenas segredos reais serão detectados
@@ -147,16 +157,19 @@ commits = [
 ### Para Execução do Workflow
 
 **Opção 1: Execução Automática (Push)**
+
 - Fazer commit das correções aplicadas (se ainda não feito)
 - Push para branch `main` ou `develop`
 - Workflow executará automaticamente no job `security`
 
 **Opção 2: Execução Manual (GitHub Actions)**
+
 - Acessar GitHub Actions no repositório
 - Selecionar workflow `Fábrica CI`
 - Executar workflow manualmente selecionando o job `security`
 
 **Opção 3: Execução Local (Teste)**
+
 ```bash
 # Instalar Gitleaks localmente
 # Executar com configuração customizada
@@ -173,6 +186,7 @@ gitleaks detect --config-path .gitleaks.toml --verbose
 4. ✅ Reportar resultado ao Estado-Maior
 
 **Se ainda detectar mocks/exemplos:**
+
 - ⚠️ Ajustar allowlist imediatamente
 - ⚠️ Reportar novo padrão identificado
 - ⚠️ Aplicar correção adicional
@@ -196,6 +210,7 @@ gitleaks detect --config-path .gitleaks.toml --verbose
 ---
 
 **Artefactos Citados:**
+
 - `.gitleaks.toml` (configuração completa e validada)
 - `.github/workflows/fabrica-ci.yml` (workflow configurado)
 - `relatorios/para_estado_maior/validacao_final_gitleaks_sop.md` (validação completa)
@@ -210,4 +225,3 @@ gitleaks detect --config-path .gitleaks.toml --verbose
 ---
 
 **COMANDO A EXECUTAR:** "ENGENHEIRO EXECUTAR WORKFLOW CI (fabrica-ci.yml) E MONITORIZAR RESULTADO. SOP AGUARDAR CONFIRMAÇÃO DE EXECUÇÃO E REPORTAR RESULTADO AO ESTADO-MAIOR. ESTADO-MAIOR VALIDAR QUE GITLEAKS ESTÁ 100% FUNCIONAL ANTES DE CONSIDERAR CICLO ENCERRADO."
-

@@ -4,33 +4,36 @@ on:
   workflow_dispatch:
     inputs:
       run_full_battery:
-        description: 'Run full battery (all blocks)'
+        description: "Run full battery (all blocks)"
         required: false
         default: true
         type: boolean
       blocks_to_run:
-        description: 'Comma-separated list of blocks (baseline,agents,engineering,security,rag,load,chaos,finalization)'
+        description: "Comma-separated list of blocks (baseline,agents,engineering,security,rag,load,chaos,finalization)"
         required: false
-        default: 'all'
+        default: "all"
         type: string
   schedule:
     # Executar diariamente às 02:00 UTC
-    - cron: '0 2 * * *'
+    - cron: "0 2 * * *"
   push:
-    branches: [ main, master ]
+    branches: [main, master]
     paths:
-      - 'Torre/**'
-      - 'core/orquestrador/**'
-      - '.github/workflows/torre-battery.yml'
+      - "Torre/**"
+      - "core/orquestrador/**"
+      - ".github/workflows/torre-battery.yml"
+
+permissions:
+  contents: read
 
 jobs:
   stress_battery:
     runs-on: ubuntu-latest
-    timeout-minutes: 480  # 8 horas máximo
+    timeout-minutes: 480 # 8 horas máximo
     strategy:
       fail-fast: false
       matrix:
-        block: 
+        block:
           - baseline
           - agents_tools
           - engineering
@@ -38,18 +41,18 @@ jobs:
           - rag
           - load_chaos
           - finalization
-    
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
           fetch-depth: 2
-      
+
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.11'
-      
+          python-version: "3.11"
+
       - name: Install dependencies
         run: |
           pip install --upgrade pip
@@ -67,7 +70,7 @@ jobs:
             echo "ERRO: Falha ao instalar ferramentas de teste (bandit, coverage, pytest, semgrep)" >&2
             exit 1
           }
-      
+
       - name: Install k6 (for load tests)
         run: |
           sudo gpg -k
@@ -75,13 +78,13 @@ jobs:
           echo "deb [signed-by=/usr/share/keyrings/k6-archive-keyring.gpg] https://dl.k6.io/deb stable main" | sudo tee /etc/apt/sources.list.d/k6.list
           sudo apt-get update
           sudo apt-get install k6 || echo "k6 installation failed, load tests will be skipped"
-      
+
       - name: Create artifacts directory
         run: |
           mkdir -p artifacts
           mkdir -p artifacts/logs
           mkdir -p artifacts/reports
-      
+
       - name: Run battery block - ${{ matrix.block }}
         id: battery_block
         continue-on-error: true
@@ -92,7 +95,7 @@ jobs:
             --max-retries 3 \
             --artifacts-dir artifacts \
             --log-level INFO
-      
+
       - name: Collect block artifacts
         if: always()
         run: |
@@ -101,7 +104,7 @@ jobs:
           else
             echo "Block ${{ matrix.block }} failed or skipped"
           fi
-      
+
       - name: Upload artifacts
         if: always()
         uses: actions/upload-artifact@v4
@@ -112,36 +115,36 @@ jobs:
             artifacts/logs/${{ matrix.block }}_*
             artifacts/reports/${{ matrix.block }}_*
           retention-days: 30
-      
+
       - name: Notify on critical failure
         if: failure() && steps.battery_block.outcome == 'failure'
         run: |
           echo "CRITICAL: Block ${{ matrix.block }} failed after max retries"
           # Aqui pode integrar com sistema de notificações (email, Slack, etc.)
-  
+
   consolidate_reports:
     needs: stress_battery
     runs-on: ubuntu-latest
     if: always()
-    
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-      
+
       - name: Download all artifacts
         uses: actions/download-artifact@v4
         with:
           pattern: battery-artifacts-*
           merge-multiple: true
           path: artifacts/
-      
+
       - name: Consolidate battery report
         run: |
           python3 Torre/orquestrador/battery_consolidator.py \
             --artifacts-dir artifacts \
             --output artifacts/torre_battery_report.md \
             --json-output artifacts/torre_battery_report.json
-      
+
       - name: Generate PDF report
         uses: docker://pandoc/latex:latest
         with:
@@ -151,13 +154,13 @@ jobs:
             --pdf-engine=xelatex
             -V geometry:margin=1in
         continue-on-error: true
-      
+
       - name: Update engineer.out.json
         run: |
           python3 Torre/orquestrador/battery_reporter.py \
             --battery-report artifacts/torre_battery_report.json \
             --output relatorios/para_estado_maior/engineer.out.json
-      
+
       - name: Upload consolidated report
         uses: actions/upload-artifact@v4
         with:
@@ -166,4 +169,3 @@ jobs:
             artifacts/torre_battery_report.*
             relatorios/para_estado_maior/engineer.out.json
           retention-days: 90
-

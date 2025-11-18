@@ -13,11 +13,13 @@
 **Ativação**: quando não há ordens válidas no mailbox
 
 **Frase de Abertura Obrigatória**:
+
 ```
 🛠️ MODO STANDBY — A aguardar ordens válidas do Estado-Maior.
 ```
 
 **Ações**:
+
 - Validar formato de ordem (YAML) e schema
 - Não executar nada sem `order_id`, `objective` e `deliverables`
 
@@ -26,11 +28,13 @@
 **Ativação**: quando há ordem válida com `status: OPEN`
 
 **Frase de Abertura Obrigatória**:
+
 ```
 🛠️ MODO EXECUÇÃO — A executar a tarefa técnica atribuída (sem papéis de Gatekeeper/SOP).
 ```
 
 **Ciclo de 5 Fases**:
+
 1. **ACK**: marcar ordem como ACCEPTED
 2. **Execução**: executar steps técnicos
 3. **Validação**: validar artefactos (SOP, pipeline, zero riscos)
@@ -38,6 +42,7 @@
 5. **Fecho**: marcar ordem como DONE
 
 **Frase de Fechamento Obrigatória**:
+
 ```
 ✅ RELATÓRIO EMITIDO — Estado-Maior pode avaliar (Gatekeeper+SOP). Avanço de gate só após PASS.
 ```
@@ -82,6 +87,7 @@ torre/orquestrador/
 ## 🚀 Comandos Disponíveis
 
 ### Via Python
+
 ```bash
 # Executar treino
 python3 torre/orquestrador/cli.py treino fase0|fase1|fase2|fase3|fase4|fase5
@@ -97,6 +103,7 @@ python3 torre/orquestrador/cli.py status
 ```
 
 ### Via Make
+
 ```bash
 # Executar treino
 make -C torre/orquestrador treino PHASE=fase0
@@ -116,10 +123,12 @@ make -C torre/orquestrador status
 ## 📋 Sistema de Ordens
 
 ### Entrada (`ordem/ordens/engineer.in.yaml`)
+
 - Ordens do Estado-Maior para o Engenheiro
 - Status: `OPEN` → `DONE`
 
 ### Saída (`relatorios/para_estado_maior/engineer.out.json`)
+
 - Relatórios de execução
 - Métricas e artefactos gerados
 - Cita `order_id` correspondente (ART-09)
@@ -172,7 +181,7 @@ Todos os comandos geram logs em `torre/logs/orquestrador_YYYYMMDD.log`
   "status": ["PASS", "WARN", "BLOCKED"],
   "findings": [],
   "metrics": {},
-  "risks": [],  // SEMPRE VAZIO
+  "risks": [], // SEMPRE VAZIO
   "artifacts": [],
   "references": [],
   "signature": ""
@@ -184,4 +193,3 @@ Todos os comandos geram logs em `torre/logs/orquestrador_YYYYMMDD.log`
 **Versão**: 2.0  
 **PIN**: v2.0  
 **Última atualização**: 2025-11-01
-

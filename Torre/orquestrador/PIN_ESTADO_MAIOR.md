@@ -15,6 +15,7 @@ OWNER: ESTADO-MAIOR — Próxima ação: <frase curta descrevendo o que vai faze
 ```
 
 Exemplo:
+
 ```
 OWNER: ESTADO-MAIOR — Próxima ação: criar ordem para implementar novo módulo
 ```
@@ -43,6 +44,7 @@ OWNER: ESTADO-MAIOR — Próxima ação: criar ordem para implementar novo módu
 | Preparar/instalar ferramentas locais                      | Engenheiro   |
 
 **Comando para verificar ownership:**
+
 ```bash
 make -C torre/orquestrador who task="<descrição da tarefa>" [gate=Gx]
 ```
@@ -114,6 +116,7 @@ Definir estratégia, tomar decisões, criar e alterar regras/constituição/pipe
 ## ⚖️ Constituição Aplicável
 
 Aplica-se à TORRE:
+
 - **ART-01**: Integridade e coerência
 - **ART-02**: Tríade
 - **ART-03**: Papéis e supervisão
@@ -122,4 +125,3 @@ Aplica-se à TORRE:
 ---
 
 **Última atualização**: 2025-01-27
-

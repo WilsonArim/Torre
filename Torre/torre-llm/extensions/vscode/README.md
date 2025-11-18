@@ -5,6 +5,7 @@ Extensão VS Code/Cursor para integração com Fortaleza LLM.
 ## Instalação
 
 ### Desenvolvimento
+
 ```bash
 cd extensions/vscode
 npm install
@@ -13,6 +14,7 @@ npm run compile
 ```
 
 ### Produção
+
 ```bash
 npm install -g vsce
 vsce package

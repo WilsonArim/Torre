@@ -1,5 +1,9 @@
 from pathlib import Path
-import xml.etree.ElementTree as ET
+
+try:
+    from defusedxml import ElementTree as ET  # type: ignore
+except ImportError:  # pragma: no cover
+    raise ImportError("defusedxml é obrigatório para parsing seguro de relatórios JUnit")
 
 
 def read_junit_summary(report_xml: Path) -> dict:

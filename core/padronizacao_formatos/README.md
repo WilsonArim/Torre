@@ -21,16 +21,19 @@ Todas as interações de todos os agentes devem seguir:
 ## Uso
 
 ### Validar formato de um ficheiro:
+
 ```bash
 python3 core/padronizacao_formatos/validar_formato.py relatorios/para_estado_maior/relatorio.md
 ```
 
 ### Validar todos os relatórios:
+
 ```bash
 python3 core/padronizacao_formatos/validar_formato.py --todos
 ```
 
 ### Formatar interação:
+
 ```bash
 python3 core/padronizacao_formatos/formatar_interacao.py ENGENHEIRO "Conteúdo da interação" PIPELINE "Aguardar validação" "ESTADO-MAIOR ANALISAR"
 ```
@@ -49,5 +52,6 @@ python3 core/padronizacao_formatos/formatar_interacao.py ENGENHEIRO "Conteúdo d
 ## Integração
 
 Este módulo integra-se com:
+
 - `core/orquestrador/file_access_guard.py` — Função `formatar_resposta_agente()`
 - `core/sop/doutrina.yaml` — Doutrina `formato_interacoes`

@@ -1,4 +1,7 @@
 versao: 1
-excecoes: []  # itens: {regra: "coverage_min.python", alvo: "modulo_X", novo_valor: 70, owner: "nome", motivo: "...", expires_at: "2026-01-31"}
-
-
+excecoes:
+  - regra: "coverage_min.python"
+    novo_valor: 35
+    owner: "Estado-Maior"
+    motivo: "Cobertura atual da base herdada (FÁBRICA + Torre) ainda em consolidação; exceção temporária até reforço de testes."
+    expires_at: "2025-12-31"

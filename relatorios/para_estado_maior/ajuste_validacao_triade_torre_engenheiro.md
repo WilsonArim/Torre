@@ -15,6 +15,7 @@ Ajustada a validação SOP para dispensar White Paper próprio para projetos Tor
 ## Decisão do Estado-Maior
 
 **Decisão:**
+
 - ✅ Torre não precisa de White Paper separado conforme ART-02
 - ✅ Torre é um projeto executor dentro da FÁBRICA
 - ✅ Torre herda a Tríade de Fundamentação da FÁBRICA (White Paper, Arquitetura, Base Operacional existem no nível da FÁBRICA)
@@ -50,11 +51,13 @@ Ajustada a validação SOP para dispensar White Paper próprio para projetos Tor
 ## Lógica de Validação
 
 ### Para Projetos Torre:
+
 - ✅ White Paper próprio: **DISPENSADO** (herda da FÁBRICA)
 - ✅ Arquitetura: **OBRIGATÓRIA** (pode ser `superpipeline.yaml`)
 - ✅ Base Operacional: **OBRIGATÓRIA** (pode ser `README.md` da pipeline)
 
 ### Para Projetos não-Torre:
+
 - ✅ White Paper próprio: **OBRIGATÓRIO**
 - ✅ Arquitetura: **OBRIGATÓRIA**
 - ✅ Base Operacional: **OBRIGATÓRIA**
@@ -75,6 +78,7 @@ def is_torre_project() -> bool:
 ```
 
 **Validação ajustada:**
+
 ```python
 # Para projetos Torre: White Paper próprio não é obrigatório
 if not white_paper and not is_torre:
@@ -91,25 +95,33 @@ elif not white_paper and is_torre:
 ## Conformidade Constitucional
 
 ### ART-02 (Tríade de Fundamentação)
+
 ✅ **CONFORME**
+
 - Torre herda a Tríade da FÁBRICA
 - White Paper próprio não é necessário para projetos executor
 - Validação ajustada para refletir decisão do Estado-Maior
 
 ### ART-04 (Verificabilidade)
+
 ✅ **CONFORME**
+
 - Lógica de detecção rastreável
 - Exceção documentada no código
 - Decisão do Estado-Maior citada
 
 ### ART-07 (Transparência)
+
 ✅ **CONFORME**
+
 - Ajuste documentado
 - Lógica clara e explícita
 - Relatório gerado
 
 ### ART-09 (Evidência)
+
 ✅ **CONFORME**
+
 - Função de detecção implementada
 - Validação ajustada conforme decisão
 - Artefactos citados
@@ -126,6 +138,7 @@ elif not white_paper and is_torre:
 ## Validação Esperada
 
 Após correção:
+
 - ✅ Torre não deve mais falhar por White Paper ausente
 - ✅ Torre ainda deve validar Arquitetura e Base Operacional
 - ✅ Projetos não-Torre continuam exigindo White Paper próprio
@@ -135,9 +148,11 @@ Após correção:
 ## Testes Recomendados
 
 1. **Validar Torre:**
+
    ```bash
    python3 core/scripts/validator.py
    ```
+
    - Deve passar sem violação de White Paper para Torre
 
 2. **Validar projeto não-Torre:**
@@ -159,11 +174,13 @@ Após correção:
 **Status:** ✅ **CORREÇÃO APLICADA**
 
 **Ajuste:**
+
 - ✅ Função de detecção Torre implementada
 - ✅ Validação White Paper ajustada para Torre
 - ✅ Exceção documentada no código
 
 **Próximo Passo:**
+
 - Commit e push da correção
 - Validação pelo SOP
 - Confirmação de que workflows passam sem violação de White Paper
@@ -171,6 +188,7 @@ Após correção:
 ---
 
 **Referências:**
+
 - Decisão Estado-Maior: Torre herda Tríade da FÁBRICA
 - Código: `core/scripts/validator.py` função `validate_triade_fundamentacao()`
 - Relatório SOP: `relatorios/para_estado_maior/analise_falhas_workflow_sop_validacao_sop.md`
@@ -178,4 +196,3 @@ Após correção:
 ---
 
 **COMANDO A EXECUTAR:** "ENGENHEIRO FAZER COMMIT E PUSH DA CORREÇÃO. SOP VALIDAR APÓS PRÓXIMO PUSH E CONFIRMAR QUE TORRE NÃO FALHA POR WHITE PAPER AUSENTE."
-

@@ -7,27 +7,32 @@ Implementei com sucesso o **micro-patch** para contar e expor quantas publicaç�
 ## 🏗️ Componentes Implementados
 
 ### 1️⃣ **Servidor** (`llm/server.py`)
+
 - **Contador em memória**: `app.state.STRATEGOS_BADGE_POST_TIMES` (deque com maxlen=10000)
 - **Função de contagem**: `_recent_badge_posts_1h()` com pruning automático
 - **Endpoint GET**: Retorna badge + `recent_posts_1h`
 - **Endpoint POST**: Registra timestamp + retorna contador atualizado
 
 ### 2️⃣ **API Client** (`apps/torre-ui/src/api/strategos.ts`)
+
 - **Tipo atualizado**: `StrategosBadge` com campo opcional `recent_posts_1h?: number`
 - **Backward compatible**: Campo opcional não quebra clientes existentes
 
 ### 3️⃣ **Componente UI** (`apps/fortaleza-ui/src/components/strategos/StrategosBadge.tsx`)
+
 - **Label atualizado**: Exibe `posts(1h)=X` no badge
 - **Tooltip atualizado**: Mostra "Posts (últ. 1h): X" no hover
 - **Estilo**: Contador com opacidade reduzida para não poluir
 
 ### 4️⃣ **Teste** (`tests/test_strategos_badge_counter.py`)
+
 - **Validação**: Confirma que contador ≥ 2 após 2 POSTs
 - **Cobertura**: Testa GET e POST endpoints
 
 ## 🎯 Como Funciona
 
 ### **Contador em Memória**
+
 ```python
 # Histórico de POSTs do badge (timestamps UTC) para métrica de 1h
 app.state.STRATEGOS_BADGE_POST_TIMES = deque(maxlen=10000)
@@ -45,6 +50,7 @@ def _recent_badge_posts_1h() -> int:
 ```
 
 ### **Endpoints Atualizados**
+
 ```python
 @app.get("/strategos/badge")
 def get_strategos_badge(request: Request):
@@ -61,6 +67,7 @@ def set_strategos_badge(badge: StrategosBadgeIn, request: Request):
 ```
 
 ### **UI Atualizada**
+
 ```tsx
 const posts1h = badge?.recent_posts_1h ?? 0;
 const posts1hText = ` · posts(1h)=${posts1h}`;
@@ -75,16 +82,17 @@ title={`Strategos: ${badge.mode}\nA2G≈${fmtA2G}\nPosts (últ. 1h): ${posts1h}\
 ## 🧪 Testes Implementados
 
 ### **Teste Pytest**
+
 ```python
 def test_strategos_badge_recent_posts_counter():
     # POST 1
     r1 = client.post("/strategos/badge", json=payload, headers=headers)
     assert r1.status_code in (200, 401, 403, 422, 429)
-    
+
     # POST 2
     r2 = client.post("/strategos/badge", json=payload, headers=headers)
     assert r2.status_code == 200
-    
+
     # GET com contador
     g = client.get("/strategos/badge")
     assert g.status_code == 200
@@ -95,6 +103,7 @@ def test_strategos_badge_recent_posts_counter():
 ```
 
 ### **Teste Manual**
+
 ```bash
 # Executa CLI várias vezes
 export FORT_BADGE_ALWAYS=1
@@ -108,18 +117,21 @@ curl -s http://localhost:8765/strategos/badge | jq .recent_posts_1h
 ## 🔧 Características Técnicas
 
 ### **Performance**
+
 - ✅ **Contador em memória**: Sem I/O adicional
 - ✅ **Pruning automático**: Remove timestamps antigos
 - ✅ **Deque limitado**: Máximo 10.000 entradas
 - ✅ **Leve**: Mínimo overhead
 
 ### **Confiabilidade**
+
 - ✅ **Pruning robusto**: Remove entradas > 1h
 - ✅ **Fallback seguro**: Retorna 0 se deque não existir
 - ✅ **Thread-safe**: deque é thread-safe
 - ✅ **Error handling**: Captura exceções
 
 ### **Compatibilidade**
+
 - ✅ **Backward compatible**: Campo opcional
 - ✅ **Drop-in**: Não quebra contratos existentes
 - ✅ **Opt-in**: Clientes podem ignorar campo
@@ -128,6 +140,7 @@ curl -s http://localhost:8765/strategos/badge | jq .recent_posts_1h
 ## 📊 Exemplo de Output
 
 ### **GET /strategos/badge**
+
 ```json
 {
   "mode": "PATCH",
@@ -138,6 +151,7 @@ curl -s http://localhost:8765/strategos/badge | jq .recent_posts_1h
 ```
 
 ### **POST /strategos/badge**
+
 ```json
 {
   "ok": true,
@@ -151,11 +165,13 @@ curl -s http://localhost:8765/strategos/badge | jq .recent_posts_1h
 ```
 
 ### **UI Badge**
+
 ```
 Strategos: PATCH · A2G≈1.4 · posts(1h)=7
 ```
 
 ### **UI Tooltip**
+
 ```
 Strategos: PATCH
 A2G≈1.4
@@ -166,18 +182,21 @@ Atualizado: 2025-08-26T12:34:56Z
 ## 🎉 Benefícios Alcançados
 
 ### **Observabilidade**
+
 - ✅ **Métricas em tempo real**: Contador atualizado a cada POST
 - ✅ **Visibilidade**: Badge mostra atividade recente
 - ✅ **Debugging**: Identifica picos de atividade
 - ✅ **Monitoramento**: Acompanha uso do sistema
 
 ### **Experiência do Usuário**
+
 - ✅ **Feedback visual**: Contador no badge
 - ✅ **Informação útil**: Atividade da última hora
 - ✅ **Não intrusivo**: Design limpo e discreto
 - ✅ **Contextual**: Tooltip com detalhes
 
 ### **Desenvolvimento**
+
 - ✅ **Implementação simples**: Micro-patch drop-in
 - ✅ **Testes completos**: Cobertura de endpoints
 - ✅ **Documentação**: Comportamento bem definido
@@ -186,22 +205,27 @@ Atualizado: 2025-08-26T12:34:56Z
 ## 🔗 Integração com Fases Anteriores
 
 ### **F13 (n-best)**
+
 - ✅ **ExecutionReranker**: Integração mantida
 - ✅ **Métricas**: Coleta preservada
 
 ### **F14 (Memory)**
+
 - ✅ **EpisodicMemory**: Contexto mantido
 - ✅ **Priors**: Aplicação preservada
 
 ### **F15 (Strategos)**
+
 - ✅ **StrategosV2Graph**: Funcionalidade mantida
 - ✅ **Badge**: Sistema estendido
 
 ### **F16 (Trace)**
+
 - ✅ **Trace ID**: Rastreabilidade mantida
 - ✅ **Telemetria**: Métricas preservadas
 
 ### **F17 (Rollback)**
+
 - ✅ **Rate limiting**: Proteção mantida
 - ✅ **API key**: Autenticação preservada
 

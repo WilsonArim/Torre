@@ -9,12 +9,11 @@ meta:
     - Validar pipeline, rodar testes, refatorar e auditar código conforme etapas recebidas
     - Nunca executar ou modificar áreas restritas/externas à TORRE
 
-
 who_acts:
-  first_file_to_read: "ordem/ordens/engineer.in.yaml"  # SEMPRE ler primeiro ao receber ordem
+  first_file_to_read: "ordem/ordens/engineer.in.yaml" # SEMPRE ler primeiro ao receber ordem
 
 mailboxes:
-  orders_in:   "ordem/ordens/engineer.in.yaml"
+  orders_in: "ordem/ordens/engineer.in.yaml"
   reports_out: "relatorios/para_estado_maior/engineer.out.json"
 
 actions:
@@ -37,6 +36,6 @@ progresso:
       - anexar artefatos/logs finais e marcar status em engineer.out.json
 
 acknowledgement:
-  - Cada ordem recebida deve ser ACK (preencher campo ack: engineer.in.yaml)
-  - Status: "OPEN", "IN_PROGRESS", "DONE"
-  - Marcar relatorio sempre com campo order_id igual ao da ordem correspondente
+  - "Cada ordem recebida deve ser ACK (preencher campo ack: engineer.in.yaml)"
+  - "Status: OPEN, IN_PROGRESS, DONE"
+  - "Marcar relatorio sempre com campo order_id igual ao da ordem correspondente"

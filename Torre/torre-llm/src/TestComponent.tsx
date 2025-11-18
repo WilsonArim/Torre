@@ -1,7 +1,5 @@
 // Componente com erros que podem ser corrigidos automaticamente
+// import React from "react"; // Commented out - unused import
 export default function TestComponent() {
-  return <div>Hello World</div>
+  return <div>Hello World</div>;
 }
-
-// Import no meio do arquivo (será movido para o topo)
-import React from 'react'

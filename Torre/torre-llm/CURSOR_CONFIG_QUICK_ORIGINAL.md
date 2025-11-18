@@ -1,17 +1,20 @@
 # CURSOR_CONFIG_QUICK.md — Torre (Qwen2.5-7B)
 
 ## A) Se estiver com **Ollama**
+
 - Base URL: `http://localhost:11434/v1`
 - API Key: `local`
 - Model (ID): `torre`
 - Display name: `Torre`
 
 **Teste rápido (Terminal):**
+
 ```bash
-curl http://localhost:11434/v1/chat/completions       -H "Content-Type: application/json"       -d '{"model":"torre","messages":[{"role":"user","content":"Diga oi."}]}' 
+curl http://localhost:11434/v1/chat/completions       -H "Content-Type: application/json"       -d '{"model":"torre","messages":[{"role":"user","content":"Diga oi."}]}'
 ```
 
 ## B) Se estiver com **LM Studio**
+
 - Start Server (Developer → Local Server)
 - Base URL: `http://localhost:1234/v1`
 - API Key: `local` (ou a que o app fornecer)
@@ -19,11 +22,13 @@ curl http://localhost:11434/v1/chat/completions       -H "Content-Type: applicat
 - Display name: `Torre`
 
 **Teste rápido (Terminal):**
+
 ```bash
-curl http://localhost:1234/v1/chat/completions       -H "Content-Type: application/json"       -d '{"model":"qwen2.5-7b-instruct","messages":[{"role":"user","content":"Diga oi."}]}' 
+curl http://localhost:1234/v1/chat/completions       -H "Content-Type: application/json"       -d '{"model":"qwen2.5-7b-instruct","messages":[{"role":"user","content":"Diga oi."}]}'
 ```
 
 ## Passos no Cursor
+
 1. Settings → Models → **API Keys**
 2. Ative **OpenAI-compatible** e **Override Base URL** (cole a Base URL acima)
 3. API Key: `local`

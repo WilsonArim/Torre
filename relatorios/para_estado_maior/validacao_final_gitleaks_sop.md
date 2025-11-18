@@ -42,6 +42,7 @@ paths = [
 ```
 
 **Cobertura Verificada:**
+
 - ✅ `PHASE19_SUMMARY.md` — Documentação com `your-api-key` (linha 99)
 - ✅ `CLI_BADGE_PATCH_SUMMARY.md` — Documentação
 - ✅ `test_phase*.py` — Arquivos de teste com mocks:
@@ -55,11 +56,13 @@ paths = [
 **⚠️ DESCOBERTA:** Arquivo `Torre/torre-llm/evals/redteam/seeds.json` contém `sk-LEAK` (linha 2) mas **NÃO está na allowlist**.
 
 **Análise:**
+
 - O arquivo `seeds.json` é um arquivo de teste para red team testing
 - Contém `OPENAI_API_KEY=sk-LEAK` que é claramente um mock de teste
 - Este arquivo deveria estar na allowlist ou o padrão `sk-LEAK` deveria estar na allowlist de commits
 
 **Recomendação CRÍTICA:**
+
 - Adicionar `Torre/torre-llm/evals/redteam/seeds.json` à allowlist de paths OU
 - Adicionar `sk-LEAK` à allowlist de commits
 
@@ -74,6 +77,7 @@ commits = [
 ```
 
 **Cobertura Verificada:**
+
 - ✅ `sk-1234567890.*` — Cobre todos os mocks começando com `sk-1234567890`
 - ✅ `your-api-key` — Placeholder em documentação
 - ✅ `secret123` — String de exemplo
@@ -95,6 +99,7 @@ entropy = 3.5
 ```
 
 **Validação:**
+
 - ✅ Entropia aumentada para reduzir falsos positivos
 - ✅ Regras customizadas definidas adequadamente
 - ✅ Tags apropriadas
@@ -108,6 +113,7 @@ entropy = 3.5
 **Localização:** `.github/workflows/fabrica-ci.yml` linhas 99-111
 
 **Configuração:**
+
 ```yaml
 - name: Run Gitleaks
   uses: gitleaks/gitleaks-action@v2
@@ -119,6 +125,7 @@ entropy = 3.5
 ```
 
 **Validação:**
+
 - ✅ `config-path: .gitleaks.toml` — Usa configuração customizada
 - ✅ `exit-code: 1` — Falha adequadamente se detectar segredos
 - ✅ `verbose: true` — Debug habilitado para diagnóstico
@@ -131,6 +138,7 @@ entropy = 3.5
 ### 3. ✅ `.gitignore` — Verificação de Segurança VALIDADA
 
 **Configuração:**
+
 ```
 .env
 .env.local
@@ -140,6 +148,7 @@ entropy = 3.5
 ```
 
 **Validação:**
+
 - ✅ `.env` está no `.gitignore`
 - ✅ Variantes de `.env` estão no `.gitignore`
 - ✅ Nenhum arquivo `.env` real encontrado no repositório
@@ -153,15 +162,18 @@ entropy = 3.5
 ### Padrão `sk-LEAK` — CORRIGIDO
 
 **Problema Identificado:**
+
 - Arquivo `Torre/torre-llm/evals/redteam/seeds.json` contém `sk-LEAK` (linha 2)
 - Este padrão não estava na allowlist de commits
 - Este arquivo não estava na allowlist de paths
 
 **Correção Aplicada pelo SOP:**
+
 1. ✅ Adicionado `Torre/torre-llm/evals/redteam/seeds.json` à allowlist de paths
 2. ✅ Adicionado `sk-LEAK` à allowlist de commits (cobertura dupla)
 
 **Configuração Atualizada:**
+
 ```toml
 paths = [
   # ... existing paths ...
@@ -199,21 +211,27 @@ commits = [
 ## ⚖️ CONFORMIDADE CONSTITUCIONAL
 
 ### ART-04 (Verificabilidade)
+
 ✅ **CONFORME**
+
 - Configuração do Gitleaks é rastreável (`.gitleaks.toml`)
 - Workflow usa configuração adequada
 - Allowlist explícita e verificável
 - ✅ Correção para padrão `sk-LEAK` aplicada
 
 ### ART-07 (Transparência)
+
 ✅ **CONFORME**
+
 - Configuração transparente e documentada
 - Falha reconhecida e corrigida
 - Correções aplicadas com clareza
 - Descoberta adicional reportada e corrigida
 
 ### ART-09 (Evidência)
+
 ✅ **CONFORME**
+
 - Evidências de configuração são citadas
 - Falsos positivos serão adequadamente ignorados
 - Apenas segredos reais serão detectados
@@ -225,17 +243,20 @@ commits = [
 **Status Geral:** ✅ **CONFIGURAÇÃO COMPLETA** — Todas as correções aplicadas
 
 **Problemas Identificados e Corrigidos:**
+
 - ✅ Configuração principal validada
 - ✅ 6/6 falsos positivos cobertos
 - ✅ Padrão adicional (`sk-LEAK`) descoberto e corrigido
 
 **Correções Aplicadas pelo SOP:**
+
 - ✅ Adicionado `Torre/torre-llm/evals/redteam/seeds.json` à allowlist de paths
 - ✅ Adicionado `sk-LEAK` à allowlist de commits
 
 **Conformidade Constitucional:** ✅ **CONFORME** (ART-04, ART-07, ART-09)
 
 **Próximos Passos:**
+
 1. ✅ Correção aplicada pelo SOP
 2. ✅ Configuração validada completamente
 3. ⏭️ Estado-Maior autorizar execução do workflow para validação final
@@ -243,6 +264,7 @@ commits = [
 ---
 
 **Artefactos Citados:**
+
 - `.gitleaks.toml` (validado e corrigido)
 - `.github/workflows/fabrica-ci.yml` (validado)
 - `.gitignore` (validado)
@@ -257,4 +279,3 @@ commits = [
 ---
 
 **COMANDO A EXECUTAR:** "ESTADO-MAIOR AUTORIZAR EXECUÇÃO DO WORKFLOW PARA VALIDAÇÃO FINAL E CONFIRMAR QUE APENAS SEGREDOS REAIS SÃO DETECTADOS."
-

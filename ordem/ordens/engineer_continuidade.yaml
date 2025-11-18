@@ -26,10 +26,9 @@
       description: "Preparar inputs do Gatekeeper"
     - id: "step-6-autoexec-log"
       type: "command"
-      command: "mkdir -p relatorios && echo '# Autoexec Log - FÁBRICA 2.0' > relatorios/autoexec_log.md && echo '' >> relatorios/autoexec_log.md && echo '## Log de Autoexecução' >> relatorios/autoexec_log.md && echo '' >> relatorios/autoexec_log.md && echo '- **ART-05**: Sistema não auto-reprogramável, execuções rastreáveis' >> relatorios/autoexec_log.md && echo '- **ART-10**: Continuidade operacional preservada' >> relatorios/autoexec_log.md && echo '' >> relatorios/autoexec_log.md && echo '## Entradas' >> relatorios/autoexec_log.md && echo '' >> relatorios/autoexec_log.md && echo \"| Data | Agente | Gate | Status | Ação |\" >> relatorios/autoexec_log.md && echo \"|------|--------|------|--------|------|\" >> relatorios/autoexec_log.md && date_str=$(date '+%Y-%m-%d %H:%M:%S') && echo \"| $date_str | ENGENHEIRO | G2 | CORRIGINDO | Instalação dependências e criação log |\" >> relatorios/autoexec_log.md"
+      command: 'mkdir -p relatorios && echo ''# Autoexec Log - FÁBRICA 2.0'' > relatorios/autoexec_log.md && echo '''' >> relatorios/autoexec_log.md && echo ''## Log de Autoexecução'' >> relatorios/autoexec_log.md && echo '''' >> relatorios/autoexec_log.md && echo ''- **ART-05**: Sistema não auto-reprogramável, execuções rastreáveis'' >> relatorios/autoexec_log.md && echo ''- **ART-10**: Continuidade operacional preservada'' >> relatorios/autoexec_log.md && echo '''' >> relatorios/autoexec_log.md && echo ''## Entradas'' >> relatorios/autoexec_log.md && echo '''' >> relatorios/autoexec_log.md && echo "| Data | Agente | Gate | Status | Ação |" >> relatorios/autoexec_log.md && echo "|------|--------|------|--------|------|" >> relatorios/autoexec_log.md && date_str=$(date ''+%Y-%m-%d %H:%M:%S'') && echo "| $date_str | ENGENHEIRO | G2 | CORRIGINDO | Instalação dependências e criação log |" >> relatorios/autoexec_log.md'
       description: "Criar log de autoexecução conforme ART-05 e ART-10"
     - id: "step-7-gatekeeper-run"
       type: "command"
       command: "cd core/orquestrador && python3 cli.py gatekeeper_run 2>&1 || echo 'Gatekeeper executado com warnings'"
       description: "Executar Gatekeeper diretamente"
-

@@ -12,6 +12,7 @@ cd torre-llm
 ```
 
 **Este comando faz tudo automaticamente:**
+
 - ✅ Instala o Ollama
 - ✅ Baixa o modelo Qwen2.5-7B
 - ✅ Cria o alias "torre"
@@ -21,6 +22,7 @@ cd torre-llm
 ### 📋 **Configuração Manual**
 
 #### **Opção 1: Ollama**
+
 ```bash
 # 1. Instalar Ollama
 curl -fsSL https://ollama.com/install.sh | sh
@@ -36,6 +38,7 @@ cd torre-llm
 ```
 
 #### **Opção 2: LM Studio**
+
 ```bash
 # 1. Instalar LM Studio em https://lmstudio.ai
 # 2. Start Server (Developer → Local Server)
@@ -48,17 +51,20 @@ cd torre-llm
 ## 📁 **Arquivos Criados**
 
 ### **Scripts de Instalação:**
+
 - `install_and_setup_torre.sh` - Instalação automática
 - `setup_ollama_torre.sh` - Configuração Ollama
 - `Modelfile` - Configuração do modelo
 
 ### **Documentação:**
+
 - `README_CURSOR_SETUP.md` - Guia principal
 - `PATCH_CURSOR_TORRE.md` - Documentação completa
 - `CURSOR_CONFIG_QUICK.md` - Configuração rápida
 - `cursor_custom_model_example.json` - Exemplo de configuração
 
 ### **Originais (da pasta):**
+
 - `PATCH_CURSOR_TORRE_ORIGINAL.md`
 - `CURSOR_CONFIG_QUICK_ORIGINAL.md`
 

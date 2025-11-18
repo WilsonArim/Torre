@@ -5,13 +5,17 @@ Sistema para copiar pipelines/projetos da FÁBRICA, herdando Tríade de Fundamen
 ## Requisitos
 
 ### Validação Obrigatória (ART-02)
+
 Antes de replicar, o sistema valida que a Tríade de Fundamentação existe:
+
 - ✅ White Paper (Estratégia)
 - ✅ Arquitetura (Estrutura)
 - ✅ Base Operacional (Execução)
 
 ### Herança Obrigatória (ART-06)
+
 Projetos replicados herdam automaticamente:
+
 - Constituição (`core/sop/constituição.yaml`)
 - Leis (`core/sop/leis.yaml`)
 - Exceções (`core/sop/exceptions.yaml`)
@@ -24,6 +28,7 @@ python3 core/replicacao/replicar.py <nome_projeto> <destino>
 ```
 
 ### Exemplo
+
 ```bash
 python3 core/replicacao/replicar.py meu_projeto ../meu_projeto
 ```
@@ -31,6 +36,7 @@ python3 core/replicacao/replicar.py meu_projeto ../meu_projeto
 ## Metadados (ART-07)
 
 Cada projeto replicado inclui `replicacao_metadados.json` com:
+
 - Nome do projeto
 - Timestamp da replicação
 - Agente que executou

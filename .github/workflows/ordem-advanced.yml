@@ -4,6 +4,8 @@ on:
     - cron: "0 3 * * *" # todos os dias às 03:00 UTC
   workflow_dispatch: {} # permite correr manualmente via botão
 
+permissions:
+  contents: read
 jobs:
   deep-audit:
     runs-on: ubuntu-latest

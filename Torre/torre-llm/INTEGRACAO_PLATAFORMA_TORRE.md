@@ -11,6 +11,7 @@
 ## 🎯 Ferramentas Validadas para Integração
 
 ### **1. Pipeline de Correção Automática (11 Ferramentas)**
+
 - ✅ **TypeScript CodeFix** (tsserver)
 - ✅ **ESLint/Biome** (linting automático)
 - ✅ **Semgrep** (segurança + autofix)
@@ -24,12 +25,14 @@
 - ✅ **Infer/Pysa** (análise avançada)
 
 ### **2. Sistema de Métricas**
+
 - ✅ **Coleta automática** de métricas
 - ✅ **Prometheus exporter** para monitoramento
 - ✅ **Dashboard Grafana** provisionado
 - ✅ **Relatórios** de eficácia
 
 ### **3. Integração CLI**
+
 - ✅ **Patch para llm/cli.py** (execução automática)
 - ✅ **Comandos Makefile** organizados
 - ✅ **Workflow** pré-LLM e pós-LLM
@@ -39,6 +42,7 @@
 ## 📁 Arquivos para Integração
 
 ### **Estrutura Completa:**
+
 ```
 torre-llm/
 ├── tools/
@@ -88,6 +92,7 @@ torre-llm/
 ### **1. Instalação Automática**
 
 #### **Dependências Node.js:**
+
 ```json
 {
   "devDependencies": {
@@ -108,17 +113,20 @@ torre-llm/
 ```
 
 #### **Dependências Python:**
+
 ```bash
 pip install semgrep schemathesis hypothesis pytest pynguin
 ```
 
 #### **Ferramentas Externas:**
+
 - **Docker** (para stack de métricas)
 - **Git** (para controle de versão)
 
 ### **2. Configuração Automática**
 
 #### **Setup Script:**
+
 ```bash
 #!/bin/bash
 # setup_torre_pipeline.sh
@@ -171,6 +179,7 @@ echo "✅ Pipeline configurado com sucesso!"
 ```
 
 #### **Interface de Configuração:**
+
 ```typescript
 interface TorreConfig {
   // Pipeline de correção
@@ -184,14 +193,14 @@ interface TorreConfig {
       apr: boolean;
     };
   };
-  
+
   // Métricas
   metrics: {
     enabled: boolean;
     dashboard: boolean;
     prometheus: boolean;
   };
-  
+
   // Integração LLM
   llm: {
     preCorrection: boolean;
@@ -206,18 +215,21 @@ interface TorreConfig {
 ## 📊 Sistema de Métricas Integrado
 
 ### **1. Coleta Automática**
+
 - **Antes/depois** de cada correção
 - **Métricas por ferramenta**
 - **Performance** da pipeline
 - **Eficácia** geral
 
 ### **2. Dashboard Integrado**
+
 - **Gráficos em tempo real**
 - **Tendências** de correção
 - **Alertas** de performance
 - **Relatórios** automáticos
 
 ### **3. APIs de Métricas**
+
 ```typescript
 // API para a plataforma
 interface MetricsAPI {
@@ -233,22 +245,26 @@ interface MetricsAPI {
 ## 🎯 Benefícios de Mercado
 
 ### **1. Diferenciação Competitiva**
+
 - **Cursor**: Não tem correção automática avançada
 - **Copilot**: Não prova eficácia
 - **Torre**: **Única** com correção comprovada
 
 ### **2. Valor Agregado Quantificado**
+
 - **96%+** de correção automática
 - **Redução de 70%** no tempo de debugging
 - **ROI comprovado** em 2 semanas
 
 ### **3. Posicionamento de Mercado**
+
 ```
-"Torre: A única plataforma que PROVA 
+"Torre: A única plataforma que PROVA
 que corrige erros automaticamente"
 ```
 
 ### **4. Preços Premium Justificados**
+
 - **Dados concretos** de eficácia
 - **ROI demonstrado** para clientes
 - **Vantagem técnica** sustentável
@@ -258,24 +274,28 @@ que corrige erros automaticamente"
 ## 🚀 Roadmap de Implementação
 
 ### **Fase 1: Integração Básica (1-2 semanas)**
+
 - [ ] Copiar arquivos para plataforma
 - [ ] Configurar dependências
 - [ ] Integrar comandos básicos
 - [ ] Testar funcionalidade
 
 ### **Fase 2: Interface de Usuário (2-3 semanas)**
+
 - [ ] Criar interface de configuração
 - [ ] Implementar instalação automática
 - [ ] Adicionar dashboard básico
 - [ ] Integrar com LLM existente
 
 ### **Fase 3: Métricas Avançadas (1-2 semanas)**
+
 - [ ] Configurar Prometheus/Grafana
 - [ ] Implementar APIs de métricas
 - [ ] Criar relatórios automáticos
 - [ ] Adicionar alertas
 
 ### **Fase 4: Otimização (1 semana)**
+
 - [ ] Ajustar performance
 - [ ] Otimizar configurações
 - [ ] Testes de carga
@@ -286,6 +306,7 @@ que corrige erros automaticamente"
 ## 📋 Checklist de Integração
 
 ### **Técnico:**
+
 - [ ] Copiar todos os arquivos listados
 - [ ] Configurar dependências (Node.js + Python)
 - [ ] Aplicar patch CLI
@@ -293,12 +314,14 @@ que corrige erros automaticamente"
 - [ ] Testar pipeline completa
 
 ### **Interface:**
+
 - [ ] Criar tela de configuração
 - [ ] Implementar instalação automática
 - [ ] Adicionar dashboard de métricas
 - [ ] Integrar com fluxo existente
 
 ### **Mercado:**
+
 - [ ] Atualizar posicionamento
 - [ ] Preparar materiais de venda
 - [ ] Treinar equipe de vendas
@@ -309,18 +332,21 @@ que corrige erros automaticamente"
 ## 🎯 Resultado Esperado
 
 ### **Para Usuários:**
+
 - **Correção automática** de 96%+ dos erros
 - **Dashboard** de produtividade em tempo real
 - **Redução significativa** no tempo de debugging
 - **Experiência única** no mercado
 
 ### **Para Torre:**
+
 - **Diferenciação** competitiva sustentável
 - **Preços premium** justificados
 - **Crescimento** de market share
 - **Valor de mercado** aumentado
 
 ### **Para o Mercado:**
+
 - **Nova categoria** de ferramentas
 - **Padrão** de correção automática
 - **Evolução** do desenvolvimento de software

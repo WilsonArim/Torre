@@ -1,8 +1,8 @@
 // Cliente para métricas de Memória Episódica
 export type MemoryMetrics = {
-  repeat_error_rate: number;   // %
+  repeat_error_rate: number; // %
   rules_promoted: number;
-  rules_hit_rate: number;      // %
+  rules_hit_rate: number; // %
   avoidance_saves: number;
 };
 
@@ -34,7 +34,8 @@ async function req<T>(path: string, init?: RequestInit): Promise<T> {
   } catch {
     data = text;
   }
-  if (!res.ok) throw new Error((data && (data.detail || data.message)) || res.statusText);
+  if (!res.ok)
+    throw new Error((data && (data.detail || data.message)) || res.statusText);
   return data as T;
 }
 

@@ -2,9 +2,9 @@
 version: "1.0"
 role: "executor_do_action_md"
 allowed_blocks:
-  - "file"     # cria/substitui ficheiros
-  - "append"   # acrescenta conteúdo
-  - "diff"     # aplica/guarda diffs unificados
+  - "file" # cria/substitui ficheiros
+  - "append" # acrescenta conteúdo
+  - "diff" # aplica/guarda diffs unificados
 denied_paths_contains:
   - ".env"
   - ".ssh"

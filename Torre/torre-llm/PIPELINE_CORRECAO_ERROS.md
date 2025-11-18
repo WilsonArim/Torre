@@ -13,6 +13,7 @@ make pre-llm     # = tsserver CodeFix → ESLint/Biome → Semgrep → ts-morph 
 ```
 
 **O que faz:**
+
 - **TypeScript CodeFix**: Aplica correções automáticas do tsserver (TS2304, TS2307, etc.)
 - **ESLint + Biome**: Corrige problemas de estilo e qualidade
 - **Semgrep**: Aplica regras de segurança e boas práticas
@@ -26,6 +27,7 @@ make apr         # tenta aplicar templates e valida com testes/build
 ```
 
 **O que faz:**
+
 - **Getafix-lite**: Analisa `.fortaleza/memory/episodes.jsonl` e extrai padrões de correção
 - **SapFix-style APR**: Aplica templates baseados em histórico e valida com testes
 
@@ -37,6 +39,7 @@ make testgen     # Hypothesis skeleton; opcional Pynguin/fast-check
 ```
 
 **O que faz:**
+
 - **Schemathesis**: Fuzz testing de APIs FastAPI/OpenAPI
 - **Test-gen**: Gera property tests com Hypothesis (Python) e fast-check (TS)
 
@@ -48,6 +51,7 @@ make static-advanced # Infer (nativo) + Pysa (taint Python)
 ```
 
 **O que faz:**
+
 - **Stryker**: Mutation testing para validar qualidade dos testes
 - **Infer**: Análise estática avançada (Facebook)
 - **Pysa**: Análise de taint para Python
@@ -92,18 +96,22 @@ tools/
 ## 🛠️ Configurações
 
 ### ESLint (v9+)
+
 - `eslint.config.js`: Configuração moderna com TypeScript
 - Regras: `@typescript-eslint`, `import/order`
 
 ### Biome
+
 - `biome.json`: Formatação e linting rápido
 - Compatível com ESLint
 
 ### TypeScript
+
 - `tsconfig.json`: Configuração base
 - Suporte a JSX, ES2021, strict mode
 
 ### Stryker
+
 - `stryker.conf.json`: Mutation testing
 - Integração com Jest
 
@@ -123,16 +131,19 @@ make pre-llm
 ## 📊 Métricas e Resultados
 
 ### Fixers Determinísticos
+
 - **TypeScript CodeFix**: Corrige TS2304, TS2307, TS2322, TS2552
 - **ESLint**: 45+ problemas detectados no projeto
 - **Biome**: Formatação automática
 - **Semgrep**: Regras de segurança (quando instalado)
 
 ### APR e Mineração
+
 - **Getafix-lite**: 0 padrões (sem episódios ainda)
 - **SapFix-style**: Validação com testes/build
 
 ### Fuzz e Testes
+
 - **Schemathesis**: API testing (quando OpenAPI disponível)
 - **Test-gen**: Property tests automáticos
 
@@ -174,13 +185,16 @@ make fix-all
 ## 🔧 Customização
 
 ### Adicionar Regras Semgrep
+
 Edite `tools/semgrep/ts-react.yml` ou `tools/semgrep/python-fastapi.yml`
 
 ### Adicionar Codemods
+
 1. Crie função em `tools/codemods/tsmods.ts`
 2. Registre em `tools/codemods/registry.json`
 
 ### Configurar APIs
+
 ```bash
 export OPENAPI_URL="http://localhost:8000/openapi.json"
 export PY_MODULE="app.utils"

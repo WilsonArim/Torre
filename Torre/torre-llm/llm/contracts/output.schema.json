@@ -14,8 +14,8 @@
       "additionalProperties": true,
       "properties": {
         "ttg_ms": { "type": "number" },
-        "execution_rerank": { "type": ["object","null"] },
-        "strategos": { "type": ["object","null"] },
+        "execution_rerank": { "type": ["object", "null"] },
+        "strategos": { "type": ["object", "null"] },
         "cost": {
           "type": "object",
           "properties": {
@@ -23,11 +23,11 @@
             "tokens_out": { "type": "number" },
             "usd_est": { "type": "number" }
           },
-          "required": ["tokens_in","tokens_out"]
+          "required": ["tokens_in", "tokens_out"]
         }
       }
     },
-    "report": { "type": ["object","null"] }
+    "report": { "type": ["object", "null"] }
   },
   "required": ["trace_id"]
 }

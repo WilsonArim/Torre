@@ -1,5 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { getMemoryMetrics, promoteMemoryRules, type MemoryResponse } from "../../api/memory";
+import {
+  getMemoryMetrics,
+  promoteMemoryRules,
+  type MemoryResponse,
+} from "../../api/memory";
 
 export default function MemoryPanel() {
   const [data, setData] = useState<MemoryResponse | null>(null);
@@ -56,7 +60,9 @@ export default function MemoryPanel() {
   return (
     <div className="space-y-3" id="ls-memory">
       <div className="flex items-center gap-2">
-        <strong className="text-xs uppercase tracking-wide opacity-70">Memória</strong>
+        <strong className="text-xs uppercase tracking-wide opacity-70">
+          Memória
+        </strong>
         <div className="flex-1" />
         <button
           onClick={refresh}
@@ -81,18 +87,34 @@ export default function MemoryPanel() {
         <div className="text-rose-600 dark:text-rose-300 text-xs">{error}</div>
       ) : null}
       {notice ? (
-        <div className="text-emerald-600 dark:text-emerald-300 text-xs">{notice}</div>
+        <div className="text-emerald-600 dark:text-emerald-300 text-xs">
+          {notice}
+        </div>
       ) : null}
 
       <div className="grid grid-cols-2 gap-2">
-        <MetricCard label="Repeat error rate" value={metrics ? `${metrics.repeat_error_rate}%` : "—"} />
-        <MetricCard label="Rules promoted" value={metrics ? String(metrics.rules_promoted) : "—"} />
-        <MetricCard label="Rules hit rate" value={metrics ? `${metrics.rules_hit_rate}%` : "—"} />
-        <MetricCard label="Avoidance saves" value={metrics ? String(metrics.avoidance_saves) : "—"} />
+        <MetricCard
+          label="Repeat error rate"
+          value={metrics ? `${metrics.repeat_error_rate}%` : "—"}
+        />
+        <MetricCard
+          label="Rules promoted"
+          value={metrics ? String(metrics.rules_promoted) : "—"}
+        />
+        <MetricCard
+          label="Rules hit rate"
+          value={metrics ? `${metrics.rules_hit_rate}%` : "—"}
+        />
+        <MetricCard
+          label="Avoidance saves"
+          value={metrics ? String(metrics.avoidance_saves) : "—"}
+        />
       </div>
 
       <div>
-        <div className="mb-1 text-xs uppercase tracking-wide opacity-70">Regras (read-only)</div>
+        <div className="mb-1 text-xs uppercase tracking-wide opacity-70">
+          Regras (read-only)
+        </div>
         {rules.length === 0 ? (
           <div className="text-sm opacity-70">Sem regras promovidas ainda.</div>
         ) : (
@@ -114,7 +136,9 @@ export default function MemoryPanel() {
                     <Td className="font-mono text-[12px]">{r.key}</Td>
                     <Td>{(r.confidence ?? 0).toFixed(2)}</Td>
                     <Td>{r.hits ?? 0}</Td>
-                    <Td className={r.regressions ? "text-rose-600" : ""}>{r.regressions ?? 0}</Td>
+                    <Td className={r.regressions ? "text-rose-600" : ""}>
+                      {r.regressions ?? 0}
+                    </Td>
                     <Td>{r.policy || "apply_priors"}</Td>
                     <Td className="text-[12px] opacity-70">{r.created_at}</Td>
                   </tr>
@@ -138,8 +162,18 @@ function MetricCard({ label, value }: { label: string; value: string }) {
 }
 
 function Th({ children }: { children: React.ReactNode }) {
-  return <th className="text-left px-2 py-1 text-xs font-medium uppercase tracking-wide">{children}</th>;
+  return (
+    <th className="text-left px-2 py-1 text-xs font-medium uppercase tracking-wide">
+      {children}
+    </th>
+  );
 }
-function Td({ children, className = "" }: { children: React.ReactNode; className?: string }) {
+function Td({
+  children,
+  className = "",
+}: {
+  children: React.ReactNode;
+  className?: string;
+}) {
   return <td className={`px-2 py-2 ${className}`}>{children}</td>;
 }

@@ -1,7 +1,7 @@
 name: PR Gate — Fortaleza LLM
 on:
   pull_request:
-    branches: [ main, master ]
+    branches: [main, master]
 jobs:
   gate:
     runs-on: ubuntu-latest

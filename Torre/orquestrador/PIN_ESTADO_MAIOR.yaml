@@ -27,7 +27,7 @@ modos:
       - "Planeamento estratégico"
       - "Geração de ordens"
       - "Revisão de relatórios"
-  
+
   pipeline:
     ativacao:
       condicao: "engenheiro_concluiu_tarefa"

@@ -27,7 +27,26 @@ import subprocess
 import sys
 from datetime import datetime
 from pathlib import Path
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List, Optional, Sequence
+
+
+def _run_bash_command(command: str | Sequence[str], timeout: int) -> subprocess.CompletedProcess[str]:
+    """
+    Executa comando sem usar shell=True (evita vulnerabilidades B602).
+    Aceita string (executada via bash -lc) ou sequência de argumentos.
+    """
+    if isinstance(command, (list, tuple)):
+        cmd_list = [str(arg) for arg in command]
+    else:
+        cmd_list = ["bash", "-lc", command]
+
+    return subprocess.run(
+        cmd_list,
+        cwd=str(REPO_ROOT),
+        capture_output=True,
+        text=True,
+        timeout=timeout,
+    )
 
 try:
     import yaml  # type: ignore
@@ -221,12 +240,8 @@ def execute_step(step: Dict[str, Any]) -> Dict[str, Any]:
             
             # CORREÇÃO: Usar shell=True mas garantir que cwd é Path absoluto (suporta espaços)
             # O cwd já é REPO_ROOT que é Path absoluto, então está correto
-            proc = subprocess.run(
+            proc = _run_bash_command(
                 cmd,
-                shell=True,
-                cwd=str(REPO_ROOT.absolute()),  # Garantir caminho absoluto
-                capture_output=True,
-                text=True,
                 timeout=step.get("timeout", 300),
             )
             
@@ -250,12 +265,8 @@ def execute_step(step: Dict[str, Any]) -> Dict[str, Any]:
             # CORREÇÃO: Usar caminho absoluto entre aspas para suportar espaços
             makefile_dir = ORQUESTRADOR_DIR.absolute()
             cmd = f'make -C "{makefile_dir}" {target}'
-            proc = subprocess.run(
+            proc = _run_bash_command(
                 cmd,
-                shell=True,
-                cwd=str(REPO_ROOT.absolute()),  # Garantir caminho absoluto
-                capture_output=True,
-                text=True,
                 timeout=step.get("timeout", 300),
             )
             
@@ -282,12 +293,8 @@ def execute_step(step: Dict[str, Any]) -> Dict[str, Any]:
                 result["error"] = f"Tipo de validação desconhecido: {validation_type}"
                 return result
             
-            proc = subprocess.run(
+            proc = _run_bash_command(
                 cmd,
-                shell=True,
-                cwd=str(REPO_ROOT.absolute()),  # Garantir caminho absoluto
-                capture_output=True,
-                text=True,
                 timeout=step.get("timeout", 600),  # Validações podem demorar mais
             )
             

@@ -1,0 +1,574 @@
+{
+  "SchemaVersion": 2,
+  "CreatedAt": "2025-11-18T09:53:38.595144Z",
+  "ArtifactName": "../..",
+  "ArtifactType": "filesystem",
+  "Metadata": {
+    "RepoURL": "https://github.com/WilsonArim/Torre.git",
+    "Branch": "main",
+    "Commit": "637b8c892af83d360cabf04f650cefc3f7d558dc",
+    "CommitMsg": "Ajustar validação SOP: dispensar White Paper próprio para projetos Torre (ART-02)\n\n- Adicionar função is_torre_project() para detectar projetos Torre\n- Ajustar validate_triade_fundamentacao() para dispensar White Paper próprio para Torre\n- Torre herda a Tríade de Fundamentação da FÁBRICA (decisão Estado-Maior)\n- Torre ainda valida Arquitetura e Base Operacional\n- Projetos não-Torre continuam exigindo White Paper próprio\n\nCorreção aplicada:\n- Torre não precisa de White Paper próprio (herda da FÁBRICA)\n- Validação ajustada conforme decisão do Estado-Maior\n- Exceção documentada no código\n\nRef: relatorios/para_estado_maior/analise_falhas_workflow_sop_validacao_sop.md",
+    "Author": "Wilson Arim \u003cwilsonarim@MacBook-Pro-de-Wilson.local\u003e",
+    "Committer": "Wilson Arim \u003cwilsonarim@MacBook-Pro-de-Wilson.local\u003e"
+  },
+  "Results": [
+    {
+      "Target": ".vercel/output/static/Torre/torre-llm/metrics/exporter/requirements.txt",
+      "Class": "lang-pkgs",
+      "Type": "pip",
+      "Packages": [
+        {
+          "Name": "prometheus-client",
+          "Identifier": {
+            "PURL": "pkg:pypi/prometheus-client@0.20.0",
+            "UID": "a5b812e581dde03c"
+          },
+          "Version": "0.20.0",
+          "Locations": [
+            {
+              "StartLine": 1,
+              "EndLine": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Target": ".vercel/output/static/package-lock.json",
+      "Class": "lang-pkgs",
+      "Type": "npm",
+      "Packages": [
+        {
+          "ID": "@sentry/node@7.120.4",
+          "Name": "@sentry/node",
+          "Identifier": {
+            "PURL": "pkg:npm/%40sentry/node@7.120.4",
+            "UID": "1b5c5cb3eccbb314"
+          },
+          "Version": "7.120.4",
+          "Relationship": "direct",
+          "DependsOn": [
+            "@sentry-internal/tracing@7.120.4",
+            "@sentry/core@7.120.4",
+            "@sentry/integrations@7.120.4",
+            "@sentry/types@7.120.4",
+            "@sentry/utils@7.120.4"
+          ],
+          "Locations": [
+            {
+              "StartLine": 199,
+              "EndLine": 214
+            }
+          ]
+        },
+        {
+          "ID": "@sentry-internal/tracing@7.120.4",
+          "Name": "@sentry-internal/tracing",
+          "Identifier": {
+            "PURL": "pkg:npm/%40sentry-internal/tracing@7.120.4",
+            "UID": "5a9a638beae05a8f"
+          },
+          "Version": "7.120.4",
+          "Indirect": true,
+          "Relationship": "indirect",
+          "DependsOn": [
+            "@sentry/core@7.120.4",
+            "@sentry/types@7.120.4",
+            "@sentry/utils@7.120.4"
+          ],
+          "Locations": [
+            {
+              "StartLine": 157,
+              "EndLine": 170
+            }
+          ]
+        },
+        {
+          "ID": "@sentry/core@7.120.4",
+          "Name": "@sentry/core",
+          "Identifier": {
+            "PURL": "pkg:npm/%40sentry/core@7.120.4",
+            "UID": "ab11d81aa31874ae"
+          },
+          "Version": "7.120.4",
+          "Indirect": true,
+          "Relationship": "indirect",
+          "DependsOn": [
+            "@sentry/types@7.120.4",
+            "@sentry/utils@7.120.4"
+          ],
+          "Locations": [
+            {
+              "StartLine": 171,
+              "EndLine": 183
+            }
+          ]
+        },
+        {
+          "ID": "@sentry/integrations@7.120.4",
+          "Name": "@sentry/integrations",
+          "Identifier": {
+            "PURL": "pkg:npm/%40sentry/integrations@7.120.4",
+            "UID": "aab86817eb73e898"
+          },
+          "Version": "7.120.4",
+          "Indirect": true,
+          "Relationship": "indirect",
+          "DependsOn": [
+            "@sentry/core@7.120.4",
+            "@sentry/types@7.120.4",
+            "@sentry/utils@7.120.4",
+            "localforage@1.10.0"
+          ],
+          "Locations": [
+            {
+              "StartLine": 184,
+              "EndLine": 198
+            }
+          ]
+        },
+        {
+          "ID": "@sentry/types@7.120.4",
+          "Name": "@sentry/types",
+          "Identifier": {
+            "PURL": "pkg:npm/%40sentry/types@7.120.4",
+            "UID": "14a1a54fa16fa822"
+          },
+          "Version": "7.120.4",
+          "Indirect": true,
+          "Relationship": "indirect",
+          "Locations": [
+            {
+              "StartLine": 215,
+              "EndLine": 223
+            }
+          ]
+        },
+        {
+          "ID": "@sentry/utils@7.120.4",
+          "Name": "@sentry/utils",
+          "Identifier": {
+            "PURL": "pkg:npm/%40sentry/utils@7.120.4",
+            "UID": "74a0b78eafc35968"
+          },
+          "Version": "7.120.4",
+          "Indirect": true,
+          "Relationship": "indirect",
+          "DependsOn": [
+            "@sentry/types@7.120.4"
+          ],
+          "Locations": [
+            {
+              "StartLine": 224,
+              "EndLine": 235
+            }
+          ]
+        },
+        {
+          "ID": "immediate@3.0.6",
+          "Name": "immediate",
+          "Identifier": {
+            "PURL": "pkg:npm/immediate@3.0.6",
+            "UID": "81903e140bc5e5bf"
+          },
+          "Version": "3.0.6",
+          "Indirect": true,
+          "Relationship": "indirect",
+          "Locations": [
+            {
+              "StartLine": 773,
+              "EndLine": 778
+            }
+          ]
+        },
+        {
+          "ID": "lie@3.1.1",
+          "Name": "lie",
+          "Identifier": {
+            "PURL": "pkg:npm/lie@3.1.1",
+            "UID": "5fa748dce12d9bc0"
+          },
+          "Version": "3.1.1",
+          "Indirect": true,
+          "Relationship": "indirect",
+          "DependsOn": [
+            "immediate@3.0.6"
+          ],
+          "Locations": [
+            {
+              "StartLine": 923,
+              "EndLine": 931
+            }
+          ]
+        },
+        {
+          "ID": "localforage@1.10.0",
+          "Name": "localforage",
+          "Identifier": {
+            "PURL": "pkg:npm/localforage@1.10.0",
+            "UID": "78db9eab1c24f443"
+          },
+          "Version": "1.10.0",
+          "Indirect": true,
+          "Relationship": "indirect",
+          "DependsOn": [
+            "lie@3.1.1"
+          ],
+          "Locations": [
+            {
+              "StartLine": 932,
+              "EndLine": 940
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Target": "Torre/torre-llm/metrics/exporter/requirements.txt",
+      "Class": "lang-pkgs",
+      "Type": "pip",
+      "Packages": [
+        {
+          "Name": "prometheus-client",
+          "Identifier": {
+            "PURL": "pkg:pypi/prometheus-client@0.20.0",
+            "UID": "577b2364b2100925"
+          },
+          "Version": "0.20.0",
+          "Locations": [
+            {
+              "StartLine": 1,
+              "EndLine": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Target": "package-lock.json",
+      "Class": "lang-pkgs",
+      "Type": "npm",
+      "Packages": [
+        {
+          "ID": "@sentry/node@7.120.4",
+          "Name": "@sentry/node",
+          "Identifier": {
+            "PURL": "pkg:npm/%40sentry/node@7.120.4",
+            "UID": "6b40e312786a420"
+          },
+          "Version": "7.120.4",
+          "Licenses": [
+            "MIT"
+          ],
+          "Relationship": "direct",
+          "DependsOn": [
+            "@sentry-internal/tracing@7.120.4",
+            "@sentry/core@7.120.4",
+            "@sentry/integrations@7.120.4",
+            "@sentry/types@7.120.4",
+            "@sentry/utils@7.120.4"
+          ],
+          "Locations": [
+            {
+              "StartLine": 199,
+              "EndLine": 214
+            }
+          ]
+        },
+        {
+          "ID": "@sentry-internal/tracing@7.120.4",
+          "Name": "@sentry-internal/tracing",
+          "Identifier": {
+            "PURL": "pkg:npm/%40sentry-internal/tracing@7.120.4",
+            "UID": "8c540aae33dfc3b0"
+          },
+          "Version": "7.120.4",
+          "Licenses": [
+            "MIT"
+          ],
+          "Indirect": true,
+          "Relationship": "indirect",
+          "DependsOn": [
+            "@sentry/core@7.120.4",
+            "@sentry/types@7.120.4",
+            "@sentry/utils@7.120.4"
+          ],
+          "Locations": [
+            {
+              "StartLine": 157,
+              "EndLine": 170
+            }
+          ]
+        },
+        {
+          "ID": "@sentry/core@7.120.4",
+          "Name": "@sentry/core",
+          "Identifier": {
+            "PURL": "pkg:npm/%40sentry/core@7.120.4",
+            "UID": "f6890ca84b2000bf"
+          },
+          "Version": "7.120.4",
+          "Licenses": [
+            "MIT"
+          ],
+          "Indirect": true,
+          "Relationship": "indirect",
+          "DependsOn": [
+            "@sentry/types@7.120.4",
+            "@sentry/utils@7.120.4"
+          ],
+          "Locations": [
+            {
+              "StartLine": 171,
+              "EndLine": 183
+            }
+          ]
+        },
+        {
+          "ID": "@sentry/integrations@7.120.4",
+          "Name": "@sentry/integrations",
+          "Identifier": {
+            "PURL": "pkg:npm/%40sentry/integrations@7.120.4",
+            "UID": "b49ab822f790d30"
+          },
+          "Version": "7.120.4",
+          "Licenses": [
+            "MIT"
+          ],
+          "Indirect": true,
+          "Relationship": "indirect",
+          "DependsOn": [
+            "@sentry/core@7.120.4",
+            "@sentry/types@7.120.4",
+            "@sentry/utils@7.120.4",
+            "localforage@1.10.0"
+          ],
+          "Locations": [
+            {
+              "StartLine": 184,
+              "EndLine": 198
+            }
+          ]
+        },
+        {
+          "ID": "@sentry/types@7.120.4",
+          "Name": "@sentry/types",
+          "Identifier": {
+            "PURL": "pkg:npm/%40sentry/types@7.120.4",
+            "UID": "54161f50e3e68704"
+          },
+          "Version": "7.120.4",
+          "Licenses": [
+            "MIT"
+          ],
+          "Indirect": true,
+          "Relationship": "indirect",
+          "Locations": [
+            {
+              "StartLine": 215,
+              "EndLine": 223
+            }
+          ]
+        },
+        {
+          "ID": "@sentry/utils@7.120.4",
+          "Name": "@sentry/utils",
+          "Identifier": {
+            "PURL": "pkg:npm/%40sentry/utils@7.120.4",
+            "UID": "449912b69ada7644"
+          },
+          "Version": "7.120.4",
+          "Licenses": [
+            "MIT"
+          ],
+          "Indirect": true,
+          "Relationship": "indirect",
+          "DependsOn": [
+            "@sentry/types@7.120.4"
+          ],
+          "Locations": [
+            {
+              "StartLine": 224,
+              "EndLine": 235
+            }
+          ]
+        },
+        {
+          "ID": "immediate@3.0.6",
+          "Name": "immediate",
+          "Identifier": {
+            "PURL": "pkg:npm/immediate@3.0.6",
+            "UID": "4b2d2d094e9e1f3c"
+          },
+          "Version": "3.0.6",
+          "Licenses": [
+            "MIT"
+          ],
+          "Indirect": true,
+          "Relationship": "indirect",
+          "Locations": [
+            {
+              "StartLine": 773,
+              "EndLine": 778
+            }
+          ]
+        },
+        {
+          "ID": "lie@3.1.1",
+          "Name": "lie",
+          "Identifier": {
+            "PURL": "pkg:npm/lie@3.1.1",
+            "UID": "982a2a6ba54f7427"
+          },
+          "Version": "3.1.1",
+          "Licenses": [
+            "MIT"
+          ],
+          "Indirect": true,
+          "Relationship": "indirect",
+          "DependsOn": [
+            "immediate@3.0.6"
+          ],
+          "Locations": [
+            {
+              "StartLine": 923,
+              "EndLine": 931
+            }
+          ]
+        },
+        {
+          "ID": "localforage@1.10.0",
+          "Name": "localforage",
+          "Identifier": {
+            "PURL": "pkg:npm/localforage@1.10.0",
+            "UID": "f6bc4f991a66202"
+          },
+          "Version": "1.10.0",
+          "Licenses": [
+            "Apache-2.0"
+          ],
+          "Indirect": true,
+          "Relationship": "indirect",
+          "DependsOn": [
+            "lie@3.1.1"
+          ],
+          "Locations": [
+            {
+              "StartLine": 932,
+              "EndLine": 940
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Target": ".vercel/.env.development.local",
+      "Class": "secret",
+      "Secrets": [
+        {
+          "RuleID": "jwt-token",
+          "Category": "JWT",
+          "Severity": "MEDIUM",
+          "Title": "JWT token",
+          "StartLine": 2,
+          "EndLine": 2,
+          "Code": {
+            "Lines": [
+              {
+                "Number": 1,
+                "Content": "# Created by Vercel CLI",
+                "IsCause": false,
+                "Annotation": "",
+                "Truncated": false,
+                "Highlighted": "# Created by Vercel CLI",
+                "FirstCause": false,
+                "LastCause": false
+              },
+              {
+                "Number": 2,
+                "Content": "VERCEL_OIDC_TOKEN=\"**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************\"",
+                "IsCause": true,
+                "Annotation": "",
+                "Truncated": false,
+                "Highlighted": "VERCEL_OIDC_TOKEN=\"**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************\"",
+                "FirstCause": true,
+                "LastCause": true
+              },
+              {
+                "Number": 3,
+                "Content": "",
+                "IsCause": false,
+                "Annotation": "",
+                "Truncated": false,
+                "FirstCause": false,
+                "LastCause": false
+              }
+            ]
+          },
+          "Match": "VERCEL_OIDC_TOKEN=\"**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************\"",
+          "Offset": 43
+        }
+      ]
+    },
+    {
+      "Target": ".vercel/.env.production.local",
+      "Class": "secret",
+      "Secrets": [
+        {
+          "RuleID": "jwt-token",
+          "Category": "JWT",
+          "Severity": "MEDIUM",
+          "Title": "JWT token",
+          "StartLine": 20,
+          "EndLine": 20,
+          "Code": {
+            "Lines": [
+              {
+                "Number": 18,
+                "Content": "VERCEL_GIT_REPO_OWNER=\"\"",
+                "IsCause": false,
+                "Annotation": "",
+                "Truncated": false,
+                "Highlighted": "VERCEL_GIT_REPO_OWNER=\"\"",
+                "FirstCause": false,
+                "LastCause": false
+              },
+              {
+                "Number": 19,
+                "Content": "VERCEL_GIT_REPO_SLUG=\"\"",
+                "IsCause": false,
+                "Annotation": "",
+                "Truncated": false,
+                "Highlighted": "VERCEL_GIT_REPO_SLUG=\"\"",
+                "FirstCause": false,
+                "LastCause": false
+              },
+              {
+                "Number": 20,
+                "Content": "VERCEL_OIDC_TOKEN=\"**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************\"",
+                "IsCause": true,
+                "Annotation": "",
+                "Truncated": false,
+                "Highlighted": "VERCEL_OIDC_TOKEN=\"**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************\"",
+                "FirstCause": true,
+                "LastCause": true
+              },
+              {
+                "Number": 21,
+                "Content": "VERCEL_TARGET_ENV=\"production\"",
+                "IsCause": false,
+                "Annotation": "",
+                "Truncated": false,
+                "Highlighted": "VERCEL_TARGET_ENV=\"production\"",
+                "FirstCause": false,
+                "LastCause": false
+              }
+            ]
+          },
+          "Match": "VERCEL_OIDC_TOKEN=\"**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************\"",
+          "Offset": 503
+        }
+      ]
+    }
+  ]
+}

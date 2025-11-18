@@ -1,4 +1,6 @@
 {
   "logs": { "types": "TS2307: Cannot find module './App.module.css'" },
-  "files": { "src/App.tsx": "import s from './App.module.css'; export default () => <div className={s.x}/>" }
+  "files": {
+    "src/App.tsx": "import s from './App.module.css'; export default () => <div className={s.x}/>"
+  }
 }

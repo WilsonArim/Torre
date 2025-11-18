@@ -3,7 +3,7 @@
   "mutate": ["src/**/*.ts?(x)"],
   "testRunner": "jest",
   "coverageAnalysis": "off",
-  "reporters": ["html","clear-text","progress"],
+  "reporters": ["html", "clear-text", "progress"],
   "tsconfigFile": "tsconfig.json",
   "jest": { "projectType": "custom", "configFile": "jest.config.js" }
 }

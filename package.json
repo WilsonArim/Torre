@@ -6,7 +6,7 @@
     "gatekeeper:eslint": "npx eslint .",
     "gatekeeper:prettier": "npx prettier -c .",
     "gatekeeper:semgrep": "semgrep --config auto",
-    "gatekeeper:gitleaks": "gitleaks detect --no-git -c ordem/.gitleaks.toml",
+    "gatekeeper:gitleaks": "gitleaks detect --no-git -c .gitleaks.toml",
     "gatekeeper:npm-audit": "npm audit --audit-level=high",
     "gatekeeper:pip-audit": "~/.local/bin/pip-audit -r requirements.txt",
     "gatekeeper:sentry": "grep -Riq 'sentry' . && grep -q 'SENTRY_DSN' env.example",

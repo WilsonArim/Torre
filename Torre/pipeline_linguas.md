@@ -13,7 +13,7 @@ Após completar a `pipeline.md` (Fases 1-18) e a LLM estar funcionando a 100%, i
 ```
 🎯 LINGUAGENS PRIORITÁRIAS:
 1. Python (AI/ML, backend) - 3 fases
-2. Java (enterprise, Android) - 4 fases  
+2. Java (enterprise, Android) - 4 fases
 3. C# (.NET, Unity) - 3 fases
 4. C++ (performance, games) - 4 fases
 5. Go (cloud, microservices) - 2 fases
@@ -58,7 +58,7 @@ Fase 26: Universal Debugging
 ```
 🎯 FASES UNIVERSALES (19-26):
 Fase 19: Multi-language LearningSystem
-Fase 20: Universal Codemod Engine  
+Fase 20: Universal Codemod Engine
 Fase 21: Cross-language Strategos
 Fase 22: Language-specific Forensics
 Fase 23: Universal Reranker
@@ -110,7 +110,7 @@ Fases 27-45: Linguagens específicas
 
 ⏱️ DURAÇÃO ESTIMADA:
 - Fases restantes atuais: ~5 sessões
-- Fases universais: ~8 sessões  
+- Fases universais: ~8 sessões
 - Fases linguagens: ~19 sessões
 - TOTAL: ~32 sessões adicionais
 ```

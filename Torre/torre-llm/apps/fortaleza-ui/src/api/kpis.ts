@@ -7,7 +7,9 @@ export type KpiBadge = {
   latency_ms_p95?: number | null;
 };
 
-const BASE = (import.meta as any).env?.VITE_API_BASE || "/";
+const BASE =
+  (import.meta as { env?: { VITE_API_BASE?: string } }).env?.VITE_API_BASE ||
+  "/";
 
 export async function getKpiBadge(): Promise<KpiBadge> {
   const r = await fetch(`${BASE}kpis/badge`);

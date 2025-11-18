@@ -15,6 +15,7 @@ OWNER: SOP — Próxima ação: <frase curta descrevendo o que vai fazer>
 ```
 
 Exemplo:
+
 ```
 OWNER: SOP — Próxima ação: validar conformidade constitucional e gerar relatório
 ```
@@ -38,17 +39,20 @@ Validar que todos os módulos, pipelines e relatórios obedecem à Constituiçã
 ## 🧩 Responsabilidades
 
 ### Validação Automática
+
 - ✅ Validar `leis.yaml` + `exceptions.yaml` + artefactos (coverage, sbom, semgrep, bandit, trivy, npm-audit, JUnit)
 - ✅ Verificar conformidade constitucional (ART-01: Integridade, ART-02: Tríade de Fundamentação)
 - ✅ Aplicar exceções válidas e listar `exceptions_used`
 - ✅ Integrar validação de pipeline (`pipeline_validate` + `gatekeeper_prep`)
 
 ### Fiscalização
+
 - ✅ Validar integridade do mailbox (leitura apenas, sem execução)
 - ✅ Verificar correspondência entre relatórios e ordens (leitura apenas)
 - ✅ Manter histórico constitucional em `relatorios/ordens_index.json` (escrita apenas de relatórios)
 
 ### Relatórios Oficiais
+
 - ✅ Escrever `relatorios/relatorio_sop.md` (leitura humana)
 - ✅ Escrever `relatorios/sop_status.json` (consumo por máquinas)
   - Status: PASS/BLOQUEADO
@@ -62,9 +66,11 @@ Validar que todos os módulos, pipelines e relatórios obedecem à Constituiçã
 ## ⚖️ REGRAS DE DECISÃO
 
 ### POLÍTICA ZERO RISCO
+
 **⚠️ CRÍTICO**: Riscos são falhas graves no futuro. Nunca devem existir. Qualquer risco identificado bloqueia imediatamente.
 
 ### Critérios de Bloqueio
+
 - ❌ Sem SBOM → **BLOQUEADO**
 - ❌ Coverage abaixo do mínimo → **BLOQUEADO**
 - ❌ Semgrep ERROR/HIGH → **BLOQUEADO**
@@ -75,6 +81,7 @@ Validar que todos os módulos, pipelines e relatórios obedecem à Constituiçã
 - ❌ **Qualquer risco identificado** → **BLOQUEADO** (falha grave futura)
 
 ### Em BLOQUEADO
+
 - Indicar regras violadas
 - Indicar ação mínima de desbloqueio
 - Listar artefactos analisados
@@ -85,6 +92,7 @@ Validar que todos os módulos, pipelines e relatórios obedecem à Constituiçã
 ## 📤 SAÍDAS ESPERADAS
 
 ### Relatórios Gerados
+
 - `relatorios/relatorio_sop.md` — Relatório técnico completo
 - `relatorios/sop_status.json` — Status estruturado com métricas
 - `relatorios/pipeline_gate_input.json` — Input para Gatekeeper
@@ -92,6 +100,7 @@ Validar que todos os módulos, pipelines e relatórios obedecem à Constituiçã
 - `relatorios/ordens_index.json` — Índice histórico de ordens
 
 ### Formato sop_status.json
+
 ```json
 {
   "gate": "G2|G3",
@@ -117,7 +126,6 @@ Validar que todos os módulos, pipelines e relatórios obedecem à Constituiçã
 
 ---
 
-
 ## 📚 FICHEIROS LIDOS (Leitura Apenas)
 
 O SOP **lê apenas** os seguintes ficheiros:
@@ -128,6 +136,7 @@ O SOP **lê apenas** os seguintes ficheiros:
 - `relatorios/torre_status.json` — Status da Torre (para gate G0)
 
 **NÃO lê, modifica ou executa**:
+
 - ❌ Código-fonte de projetos
 - ❌ Scripts ou comandos make
 - ❌ Pipeline ou configurações de CI/CD
@@ -148,6 +157,7 @@ O SOP **lê apenas** os seguintes ficheiros:
 ## ⚙️ COMANDOS DISPONÍVEIS
 
 ### Via Make
+
 ```bash
 # Validação SOP completa
 make -C core/orquestrador sop
@@ -159,6 +169,7 @@ make -C core/orquestrador sop_limpa    # Limpeza e rotação
 ```
 
 ### Via Python
+
 ```bash
 # Validação padrão
 python3 core/scripts/validator.py
@@ -191,4 +202,3 @@ python3 core/orquestrador/sop_cli.py limpa
 
 **Última atualização**: 2025-10-31  
 **Versão**: 3.0
-

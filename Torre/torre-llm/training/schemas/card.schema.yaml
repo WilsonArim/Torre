@@ -2,7 +2,18 @@ version: 1
 type: "master_card"
 fields:
   name: "string"
-  domain_tags: ["logic","method","algorithms","architecture","types","concurrency","verification","security","operability"]
+  domain_tags:
+    [
+      "logic",
+      "method",
+      "algorithms",
+      "architecture",
+      "types",
+      "concurrency",
+      "verification",
+      "security",
+      "operability",
+    ]
   principles:
     - "enunciado curto e operacional (≤120 caracteres)"
   rules:

@@ -10,9 +10,11 @@
 ## 1. CATEGORIZAÇÃO DE FONTES
 
 ### 1.1 Código Fonte (Primário)
+
 **Localização**: `core/`, `pipeline/`, `tools/`, `.github/`
 
 #### Núcleo Operacional (`core/`)
+
 - **`core/orquestrador/cli.py`** (763 linhas)
   - Comandos: `init`, `sync`, `validate`, `report`
   - Pipeline: `gen_pipeline`, `validate_pipeline`, `toc`
@@ -53,6 +55,7 @@
   - **Uso**: Fluxos de build e validação
 
 #### Pipeline (`pipeline/`)
+
 - **`pipeline/superpipeline.yaml`** (42 linhas)
   - Estrutura de módulos (IDENTIDADE, DEVSECOPS, OBSERVABILIDADE, ALVORA, HORUS)
   - Capítulos (CAP-01, CAP-02, CAP-03)
@@ -76,6 +79,7 @@
   - **Uso**: Navegação e contexto
 
 #### Configuração (`tools/`, `.github/`)
+
 - **`tools/CODEOWNERS`**
   - Ownership de código
   - **Uso**: Contexto de responsabilidades
@@ -95,6 +99,7 @@
 ---
 
 ### 1.2 Documentação (Secundário)
+
 **Localização**: `docs/`
 
 - **`docs/MAPA_DA_FÁBRICA.md`** (62 linhas)
@@ -113,6 +118,7 @@
 ---
 
 ### 1.3 Relatórios e Artefactos (Terciário)
+
 **Localização**: `relatorios/`
 
 - **`relatorios/relatorio_sop.md`**
@@ -162,6 +168,7 @@
 ---
 
 ### 1.4 Templates e Schemas
+
 **Localização**: `core/templates/`
 
 - **`core/templates/github/ci.yml`, `release.yml`**
@@ -177,22 +184,26 @@
 ## 2. PROCESSAMENTO E CURAGÃO
 
 ### 2.1 Extração
+
 - **Código**: Parse direto (Python AST, YAML parser, JSON parser)
 - **Documentação**: Markdown parsing + extração de estrutura
 - **Relatórios**: Parse de formatos específicos (SARIF, JSON, Markdown)
 
 ### 2.2 Anonimização
+
 - **Paths absolutos**: Substituir por placeholders (`<REPO_ROOT>`, `<REL_DIR>`)
 - **Tokens/Keys**: Remover ou substituir por `<REDACTED>`
 - **Informações pessoais**: Remover nomes de desenvolvedores (se aplicável)
 - **Timestamps**: Normalizar para formato padrão ou relativizar
 
 ### 2.3 Enriquecimento
+
 - **Anotações**: Adicionar comentários explicativos em código complexo
 - **Metadados**: Adicionar tags (tipo, fase de treino, dificuldade)
 - **Casos de uso**: Associar cada fonte a casos de uso específicos
 
 ### 2.4 Validação
+
 - **Integridade**: Verificar que nenhuma informação crítica foi perdida
 - **Conformidade**: Validar que datasets seguem ART-07 (transparência)
 - **Aprovação**: Estado-Maior aprova todos os datasets antes do treino
@@ -204,12 +215,14 @@
 ### 3.1 Dataset por Fase
 
 #### Fase 0: Fundação
+
 - `datasets/fase0/constitucao.yaml` (constituição completa)
 - `datasets/fase0/leis.yaml` (leis e políticas)
 - `datasets/fase0/estrutura.md` (MAPA_DA_FÁBRICA)
 - `datasets/fase0/casos_edge.yaml` (casos de violação para treino)
 
 #### Fase 1: Compreensão
+
 - `datasets/fase1/codigo/` (código anotado)
   - `cli.py.annotated`
   - `validator.py.annotated`
@@ -218,22 +231,26 @@
 - `datasets/fase1/templates/` (templates e schemas)
 
 #### Fase 2: Validação
+
 - `datasets/fase2/projetos_validos/` (PASS)
 - `datasets/fase2/projetos_invalidos/` (BLOQUEADO)
 - `datasets/fase2/relatorios/` (relatórios históricos)
 - `datasets/fase2/excecoes/` (casos de exceção)
 
 #### Fase 3: Refatoração
+
 - `datasets/fase3/pares/` (antes/depois)
 - `datasets/fase3/violacoes/` (refatorações que violaram regras)
 - `datasets/fase3/melhorias/` (refatorações que melhoraram)
 
 #### Fase 4: Auditoria
+
 - `datasets/fase4/pipelines_validas/`
 - `datasets/fase4/pipelines_invalidas/`
 - `datasets/fase4/auditorias_historicas/`
 
 #### Fase 5: Integração
+
 - `datasets/fase5/interacoes/` (simulações de interação)
 - `datasets/fase5/checkpoints/` (logs de execução)
 - `datasets/fase5/aprovacoes_vetos/` (casos de decisão)
@@ -241,12 +258,15 @@
 ---
 
 ### 3.2 Versionamento
+
 Cada dataset versionado com:
+
 - **Hash SHA256**: Integridade
 - **Metadata**: Data, agente, fase, fonte original
 - **Validação**: Checksum e assinatura (se aplicável)
 
 Formato:
+
 ```yaml
 dataset:
   id: "fase0_constitucao_v1"
@@ -266,16 +286,19 @@ dataset:
 ## 4. MANUTENÇÃO CONTÍNUA
 
 ### 4.1 Atualização Automática
+
 - **Monitorização**: Detectar mudanças em fontes primárias
 - **Regeneração**: Re-gerar datasets quando código muda
 - **Validação**: Re-validar com Estado-Maior após mudanças
 
 ### 4.2 Expansão
+
 - **Novos módulos**: Adicionar automaticamente ao dataset Fase 1
 - **Novas violações**: Adicionar a datasets de treino (Fase 2)
 - **Feedback**: Incorporar feedback do Gatekeeper (Fase 5)
 
 ### 4.3 Purga
+
 - **Dados obsoletos**: Remover após 6 meses (manter histórico)
 - **Exceções expiradas**: Remover após expiração
 - **Relatórios antigos**: Arquivar após 1 ano
@@ -285,16 +308,19 @@ dataset:
 ## 5. COMPLIANCE E SEGURANÇA
 
 ### 5.1 Acesso
+
 - **Aprovadores**: Apenas Estado-Maior pode aprovar datasets
 - **Processadores**: Engenheiro da TORRE (com supervisão)
 - **Consumidores**: LLM-Engenheira (isolada)
 
 ### 5.2 Auditoria
+
 - **Logs**: Todas as operações em datasets são logadas
 - **Rastreabilidade**: Cada dataset rastreável até fonte original
 - **Verificabilidade**: Checksums e assinaturas (ART-09)
 
 ### 5.3 Confidencialidade
+
 - **Anonimização**: Dados sensíveis removidos/anonimizados
 - **Isolamento**: Datasets em ambiente isolado
 - **Backup**: Backups criptografados (ART-10: Continuidade)
@@ -310,6 +336,7 @@ dataset:
 - **Templates**: ~5 arquivos
 
 **Estimativa de datasets**:
+
 - Fase 0: ~500 exemplos
 - Fase 1: ~2000 exemplos
 - Fase 2: ~1000 exemplos
@@ -331,6 +358,7 @@ dataset:
 ---
 
 **Referências**:
+
 - `core/sop/constituição.yaml` - ART-04, ART-07, ART-09
 - `docs/MAPA_DA_FÁBRICA.md` - Estrutura do núcleo
 - `relatorios/` - Artefactos históricos
@@ -340,4 +368,3 @@ dataset:
 **Assinado**: Engenheiro da TORRE  
 **Data**: 2025-01-27  
 **Versão**: 1.0
-

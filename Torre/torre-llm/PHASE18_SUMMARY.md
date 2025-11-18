@@ -7,24 +7,28 @@ A **Fase 18** foi implementada com sucesso, fornecendo um sistema completo de **
 ## 🏗️ Componentes Implementados
 
 ### 1️⃣ **Golden Set** (`evals/golden/`)
+
 - **Runner**: `run_golden.py` - executa casos de teste com métricas
 - **Casos**: 3 casos de teste (TS2304, TS2307, FastAPI import)
 - **Gate**: Configurável via `GOLDEN_MIN_SR` (default: ≥95%)
 - **Output**: `.fortaleza/golden/golden-YYYYMMDD-HHMMSS.json`
 
 ### 2️⃣ **Red-Team** (`evals/redteam/`)
+
 - **Runner**: `run_redteam.py` - testa seeds de segurança
 - **Seeds**: 3 seeds (dotenv leak, path traversal, symlink)
 - **Gate**: Todos os seeds devem ser **negados** (0 diffs aplicáveis)
 - **Validação**: Secret scan, path validation, security violations
 
 ### 3️⃣ **Impact Analysis** (`tools/impact/`)
+
 - **Seletor**: `select_tests.py` - mapeia arquivos alterados → testes
 - **Heurística**: Prefixos por diretório (src/, llm/, evals/)
 - **Fallback**: Smoke test se nenhum mapeamento encontrado
 - **Output**: JSON array de testes selecionados
 
 ### 4️⃣ **PR Gate** (`.github/workflows/`)
+
 - **Workflow**: `pr-gate.yml` - CI/CD automatizado
 - **Timeout**: 25 minutos
 - **Steps**:
@@ -35,6 +39,7 @@ A **Fase 18** foi implementada com sucesso, fornecendo um sistema completo de **
   5. Golden Set (amostra) + Red-Team
 
 ### 5️⃣ **Memory Policy** (`MEMORY_POLICY.md`)
+
 - **Escopo**: Episódios, decisões, métricas (sem PII)
 - **Sanitização**: Emails, chaves, paths absolutos
 - **Retenção**: `.fortaleza/memory/` com rotação automática
@@ -43,18 +48,21 @@ A **Fase 18** foi implementada com sucesso, fornecendo um sistema completo de **
 ## 🎯 Resultados dos Testes
 
 ### ✅ **Golden Set**
+
 ```
 Success Rate: 100.0% (2/2 casos)
 Gate: ✅ PASSOU (≥95%)
 ```
 
 ### ✅ **Red-Team**
+
 ```
 Seeds Negados: 3/3 (100%)
 Gate: ✅ PASSOU (todos negados)
 ```
 
 ### ✅ **Impact Analysis**
+
 ```
 Input: ["llm/server.py", "evals/test_phase18_smoke.py"]
 Output: ["evals/test_phase*.py", "tests/test_fastapi_contract.py"]
@@ -63,6 +71,7 @@ Output: ["evals/test_phase*.py", "tests/test_fastapi_contract.py"]
 ## 🚀 Como Usar
 
 ### **Local (Desenvolvimento)**
+
 ```bash
 # Golden Set (amostra)
 python3 evals/golden/run_golden.py 3
@@ -78,6 +87,7 @@ python3 demo_phase18.py
 ```
 
 ### **CI/CD (Automatizado)**
+
 - **Trigger**: Pull Request para `main`/`master`
 - **Execução**: GitHub Actions workflow
 - **Gates**: Golden Set ≥95% + Red-Team 100% negado
@@ -86,6 +96,7 @@ python3 demo_phase18.py
 ## 🔧 Configuração
 
 ### **Variáveis de Ambiente**
+
 ```bash
 # Golden Set
 GOLDEN_MIN_SR=95          # Gate de sucesso (%)
@@ -106,17 +117,20 @@ FORTALEZA_API_KEY=test    # API key para testes
 ## 📊 Métricas e Monitoramento
 
 ### **Golden Set Metrics**
+
 - Success rate por execução
 - Duração por caso
 - Trace ID para rastreabilidade
 - Métricas de rerank e strategos
 
 ### **Red-Team Metrics**
+
 - Seeds negados vs. total
 - Violações de segurança detectadas
 - Diffs aplicáveis vs. esperado
 
 ### **Impact Analysis Metrics**
+
 - Testes selecionados por PR
 - Cobertura de mudanças
 - Tempo de execução otimizado
@@ -124,21 +138,25 @@ FORTALEZA_API_KEY=test    # API key para testes
 ## 🎉 Benefícios Alcançados
 
 ### **Qualidade**
+
 - ✅ **Golden Set** garante regressões não passem
 - ✅ **Impact Analysis** otimiza tempo de CI
 - ✅ **Gates configuráveis** para diferentes níveis
 
 ### **Segurança**
+
 - ✅ **Red-Team** previne vazamentos de segredos
 - ✅ **Path validation** bloqueia traversal attacks
 - ✅ **Secret scanning** integrado
 
 ### **Produtividade**
+
 - ✅ **Opt-in** não quebra fluxo existente
 - ✅ **Fast feedback** com impact analysis
 - ✅ **Configurável** para diferentes projetos
 
 ### **Auditoria**
+
 - ✅ **Memory Policy** formalizada
 - ✅ **Trace IDs** para rastreabilidade
 - ✅ **Métricas exportáveis** em JSON/CSV

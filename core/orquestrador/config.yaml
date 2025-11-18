@@ -1,11 +1,12 @@
 eventos:
-  - nome: "pre_push"      ; acoes: ["make precommit"]
-  - nome: "pr_opened"     ; acoes: ["make sop"]
-  - nome: "build_concluido"; acoes: ["make sop"]
+  - nome: "pre_push"
+    acoes: ["make precommit"]
+  - nome: "pr_opened"
+    acoes: ["make sop"]
+  - nome: "build_concluido"
+    acoes: ["make sop"]
 artefactos_saida:
   - "relatorios/relatorio_sop.md"
   - "relatorios/sop_status.json"
   - "relatorios/parecer_gatekeeper.md"
   - "relatorios/sbom.json"
-
-

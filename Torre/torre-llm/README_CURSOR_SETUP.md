@@ -19,6 +19,7 @@ cd torre-llm
 ```
 
 Este script irá:
+
 1. ✅ Instalar o Ollama automaticamente
 2. ✅ Baixar o modelo Qwen2.5-7B
 3. ✅ Criar o alias "torre"
@@ -30,11 +31,13 @@ Este script irá:
 ### **Opção 1: Ollama (Recomendado)**
 
 1. **Instale o Ollama:**
+
    ```bash
    curl -fsSL https://ollama.com/install.sh | sh
    ```
 
 2. **Configure a Torre:**
+
    ```bash
    cd torre-llm
    ./setup_ollama_torre.sh
@@ -76,6 +79,7 @@ Para instruções detalhadas, veja: `PATCH_CURSOR_TORRE.md`
 ## 🎯 **Resultado**
 
 Após a configuração, você terá:
+
 - ✅ Chat com a Torre LLM
 - ✅ Correção de código
 - ✅ Sugestões inteligentes

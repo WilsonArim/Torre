@@ -14,7 +14,7 @@ formato_interacoes:
   obrigatorio: true
   aplicavel_a: "TODAS as interações com Estado-Maior/usuário"
   inicio: "**PIPELINE/FORA_PIPELINE:** PIPELINE ou FORA_PIPELINE"
-  fim: "**COMANDO A EXECUTAR:** \"AGENTE AÇÃO (localização)\""
+  fim: '**COMANDO A EXECUTAR:** "AGENTE AÇÃO (localização)"'
   explicacao: >
     TODAS as respostas, comunicações e interações devem seguir este formato obrigatório.
     Não é apenas para relatórios salvos em ficheiros, mas sim para TODAS as interações.
@@ -23,9 +23,19 @@ who_acts:
   mode: declarative
   opening_line: "OWNER: ESTADO-MAIOR — Próxima ação:"
   routing_rules:
-    - trigger: ["cria", "planear", "brainstorm", "design", "arquitetar", "ordem", "order"]
+    - trigger:
+        [
+          "cria",
+          "planear",
+          "brainstorm",
+          "design",
+          "arquitetar",
+          "ordem",
+          "order",
+        ]
       actor: ESTADO-MAIOR
-    - trigger: ["executa", "run", "build", "test", "refatorar", "gerar", "aplicar"]
+    - trigger:
+        ["executa", "run", "build", "test", "refatorar", "gerar", "aplicar"]
       actor: ENGENHEIRO
     - trigger: ["gate", "parecer", "validar", "auditar"]
       actor: GATEKEEPER
@@ -42,7 +52,7 @@ salvaguarda_encerramento:
     path: relatorios/RELEASE_FINAL_SUPERPIPELINE.md
     uso: "Este template deve ser usado e preenchido apenas quando todos os itens constitucionais estiverem CITADOS e CHECKADOS."
 mailboxes:
-  orders_in:   "ordem/ordens/engineer.in.yaml"
+  orders_in: "ordem/ordens/engineer.in.yaml"
   reports_out: "relatorios/para_estado_maior/engineer.out.json"
   gk_orders_in: "ordem/ordens/gatekeeper.in.yaml"
   gk_reports_out: "relatorios/para_estado_maior/gatekeeper.out.json"
@@ -61,24 +71,24 @@ forbidden_actions:
   - auto-avançar gate sem relatório do agente responsável
 file_access_policy:
   read:
-    - "*"  # Pode ler qualquer ficheiro
+    - "*" # Pode ler qualquer ficheiro
   write:
-    - "relatorios/**/*.md"  # Relatórios Markdown
-    - "relatorios/**/*.yaml"  # Relatórios YAML
-    - "relatorios/**/*.json"  # Relatórios JSON
-    - "ordem/ordens/*.in.yaml"  # Ordens (mailbox)
+    - "relatorios/**/*.md" # Relatórios Markdown
+    - "relatorios/**/*.yaml" # Relatórios YAML
+    - "relatorios/**/*.json" # Relatórios JSON
+    - "ordem/ordens/*.in.yaml" # Ordens (mailbox)
   forbidden:
-    - "**/*.py"  # Código Python
-    - "**/*.js"  # Código JavaScript
-    - "**/*.ts"  # Código TypeScript
-    - "**/*.go"  # Código Go
-    - "**/*.rs"  # Código Rust
-    - "**/*.java"  # Código Java
-    - "**/*.cpp"  # Código C++
-    - "**/*.c"  # Código C
-    - "core/**"  # Exceto relatórios
-    - "pipeline/**"  # Exceto relatórios
-    - "factory/pins/*.yaml"  # PINs são imutáveis pelo Estado-Maior
+    - "**/*.py" # Código Python
+    - "**/*.js" # Código JavaScript
+    - "**/*.ts" # Código TypeScript
+    - "**/*.go" # Código Go
+    - "**/*.rs" # Código Rust
+    - "**/*.java" # Código Java
+    - "**/*.cpp" # Código C++
+    - "**/*.c" # Código C
+    - "core/**" # Exceto relatórios
+    - "pipeline/**" # Exceto relatórios
+    - "factory/pins/*.yaml" # PINs são imutáveis pelo Estado-Maior
   referencia: "core/sop/doutrina.yaml"
 pipeline_policy:
   outside_pipeline:

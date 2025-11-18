@@ -7,25 +7,30 @@ O sistema de métricas foi **implementado com sucesso** para medir a eficácia d
 ## 🚀 O que foi criado
 
 ### 1. **Wrapper de Métricas** ✅
+
 - `tools/fixer/metrics_wrapper.py` - Mede antes/depois de cada etapa
 - Coleta métricas de TypeScript CodeFix, ESLint, Semgrep e Codemods
 - Grava resultados em formato JSONL no arquivo `.metrics`
 
 ### 2. **Codemods com Métricas** ✅
+
 - `tools/codemods/tsmods.ts` - Reporta `edits_total` e `per_codemod`
 - Conta correções por tipo de codemod aplicado
 
 ### 3. **Análise de Métricas** ✅
+
 - `analyze_metrics.py` - Analisa métricas acumuladas
 - Gera relatórios com estatísticas e recomendações
 
 ### 4. **Comandos Makefile** ✅
+
 - `make pre-llm-metrics` - Executa pipeline com métricas
 - `make metrics-report` - Gera relatório de métricas
 
 ## 📊 Métricas Coletadas
 
 ### **Por Execução:**
+
 ```json
 {
   "ts": "2025-08-26T12:56:02.664922Z",
@@ -46,6 +51,7 @@ O sistema de métricas foi **implementado com sucesso** para medir a eficácia d
 ```
 
 ### **Métricas Coletadas:**
+
 - **Duração**: Tempo total da execução
 - **TypeScript CodeFix**: Correções aplicadas pelo tsserver
 - **ESLint**: Problemas resolvidos (erros + warnings)
@@ -56,16 +62,19 @@ O sistema de métricas foi **implementado com sucesso** para medir a eficácia d
 ## 🔧 Como Usar
 
 ### **Executar com Métricas:**
+
 ```bash
 make pre-llm-metrics
 ```
 
 ### **Ver Relatório:**
+
 ```bash
 make metrics-report
 ```
 
 ### **Ver Métricas Brutas:**
+
 ```bash
 tail -3 .metrics | jq .
 ```
@@ -96,20 +105,24 @@ tail -3 .metrics | jq .
 ## 🎯 Benefícios
 
 ### **1. Visibilidade Total**
+
 - **Antes**: Não sabíamos quantos erros cada ferramenta corrigia
 - **Agora**: Métricas precisas de cada etapa
 
 ### **2. Otimização Baseada em Dados**
+
 - Identifica ferramentas mais eficazes
 - Detecta gargalos de performance
 - Ajusta configurações baseado em dados reais
 
 ### **3. Relatórios para Stakeholders**
+
 - Demonstra eficácia da pipeline
 - Justifica investimento em ferramentas
 - Mostra ROI da correção automática
 
 ### **4. Aprendizado Contínuo**
+
 - Dados para melhorar codemods
 - Identifica padrões de erro recorrentes
 - Otimiza regras de Semgrep
@@ -117,6 +130,7 @@ tail -3 .metrics | jq .
 ## 🔄 Workflow de Métricas
 
 ### **1. Execução com Métricas**
+
 ```bash
 make pre-llm-metrics
 # → Executa pipeline + coleta métricas
@@ -124,6 +138,7 @@ make pre-llm-metrics
 ```
 
 ### **2. Análise Periódica**
+
 ```bash
 make metrics-report
 # → Analisa métricas acumuladas
@@ -131,6 +146,7 @@ make metrics-report
 ```
 
 ### **3. Otimização Baseada em Dados**
+
 - Ajusta configurações baseado em métricas
 - Adiciona novos codemods se necessário
 - Otimiza regras de Semgrep
@@ -138,13 +154,16 @@ make metrics-report
 ## 📁 Arquivos Criados
 
 ### **Scripts de Métricas:**
+
 - `tools/fixer/metrics_wrapper.py` - Coleta métricas
 - `analyze_metrics.py` - Análise e relatórios
 
 ### **Configurações:**
+
 - `.metrics` - Arquivo JSONL com métricas acumuladas
 
 ### **Comandos:**
+
 - `make pre-llm-metrics` - Pipeline com métricas
 - `make metrics-report` - Relatório de análise
 
@@ -162,5 +181,6 @@ O sistema de métricas está **funcionando perfeitamente** e fornece:
 ---
 
 **Comandos principais:**
+
 - `make pre-llm-metrics` - Executa com métricas
 - `make metrics-report` - Gera relatório

@@ -7,23 +7,27 @@ O **patch unificado** para `llm/cli.py` foi implementado com sucesso, adicionand
 ## 🏗️ Componentes Implementados
 
 ### 1️⃣ **Detecção de Modo Editor** (`_detect_editor_mode`)
+
 - **FORT_EDITOR=1**: Força detecção de modo editor
 - **context.ide**: Detecta "vscode" ou "cursor"
 - **meta.ide**: Detecta IDE no metadata
 - **source=editor**: Detecta origem do editor
 
 ### 2️⃣ **Extração de Badge** (`_extract_strategos_badge_payload`)
+
 - **report.plan**: Extrai `mode` e `attempts_to_green_est`
 - **metrics.strategos**: Fallback para métricas
 - **Valores padrão**: "ADVISORY" se não encontrado
 
 ### 3️⃣ **Publicação de Badge** (`_post_strategos_badge`)
+
 - **Timeout curto**: 1.8 segundos
 - **Falha silenciosa**: Não quebra a CLI
 - **Thread daemon**: Fire-and-forget
 - **API key**: Suporte opcional
 
 ### 4️⃣ **Integração Principal** (`_maybe_post_strategos_badge_from_cli`)
+
 - **Condições**: STRATEGOS_V2=1, FORT_BADGE≠0, modo editor
 - **Threading**: Não bloqueia a CLI
 - **Configuração**: FORTALEZA_API e FORTALEZA_API_KEY
@@ -31,6 +35,7 @@ O **patch unificado** para `llm/cli.py` foi implementado com sucesso, adicionand
 ## 🎯 Como Funciona
 
 ### **Fluxo de Execução**
+
 1. **CLI executa**: Processa request normalmente
 2. **Detecção**: Verifica se foi chamada pelo editor
 3. **Extração**: Coleta dados do badge do output
@@ -38,6 +43,7 @@ O **patch unificado** para `llm/cli.py` foi implementado com sucesso, adicionand
 5. **Continuidade**: CLI continua normalmente
 
 ### **Condições de Ativação**
+
 ```bash
 # Obrigatório
 STRATEGOS_V2=1
@@ -53,6 +59,7 @@ FORT_BADGE=0                     # Desliga publicação
 ```
 
 ### **Configuração**
+
 ```bash
 # API (obrigatório)
 FORTALEZA_API="http://localhost:8765"
@@ -64,12 +71,14 @@ FORTALEZA_API_KEY="your-api-key"
 ## 🧪 Testes Executados
 
 ### **Teste de Import**
+
 ```bash
 import llm.cli
 # ✅ CLI importada com sucesso
 ```
 
 ### **Teste de Detecção**
+
 ```bash
 # ✅ FORT_EDITOR=1 detectado
 # ✅ context.ide detectado
@@ -79,6 +88,7 @@ import llm.cli
 ```
 
 ### **Teste de Extração**
+
 ```bash
 # ✅ Badge extraído de report.plan
 # ✅ Badge extraído de metrics.strategos
@@ -86,6 +96,7 @@ import llm.cli
 ```
 
 ### **Teste de Execução**
+
 ```bash
 # ✅ CLI executou com sucesso
 # ✅ Métricas do Strategos presentes
@@ -94,18 +105,21 @@ import llm.cli
 ## 🔧 Características Técnicas
 
 ### **Segurança**
+
 - ✅ **Timeout curto**: 1.8 segundos máximo
 - ✅ **Falha silenciosa**: Não quebra a CLI
 - ✅ **Thread daemon**: Não impede shutdown
 - ✅ **Error handling**: Captura todas as exceções
 
 ### **Performance**
+
 - ✅ **Não bloqueante**: Thread separada
 - ✅ **Fire-and-forget**: Não aguarda resposta
 - ✅ **Timeout**: Evita travamentos
 - ✅ **Leve**: Mínimo overhead
 
 ### **Compatibilidade**
+
 - ✅ **Idempotente**: Não altera fluxo existente
 - ✅ **Opt-in**: Só ativa com variáveis específicas
 - ✅ **Opt-out**: FORT_BADGE=0 desliga
@@ -114,18 +128,21 @@ import llm.cli
 ## 🎉 Benefícios Alcançados
 
 ### **Integração Automática**
+
 - ✅ **Badge em tempo real**: Atualização automática
 - ✅ **Zero configuração**: Funciona por padrão
 - ✅ **Detecção inteligente**: Identifica editor automaticamente
 - ✅ **Não intrusivo**: Não afeta performance
 
 ### **Experiência do Usuário**
+
 - ✅ **Feedback visual**: Badge atualizado na UI
 - ✅ **Transparente**: Usuário não percebe
 - ✅ **Confiável**: Falha graciosamente
 - ✅ **Configurável**: Controle total via env vars
 
 ### **Desenvolvimento**
+
 - ✅ **Debugging**: Logs opcionais
 - ✅ **Testes**: Cobertura completa
 - ✅ **Documentação**: Instruções claras
@@ -134,6 +151,7 @@ import llm.cli
 ## 📈 Exemplo de Uso
 
 ### **Teste Manual**
+
 ```bash
 # 1) Suba o servidor
 python3 -m llm.server &
@@ -152,6 +170,7 @@ curl -s http://localhost:8765/strategos/badge | jq .
 ```
 
 ### **Saída Esperada**
+
 ```json
 {
   "mode": "PATCH",
@@ -163,34 +182,39 @@ curl -s http://localhost:8765/strategos/badge | jq .
 ## 🔗 Integração com Fases Anteriores
 
 ### **F13 (n-best)**
+
 - ✅ **ExecutionReranker**: Integração com pipeline
 - ✅ **Métricas**: Coleta de performance
 
 ### **F14 (Memory)**
+
 - ✅ **EpisodicMemory**: Contexto de erros
 - ✅ **Priors**: Aplicação automática
 
 ### **F15 (Strategos)**
+
 - ✅ **StrategosV2Graph**: Geração de planos
 - ✅ **Badge**: Atualização automática
 
 ### **F16 (Trace)**
+
 - ✅ **Trace ID**: Rastreabilidade
 - ✅ **Telemetria**: Métricas completas
 
 ### **F17 (Rollback)**
+
 - ✅ **Rate limiting**: Proteção contra spam
 - ✅ **API key**: Autenticação
 
 ## 📊 Variáveis de Ambiente
 
-| Variável | Padrão | Descrição |
-|----------|--------|-----------|
-| `STRATEGOS_V2` | `0` | Habilita Strategos v2 |
-| `FORT_EDITOR` | - | Força modo editor |
-| `FORT_BADGE` | `1` | Habilita publicação (0=desliga) |
-| `FORTALEZA_API` | `http://localhost:8765` | URL do servidor |
-| `FORTALEZA_API_KEY` | - | API key (produção) |
+| Variável            | Padrão                  | Descrição                       |
+| ------------------- | ----------------------- | ------------------------------- |
+| `STRATEGOS_V2`      | `0`                     | Habilita Strategos v2           |
+| `FORT_EDITOR`       | -                       | Força modo editor               |
+| `FORT_BADGE`        | `1`                     | Habilita publicação (0=desliga) |
+| `FORTALEZA_API`     | `http://localhost:8765` | URL do servidor                 |
+| `FORTALEZA_API_KEY` | -                       | API key (produção)              |
 
 ## 🎯 Próximos Passos
 

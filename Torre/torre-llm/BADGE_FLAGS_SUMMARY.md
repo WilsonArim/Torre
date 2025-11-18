@@ -7,12 +7,14 @@ Implementei com sucesso as **flags adicionais** para o sistema de badge do Strat
 ## 🏗️ Novas Flags Implementadas
 
 ### 1️⃣ **FORT_BADGE_ALWAYS=1**
+
 - **Função**: Força publicação do badge independente do editor
 - **Comportamento**: Ignora detecção de editor e STRATEGOS_V2
 - **Uso**: Debugging, testes, CI/CD
 - **Prioridade**: Respeita FORT_BADGE=0 (opt-out)
 
 ### 2️⃣ **FORT_BADGE_SYNC=1**
+
 - **Função**: Executa POST do badge de forma síncrona
 - **Comportamento**: Não cria thread, executa diretamente
 - **Uso**: Testes determinísticos, debugging
@@ -21,6 +23,7 @@ Implementei com sucesso as **flags adicionais** para o sistema de badge do Strat
 ## 🎯 Como Funciona
 
 ### **Hierarquia de Prioridades**
+
 ```bash
 # 1. Opt-out (maior prioridade)
 FORT_BADGE=0 → Desliga publicação (independente de outras flags)
@@ -39,6 +42,7 @@ FORT_BADGE_SYNC=0 → Assíncrono (com thread, default)
 ### **Exemplos de Uso**
 
 #### **Debugging/Testes**
+
 ```bash
 # Força publicação para qualquer request
 export FORT_BADGE_ALWAYS=1
@@ -47,6 +51,7 @@ echo '{"logs":{"types":"error"}}' | python3 -m llm.cli
 ```
 
 #### **CI/CD**
+
 ```bash
 # Publicação síncrona em pipeline
 export FORT_BADGE_ALWAYS=1
@@ -57,6 +62,7 @@ python3 -m llm.cli < request.json
 ```
 
 #### **Desenvolvimento**
+
 ```bash
 # Modo normal (editor detectado)
 export STRATEGOS_V2=1
@@ -67,15 +73,18 @@ echo '{"context":{"ide":"vscode"}}' | python3 -m llm.cli
 ## 🧪 Testes Implementados
 
 ### **Testes Pytest**
+
 - ✅ **`test_cli_badge_post.py`**: Valida FORT_BADGE_ALWAYS e opt-out
 - ✅ **`test_cli_badge_sync.py`**: Valida caminho síncrono
 - ✅ **Cobertura**: 3 testes passando
 
 ### **Testes Manuais**
+
 - ✅ **`test_badge_flags_manual.py`**: Validação end-to-end
 - ✅ **Cobertura**: 4 cenários testados
 
 ### **Resultados dos Testes**
+
 ```bash
 # Pytest
 PYTHONPATH=. pytest -q tests/test_cli_badge_*.py
@@ -91,18 +100,21 @@ PYTHONPATH=. python3 test_badge_flags_manual.py
 ## 🔧 Características Técnicas
 
 ### **Segurança**
+
 - ✅ **Opt-out respeitado**: FORT_BADGE=0 sempre desliga
 - ✅ **Timeout**: 1.8 segundos (mesmo valor)
 - ✅ **Falha silenciosa**: Não quebra a CLI
 - ✅ **Error handling**: Captura todas as exceções
 
 ### **Performance**
+
 - ✅ **Síncrono**: FORT_BADGE_SYNC=1 para testes
 - ✅ **Assíncrono**: Thread daemon para produção
 - ✅ **Leve**: Mínimo overhead
 - ✅ **Flexível**: Configuração por cenário
 
 ### **Compatibilidade**
+
 - ✅ **Backward compatible**: Não quebra comportamento existente
 - ✅ **Opt-in**: Novas flags são opcionais
 - ✅ **Hierárquico**: Prioridades bem definidas
@@ -110,31 +122,34 @@ PYTHONPATH=. python3 test_badge_flags_manual.py
 
 ## 📊 Variáveis de Ambiente (Completas)
 
-| Variável | Padrão | Descrição | Prioridade |
-|----------|--------|-----------|------------|
-| `FORT_BADGE` | `1` | Habilita publicação (0=desliga) | **1ª** |
-| `FORT_BADGE_ALWAYS` | - | Força publicação sempre | **2ª** |
-| `STRATEGOS_V2` | `0` | Habilita Strategos v2 | **3ª** |
-| `FORT_EDITOR` | - | Força modo editor | **3ª** |
-| `FORT_BADGE_SYNC` | - | Execução síncrona | **4ª** |
-| `FORTALEZA_API` | `http://localhost:8765` | URL do servidor | - |
-| `FORTALEZA_API_KEY` | - | API key (produção) | - |
+| Variável            | Padrão                  | Descrição                       | Prioridade |
+| ------------------- | ----------------------- | ------------------------------- | ---------- |
+| `FORT_BADGE`        | `1`                     | Habilita publicação (0=desliga) | **1ª**     |
+| `FORT_BADGE_ALWAYS` | -                       | Força publicação sempre         | **2ª**     |
+| `STRATEGOS_V2`      | `0`                     | Habilita Strategos v2           | **3ª**     |
+| `FORT_EDITOR`       | -                       | Força modo editor               | **3ª**     |
+| `FORT_BADGE_SYNC`   | -                       | Execução síncrona               | **4ª**     |
+| `FORTALEZA_API`     | `http://localhost:8765` | URL do servidor                 | -          |
+| `FORTALEZA_API_KEY` | -                       | API key (produção)              | -          |
 
 ## 🎉 Benefícios Alcançados
 
 ### **Flexibilidade**
+
 - ✅ **Debugging**: FORT_BADGE_ALWAYS para qualquer request
 - ✅ **Testes**: FORT_BADGE_SYNC para determinismo
 - ✅ **CI/CD**: Configuração específica para pipelines
 - ✅ **Desenvolvimento**: Modo normal preservado
 
 ### **Confiabilidade**
+
 - ✅ **Opt-out**: FORT_BADGE=0 sempre funciona
 - ✅ **Hierarquia**: Prioridades claras e previsíveis
 - ✅ **Fallback**: Comportamento original preservado
 - ✅ **Testes**: Cobertura completa
 
 ### **Usabilidade**
+
 - ✅ **Zero configuração**: Funciona por padrão
 - ✅ **Configurável**: Controle total via env vars
 - ✅ **Documentado**: Comportamento bem definido
@@ -143,6 +158,7 @@ PYTHONPATH=. python3 test_badge_flags_manual.py
 ## 📈 Exemplos de Uso Avançados
 
 ### **Pipeline CI/CD**
+
 ```bash
 #!/bin/bash
 # .github/workflows/badge-test.yml
@@ -161,6 +177,7 @@ curl -s "$FORTALEZA_API/strategos/badge" | jq .
 ```
 
 ### **Debugging Local**
+
 ```bash
 #!/bin/bash
 # debug_badge.sh
@@ -178,6 +195,7 @@ done
 ```
 
 ### **Desenvolvimento**
+
 ```bash
 #!/bin/bash
 # dev_badge.sh
@@ -197,22 +215,27 @@ echo '{
 ## 🔗 Integração com Fases Anteriores
 
 ### **F13 (n-best)**
+
 - ✅ **ExecutionReranker**: Integração mantida
 - ✅ **Métricas**: Coleta preservada
 
 ### **F14 (Memory)**
+
 - ✅ **EpisodicMemory**: Contexto mantido
 - ✅ **Priors**: Aplicação preservada
 
 ### **F15 (Strategos)**
+
 - ✅ **StrategosV2Graph**: Funcionalidade mantida
 - ✅ **Badge**: Sistema estendido
 
 ### **F16 (Trace)**
+
 - ✅ **Trace ID**: Rastreabilidade mantida
 - ✅ **Telemetria**: Métricas preservadas
 
 ### **F17 (Rollback)**
+
 - ✅ **Rate limiting**: Proteção mantida
 - ✅ **API key**: Autenticação preservada
 

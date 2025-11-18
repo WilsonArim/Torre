@@ -3,6 +3,7 @@
 ## Comandos Disponíveis
 
 ### Via Makefile
+
 ```bash
 make -C core/orquestrador engineer_executa   # Executa última ordem aberta
 make -C core/orquestrador engineer_status     # Mostra status atual
@@ -10,6 +11,7 @@ make -C core/orquestrador engineer_limpa       # Rotaciona relatórios antigos
 ```
 
 ### Via CLI Direto
+
 ```bash
 python3 core/orquestrador/engineer_cli.py executa
 python3 core/orquestrador/engineer_cli.py status
@@ -42,27 +44,29 @@ python3 core/orquestrador/engineer_cli.py limpa
 ## Tipos de Steps Suportados
 
 1. **`type: "command"`** — Executa comando shell genérico
+
    ```yaml
    - id: "step-name"
      type: "command"
      command: "echo 'Hello World'"
-     timeout: 300  # opcional, segundos
+     timeout: 300 # opcional, segundos
    ```
 
 2. **`type: "make"`** — Executa target do Makefile
+
    ```yaml
    - id: "step-name"
      type: "make"
      target: "sop"
-     timeout: 300  # opcional
+     timeout: 300 # opcional
    ```
 
 3. **`type: "validation"`** — Executa validação específica
    ```yaml
    - id: "step-name"
      type: "validation"
-     validation: "sop"  # ou "pipeline"
-     timeout: 300  # opcional
+     validation: "sop" # ou "pipeline"
+     timeout: 300 # opcional
    ```
 
 ## Relatórios Gerados
@@ -114,4 +118,3 @@ Relatórios são salvos em `relatorios/para_estado_maior/engineer.out.json` com 
 - ✅ **ART-09 (Evidência)**: Decisões baseadas em artefactos verificáveis
 - ✅ **ART-03 (Consciência Técnica)**: ENGENHEIRO executa apenas, não cria políticas
 - ✅ **ART-07 (Transparência)**: Relatórios incluem agente, data, objetivo e regras aplicadas
-

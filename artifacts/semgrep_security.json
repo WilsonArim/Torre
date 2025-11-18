@@ -1,1 +1,2068 @@
-{"version":"1.138.0","results":[{"check_id":"python.fastapi.security.wildcard-cors.wildcard-cors","path":"torre/torre-llm/api_server.py","start":{"line":68,"col":19,"offset":1550},"end":{"line":68,"col":24,"offset":1555},"extra":{"message":"CORS policy allows any origin (using wildcard '*'). This is insecure and should be avoided.","metadata":{"cwe":["CWE-942: Permissive Cross-domain Policy with Untrusted Domains"],"owasp":["A05:2021 - Security Misconfiguration"],"category":"security","technology":["python","fastapi"],"references":["https://owasp.org/Top10/A05_2021-Security_Misconfiguration","https://cwe.mitre.org/data/definitions/942.html"],"likelihood":"HIGH","impact":"LOW","confidence":"MEDIUM","vulnerability_class":["Configuration"],"subcategory":["vuln"],"license":"Semgrep Rules License v1.0. For more details, visit semgrep.dev/legal/rules-license","source":"https://semgrep.dev/r/python.fastapi.security.wildcard-cors.wildcard-cors","shortlink":"https://sg.run/KxApY"},"severity":"WARNING","fingerprint":"requires login","lines":"requires login","validation_state":"NO_VALIDATOR","engine_kind":"OSS"}},{"check_id":"python.django.security.injection.command.subprocess-injection.subprocess-injection","path":"torre/torre-llm/api_server.py","start":{"line":187,"col":22,"offset":5997},"end":{"line":194,"col":14,"offset":6259},"extra":{"message":"Detected user input entering a `subprocess` call unsafely. This could result in a command injection vulnerability. An attacker could use this vulnerability to execute arbitrary commands on the host, which allows them to download malware, scan sensitive data, or run any command they wish on the server. Do not let users choose the command to run. In general, prefer to use Python API versions of system commands. If you must use subprocess, use a dictionary to allowlist a set of commands.","metadata":{"category":"security","technology":["flask"],"owasp":["A01:2017 - Injection","A03:2021 - Injection"],"cwe":["CWE-78: Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection')"],"references":["https://semgrep.dev/docs/cheat-sheets/python-command-injection/"],"confidence":"HIGH","cwe2022-top25":true,"cwe2021-top25":true,"subcategory":["vuln"],"likelihood":"MEDIUM","impact":"HIGH","license":"Semgrep Rules License v1.0. For more details, visit semgrep.dev/legal/rules-license","vulnerability_class":["Command Injection"],"source":"https://semgrep.dev/r/python.django.security.injection.command.subprocess-injection.subprocess-injection","shortlink":"https://sg.run/49BE"},"severity":"ERROR","fingerprint":"requires login","lines":"requires login","validation_state":"NO_VALIDATOR","engine_kind":"OSS"}},{"check_id":"python.lang.security.audit.dynamic-urllib-use-detected.dynamic-urllib-use-detected","path":"torre/torre-llm/client.py","start":{"line":12,"col":14,"offset":378},"end":{"line":12,"col":46,"offset":410},"extra":{"message":"Detected a dynamic value being used with urllib. urllib supports 'file://' schemes, so a dynamic value controlled by a malicious actor may allow them to read arbitrary files. Audit uses of urllib calls to ensure user data cannot control the URLs, or consider using the 'requests' library instead.","metadata":{"cwe":["CWE-939: Improper Authorization in Handler for Custom URL Scheme"],"owasp":"A01:2017 - Injection","source-rule-url":"https://github.com/PyCQA/bandit/blob/b1411bfb43795d3ffd268bef17a839dee954c2b1/bandit/blacklists/calls.py#L163","bandit-code":"B310","asvs":{"control_id":"5.2.4 Dynamic Code Execution Features","control_url":"https://github.com/OWASP/ASVS/blob/master/4.0/en/0x13-V5-Validation-Sanitization-Encoding.md#v52-sanitization-and-sandboxing-requirements","section":"V5: Validation, Sanitization and Encoding Verification Requirements","version":"4"},"category":"security","technology":["python"],"references":["https://cwe.mitre.org/data/definitions/939.html"],"subcategory":["audit"],"likelihood":"LOW","impact":"LOW","confidence":"LOW","license":"Semgrep Rules License v1.0. For more details, visit semgrep.dev/legal/rules-license","vulnerability_class":["Improper Authorization"],"source":"https://semgrep.dev/r/python.lang.security.audit.dynamic-urllib-use-detected.dynamic-urllib-use-detected","shortlink":"https://sg.run/dKZZ"},"severity":"WARNING","fingerprint":"requires login","lines":"requires login","validation_state":"NO_VALIDATOR","engine_kind":"OSS"}},{"check_id":"python.lang.security.audit.dynamic-urllib-use-detected.dynamic-urllib-use-detected","path":"torre/torre-llm/client.py","start":{"line":28,"col":14,"offset":1037},"end":{"line":28,"col":46,"offset":1069},"extra":{"message":"Detected a dynamic value being used with urllib. urllib supports 'file://' schemes, so a dynamic value controlled by a malicious actor may allow them to read arbitrary files. Audit uses of urllib calls to ensure user data cannot control the URLs, or consider using the 'requests' library instead.","metadata":{"cwe":["CWE-939: Improper Authorization in Handler for Custom URL Scheme"],"owasp":"A01:2017 - Injection","source-rule-url":"https://github.com/PyCQA/bandit/blob/b1411bfb43795d3ffd268bef17a839dee954c2b1/bandit/blacklists/calls.py#L163","bandit-code":"B310","asvs":{"control_id":"5.2.4 Dynamic Code Execution Features","control_url":"https://github.com/OWASP/ASVS/blob/master/4.0/en/0x13-V5-Validation-Sanitization-Encoding.md#v52-sanitization-and-sandboxing-requirements","section":"V5: Validation, Sanitization and Encoding Verification Requirements","version":"4"},"category":"security","technology":["python"],"references":["https://cwe.mitre.org/data/definitions/939.html"],"subcategory":["audit"],"likelihood":"LOW","impact":"LOW","confidence":"LOW","license":"Semgrep Rules License v1.0. For more details, visit semgrep.dev/legal/rules-license","vulnerability_class":["Improper Authorization"],"source":"https://semgrep.dev/r/python.lang.security.audit.dynamic-urllib-use-detected.dynamic-urllib-use-detected","shortlink":"https://sg.run/dKZZ"},"severity":"WARNING","fingerprint":"requires login","lines":"requires login","validation_state":"NO_VALIDATOR","engine_kind":"OSS"}},{"check_id":"typescript.react.security.react-insecure-request.react-insecure-request","path":"torre/torre-llm/demo_fix_test.ts","start":{"line":24,"col":1,"offset":793},"end":{"line":24,"col":38,"offset":830},"extra":{"message":"Unencrypted request over HTTP detected.","metadata":{"vulnerability":"Insecure Transport","owasp":["A03:2017 - Sensitive Data Exposure","A02:2021 - Cryptographic Failures"],"cwe":["CWE-319: Cleartext Transmission of Sensitive Information"],"references":["https://www.npmjs.com/package/axios"],"category":"security","technology":["react"],"subcategory":["vuln"],"likelihood":"LOW","impact":"MEDIUM","confidence":"MEDIUM","license":"Semgrep Rules License v1.0. For more details, visit semgrep.dev/legal/rules-license","vulnerability_class":["Mishandled Sensitive Information"],"source":"https://semgrep.dev/r/typescript.react.security.react-insecure-request.react-insecure-request","shortlink":"https://sg.run/1n0b"},"severity":"ERROR","fingerprint":"requires login","lines":"requires login","validation_state":"NO_VALIDATOR","engine_kind":"OSS"}},{"check_id":"python.lang.security.audit.subprocess-shell-true.subprocess-shell-true","path":"torre/torre-llm/demo_phase18.py","start":{"line":23,"col":19,"offset":560},"end":{"line":23,"col":23,"offset":564},"extra":{"message":"Found 'subprocess' function 'run' with 'shell=True'. This is dangerous because this call will spawn the command using a shell process. Doing so propagates current shell settings and variables, which makes it much easier for a malicious actor to execute commands. Use 'shell=False' instead.","fix":"False","metadata":{"source-rule-url":"https://bandit.readthedocs.io/en/latest/plugins/b602_subprocess_popen_with_shell_equals_true.html","owasp":["A01:2017 - Injection","A03:2021 - Injection"],"cwe":["CWE-78: Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection')"],"references":["https://stackoverflow.com/questions/3172470/actual-meaning-of-shell-true-in-subprocess","https://docs.python.org/3/library/subprocess.html"],"category":"security","technology":["python"],"cwe2022-top25":true,"cwe2021-top25":true,"subcategory":["secure default"],"likelihood":"HIGH","impact":"LOW","confidence":"MEDIUM","license":"Semgrep Rules License v1.0. For more details, visit semgrep.dev/legal/rules-license","vulnerability_class":["Command Injection"],"source":"https://semgrep.dev/r/python.lang.security.audit.subprocess-shell-true.subprocess-shell-true","shortlink":"https://sg.run/J92w"},"severity":"ERROR","fingerprint":"requires login","lines":"requires login","validation_state":"NO_VALIDATOR","engine_kind":"OSS"}},{"check_id":"python.lang.security.deserialization.pickle.avoid-pickle","path":"torre/torre-llm/evals/cache_manager.py","start":{"line":39,"col":29,"offset":1285},"end":{"line":39,"col":43,"offset":1299},"extra":{"message":"Avoid using `pickle`, which is known to lead to code execution vulnerabilities. When unpickling, the serialized data could be manipulated to run arbitrary code. Instead, consider serializing the relevant data as JSON or a similar text-based serialization format.","metadata":{"owasp":["A08:2017 - Insecure Deserialization","A08:2021 - Software and Data Integrity Failures"],"cwe":["CWE-502: Deserialization of Untrusted Data"],"references":["https://docs.python.org/3/library/pickle.html"],"category":"security","technology":["python"],"cwe2022-top25":true,"cwe2021-top25":true,"subcategory":["audit"],"likelihood":"LOW","impact":"MEDIUM","confidence":"LOW","license":"Semgrep Rules License v1.0. For more details, visit semgrep.dev/legal/rules-license","vulnerability_class":["Insecure Deserialization "],"source":"https://semgrep.dev/r/python.lang.security.deserialization.pickle.avoid-pickle","shortlink":"https://sg.run/OPwB"},"severity":"WARNING","fingerprint":"requires login","lines":"requires login","validation_state":"NO_VALIDATOR","engine_kind":"OSS"}},{"check_id":"python.lang.security.deserialization.pickle.avoid-pickle","path":"torre/torre-llm/evals/cache_manager.py","start":{"line":64,"col":17,"offset":2236},"end":{"line":64,"col":38,"offset":2257},"extra":{"message":"Avoid using `pickle`, which is known to lead to code execution vulnerabilities. When unpickling, the serialized data could be manipulated to run arbitrary code. Instead, consider serializing the relevant data as JSON or a similar text-based serialization format.","metadata":{"owasp":["A08:2017 - Insecure Deserialization","A08:2021 - Software and Data Integrity Failures"],"cwe":["CWE-502: Deserialization of Untrusted Data"],"references":["https://docs.python.org/3/library/pickle.html"],"category":"security","technology":["python"],"cwe2022-top25":true,"cwe2021-top25":true,"subcategory":["audit"],"likelihood":"LOW","impact":"MEDIUM","confidence":"LOW","license":"Semgrep Rules License v1.0. For more details, visit semgrep.dev/legal/rules-license","vulnerability_class":["Insecure Deserialization "],"source":"https://semgrep.dev/r/python.lang.security.deserialization.pickle.avoid-pickle","shortlink":"https://sg.run/OPwB"},"severity":"WARNING","fingerprint":"requires login","lines":"requires login","validation_state":"NO_VALIDATOR","engine_kind":"OSS"}},{"check_id":"python.lang.security.audit.dynamic-urllib-use-detected.dynamic-urllib-use-detected","path":"torre/torre-llm/evals/fortaleza_api.py","start":{"line":8,"col":10,"offset":315},"end":{"line":8,"col":54,"offset":359},"extra":{"message":"Detected a dynamic value being used with urllib. urllib supports 'file://' schemes, so a dynamic value controlled by a malicious actor may allow them to read arbitrary files. Audit uses of urllib calls to ensure user data cannot control the URLs, or consider using the 'requests' library instead.","metadata":{"cwe":["CWE-939: Improper Authorization in Handler for Custom URL Scheme"],"owasp":"A01:2017 - Injection","source-rule-url":"https://github.com/PyCQA/bandit/blob/b1411bfb43795d3ffd268bef17a839dee954c2b1/bandit/blacklists/calls.py#L163","bandit-code":"B310","asvs":{"control_id":"5.2.4 Dynamic Code Execution Features","control_url":"https://github.com/OWASP/ASVS/blob/master/4.0/en/0x13-V5-Validation-Sanitization-Encoding.md#v52-sanitization-and-sandboxing-requirements","section":"V5: Validation, Sanitization and Encoding Verification Requirements","version":"4"},"category":"security","technology":["python"],"references":["https://cwe.mitre.org/data/definitions/939.html"],"subcategory":["audit"],"likelihood":"LOW","impact":"LOW","confidence":"LOW","license":"Semgrep Rules License v1.0. For more details, visit semgrep.dev/legal/rules-license","vulnerability_class":["Improper Authorization"],"source":"https://semgrep.dev/r/python.lang.security.audit.dynamic-urllib-use-detected.dynamic-urllib-use-detected","shortlink":"https://sg.run/dKZZ"},"severity":"WARNING","fingerprint":"requires login","lines":"requires login","validation_state":"NO_VALIDATOR","engine_kind":"OSS"}},{"check_id":"python.lang.security.audit.dynamic-urllib-use-detected.dynamic-urllib-use-detected","path":"torre/torre-llm/evals/providers.py","start":{"line":36,"col":10,"offset":1424},"end":{"line":36,"col":50,"offset":1464},"extra":{"message":"Detected a dynamic value being used with urllib. urllib supports 'file://' schemes, so a dynamic value controlled by a malicious actor may allow them to read arbitrary files. Audit uses of urllib calls to ensure user data cannot control the URLs, or consider using the 'requests' library instead.","metadata":{"cwe":["CWE-939: Improper Authorization in Handler for Custom URL Scheme"],"owasp":"A01:2017 - Injection","source-rule-url":"https://github.com/PyCQA/bandit/blob/b1411bfb43795d3ffd268bef17a839dee954c2b1/bandit/blacklists/calls.py#L163","bandit-code":"B310","asvs":{"control_id":"5.2.4 Dynamic Code Execution Features","control_url":"https://github.com/OWASP/ASVS/blob/master/4.0/en/0x13-V5-Validation-Sanitization-Encoding.md#v52-sanitization-and-sandboxing-requirements","section":"V5: Validation, Sanitization and Encoding Verification Requirements","version":"4"},"category":"security","technology":["python"],"references":["https://cwe.mitre.org/data/definitions/939.html"],"subcategory":["audit"],"likelihood":"LOW","impact":"LOW","confidence":"LOW","license":"Semgrep Rules License v1.0. For more details, visit semgrep.dev/legal/rules-license","vulnerability_class":["Improper Authorization"],"source":"https://semgrep.dev/r/python.lang.security.audit.dynamic-urllib-use-detected.dynamic-urllib-use-detected","shortlink":"https://sg.run/dKZZ"},"severity":"WARNING","fingerprint":"requires login","lines":"requires login","validation_state":"NO_VALIDATOR","engine_kind":"OSS"}},{"check_id":"python.lang.security.audit.dynamic-urllib-use-detected.dynamic-urllib-use-detected","path":"torre/torre-llm/evals/providers.py","start":{"line":59,"col":10,"offset":2557},"end":{"line":59,"col":50,"offset":2597},"extra":{"message":"Detected a dynamic value being used with urllib. urllib supports 'file://' schemes, so a dynamic value controlled by a malicious actor may allow them to read arbitrary files. Audit uses of urllib calls to ensure user data cannot control the URLs, or consider using the 'requests' library instead.","metadata":{"cwe":["CWE-939: Improper Authorization in Handler for Custom URL Scheme"],"owasp":"A01:2017 - Injection","source-rule-url":"https://github.com/PyCQA/bandit/blob/b1411bfb43795d3ffd268bef17a839dee954c2b1/bandit/blacklists/calls.py#L163","bandit-code":"B310","asvs":{"control_id":"5.2.4 Dynamic Code Execution Features","control_url":"https://github.com/OWASP/ASVS/blob/master/4.0/en/0x13-V5-Validation-Sanitization-Encoding.md#v52-sanitization-and-sandboxing-requirements","section":"V5: Validation, Sanitization and Encoding Verification Requirements","version":"4"},"category":"security","technology":["python"],"references":["https://cwe.mitre.org/data/definitions/939.html"],"subcategory":["audit"],"likelihood":"LOW","impact":"LOW","confidence":"LOW","license":"Semgrep Rules License v1.0. For more details, visit semgrep.dev/legal/rules-license","vulnerability_class":["Improper Authorization"],"source":"https://semgrep.dev/r/python.lang.security.audit.dynamic-urllib-use-detected.dynamic-urllib-use-detected","shortlink":"https://sg.run/dKZZ"},"severity":"WARNING","fingerprint":"requires login","lines":"requires login","validation_state":"NO_VALIDATOR","engine_kind":"OSS"}},{"check_id":"python.lang.security.audit.dynamic-urllib-use-detected.dynamic-urllib-use-detected","path":"torre/torre-llm/llm/backends/openai_compat.py","start":{"line":58,"col":14,"offset":2556},"end":{"line":58,"col":54,"offset":2596},"extra":{"message":"Detected a dynamic value being used with urllib. urllib supports 'file://' schemes, so a dynamic value controlled by a malicious actor may allow them to read arbitrary files. Audit uses of urllib calls to ensure user data cannot control the URLs, or consider using the 'requests' library instead.","metadata":{"cwe":["CWE-939: Improper Authorization in Handler for Custom URL Scheme"],"owasp":"A01:2017 - Injection","source-rule-url":"https://github.com/PyCQA/bandit/blob/b1411bfb43795d3ffd268bef17a839dee954c2b1/bandit/blacklists/calls.py#L163","bandit-code":"B310","asvs":{"control_id":"5.2.4 Dynamic Code Execution Features","control_url":"https://github.com/OWASP/ASVS/blob/master/4.0/en/0x13-V5-Validation-Sanitization-Encoding.md#v52-sanitization-and-sandboxing-requirements","section":"V5: Validation, Sanitization and Encoding Verification Requirements","version":"4"},"category":"security","technology":["python"],"references":["https://cwe.mitre.org/data/definitions/939.html"],"subcategory":["audit"],"likelihood":"LOW","impact":"LOW","confidence":"LOW","license":"Semgrep Rules License v1.0. For more details, visit semgrep.dev/legal/rules-license","vulnerability_class":["Improper Authorization"],"source":"https://semgrep.dev/r/python.lang.security.audit.dynamic-urllib-use-detected.dynamic-urllib-use-detected","shortlink":"https://sg.run/dKZZ"},"severity":"WARNING","fingerprint":"requires login","lines":"requires login","validation_state":"NO_VALIDATOR","engine_kind":"OSS"}},{"check_id":"python.lang.security.audit.dynamic-urllib-use-detected.dynamic-urllib-use-detected","path":"torre/torre-llm/llm/cli.py","start":{"line":172,"col":14,"offset":5742},"end":{"line":172,"col":51,"offset":5779},"extra":{"message":"Detected a dynamic value being used with urllib. urllib supports 'file://' schemes, so a dynamic value controlled by a malicious actor may allow them to read arbitrary files. Audit uses of urllib calls to ensure user data cannot control the URLs, or consider using the 'requests' library instead.","metadata":{"cwe":["CWE-939: Improper Authorization in Handler for Custom URL Scheme"],"owasp":"A01:2017 - Injection","source-rule-url":"https://github.com/PyCQA/bandit/blob/b1411bfb43795d3ffd268bef17a839dee954c2b1/bandit/blacklists/calls.py#L163","bandit-code":"B310","asvs":{"control_id":"5.2.4 Dynamic Code Execution Features","control_url":"https://github.com/OWASP/ASVS/blob/master/4.0/en/0x13-V5-Validation-Sanitization-Encoding.md#v52-sanitization-and-sandboxing-requirements","section":"V5: Validation, Sanitization and Encoding Verification Requirements","version":"4"},"category":"security","technology":["python"],"references":["https://cwe.mitre.org/data/definitions/939.html"],"subcategory":["audit"],"likelihood":"LOW","impact":"LOW","confidence":"LOW","license":"Semgrep Rules License v1.0. For more details, visit semgrep.dev/legal/rules-license","vulnerability_class":["Improper Authorization"],"source":"https://semgrep.dev/r/python.lang.security.audit.dynamic-urllib-use-detected.dynamic-urllib-use-detected","shortlink":"https://sg.run/dKZZ"},"severity":"WARNING","fingerprint":"requires login","lines":"requires login","validation_state":"NO_VALIDATOR","engine_kind":"OSS"}},{"check_id":"python.lang.security.audit.dynamic-urllib-use-detected.dynamic-urllib-use-detected","path":"torre/torre-llm/llm/cli.py","start":{"line":238,"col":9,"offset":8474},"end":{"line":238,"col":32,"offset":8497},"extra":{"message":"Detected a dynamic value being used with urllib. urllib supports 'file://' schemes, so a dynamic value controlled by a malicious actor may allow them to read arbitrary files. Audit uses of urllib calls to ensure user data cannot control the URLs, or consider using the 'requests' library instead.","metadata":{"cwe":["CWE-939: Improper Authorization in Handler for Custom URL Scheme"],"owasp":"A01:2017 - Injection","source-rule-url":"https://github.com/PyCQA/bandit/blob/b1411bfb43795d3ffd268bef17a839dee954c2b1/bandit/blacklists/calls.py#L163","bandit-code":"B310","asvs":{"control_id":"5.2.4 Dynamic Code Execution Features","control_url":"https://github.com/OWASP/ASVS/blob/master/4.0/en/0x13-V5-Validation-Sanitization-Encoding.md#v52-sanitization-and-sandboxing-requirements","section":"V5: Validation, Sanitization and Encoding Verification Requirements","version":"4"},"category":"security","technology":["python"],"references":["https://cwe.mitre.org/data/definitions/939.html"],"subcategory":["audit"],"likelihood":"LOW","impact":"LOW","confidence":"LOW","license":"Semgrep Rules License v1.0. For more details, visit semgrep.dev/legal/rules-license","vulnerability_class":["Improper Authorization"],"source":"https://semgrep.dev/r/python.lang.security.audit.dynamic-urllib-use-detected.dynamic-urllib-use-detected","shortlink":"https://sg.run/dKZZ"},"severity":"WARNING","fingerprint":"requires login","lines":"requires login","validation_state":"NO_VALIDATOR","engine_kind":"OSS"}},{"check_id":"python.lang.security.audit.dynamic-urllib-use-detected.dynamic-urllib-use-detected","path":"torre/torre-llm/llm/cli.py","start":{"line":259,"col":9,"offset":9316},"end":{"line":259,"col":32,"offset":9339},"extra":{"message":"Detected a dynamic value being used with urllib. urllib supports 'file://' schemes, so a dynamic value controlled by a malicious actor may allow them to read arbitrary files. Audit uses of urllib calls to ensure user data cannot control the URLs, or consider using the 'requests' library instead.","metadata":{"cwe":["CWE-939: Improper Authorization in Handler for Custom URL Scheme"],"owasp":"A01:2017 - Injection","source-rule-url":"https://github.com/PyCQA/bandit/blob/b1411bfb43795d3ffd268bef17a839dee954c2b1/bandit/blacklists/calls.py#L163","bandit-code":"B310","asvs":{"control_id":"5.2.4 Dynamic Code Execution Features","control_url":"https://github.com/OWASP/ASVS/blob/master/4.0/en/0x13-V5-Validation-Sanitization-Encoding.md#v52-sanitization-and-sandboxing-requirements","section":"V5: Validation, Sanitization and Encoding Verification Requirements","version":"4"},"category":"security","technology":["python"],"references":["https://cwe.mitre.org/data/definitions/939.html"],"subcategory":["audit"],"likelihood":"LOW","impact":"LOW","confidence":"LOW","license":"Semgrep Rules License v1.0. For more details, visit semgrep.dev/legal/rules-license","vulnerability_class":["Improper Authorization"],"source":"https://semgrep.dev/r/python.lang.security.audit.dynamic-urllib-use-detected.dynamic-urllib-use-detected","shortlink":"https://sg.run/dKZZ"},"severity":"WARNING","fingerprint":"requires login","lines":"requires login","validation_state":"NO_VALIDATOR","engine_kind":"OSS"}},{"check_id":"python.lang.security.audit.dynamic-urllib-use-detected.dynamic-urllib-use-detected","path":"torre/torre-llm/llm/cli.py","start":{"line":280,"col":14,"offset":10146},"end":{"line":280,"col":38,"offset":10170},"extra":{"message":"Detected a dynamic value being used with urllib. urllib supports 'file://' schemes, so a dynamic value controlled by a malicious actor may allow them to read arbitrary files. Audit uses of urllib calls to ensure user data cannot control the URLs, or consider using the 'requests' library instead.","metadata":{"cwe":["CWE-939: Improper Authorization in Handler for Custom URL Scheme"],"owasp":"A01:2017 - Injection","source-rule-url":"https://github.com/PyCQA/bandit/blob/b1411bfb43795d3ffd268bef17a839dee954c2b1/bandit/blacklists/calls.py#L163","bandit-code":"B310","asvs":{"control_id":"5.2.4 Dynamic Code Execution Features","control_url":"https://github.com/OWASP/ASVS/blob/master/4.0/en/0x13-V5-Validation-Sanitization-Encoding.md#v52-sanitization-and-sandboxing-requirements","section":"V5: Validation, Sanitization and Encoding Verification Requirements","version":"4"},"category":"security","technology":["python"],"references":["https://cwe.mitre.org/data/definitions/939.html"],"subcategory":["audit"],"likelihood":"LOW","impact":"LOW","confidence":"LOW","license":"Semgrep Rules License v1.0. For more details, visit semgrep.dev/legal/rules-license","vulnerability_class":["Improper Authorization"],"source":"https://semgrep.dev/r/python.lang.security.audit.dynamic-urllib-use-detected.dynamic-urllib-use-detected","shortlink":"https://sg.run/dKZZ"},"severity":"WARNING","fingerprint":"requires login","lines":"requires login","validation_state":"NO_VALIDATOR","engine_kind":"OSS"}},{"check_id":"python.lang.security.audit.dynamic-urllib-use-detected.dynamic-urllib-use-detected","path":"torre/torre-llm/llm/cli.py","start":{"line":321,"col":9,"offset":11974},"end":{"line":321,"col":32,"offset":11997},"extra":{"message":"Detected a dynamic value being used with urllib. urllib supports 'file://' schemes, so a dynamic value controlled by a malicious actor may allow them to read arbitrary files. Audit uses of urllib calls to ensure user data cannot control the URLs, or consider using the 'requests' library instead.","metadata":{"cwe":["CWE-939: Improper Authorization in Handler for Custom URL Scheme"],"owasp":"A01:2017 - Injection","source-rule-url":"https://github.com/PyCQA/bandit/blob/b1411bfb43795d3ffd268bef17a839dee954c2b1/bandit/blacklists/calls.py#L163","bandit-code":"B310","asvs":{"control_id":"5.2.4 Dynamic Code Execution Features","control_url":"https://github.com/OWASP/ASVS/blob/master/4.0/en/0x13-V5-Validation-Sanitization-Encoding.md#v52-sanitization-and-sandboxing-requirements","section":"V5: Validation, Sanitization and Encoding Verification Requirements","version":"4"},"category":"security","technology":["python"],"references":["https://cwe.mitre.org/data/definitions/939.html"],"subcategory":["audit"],"likelihood":"LOW","impact":"LOW","confidence":"LOW","license":"Semgrep Rules License v1.0. For more details, visit semgrep.dev/legal/rules-license","vulnerability_class":["Improper Authorization"],"source":"https://semgrep.dev/r/python.lang.security.audit.dynamic-urllib-use-detected.dynamic-urllib-use-detected","shortlink":"https://sg.run/dKZZ"},"severity":"WARNING","fingerprint":"requires login","lines":"requires login","validation_state":"NO_VALIDATOR","engine_kind":"OSS"}},{"check_id":"python.lang.security.insecure-hash-algorithms.insecure-hash-algorithm-sha1","path":"torre/torre-llm/llm/memory/episodic.py","start":{"line":43,"col":12,"offset":1520},"end":{"line":43,"col":39,"offset":1547},"extra":{"message":"Detected SHA1 hash algorithm which is considered insecure. SHA1 is not collision resistant and is therefore not suitable as a cryptographic signature. Use SHA256 or SHA3 instead.","fix":"hashlib.sha256(root.encode())","metadata":{"source-rule-url":"https://github.com/PyCQA/bandit/blob/d5f8fa0d89d7b11442fc6ec80ca42953974354c8/bandit/blacklists/calls.py#L59","cwe":["CWE-327: Use of a Broken or Risky Cryptographic Algorithm"],"owasp":["A03:2017 - Sensitive Data Exposure","A02:2021 - Cryptographic Failures"],"bandit-code":"B303","asvs":{"control_id":"6.2.2 Insecure Custom Algorithm","control_url":"https://github.com/OWASP/ASVS/blob/master/4.0/en/0x14-V6-Cryptography.md#v62-algorithms","section":"V6 Stored Cryptography Verification Requirements","version":"4"},"references":["https://www.schneier.com/blog/archives/2012/10/when_will_we_se.html","https://www.trendmicro.com/vinfo/us/security/news/vulnerabilities-and-exploits/sha-1-collision-signals-the-end-of-the-algorithm-s-viability","http://2012.sharcs.org/slides/stevens.pdf","https://pycryptodome.readthedocs.io/en/latest/src/hash/sha3_256.html"],"category":"security","technology":["python"],"subcategory":["vuln"],"likelihood":"LOW","impact":"MEDIUM","confidence":"MEDIUM","license":"Semgrep Rules License v1.0. For more details, visit semgrep.dev/legal/rules-license","vulnerability_class":["Cryptographic Issues"],"source":"https://semgrep.dev/r/python.lang.security.insecure-hash-algorithms.insecure-hash-algorithm-sha1","shortlink":"https://sg.run/ydYx"},"severity":"WARNING","fingerprint":"requires login","lines":"requires login","validation_state":"NO_VALIDATOR","engine_kind":"OSS"}},{"check_id":"python.lang.security.audit.insecure-file-permissions.insecure-file-permissions","path":"torre/torre-llm/llm/ops/sandbox.py","start":{"line":42,"col":9,"offset":1611},"end":{"line":42,"col":27,"offset":1629},"extra":{"message":"These permissions `0o755` are widely permissive and grant access to more people than may be necessary. A good default is `0o644` which gives read and write access to yourself and read access to everyone else.","metadata":{"category":"security","owasp":["A01:2021 - Broken Access Control"],"cwe":["CWE-276: Incorrect Default Permissions"],"technology":["python"],"references":["https://owasp.org/Top10/A01_2021-Broken_Access_Control"],"cwe2022-top25":true,"cwe2021-top25":true,"subcategory":["vuln"],"likelihood":"LOW","impact":"MEDIUM","confidence":"MEDIUM","license":"Semgrep Rules License v1.0. For more details, visit semgrep.dev/legal/rules-license","vulnerability_class":["Improper Authorization"],"source":"https://semgrep.dev/r/python.lang.security.audit.insecure-file-permissions.insecure-file-permissions","shortlink":"https://sg.run/AXY4"},"severity":"WARNING","fingerprint":"requires login","lines":"requires login","validation_state":"NO_VALIDATOR","engine_kind":"OSS"}},{"check_id":"python.lang.security.audit.dynamic-urllib-use-detected.dynamic-urllib-use-detected","path":"torre/torre-llm/llm/rerank/client.py","start":{"line":23,"col":10,"offset":577},"end":{"line":23,"col":54,"offset":621},"extra":{"message":"Detected a dynamic value being used with urllib. urllib supports 'file://' schemes, so a dynamic value controlled by a malicious actor may allow them to read arbitrary files. Audit uses of urllib calls to ensure user data cannot control the URLs, or consider using the 'requests' library instead.","metadata":{"cwe":["CWE-939: Improper Authorization in Handler for Custom URL Scheme"],"owasp":"A01:2017 - Injection","source-rule-url":"https://github.com/PyCQA/bandit/blob/b1411bfb43795d3ffd268bef17a839dee954c2b1/bandit/blacklists/calls.py#L163","bandit-code":"B310","asvs":{"control_id":"5.2.4 Dynamic Code Execution Features","control_url":"https://github.com/OWASP/ASVS/blob/master/4.0/en/0x13-V5-Validation-Sanitization-Encoding.md#v52-sanitization-and-sandboxing-requirements","section":"V5: Validation, Sanitization and Encoding Verification Requirements","version":"4"},"category":"security","technology":["python"],"references":["https://cwe.mitre.org/data/definitions/939.html"],"subcategory":["audit"],"likelihood":"LOW","impact":"LOW","confidence":"LOW","license":"Semgrep Rules License v1.0. For more details, visit semgrep.dev/legal/rules-license","vulnerability_class":["Improper Authorization"],"source":"https://semgrep.dev/r/python.lang.security.audit.dynamic-urllib-use-detected.dynamic-urllib-use-detected","shortlink":"https://sg.run/dKZZ"},"severity":"WARNING","fingerprint":"requires login","lines":"requires login","validation_state":"NO_VALIDATOR","engine_kind":"OSS"}},{"check_id":"python.fastapi.security.wildcard-cors.wildcard-cors","path":"torre/torre-llm/llm/server.py","start":{"line":361,"col":31,"offset":15523},"end":{"line":361,"col":36,"offset":15528},"extra":{"message":"CORS policy allows any origin (using wildcard '*'). This is insecure and should be avoided.","metadata":{"cwe":["CWE-942: Permissive Cross-domain Policy with Untrusted Domains"],"owasp":["A05:2021 - Security Misconfiguration"],"category":"security","technology":["python","fastapi"],"references":["https://owasp.org/Top10/A05_2021-Security_Misconfiguration","https://cwe.mitre.org/data/definitions/942.html"],"likelihood":"HIGH","impact":"LOW","confidence":"MEDIUM","vulnerability_class":["Configuration"],"subcategory":["vuln"],"license":"Semgrep Rules License v1.0. For more details, visit semgrep.dev/legal/rules-license","source":"https://semgrep.dev/r/python.fastapi.security.wildcard-cors.wildcard-cors","shortlink":"https://sg.run/KxApY"},"severity":"WARNING","fingerprint":"requires login","lines":"requires login","validation_state":"NO_VALIDATOR","engine_kind":"OSS"}},{"check_id":"yaml.docker-compose.security.no-new-privileges.no-new-privileges","path":"torre/torre-llm/metrics/docker-compose.yml","start":{"line":3,"col":3,"offset":27},"end":{"line":3,"col":11,"offset":35},"extra":{"message":"Service 'exporter' allows for privilege escalation via setuid or setgid binaries. Add 'no-new-privileges:true' in 'security_opt' to prevent this.","metadata":{"cwe":["CWE-732: Incorrect Permission Assignment for Critical Resource"],"owasp":["A05:2021 - Security Misconfiguration","A06:2017 - Security Misconfiguration"],"references":["https://raesene.github.io/blog/2019/06/01/docker-capabilities-and-no-new-privs/","https://www.kernel.org/doc/Documentation/prctl/no_new_privs.txt","https://cheatsheetseries.owasp.org/cheatsheets/Docker_Security_Cheat_Sheet.html#rule-4-add-no-new-privileges-flag"],"category":"security","technology":["docker-compose"],"cwe2021-top25":true,"subcategory":["audit"],"likelihood":"LOW","impact":"HIGH","confidence":"LOW","license":"Semgrep Rules License v1.0. For more details, visit semgrep.dev/legal/rules-license","vulnerability_class":["Improper Authorization"],"source":"https://semgrep.dev/r/yaml.docker-compose.security.no-new-privileges.no-new-privileges","shortlink":"https://sg.run/0n8q"},"severity":"WARNING","fingerprint":"requires login","lines":"requires login","validation_state":"NO_VALIDATOR","engine_kind":"OSS"}},{"check_id":"yaml.docker-compose.security.writable-filesystem-service.writable-filesystem-service","path":"torre/torre-llm/metrics/docker-compose.yml","start":{"line":3,"col":3,"offset":27},"end":{"line":3,"col":11,"offset":35},"extra":{"message":"Service 'exporter' is running with a writable root filesystem. This may allow malicious applications to download and run additional payloads, or modify container files. If an application inside a container has to save something temporarily consider using a tmpfs. Add 'read_only: true' to this service to prevent this.","metadata":{"cwe":["CWE-732: Incorrect Permission Assignment for Critical Resource"],"owasp":["A05:2021 - Security Misconfiguration","A06:2017 - Security Misconfiguration"],"references":["https://docs.docker.com/compose/compose-file/compose-file-v3/#domainname-hostname-ipc-mac_address-privileged-read_only-shm_size-stdin_open-tty-user-working_dir","https://blog.atomist.com/security-of-docker-kubernetes/","https://cheatsheetseries.owasp.org/cheatsheets/Docker_Security_Cheat_Sheet.html#rule-8-set-filesystem-and-volumes-to-read-only"],"category":"security","technology":["docker-compose"],"cwe2021-top25":true,"subcategory":["audit"],"likelihood":"LOW","impact":"HIGH","confidence":"LOW","license":"Semgrep Rules License v1.0. For more details, visit semgrep.dev/legal/rules-license","vulnerability_class":["Improper Authorization"],"source":"https://semgrep.dev/r/yaml.docker-compose.security.writable-filesystem-service.writable-filesystem-service","shortlink":"https://sg.run/e4JE"},"severity":"WARNING","fingerprint":"requires login","lines":"requires login","validation_state":"NO_VALIDATOR","engine_kind":"OSS"}},{"check_id":"yaml.docker-compose.security.no-new-privileges.no-new-privileges","path":"torre/torre-llm/metrics/docker-compose.yml","start":{"line":15,"col":3,"offset":295},"end":{"line":15,"col":13,"offset":305},"extra":{"message":"Service 'prometheus' allows for privilege escalation via setuid or setgid binaries. Add 'no-new-privileges:true' in 'security_opt' to prevent this.","metadata":{"cwe":["CWE-732: Incorrect Permission Assignment for Critical Resource"],"owasp":["A05:2021 - Security Misconfiguration","A06:2017 - Security Misconfiguration"],"references":["https://raesene.github.io/blog/2019/06/01/docker-capabilities-and-no-new-privs/","https://www.kernel.org/doc/Documentation/prctl/no_new_privs.txt","https://cheatsheetseries.owasp.org/cheatsheets/Docker_Security_Cheat_Sheet.html#rule-4-add-no-new-privileges-flag"],"category":"security","technology":["docker-compose"],"cwe2021-top25":true,"subcategory":["audit"],"likelihood":"LOW","impact":"HIGH","confidence":"LOW","license":"Semgrep Rules License v1.0. For more details, visit semgrep.dev/legal/rules-license","vulnerability_class":["Improper Authorization"],"source":"https://semgrep.dev/r/yaml.docker-compose.security.no-new-privileges.no-new-privileges","shortlink":"https://sg.run/0n8q"},"severity":"WARNING","fingerprint":"requires login","lines":"requires login","validation_state":"NO_VALIDATOR","engine_kind":"OSS"}},{"check_id":"yaml.docker-compose.security.writable-filesystem-service.writable-filesystem-service","path":"torre/torre-llm/metrics/docker-compose.yml","start":{"line":15,"col":3,"offset":295},"end":{"line":15,"col":13,"offset":305},"extra":{"message":"Service 'prometheus' is running with a writable root filesystem. This may allow malicious applications to download and run additional payloads, or modify container files. If an application inside a container has to save something temporarily consider using a tmpfs. Add 'read_only: true' to this service to prevent this.","metadata":{"cwe":["CWE-732: Incorrect Permission Assignment for Critical Resource"],"owasp":["A05:2021 - Security Misconfiguration","A06:2017 - Security Misconfiguration"],"references":["https://docs.docker.com/compose/compose-file/compose-file-v3/#domainname-hostname-ipc-mac_address-privileged-read_only-shm_size-stdin_open-tty-user-working_dir","https://blog.atomist.com/security-of-docker-kubernetes/","https://cheatsheetseries.owasp.org/cheatsheets/Docker_Security_Cheat_Sheet.html#rule-8-set-filesystem-and-volumes-to-read-only"],"category":"security","technology":["docker-compose"],"cwe2021-top25":true,"subcategory":["audit"],"likelihood":"LOW","impact":"HIGH","confidence":"LOW","license":"Semgrep Rules License v1.0. For more details, visit semgrep.dev/legal/rules-license","vulnerability_class":["Improper Authorization"],"source":"https://semgrep.dev/r/yaml.docker-compose.security.writable-filesystem-service.writable-filesystem-service","shortlink":"https://sg.run/e4JE"},"severity":"WARNING","fingerprint":"requires login","lines":"requires login","validation_state":"NO_VALIDATOR","engine_kind":"OSS"}},{"check_id":"yaml.docker-compose.security.no-new-privileges.no-new-privileges","path":"torre/torre-llm/metrics/docker-compose.yml","start":{"line":23,"col":3,"offset":491},"end":{"line":23,"col":10,"offset":498},"extra":{"message":"Service 'grafana' allows for privilege escalation via setuid or setgid binaries. Add 'no-new-privileges:true' in 'security_opt' to prevent this.","metadata":{"cwe":["CWE-732: Incorrect Permission Assignment for Critical Resource"],"owasp":["A05:2021 - Security Misconfiguration","A06:2017 - Security Misconfiguration"],"references":["https://raesene.github.io/blog/2019/06/01/docker-capabilities-and-no-new-privs/","https://www.kernel.org/doc/Documentation/prctl/no_new_privs.txt","https://cheatsheetseries.owasp.org/cheatsheets/Docker_Security_Cheat_Sheet.html#rule-4-add-no-new-privileges-flag"],"category":"security","technology":["docker-compose"],"cwe2021-top25":true,"subcategory":["audit"],"likelihood":"LOW","impact":"HIGH","confidence":"LOW","license":"Semgrep Rules License v1.0. For more details, visit semgrep.dev/legal/rules-license","vulnerability_class":["Improper Authorization"],"source":"https://semgrep.dev/r/yaml.docker-compose.security.no-new-privileges.no-new-privileges","shortlink":"https://sg.run/0n8q"},"severity":"WARNING","fingerprint":"requires login","lines":"requires login","validation_state":"NO_VALIDATOR","engine_kind":"OSS"}},{"check_id":"yaml.docker-compose.security.writable-filesystem-service.writable-filesystem-service","path":"torre/torre-llm/metrics/docker-compose.yml","start":{"line":23,"col":3,"offset":491},"end":{"line":23,"col":10,"offset":498},"extra":{"message":"Service 'grafana' is running with a writable root filesystem. This may allow malicious applications to download and run additional payloads, or modify container files. If an application inside a container has to save something temporarily consider using a tmpfs. Add 'read_only: true' to this service to prevent this.","metadata":{"cwe":["CWE-732: Incorrect Permission Assignment for Critical Resource"],"owasp":["A05:2021 - Security Misconfiguration","A06:2017 - Security Misconfiguration"],"references":["https://docs.docker.com/compose/compose-file/compose-file-v3/#domainname-hostname-ipc-mac_address-privileged-read_only-shm_size-stdin_open-tty-user-working_dir","https://blog.atomist.com/security-of-docker-kubernetes/","https://cheatsheetseries.owasp.org/cheatsheets/Docker_Security_Cheat_Sheet.html#rule-8-set-filesystem-and-volumes-to-read-only"],"category":"security","technology":["docker-compose"],"cwe2021-top25":true,"subcategory":["audit"],"likelihood":"LOW","impact":"HIGH","confidence":"LOW","license":"Semgrep Rules License v1.0. For more details, visit semgrep.dev/legal/rules-license","vulnerability_class":["Improper Authorization"],"source":"https://semgrep.dev/r/yaml.docker-compose.security.writable-filesystem-service.writable-filesystem-service","shortlink":"https://sg.run/e4JE"},"severity":"WARNING","fingerprint":"requires login","lines":"requires login","validation_state":"NO_VALIDATOR","engine_kind":"OSS"}},{"check_id":"dockerfile.security.missing-user.missing-user","path":"torre/torre-llm/metrics/exporter/Dockerfile","start":{"line":11,"col":1,"offset":268},"end":{"line":11,"col":34,"offset":301},"extra":{"message":"By not specifying a USER, a program in the container may run as 'root'. This is a security hazard. If an attacker can control a process running as root, they may have control over the container. Ensure that the last USER in a Dockerfile is a USER other than 'root'.","fix":"USER non-root\nCMD [\"python\",\"/app/exporter.py\"]","metadata":{"cwe":["CWE-250: Execution with Unnecessary Privileges"],"category":"security","technology":["dockerfile"],"confidence":"MEDIUM","owasp":["A04:2021 - Insecure Design"],"references":["https://owasp.org/Top10/A04_2021-Insecure_Design"],"subcategory":["audit"],"likelihood":"LOW","impact":"MEDIUM","license":"Semgrep Rules License v1.0. For more details, visit semgrep.dev/legal/rules-license","vulnerability_class":["Improper Authorization"],"source":"https://semgrep.dev/r/dockerfile.security.missing-user.missing-user","shortlink":"https://sg.run/Gbvn"},"severity":"ERROR","fingerprint":"requires login","lines":"requires login","validation_state":"NO_VALIDATOR","engine_kind":"OSS"}},{"check_id":"python.fastapi.security.wildcard-cors.wildcard-cors","path":"torre/torre-llm/simple_api.py","start":{"line":16,"col":19,"offset":310},"end":{"line":16,"col":24,"offset":315},"extra":{"message":"CORS policy allows any origin (using wildcard '*'). This is insecure and should be avoided.","metadata":{"cwe":["CWE-942: Permissive Cross-domain Policy with Untrusted Domains"],"owasp":["A05:2021 - Security Misconfiguration"],"category":"security","technology":["python","fastapi"],"references":["https://owasp.org/Top10/A05_2021-Security_Misconfiguration","https://cwe.mitre.org/data/definitions/942.html"],"likelihood":"HIGH","impact":"LOW","confidence":"MEDIUM","vulnerability_class":["Configuration"],"subcategory":["vuln"],"license":"Semgrep Rules License v1.0. For more details, visit semgrep.dev/legal/rules-license","source":"https://semgrep.dev/r/python.fastapi.security.wildcard-cors.wildcard-cors","shortlink":"https://sg.run/KxApY"},"severity":"WARNING","fingerprint":"requires login","lines":"requires login","validation_state":"NO_VALIDATOR","engine_kind":"OSS"}},{"check_id":"typescript.react.security.react-insecure-request.react-insecure-request","path":"torre/torre-llm/src/MetricsTest.tsx","start":{"line":13,"col":1,"offset":351},"end":{"line":13,"col":38,"offset":388},"extra":{"message":"Unencrypted request over HTTP detected.","metadata":{"vulnerability":"Insecure Transport","owasp":["A03:2017 - Sensitive Data Exposure","A02:2021 - Cryptographic Failures"],"cwe":["CWE-319: Cleartext Transmission of Sensitive Information"],"references":["https://www.npmjs.com/package/axios"],"category":"security","technology":["react"],"subcategory":["vuln"],"likelihood":"LOW","impact":"MEDIUM","confidence":"MEDIUM","license":"Semgrep Rules License v1.0. For more details, visit semgrep.dev/legal/rules-license","vulnerability_class":["Mishandled Sensitive Information"],"source":"https://semgrep.dev/r/typescript.react.security.react-insecure-request.react-insecure-request","shortlink":"https://sg.run/1n0b"},"severity":"ERROR","fingerprint":"requires login","lines":"requires login","validation_state":"NO_VALIDATOR","engine_kind":"OSS"}},{"check_id":"python.lang.security.audit.subprocess-shell-true.subprocess-shell-true","path":"torre/torre-llm/tools/fixer/metrics_wrapper.py","start":{"line":12,"col":24,"offset":328},"end":{"line":12,"col":28,"offset":332},"extra":{"message":"Found 'subprocess' function 'run' with 'shell=True'. This is dangerous because this call will spawn the command using a shell process. Doing so propagates current shell settings and variables, which makes it much easier for a malicious actor to execute commands. Use 'shell=False' instead.","fix":"False","metadata":{"source-rule-url":"https://bandit.readthedocs.io/en/latest/plugins/b602_subprocess_popen_with_shell_equals_true.html","owasp":["A01:2017 - Injection","A03:2021 - Injection"],"cwe":["CWE-78: Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection')"],"references":["https://stackoverflow.com/questions/3172470/actual-meaning-of-shell-true-in-subprocess","https://docs.python.org/3/library/subprocess.html"],"category":"security","technology":["python"],"cwe2022-top25":true,"cwe2021-top25":true,"subcategory":["secure default"],"likelihood":"HIGH","impact":"LOW","confidence":"MEDIUM","license":"Semgrep Rules License v1.0. For more details, visit semgrep.dev/legal/rules-license","vulnerability_class":["Command Injection"],"source":"https://semgrep.dev/r/python.lang.security.audit.subprocess-shell-true.subprocess-shell-true","shortlink":"https://sg.run/J92w"},"severity":"ERROR","fingerprint":"requires login","lines":"requires login","validation_state":"NO_VALIDATOR","engine_kind":"OSS"}},{"check_id":"javascript.lang.security.audit.path-traversal.path-join-resolve-traversal.path-join-resolve-traversal","path":"torre/torre-llm/tools/fixer/tsserver_fix.ts","start":{"line":10,"col":28,"offset":331},"end":{"line":10,"col":29,"offset":332},"extra":{"message":"Detected possible user input going into a `path.join` or `path.resolve` function. This could possibly lead to a path traversal vulnerability,  where the attacker can access arbitrary files stored in the file system. Instead, be sure to sanitize or validate user input first.","metadata":{"owasp":["A05:2017 - Broken Access Control","A01:2021 - Broken Access Control"],"cwe":["CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"],"category":"security","references":["https://owasp.org/www-community/attacks/Path_Traversal"],"technology":["javascript","node.js"],"cwe2022-top25":true,"cwe2021-top25":true,"subcategory":["vuln"],"likelihood":"HIGH","impact":"MEDIUM","confidence":"LOW","license":"Semgrep Rules License v1.0. For more details, visit semgrep.dev/legal/rules-license","vulnerability_class":["Path Traversal"],"source":"https://semgrep.dev/r/javascript.lang.security.audit.path-traversal.path-join-resolve-traversal.path-join-resolve-traversal","shortlink":"https://sg.run/OPqk"},"severity":"WARNING","fingerprint":"requires login","lines":"requires login","validation_state":"NO_VALIDATOR","engine_kind":"OSS"}},{"check_id":"python.lang.security.audit.non-literal-import.non-literal-import","path":"torre/torre-llm/tools/testgen/hypothesis_skeleton.py","start":{"line":5,"col":7,"offset":215},"end":{"line":5,"col":35,"offset":243},"extra":{"message":"Untrusted user input in `importlib.import_module()` function allows an attacker to load arbitrary code. Avoid dynamic values in `importlib.import_module()` or use a whitelist to prevent running untrusted code.","metadata":{"owasp":["A01:2021 - Broken Access Control"],"cwe":["CWE-706: Use of Incorrectly-Resolved Name or Reference"],"category":"security","technology":["python"],"references":["https://owasp.org/Top10/A01_2021-Broken_Access_Control"],"subcategory":["audit"],"likelihood":"LOW","impact":"MEDIUM","confidence":"LOW","license":"Semgrep Rules License v1.0. For more details, visit semgrep.dev/legal/rules-license","vulnerability_class":["Improper Authorization"],"source":"https://semgrep.dev/r/python.lang.security.audit.non-literal-import.non-literal-import","shortlink":"https://sg.run/y6Jk"},"severity":"WARNING","fingerprint":"requires login","lines":"requires login","validation_state":"NO_VALIDATOR","engine_kind":"OSS"}},{"check_id":"problem-based-packs.insecure-transport.js-node.using-http-server.using-http-server","path":"torre/torre-llm/torre-extension/extension.js","start":{"line":33,"col":25,"offset":1144},"end":{"line":33,"col":29,"offset":1148},"extra":{"message":"Checks for any usage of http servers instead of https servers. Encourages the usage of https protocol instead of http, which does not have TLS and is therefore unencrypted. Using http can lead to man-in-the-middle attacks in which the attacker is able to read sensitive information.","metadata":{"likelihood":"LOW","impact":"MEDIUM","confidence":"LOW","category":"security","cwe":"CWE-319: Cleartext Transmission of Sensitive Information","owasp":["A02:2021 - Cryptographic Failures","A03:2017 - Sensitive Data Exposure"],"references":["https://nodejs.org/api/http.html#http_class_http_agent","https://groups.google.com/g/rubyonrails-security/c/NCCsca7TEtY"],"subcategory":["audit"],"technology":["node.js"],"vulnerability":"Insecure Transport","license":"Semgrep Rules License v1.0. For more details, visit semgrep.dev/legal/rules-license","vulnerability_class":["Mishandled Sensitive Information"],"source":"https://semgrep.dev/r/problem-based-packs.insecure-transport.js-node.using-http-server.using-http-server","shortlink":"https://sg.run/x1zL"},"severity":"WARNING","fingerprint":"requires login","lines":"requires login","validation_state":"NO_VALIDATOR","engine_kind":"OSS"}},{"check_id":"javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring","path":"torre/torre-llm/torre-extension/extension.js","start":{"line":72,"col":27,"offset":2599},"end":{"line":72,"col":56,"offset":2628},"extra":{"message":"Detected string concatenation with a non-literal variable in a util.format / console.log function. If an attacker injects a format specifier in the string, it will forge the log message. Try to use constant values for the format string.","metadata":{"cwe":["CWE-134: Use of Externally-Controlled Format String"],"owasp":["A01:2021 - Broken Access Control"],"category":"security","technology":["javascript"],"subcategory":["audit"],"likelihood":"MEDIUM","impact":"LOW","confidence":"LOW","references":["https://cwe.mitre.org/data/definitions/134.html"],"license":"Semgrep Rules License v1.0. For more details, visit semgrep.dev/legal/rules-license","vulnerability_class":["Improper Validation"],"source":"https://semgrep.dev/r/javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring","shortlink":"https://sg.run/7Y5R"},"severity":"INFO","fingerprint":"requires login","lines":"requires login","validation_state":"NO_VALIDATOR","engine_kind":"OSS"}},{"check_id":"problem-based-packs.insecure-transport.js-node.using-http-server.using-http-server","path":"torre/torre-llm/torre-extension/extension_advanced.js","start":{"line":33,"col":25,"offset":1144},"end":{"line":33,"col":29,"offset":1148},"extra":{"message":"Checks for any usage of http servers instead of https servers. Encourages the usage of https protocol instead of http, which does not have TLS and is therefore unencrypted. Using http can lead to man-in-the-middle attacks in which the attacker is able to read sensitive information.","metadata":{"likelihood":"LOW","impact":"MEDIUM","confidence":"LOW","category":"security","cwe":"CWE-319: Cleartext Transmission of Sensitive Information","owasp":["A02:2021 - Cryptographic Failures","A03:2017 - Sensitive Data Exposure"],"references":["https://nodejs.org/api/http.html#http_class_http_agent","https://groups.google.com/g/rubyonrails-security/c/NCCsca7TEtY"],"subcategory":["audit"],"technology":["node.js"],"vulnerability":"Insecure Transport","license":"Semgrep Rules License v1.0. For more details, visit semgrep.dev/legal/rules-license","vulnerability_class":["Mishandled Sensitive Information"],"source":"https://semgrep.dev/r/problem-based-packs.insecure-transport.js-node.using-http-server.using-http-server","shortlink":"https://sg.run/x1zL"},"severity":"WARNING","fingerprint":"requires login","lines":"requires login","validation_state":"NO_VALIDATOR","engine_kind":"OSS"}},{"check_id":"javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring","path":"torre/torre-llm/torre-extension/extension_advanced.js","start":{"line":72,"col":27,"offset":2599},"end":{"line":72,"col":56,"offset":2628},"extra":{"message":"Detected string concatenation with a non-literal variable in a util.format / console.log function. If an attacker injects a format specifier in the string, it will forge the log message. Try to use constant values for the format string.","metadata":{"cwe":["CWE-134: Use of Externally-Controlled Format String"],"owasp":["A01:2021 - Broken Access Control"],"category":"security","technology":["javascript"],"subcategory":["audit"],"likelihood":"MEDIUM","impact":"LOW","confidence":"LOW","references":["https://cwe.mitre.org/data/definitions/134.html"],"license":"Semgrep Rules License v1.0. For more details, visit semgrep.dev/legal/rules-license","vulnerability_class":["Improper Validation"],"source":"https://semgrep.dev/r/javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring","shortlink":"https://sg.run/7Y5R"},"severity":"INFO","fingerprint":"requires login","lines":"requires login","validation_state":"NO_VALIDATOR","engine_kind":"OSS"}}],"errors":[{"code":3,"level":"warn","type":"Syntax error","message":"Syntax error at line torre/torre-llm/test_vanguard_vs_commercial_7000.py:435:\n `{` was unexpected","path":"torre/torre-llm/test_vanguard_vs_commercial_7000.py"},{"code":3,"level":"warn","type":"Syntax error","message":"Syntax error at line torre/torre-llm/test_rigoroso_comparativo.py:97:\n missing element","path":"torre/torre-llm/test_rigoroso_comparativo.py"},{"code":2,"level":"warn","type":"Other syntax error","message":"Other syntax error at line torre/pins/estado_maior_torre.yaml:32:\n (approximate error location; error nearby after) error calling parser: could not find expected ':' character 0 position 0 returned: 0","path":"torre/pins/estado_maior_torre.yaml"},{"code":2,"level":"warn","type":"Other syntax error","message":"Other syntax error at line torre/torre-llm/.github/workflows/codeql.yml:19:\n (approximate error location; error nearby after) error calling parser: did not find expected ',' or '}' character 0 position 0 returned: 0","path":"torre/torre-llm/.github/workflows/codeql.yml"},{"code":2,"level":"warn","type":"Other syntax error","message":"Other syntax error at line torre/pins/engenheiro_torre.yaml:41:\n (approximate error location; error nearby after) error calling parser: did not find expected key character 0 position 0 returned: 0","path":"torre/pins/engenheiro_torre.yaml"},{"code":3,"level":"warn","type":["PartialParsing",[{"path":"torre/torre-llm/.github/workflows/pr-gate.yml","start":{"line":21,"col":39,"offset":508},"end":{"line":21,"col":42,"offset":511}}]],"message":"Syntax error at line torre/torre-llm/.github/workflows/pr-gate.yml:21:\n When parsing a snippet as Bash for metavariable-pattern in rule 'yaml.github-actions.security.curl-eval.curl-eval', `${{` was unexpected","path":"torre/torre-llm/.github/workflows/pr-gate.yml","spans":[{"file":"torre/torre-llm/.github/workflows/pr-gate.yml","start":{"line":21,"col":39,"offset":508},"end":{"line":21,"col":42,"offset":511}}]}],"paths":{"scanned":["torre/.torre/cache/fixture_ts_minimal.pkl","torre/.torre/code_index.json","torre/.torre/evals/bakeoff-20250824-104830.json","torre/.torre/evals/bakeoff-20250824-104830.md","torre/.torre/evals/bakeoff-20250824-104837.json","torre/.torre/evals/bakeoff-20250824-104837.md","torre/.torre/evals/bakeoff-20250824-105156.json","torre/.torre/evals/bakeoff-20250824-105156.md","torre/.torre/evals/bakeoff-20250824-105207.json","torre/.torre/evals/bakeoff-20250824-105207.md","torre/.torre/evals/bakeoff-20250824-105231.json","torre/.torre/evals/bakeoff-20250824-105231.md","torre/.torre/evals/bakeoff-20250824-105305.json","torre/.torre/evals/bakeoff-20250824-105305.md","torre/.torre/evals/bakeoff-20250824-105315.json","torre/.torre/evals/bakeoff-20250824-105315.md","torre/.torre/evals/bakeoff-20250824-105341.json","torre/.torre/evals/bakeoff-20250824-105341.md","torre/.torre/evals/bakeoff-20250824-105358.json","torre/.torre/evals/bakeoff-20250824-105358.md","torre/.torre/evals/bakeoff-20250824-105519.json","torre/.torre/evals/bakeoff-20250824-105519.md","torre/.torre/evals/bakeoff-20250824-105622.json","torre/.torre/evals/bakeoff-20250824-105622.md","torre/.torre/evals/bakeoff-20250824-105717.json","torre/.torre/evals/bakeoff-20250824-105717.md","torre/.torre/evals/bakeoff-20250824-105852.json","torre/.torre/evals/bakeoff-20250824-105852.md","torre/.torre/evals/bakeoff-20250824-105920.json","torre/.torre/evals/bakeoff-20250824-105920.md","torre/.torre/evals/bakeoff-20250824-110018.json","torre/.torre/evals/bakeoff-20250824-110018.md","torre/.torre/evals/bakeoff-20250824-110938.json","torre/.torre/evals/bakeoff-20250824-110938.md","torre/.torre/evals/bakeoff-20250824-113255.json","torre/.torre/evals/bakeoff-20250824-113255.md","torre/.torre/evals/bakeoff-20250824-113316.json","torre/.torre/evals/bakeoff-20250824-113316.md","torre/.torre/evals/bakeoff-20250824-113336.json","torre/.torre/evals/bakeoff-20250824-113336.md","torre/.torre/evals/bakeoff-20250824-125243.json","torre/.torre/evals/bakeoff-20250824-125243.md","torre/.torre/evals/bakeoff-20250824-125248.json","torre/.torre/evals/bakeoff-20250824-125248.md","torre/.torre/evals/bakeoff-20250824-125313.json","torre/.torre/evals/bakeoff-20250824-125313.md","torre/.torre/evals/bakeoff-20250824-130423.json","torre/.torre/evals/bakeoff-20250824-130423.md","torre/.torre/evals/bakeoff-20250824-130521.json","torre/.torre/evals/bakeoff-20250824-130521.md","torre/.torre/evals/bakeoff-20250824-152059.json","torre/.torre/evals/bakeoff-20250824-152059.md","torre/.torre/evals/bakeoff-20250824-152618.json","torre/.torre/evals/bakeoff-20250824-152618.md","torre/.torre/evals/bakeoff-20250824-164959.json","torre/.torre/evals/bakeoff-20250824-164959.md","torre/.torre/evals/bakeoff-20250824-174505.json","torre/.torre/evals/bakeoff-20250824-174505.md","torre/.torre/evals/bakeoff-20250824-175405.json","torre/.torre/evals/bakeoff-20250824-175405.md","torre/.torre/evals/bakeoff-20250824-181349.json","torre/.torre/evals/bakeoff-20250824-181349.md","torre/.torre/evals/bakeoff-20250824-183155.json","torre/.torre/evals/bakeoff-20250824-183155.md","torre/.torre/outbox/patch-apply-20250823-144823.diff","torre/.torre/outbox/patch-apply-20250823-144836.diff","torre/.torre/outbox/patch-apply-20250823-145404.diff","torre/.torre/outbox/patch-apply-20250823-145608.diff","torre/.torre/outbox/patch-apply-20250823-145722.diff","torre/.torre/outbox/patch-apply-20250823-150936.diff","torre/.torre/outbox/patch-apply-20250823-150944.diff","torre/.torre/outbox/patch-apply-20250823-151002.diff","torre/.torre/outbox/patch-apply-20250823-152608.diff","torre/.torre/outbox/patch-apply-20250823-160508.diff","torre/.torre/outbox/patch-apply-20250823-160511.diff","torre/.torre/outbox/patch-apply-20250823-161751.diff","torre/.torre/outbox/patch-apply-20250823-162841.diff","torre/.torre/outbox/patch-apply-20250823-162844.diff","torre/.torre/outbox/patch-apply-20250823-181711.diff","torre/.torre/outbox/patch-dry_run-20250823-144823.diff","torre/.torre/outbox/patch-dry_run-20250823-144836.diff","torre/.torre/outbox/patch-dry_run-20250823-145404.diff","torre/.torre/outbox/patch-dry_run-20250823-145608.diff","torre/.torre/outbox/patch-dry_run-20250823-145722.diff","torre/.torre/outbox/patch-dry_run-20250823-150936.diff","torre/.torre/outbox/patch-dry_run-20250823-150944.diff","torre/.torre/outbox/patch-dry_run-20250823-151002.diff","torre/.torre/outbox/patch-dry_run-20250823-152608.diff","torre/.torre/outbox/patch-dry_run-20250823-160508.diff","torre/.torre/outbox/patch-dry_run-20250823-160511.diff","torre/.torre/outbox/patch-dry_run-20250823-161751.diff","torre/.torre/outbox/patch-dry_run-20250823-162841.diff","torre/.torre/outbox/patch-dry_run-20250823-162844.diff","torre/.torre/outbox/patch-dry_run-20250823-181711.diff","torre/.torre/outbox/patch-validate-20250823-144823.diff","torre/.torre/outbox/patch-validate-20250823-144836.diff","torre/.torre/outbox/patch-validate-20250823-145404.diff","torre/.torre/outbox/patch-validate-20250823-145608.diff","torre/.torre/outbox/patch-validate-20250823-145722.diff","torre/.torre/outbox/patch-validate-20250823-150936.diff","torre/.torre/outbox/patch-validate-20250823-150944.diff","torre/.torre/outbox/patch-validate-20250823-151002.diff","torre/.torre/outbox/patch-validate-20250823-152608.diff","torre/.torre/outbox/patch-validate-20250823-160508.diff","torre/.torre/outbox/patch-validate-20250823-160511.diff","torre/.torre/outbox/patch-validate-20250823-161751.diff","torre/.torre/outbox/patch-validate-20250823-162841.diff","torre/.torre/outbox/patch-validate-20250823-162844.diff","torre/.torre/outbox/patch-validate-20250823-181711.diff","torre/.torre/pipeline_state.json","torre/Makefile","torre/README.md","torre/ab_selection_patch.diff","torre/action.md","torre/advice_patch.diff","torre/apps/fortaleza-ui/src/api/strategos.ts","torre/apps/torre-ui/src/api/memory.ts","torre/apps/torre-ui/src/api/strategos.ts","torre/apps/torre-ui/src/api/traces.ts","torre/apps/torre-ui/src/api/vanguard.ts","torre/apps/torre-ui/src/components/charts/Sparkline.tsx","torre/apps/torre-ui/src/components/layout/LeftSidebar.tsx","torre/apps/torre-ui/src/components/memory/MemoryPanel.tsx","torre/apps/torre-ui/src/components/strategos/StrategosBadge.tsx","torre/apps/torre-ui/src/components/strategos/StrategosPanel.tsx","torre/apps/torre-ui/src/components/strategos/TraceBadge.tsx","torre/apps/torre-ui/src/components/vanguard/VanguardWidget.tsx","torre/apps/torre-ui/src/i18n/_do_not_translate.yaml","torre/aristotelian_patch.diff","torre/ast_codemods_patch.diff","torre/atelie/.deny-hooks","torre/autofix_patch.diff","torre/blocos-partidos_rgpd.md","torre/cli/bridge_spec.md","torre/cli/create_checkpoint.py","torre/cli/eval.py","torre/cli/generate_report.py","torre/cli/torre_bridge.py","torre/cli/train.py","torre/cli/update_status.py","torre/cli/validate_dataset.py","torre/core/orquestrador/cli.py","torre/curriculum/PLAN.md","torre/data/SOURCES.md","torre/models/ARCHITECTURE.md","torre/offline_patch.diff","torre/orquestrador/Makefile","torre/orquestrador/PIN_ENGENHEIRO.yaml","torre/orquestrador/PIN_ESTADO_MAIOR.md","torre/orquestrador/PIN_ESTADO_MAIOR.yaml","torre/orquestrador/README.md","torre/orquestrador/battery_consolidator.py","torre/orquestrador/battery_reporter.py","torre/orquestrador/battery_runner.py","torre/orquestrador/cli.py","torre/orquestrador/corrigir_multilang.py","torre/orquestrador/corrigir_multilang_final.py","torre/orquestrador/exec_cap04.py","torre/orquestrador/exec_cap05.py","torre/orquestrador/exec_cap06.py","torre/orquestrador/exec_cap07.py","torre/orquestrador/exec_cap08.py","torre/orquestrador/exec_fase0.py","torre/orquestrador/exec_mg1.py","torre/orquestrador/exec_mg2.py","torre/orquestrador/mini_pin_validations.py","torre/orquestrador/profile_multilang.py","torre/orquestrador/treino_G1.py","torre/orquestrador/treino_G2.py","torre/orquestrador/treino_G3.py","torre/pasta sem nome/CURSOR_CONFIG_QUICK.md","torre/pasta sem nome/Modelfile","torre/pasta sem nome/PATCH_CURSOR_TORRE.md","torre/pasta sem nome/cursor_custom_model_example.json","torre/pasta sem nome/setup_ollama_torre.sh","torre/pins/_deprecated/ENGINEER_PIN_v3_CORE.md","torre/pins/_deprecated/README_PIN_v2_TORRE.md","torre/pins/engenheiro_torre.yaml","torre/pins/estado_maior_torre.yaml","torre/pipeline/capitulos/CAP-01.yaml","torre/pipeline/capitulos/CAP-02.yaml","torre/pipeline/capitulos/CAP-03.yaml","torre/pipeline/capitulos/CAP-04.yaml","torre/pipeline/capitulos/CAP-05.yaml","torre/pipeline/superpipeline.yaml","torre/pipeline.md","torre/pipeline_linguas.md","torre/quality_patch.diff","torre/rag_patch.diff","torre/reflexiva/README.md","torre/reflexiva/pesquisar.py","torre/reflexiva/pesquisas/pesquisa_20251102_210053.yaml","torre/reflexiva/sinteses/sintese_20251102_210053.md","torre/relatorio.md","torre/relatorios/autoexec_log_torre.md","torre/relatorios/checkpoints.json","torre/relatorios/torre_riscos_eliminados.md","torre/relatorios/treino_G1_log.md","torre/relatorios/treino_G1_metrics.json","torre/relatorios/treino_G2_log.md","torre/relatorios/treino_G2_metrics.json","torre/relatorios/treino_G3_log.md","torre/relatorios/treino_G3_metrics.json","torre/reports/EVAL_CRITERIA.md","torre/reports/train_summary.md","torre/settings_patch.diff","torre/src/components/SettingsPage.tsx","torre/src/components/TestComponent.tsx","torre/teste_torre_fa.html","torre/torre-llm/.eslintrc.cjs","torre/torre-llm/.github/workflows/codeql.yml","torre/torre-llm/.github/workflows/pr-gate.yml","torre/torre-llm/.metrics","torre/torre-llm/.torre/audit/audit-20250825-111840.json","torre/torre-llm/.torre/audit/audit-20250825-112458.json","torre/torre-llm/.torre/audit/audit-20250825-121832.json","torre/torre-llm/.torre/audit/audit-20250825-122906.json","torre/torre-llm/.torre/audit/audit-20250825-134149.json","torre/torre-llm/.torre/audit/audit-20250825-135348.json","torre/torre-llm/.torre/audit/audit-20250825-135759.json","torre/torre-llm/.torre/audit/audit-20250825-151714.json","torre/torre-llm/.torre/cache/fixture_ts_minimal.pkl","torre/torre-llm/.torre/chat_config.json","torre/torre-llm/.torre/episodes/episodes_2025-08-24.jsonl","torre/torre-llm/.torre/episodes/episodes_2025-08-25.jsonl","torre/torre-llm/.torre/golden/golden-20250826-075123.json","torre/torre-llm/.torre/golden/golden-20250826-075314.json","torre/torre-llm/.torre/kpis/daily.csv","torre/torre-llm/.torre/kpis/kpis-20250826.json","torre/torre-llm/.torre/learning/episode_1756120108.json","torre/torre-llm/.torre/learning/episode_1756120719.json","torre/torre-llm/.torre/learning/episode_1756121098.json","torre/torre-llm/.torre/learning/episode_1756121104.json","torre/torre-llm/.torre/learning/episode_1756124306.json","torre/torre-llm/.torre/learning/episode_1756124312.json","torre/torre-llm/.torre/learning/episode_1756124939.json","torre/torre-llm/.torre/learning/episode_1756124945.json","torre/torre-llm/.torre/learning/episode_1756129308.json","torre/torre-llm/.torre/learning/episode_1756129313.json","torre/torre-llm/.torre/learning/episode_1756130024.json","torre/torre-llm/.torre/learning/episode_1756130028.json","torre/torre-llm/.torre/learning/episode_1756130269.json","torre/torre-llm/.torre/learning/episode_1756130279.json","torre/torre-llm/.torre/learning/episode_1756135028.json","torre/torre-llm/.torre/learning/episode_1756135033.json","torre/torre-llm/.torre/learning/lessons.json","torre/torre-llm/.torre/lessons/lessons.sqlite","torre/torre-llm/.torre/memory/episodes.jsonl","torre/torre-llm/.torre/memory/meta.json","torre/torre-llm/.torre/memory/patterns.json","torre/torre-llm/.torre/memory/rules.json","torre/torre-llm/.torre/metrics/snapshot_1756037057.json","torre/torre-llm/.torre/metrics/snapshot_1756037116.json","torre/torre-llm/.torre/metrics/snapshot_1756120108.json","torre/torre-llm/.torre/metrics/snapshot_1756120719.json","torre/torre-llm/.torre/metrics/snapshot_1756121098.json","torre/torre-llm/.torre/metrics/snapshot_1756121110.json","torre/torre-llm/.torre/metrics/snapshot_1756124312.json","torre/torre-llm/.torre/metrics/snapshot_1756124945.json","torre/torre-llm/.torre/metrics/snapshot_1756129308.json","torre/torre-llm/.torre/metrics/snapshot_1756130028.json","torre/torre-llm/.torre/metrics/snapshot_1756130279.json","torre/torre-llm/.torre/metrics/snapshot_1756135033.json","torre/torre-llm/.torre/out/pipeline_efficacy_test.json","torre/torre-llm/.torre/torre_chat_config.json","torre/torre-llm/.torre/trace/trace-20241201.jsonl","torre/torre-llm/ADVICE.md","torre/torre-llm/BADGE_COUNTER_SUMMARY.md","torre/torre-llm/BADGE_FLAGS_SUMMARY.md","torre/torre-llm/CLI_BADGE_PATCH_SUMMARY.md","torre/torre-llm/COMO_ADICIONAR_TORRE.md","torre/torre-llm/COMO_VERIFICAR_USO.md","torre/torre-llm/CONFIGURACAO_CONCLUIDA.md","torre/torre-llm/CORRECAO_ERROS_SUMMARY.md","torre/torre-llm/CURSOR_CONFIG_QUICK.md","torre/torre-llm/CURSOR_CONFIG_QUICK_ORIGINAL.md","torre/torre-llm/GRAFANA_METRICS_IMPLEMENTATION.md","torre/torre-llm/GUIA_CURSOR_TORRE.md","torre/torre-llm/GUIA_FINAL_TORRE.md","torre/torre-llm/GUIA_TORRE_CHAT.md","torre/torre-llm/GUIA_USO_TORRE.md","torre/torre-llm/INTEGRACAO_FORTALEZA.md","torre/torre-llm/INTEGRACAO_PLATAFORMA_TORRE.md","torre/torre-llm/MEMORY_POLICY.md","torre/torre-llm/METRICS_IMPLEMENTATION.md","torre/torre-llm/Makefile","torre/torre-llm/Modelfile","torre/torre-llm/PATCH_CURSOR_TORRE.md","torre/torre-llm/PATCH_CURSOR_TORRE_ORIGINAL.md","torre/torre-llm/PATCH_INTEGRACAO_FORTALEZA.diff","torre/torre-llm/PHASE18_SUMMARY.md","torre/torre-llm/PHASE19_FINAL.md","torre/torre-llm/PHASE19_SUMMARY.md","torre/torre-llm/PHASE20_SUMMARY.md","torre/torre-llm/PIPELINE_CORRECAO_ERROS.md","torre/torre-llm/PIPELINE_IMPLEMENTATION_FINAL.md","torre/torre-llm/README.md","torre/torre-llm/README_CURSOR_SETUP.md","torre/torre-llm/RESUMO_EXECUTIVO_INTEGRACAO.md","torre/torre-llm/SETUP_SUMMARY.md","torre/torre-llm/TESTE_COMPARATIVO_FINAL.md","torre/torre-llm/__init__.py","torre/torre-llm/adapters/__init__.py","torre/torre-llm/adapters/run_build.py","torre/torre-llm/adapters/run_lint.py","torre/torre-llm/adapters/run_tests.py","torre/torre-llm/analyze_metrics.py","torre/torre-llm/api_server.py","torre/torre-llm/apps/fortaleza-ui/src/api/kpis.ts","torre/torre-llm/apps/fortaleza-ui/src/components/kpis/KpiBadge.tsx","torre/torre-llm/biome.json","torre/torre-llm/bootstrap_fixer_pipeline.sh","torre/torre-llm/build_extension.sh","torre/torre-llm/cli_fixer_integration.patch","torre/torre-llm/cli_fixer_integration_minimal.patch","torre/torre-llm/client.py","torre/torre-llm/code_index.py","torre/torre-llm/codemods/ts/apply_codemods.mjs","torre/torre-llm/configs/engineer.contract.yaml","torre/torre-llm/configs/models.decode.yaml","torre/torre-llm/cursor-extension/extension.js","torre/torre-llm/cursor-extension/package.json","torre/torre-llm/cursor-torre-integration.js","torre/torre-llm/cursor_custom_model_example.json","torre/torre-llm/demo_fix_test.ts","torre/torre-llm/demo_phase18.py","torre/torre-llm/demo_test_profiles.py","torre/torre-llm/docs/AB_SELECTION.md","torre/torre-llm/docs/AST_CODEMODS_V1.md","torre/torre-llm/docs/ENGINEER_DEFINITIONS.md","torre/torre-llm/docs/QUALITY_GATES.md","torre/torre-llm/docs/TORRE_SPEC.md","torre/torre-llm/docs/report.md","torre/torre-llm/docs/tactic.md","torre/torre-llm/docs/torre.contract.json","torre/torre-llm/eslint.config.js","torre/torre-llm/evals/README.md","torre/torre-llm/evals/__init__.py","torre/torre-llm/evals/audit_all.py","torre/torre-llm/evals/audit_phase13_14.md","torre/torre-llm/evals/audit_report.md","torre/torre-llm/evals/cache_manager.py","torre/torre-llm/evals/codemods/__init__.py","torre/torre-llm/evals/codemods/ts_ambient_kits.py","torre/torre-llm/evals/codemods/ts_imports.py","torre/torre-llm/evals/codemods/ts_module_decl.py","torre/torre-llm/evals/datasets/bakeoff.sample.jsonl","torre/torre-llm/evals/datasets/strategic.sample.jsonl","torre/torre-llm/evals/fixtures/ts_minimal/src/components/A.tsx","torre/torre-llm/evals/fixtures/ts_minimal/src/components/B.tsx","torre/torre-llm/evals/fixtures/ts_minimal/src/utils/helpers.ts","torre/torre-llm/evals/fortaleza_api.py","torre/torre-llm/evals/golden/cases/01_ts2304_missing_symbol.json","torre/torre-llm/evals/golden/cases/02_ts2307_missing_css.json","torre/torre-llm/evals/golden/cases/03_fastapi_import.json","torre/torre-llm/evals/golden/run_golden.py","torre/torre-llm/evals/kpis/export_kpis.py","torre/torre-llm/evals/learning_system.py","torre/torre-llm/evals/log_optimizer.py","torre/torre-llm/evals/metrics_dashboard.py","torre/torre-llm/evals/omni_context.py","torre/torre-llm/evals/prompt_optimizer.py","torre/torre-llm/evals/providers.py","torre/torre-llm/evals/redteam/run_redteam.py","torre/torre-llm/evals/redteam/seeds.json","torre/torre-llm/evals/run_bakeoff.py","torre/torre-llm/evals/senior_engineer.py","torre/torre-llm/evals/strategic_suite.py","torre/torre-llm/evals/strategos.py","torre/torre-llm/evals/strategos_v2.py","torre/torre-llm/evals/test_comparativo.py","torre/torre-llm/evals/test_dinamico.py","torre/torre-llm/evals/test_honesto.py","torre/torre-llm/evals/test_phase1.py","torre/torre-llm/evals/test_phase10.py","torre/torre-llm/evals/test_phase11.py","torre/torre-llm/evals/test_phase14.py","torre/torre-llm/evals/test_phase14_final.py","torre/torre-llm/evals/test_phase14_ui.py","torre/torre-llm/evals/test_phase15.py","torre/torre-llm/evals/test_phase15_final.py","torre/torre-llm/evals/test_phase15_ui.py","torre/torre-llm/evals/test_phase16.py","torre/torre-llm/evals/test_phase16_basic.py","torre/torre-llm/evals/test_phase16_schemas.py","torre/torre-llm/evals/test_phase17.py","torre/torre-llm/evals/test_phase18_smoke.py","torre/torre-llm/evals/test_phase2.py","torre/torre-llm/evals/test_phase6.py","torre/torre-llm/evals/test_phase7.py","torre/torre-llm/evals/test_phase8.py","torre/torre-llm/evals/test_phase9.py","torre/torre-llm/evals/test_security_patch.py","torre/torre-llm/evals/test_sensitive_endpoints.py","torre/torre-llm/evals/test_strategos_badge.py","torre/torre-llm/evals/test_strategos_hover.py","torre/torre-llm/evals/util_diff.py","torre/torre-llm/evals/util_project.py","torre/torre-llm/evidence.py","torre/torre-llm/examples/smoke_cli.json","torre/torre-llm/examples/smoke_cli.sh","torre/torre-llm/extensions/vscode/.vscodeignore","torre/torre-llm/extensions/vscode/README.md","torre/torre-llm/extensions/vscode/package.json","torre/torre-llm/extensions/vscode/src/extension.ts","torre/torre-llm/extensions/vscode/src/patch.ts","torre/torre-llm/extensions/vscode/tsconfig.json","torre/torre-llm/install_and_setup_torre.sh","torre/torre-llm/install_cursor_integration.sh","torre/torre-llm/install_extension.sh","torre/torre-llm/install_torre_extension.sh","torre/torre-llm/install_torre_models_manual.md","torre/torre-llm/jest.config.js","torre/torre-llm/llm/README.md","torre/torre-llm/llm/__init__.py","torre/torre-llm/llm/autonomy/autonomy_orchestrator.py","torre/torre-llm/llm/autonomy/circuit_breaker.py","torre/torre-llm/llm/autonomy/deterministic_brain.py","torre/torre-llm/llm/autonomy/post_processor.py","torre/torre-llm/llm/backends/__init__.py","torre/torre-llm/llm/backends/openai_compat.py","torre/torre-llm/llm/bridge.py","torre/torre-llm/llm/cli.py","torre/torre-llm/llm/collective/pattern_bank.py","torre/torre-llm/llm/contracts/input.schema.json","torre/torre-llm/llm/contracts/output.schema.json","torre/torre-llm/llm/decoder.py","torre/torre-llm/llm/emit.py","torre/torre-llm/llm/engine.py","torre/torre-llm/llm/execution/reranker.py","torre/torre-llm/llm/forensics/impact_analyzer.py","torre/torre-llm/llm/guard/secret_scan.py","torre/torre-llm/llm/guardrails/advanced.py","torre/torre-llm/llm/guardrails/ast_analyzer.py","torre/torre-llm/llm/guardrails/calibration.py","torre/torre-llm/llm/guardrails/sca_scanner.py","torre/torre-llm/llm/innovation/vanguard_experiments.py","torre/torre-llm/llm/memory/episodic.py","torre/torre-llm/llm/meta_learning/bandit_orchestrator.py","torre/torre-llm/llm/meta_learning/episodic_store.py","torre/torre-llm/llm/meta_learning/lesson_engine.py","torre/torre-llm/llm/meta_learning/meta_learning_orchestrator.py","torre/torre-llm/llm/ops/guard_apply.py","torre/torre-llm/llm/ops/sandbox.py","torre/torre-llm/llm/optimization/auto_optimizer.py","torre/torre-llm/llm/optimization/cost_optimizer.py","torre/torre-llm/llm/postprocess.py","torre/torre-llm/llm/prediction/risk_predictor.py","torre/torre-llm/llm/prompt.py","torre/torre-llm/llm/providers/__init__.py","torre/torre-llm/llm/providers/adapters/__init__.py","torre/torre-llm/llm/providers/adapters/anthropic.py","torre/torre-llm/llm/providers/adapters/google.py","torre/torre-llm/llm/providers/adapters/local.py","torre/torre-llm/llm/providers/adapters/openai.py","torre/torre-llm/llm/providers/adapters/smart_fix.py","torre/torre-llm/llm/providers/adapters/vanguard_fix.py","torre/torre-llm/llm/providers/base.py","torre/torre-llm/llm/providers/policy.py","torre/torre-llm/llm/providers/router.py","torre/torre-llm/llm/rag/CANON.md","torre/torre-llm/llm/rag/canon.py","torre/torre-llm/llm/rag/loader.py","torre/torre-llm/llm/reporting/explain.py","torre/torre-llm/llm/rerank/client.py","torre/torre-llm/llm/rerank/execution_reranker.py","torre/torre-llm/llm/research/admin_gate.py","torre/torre-llm/llm/research/vanguard_brief.py","torre/torre-llm/llm/research/vanguard_policy.py","torre/torre-llm/llm/research/vanguard_radar.py","torre/torre-llm/llm/reverse/__init__.py","torre/torre-llm/llm/reverse/codemap.py","torre/torre-llm/llm/reverse/coupling_sentinel.py","torre/torre-llm/llm/reverse/hotspot_miner.py","torre/torre-llm/llm/reverse/refactor_advisor.py","torre/torre-llm/llm/server.py","torre/torre-llm/llm/simulation/preflight_simulator.py","torre/torre-llm/llm/strategos/scorer_v2.py","torre/torre-llm/load_torre_models.sh","torre/torre-llm/logic/__init__.py","torre/torre-llm/logic/aristotelian.py","torre/torre-llm/metrics/docker-compose.yml","torre/torre-llm/metrics/exporter/Dockerfile","torre/torre-llm/metrics/exporter/exporter.py","torre/torre-llm/metrics/exporter/requirements.txt","torre/torre-llm/metrics/grafana/dashboards/fortaleza_fixer.json","torre/torre-llm/metrics/grafana/provisioning/dashboards/dashboard.yml","torre/torre-llm/metrics/grafana/provisioning/datasources/datasource.yml","torre/torre-llm/metrics/prometheus/prometheus.yml","torre/torre-llm/orchestrator.py","torre/torre-llm/package.json","torre/torre-llm/parsers/__init__.py","torre/torre-llm/parsers/error_patterns.py","torre/torre-llm/reload_extension.sh","torre/torre-llm/run_action.py","torre/torre-llm/run_offline.py","torre/torre-llm/sanity_check_phase17.py","torre/torre-llm/schemas/tools.json","torre/torre-llm/setup_ollama_torre.sh","torre/torre-llm/setup_torre_pipeline.sh","torre/torre-llm/simple_api.py","torre/torre-llm/src/App.tsx","torre/torre-llm/src/MetricsTest.tsx","torre/torre-llm/src/TestComponent.tsx","torre/torre-llm/start_api.sh","torre/torre-llm/start_chat.sh","torre/torre-llm/stop_api.sh","torre/torre-llm/strategies/__init__.py","torre/torre-llm/strategies/ab_select.py","torre/torre-llm/strategies/autofix_base_shim.py","torre/torre-llm/strategies/playbook_simple.py","torre/torre-llm/strategies/ts_codemods.py","torre/torre-llm/stryker.conf.json","torre/torre-llm/test_badge_counter_manual.py","torre/torre-llm/test_badge_flags_manual.py","torre/torre-llm/test_chat_demo.py","torre/torre-llm/test_cli_badge_patch.py","torre/torre-llm/test_comparativo_atualizado.py","torre/torre-llm/test_cursor_integration.py","torre/torre-llm/test_extension.sh","torre/torre-llm/test_file_with_error.js","torre/torre-llm/test_integration.py","torre/torre-llm/test_integration.sh","torre/torre-llm/test_memory_endpoint.py","torre/torre-llm/test_memory_promote.py","torre/torre-llm/test_phase19_smoke.py","torre/torre-llm/test_phase20_manual.py","torre/torre-llm/test_pipeline_efficacy.py","torre/torre-llm/test_rigoroso_comparativo.py","torre/torre-llm/test_rigoroso_justo.py","torre/torre-llm/test_smart_fix.py","torre/torre-llm/test_vanguard_96_percent.py","torre/torre-llm/test_vanguard_demo_quick.py","torre/torre-llm/test_vanguard_simple.py","torre/torre-llm/test_vanguard_vs_commercial_7000.py","torre/torre-llm/test_vantagens_torre.py","torre/torre-llm/tools/api/schemathesis_run.py","torre/torre-llm/tools/apr/run_apr.py","torre/torre-llm/tools/codemods/registry.json","torre/torre-llm/tools/codemods/tsmods.ts","torre/torre-llm/tools/fixer/metrics_wrapper.py","torre/torre-llm/tools/fixer/tsserver_fix.ts","torre/torre-llm/tools/getafix/miner.py","torre/torre-llm/tools/impact/select_tests.py","torre/torre-llm/tools/semgrep/python-fastapi.yml","torre/torre-llm/tools/semgrep/ts-react.yml","torre/torre-llm/tools/static/infer/run.sh","torre/torre-llm/tools/static/pysa/run.sh","torre/torre-llm/tools/testgen/fastcheck.template.ts","torre/torre-llm/tools/testgen/hypothesis_skeleton.py","torre/torre-llm/torre-extension/README.md","torre/torre-llm/torre-extension/extension.js","torre/torre-llm/torre-extension/extension_advanced.js","torre/torre-llm/torre-extension/package.json","torre/torre-llm/torre_chat.py","torre/torre-llm/training/README.md","torre/torre-llm/training/datasets/anti_patterns/examples.jsonl","torre/torre-llm/training/datasets/code/examples.jsonl","torre/torre-llm/training/schemas/anti_pattern.schema.json","torre/torre-llm/training/schemas/card.schema.yaml","torre/torre-llm/training/schemas/episode.schema.json","torre/torre-llm/training/templates/anti_pattern.jsonl","torre/torre-llm/training/templates/episode.jsonl","torre/torre-llm/tsconfig.json","torre/torre-llm/utils/__init__.py","torre/torre-llm/utils/decode.py","torre/torre-llm/utils/diff_utils.py","torre/torre-llm/vanguard_demo_results.json","torre/torre_models_fa.js","torre/treino.md"]},"time":{"rules":[],"rules_parse_time":0.9200680255889893,"profiling_times":{"config_time":1.8991711139678955,"core_time":4.687963008880615,"ignores_time":0.0009369850158691406,"total_time":6.588821172714233},"parsing_time":{"total_time":0.0,"per_file_time":{"mean":0.0,"std_dev":0.0},"very_slow_stats":{"time_ratio":0.0,"count_ratio":0.0},"very_slow_files":[]},"scanning_time":{"total_time":22.12127447128296,"per_file_time":{"mean":0.01450575375166098,"std_dev":0.002545769709557939},"very_slow_stats":{"time_ratio":0.0,"count_ratio":0.0},"very_slow_files":[]},"matching_time":{"total_time":0.0,"per_file_and_rule_time":{"mean":0.0,"std_dev":0.0},"very_slow_stats":{"time_ratio":0.0,"count_ratio":0.0},"very_slow_rules_on_files":[]},"tainting_time":{"total_time":0.0,"per_def_and_rule_time":{"mean":0.0,"std_dev":0.0},"very_slow_stats":{"time_ratio":0.0,"count_ratio":0.0},"very_slow_rules_on_defs":[]},"fixpoint_timeouts":[{"error_type":"Fixpoint timeout","severity":"warn","message":"Fixpoint timeout while performing taint analysis at torre/torre-llm/evals/test_honesto.py:13:4 [rules: 1, first: python.boto3.security.hardcoded-token.hardcoded-token]","location":{"path":"torre/torre-llm/evals/test_honesto.py","start":{"line":13,"col":5,"offset":271},"end":{"line":13,"col":17,"offset":283}}},{"error_type":"Fixpoint timeout","severity":"warn","message":"Fixpoint timeout while performing taint analysis at torre/torre-llm/test_vanguard_96_percent.py:14:4 [rules: 1, first: python.boto3.security.hardcoded-token.hardcoded-token]","location":{"path":"torre/torre-llm/test_vanguard_96_percent.py","start":{"line":14,"col":5,"offset":268},"end":{"line":14,"col":29,"offset":292}}}],"prefiltering":{"project_level_time":0.0,"file_level_time":0.0,"rules_with_project_prefilters_ratio":0.0,"rules_with_file_prefilters_ratio":0.9801324503311258,"rules_selected_ratio":0.041714523105495956,"rules_matched_ratio":0.041714523105495956},"targets":[],"total_bytes":0,"max_memory_bytes":1128612544},"engine_requested":"OSS","skipped_rules":[]}
+{
+  "version": "1.138.0",
+  "results": [
+    {
+      "check_id": "python.fastapi.security.wildcard-cors.wildcard-cors",
+      "path": "torre/torre-llm/api_server.py",
+      "start": { "line": 68, "col": 19, "offset": 1550 },
+      "end": { "line": 68, "col": 24, "offset": 1555 },
+      "extra": {
+        "message": "CORS policy allows any origin (using wildcard '*'). This is insecure and should be avoided.",
+        "metadata": {
+          "cwe": [
+            "CWE-942: Permissive Cross-domain Policy with Untrusted Domains"
+          ],
+          "owasp": ["A05:2021 - Security Misconfiguration"],
+          "category": "security",
+          "technology": ["python", "fastapi"],
+          "references": [
+            "https://owasp.org/Top10/A05_2021-Security_Misconfiguration",
+            "https://cwe.mitre.org/data/definitions/942.html"
+          ],
+          "likelihood": "HIGH",
+          "impact": "LOW",
+          "confidence": "MEDIUM",
+          "vulnerability_class": ["Configuration"],
+          "subcategory": ["vuln"],
+          "license": "Semgrep Rules License v1.0. For more details, visit semgrep.dev/legal/rules-license",
+          "source": "https://semgrep.dev/r/python.fastapi.security.wildcard-cors.wildcard-cors",
+          "shortlink": "https://sg.run/KxApY"
+        },
+        "severity": "WARNING",
+        "fingerprint": "requires login",
+        "lines": "requires login",
+        "validation_state": "NO_VALIDATOR",
+        "engine_kind": "OSS"
+      }
+    },
+    {
+      "check_id": "python.django.security.injection.command.subprocess-injection.subprocess-injection",
+      "path": "torre/torre-llm/api_server.py",
+      "start": { "line": 187, "col": 22, "offset": 5997 },
+      "end": { "line": 194, "col": 14, "offset": 6259 },
+      "extra": {
+        "message": "Detected user input entering a `subprocess` call unsafely. This could result in a command injection vulnerability. An attacker could use this vulnerability to execute arbitrary commands on the host, which allows them to download malware, scan sensitive data, or run any command they wish on the server. Do not let users choose the command to run. In general, prefer to use Python API versions of system commands. If you must use subprocess, use a dictionary to allowlist a set of commands.",
+        "metadata": {
+          "category": "security",
+          "technology": ["flask"],
+          "owasp": ["A01:2017 - Injection", "A03:2021 - Injection"],
+          "cwe": [
+            "CWE-78: Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection')"
+          ],
+          "references": [
+            "https://semgrep.dev/docs/cheat-sheets/python-command-injection/"
+          ],
+          "confidence": "HIGH",
+          "cwe2022-top25": true,
+          "cwe2021-top25": true,
+          "subcategory": ["vuln"],
+          "likelihood": "MEDIUM",
+          "impact": "HIGH",
+          "license": "Semgrep Rules License v1.0. For more details, visit semgrep.dev/legal/rules-license",
+          "vulnerability_class": ["Command Injection"],
+          "source": "https://semgrep.dev/r/python.django.security.injection.command.subprocess-injection.subprocess-injection",
+          "shortlink": "https://sg.run/49BE"
+        },
+        "severity": "ERROR",
+        "fingerprint": "requires login",
+        "lines": "requires login",
+        "validation_state": "NO_VALIDATOR",
+        "engine_kind": "OSS"
+      }
+    },
+    {
+      "check_id": "python.lang.security.audit.dynamic-urllib-use-detected.dynamic-urllib-use-detected",
+      "path": "torre/torre-llm/client.py",
+      "start": { "line": 12, "col": 14, "offset": 378 },
+      "end": { "line": 12, "col": 46, "offset": 410 },
+      "extra": {
+        "message": "Detected a dynamic value being used with urllib. urllib supports 'file://' schemes, so a dynamic value controlled by a malicious actor may allow them to read arbitrary files. Audit uses of urllib calls to ensure user data cannot control the URLs, or consider using the 'requests' library instead.",
+        "metadata": {
+          "cwe": [
+            "CWE-939: Improper Authorization in Handler for Custom URL Scheme"
+          ],
+          "owasp": "A01:2017 - Injection",
+          "source-rule-url": "https://github.com/PyCQA/bandit/blob/b1411bfb43795d3ffd268bef17a839dee954c2b1/bandit/blacklists/calls.py#L163",
+          "bandit-code": "B310",
+          "asvs": {
+            "control_id": "5.2.4 Dynamic Code Execution Features",
+            "control_url": "https://github.com/OWASP/ASVS/blob/master/4.0/en/0x13-V5-Validation-Sanitization-Encoding.md#v52-sanitization-and-sandboxing-requirements",
+            "section": "V5: Validation, Sanitization and Encoding Verification Requirements",
+            "version": "4"
+          },
+          "category": "security",
+          "technology": ["python"],
+          "references": ["https://cwe.mitre.org/data/definitions/939.html"],
+          "subcategory": ["audit"],
+          "likelihood": "LOW",
+          "impact": "LOW",
+          "confidence": "LOW",
+          "license": "Semgrep Rules License v1.0. For more details, visit semgrep.dev/legal/rules-license",
+          "vulnerability_class": ["Improper Authorization"],
+          "source": "https://semgrep.dev/r/python.lang.security.audit.dynamic-urllib-use-detected.dynamic-urllib-use-detected",
+          "shortlink": "https://sg.run/dKZZ"
+        },
+        "severity": "WARNING",
+        "fingerprint": "requires login",
+        "lines": "requires login",
+        "validation_state": "NO_VALIDATOR",
+        "engine_kind": "OSS"
+      }
+    },
+    {
+      "check_id": "python.lang.security.audit.dynamic-urllib-use-detected.dynamic-urllib-use-detected",
+      "path": "torre/torre-llm/client.py",
+      "start": { "line": 28, "col": 14, "offset": 1037 },
+      "end": { "line": 28, "col": 46, "offset": 1069 },
+      "extra": {
+        "message": "Detected a dynamic value being used with urllib. urllib supports 'file://' schemes, so a dynamic value controlled by a malicious actor may allow them to read arbitrary files. Audit uses of urllib calls to ensure user data cannot control the URLs, or consider using the 'requests' library instead.",
+        "metadata": {
+          "cwe": [
+            "CWE-939: Improper Authorization in Handler for Custom URL Scheme"
+          ],
+          "owasp": "A01:2017 - Injection",
+          "source-rule-url": "https://github.com/PyCQA/bandit/blob/b1411bfb43795d3ffd268bef17a839dee954c2b1/bandit/blacklists/calls.py#L163",
+          "bandit-code": "B310",
+          "asvs": {
+            "control_id": "5.2.4 Dynamic Code Execution Features",
+            "control_url": "https://github.com/OWASP/ASVS/blob/master/4.0/en/0x13-V5-Validation-Sanitization-Encoding.md#v52-sanitization-and-sandboxing-requirements",
+            "section": "V5: Validation, Sanitization and Encoding Verification Requirements",
+            "version": "4"
+          },
+          "category": "security",
+          "technology": ["python"],
+          "references": ["https://cwe.mitre.org/data/definitions/939.html"],
+          "subcategory": ["audit"],
+          "likelihood": "LOW",
+          "impact": "LOW",
+          "confidence": "LOW",
+          "license": "Semgrep Rules License v1.0. For more details, visit semgrep.dev/legal/rules-license",
+          "vulnerability_class": ["Improper Authorization"],
+          "source": "https://semgrep.dev/r/python.lang.security.audit.dynamic-urllib-use-detected.dynamic-urllib-use-detected",
+          "shortlink": "https://sg.run/dKZZ"
+        },
+        "severity": "WARNING",
+        "fingerprint": "requires login",
+        "lines": "requires login",
+        "validation_state": "NO_VALIDATOR",
+        "engine_kind": "OSS"
+      }
+    },
+    {
+      "check_id": "typescript.react.security.react-insecure-request.react-insecure-request",
+      "path": "torre/torre-llm/demo_fix_test.ts",
+      "start": { "line": 24, "col": 1, "offset": 793 },
+      "end": { "line": 24, "col": 38, "offset": 830 },
+      "extra": {
+        "message": "Unencrypted request over HTTP detected.",
+        "metadata": {
+          "vulnerability": "Insecure Transport",
+          "owasp": [
+            "A03:2017 - Sensitive Data Exposure",
+            "A02:2021 - Cryptographic Failures"
+          ],
+          "cwe": ["CWE-319: Cleartext Transmission of Sensitive Information"],
+          "references": ["https://www.npmjs.com/package/axios"],
+          "category": "security",
+          "technology": ["react"],
+          "subcategory": ["vuln"],
+          "likelihood": "LOW",
+          "impact": "MEDIUM",
+          "confidence": "MEDIUM",
+          "license": "Semgrep Rules License v1.0. For more details, visit semgrep.dev/legal/rules-license",
+          "vulnerability_class": ["Mishandled Sensitive Information"],
+          "source": "https://semgrep.dev/r/typescript.react.security.react-insecure-request.react-insecure-request",
+          "shortlink": "https://sg.run/1n0b"
+        },
+        "severity": "ERROR",
+        "fingerprint": "requires login",
+        "lines": "requires login",
+        "validation_state": "NO_VALIDATOR",
+        "engine_kind": "OSS"
+      }
+    },
+    {
+      "check_id": "python.lang.security.audit.subprocess-shell-true.subprocess-shell-true",
+      "path": "torre/torre-llm/demo_phase18.py",
+      "start": { "line": 23, "col": 19, "offset": 560 },
+      "end": { "line": 23, "col": 23, "offset": 564 },
+      "extra": {
+        "message": "Found 'subprocess' function 'run' with 'shell=True'. This is dangerous because this call will spawn the command using a shell process. Doing so propagates current shell settings and variables, which makes it much easier for a malicious actor to execute commands. Use 'shell=False' instead.",
+        "fix": "False",
+        "metadata": {
+          "source-rule-url": "https://bandit.readthedocs.io/en/latest/plugins/b602_subprocess_popen_with_shell_equals_true.html",
+          "owasp": ["A01:2017 - Injection", "A03:2021 - Injection"],
+          "cwe": [
+            "CWE-78: Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection')"
+          ],
+          "references": [
+            "https://stackoverflow.com/questions/3172470/actual-meaning-of-shell-true-in-subprocess",
+            "https://docs.python.org/3/library/subprocess.html"
+          ],
+          "category": "security",
+          "technology": ["python"],
+          "cwe2022-top25": true,
+          "cwe2021-top25": true,
+          "subcategory": ["secure default"],
+          "likelihood": "HIGH",
+          "impact": "LOW",
+          "confidence": "MEDIUM",
+          "license": "Semgrep Rules License v1.0. For more details, visit semgrep.dev/legal/rules-license",
+          "vulnerability_class": ["Command Injection"],
+          "source": "https://semgrep.dev/r/python.lang.security.audit.subprocess-shell-true.subprocess-shell-true",
+          "shortlink": "https://sg.run/J92w"
+        },
+        "severity": "ERROR",
+        "fingerprint": "requires login",
+        "lines": "requires login",
+        "validation_state": "NO_VALIDATOR",
+        "engine_kind": "OSS"
+      }
+    },
+    {
+      "check_id": "python.lang.security.deserialization.pickle.avoid-pickle",
+      "path": "torre/torre-llm/evals/cache_manager.py",
+      "start": { "line": 39, "col": 29, "offset": 1285 },
+      "end": { "line": 39, "col": 43, "offset": 1299 },
+      "extra": {
+        "message": "Avoid using `pickle`, which is known to lead to code execution vulnerabilities. When unpickling, the serialized data could be manipulated to run arbitrary code. Instead, consider serializing the relevant data as JSON or a similar text-based serialization format.",
+        "metadata": {
+          "owasp": [
+            "A08:2017 - Insecure Deserialization",
+            "A08:2021 - Software and Data Integrity Failures"
+          ],
+          "cwe": ["CWE-502: Deserialization of Untrusted Data"],
+          "references": ["https://docs.python.org/3/library/pickle.html"],
+          "category": "security",
+          "technology": ["python"],
+          "cwe2022-top25": true,
+          "cwe2021-top25": true,
+          "subcategory": ["audit"],
+          "likelihood": "LOW",
+          "impact": "MEDIUM",
+          "confidence": "LOW",
+          "license": "Semgrep Rules License v1.0. For more details, visit semgrep.dev/legal/rules-license",
+          "vulnerability_class": ["Insecure Deserialization "],
+          "source": "https://semgrep.dev/r/python.lang.security.deserialization.pickle.avoid-pickle",
+          "shortlink": "https://sg.run/OPwB"
+        },
+        "severity": "WARNING",
+        "fingerprint": "requires login",
+        "lines": "requires login",
+        "validation_state": "NO_VALIDATOR",
+        "engine_kind": "OSS"
+      }
+    },
+    {
+      "check_id": "python.lang.security.deserialization.pickle.avoid-pickle",
+      "path": "torre/torre-llm/evals/cache_manager.py",
+      "start": { "line": 64, "col": 17, "offset": 2236 },
+      "end": { "line": 64, "col": 38, "offset": 2257 },
+      "extra": {
+        "message": "Avoid using `pickle`, which is known to lead to code execution vulnerabilities. When unpickling, the serialized data could be manipulated to run arbitrary code. Instead, consider serializing the relevant data as JSON or a similar text-based serialization format.",
+        "metadata": {
+          "owasp": [
+            "A08:2017 - Insecure Deserialization",
+            "A08:2021 - Software and Data Integrity Failures"
+          ],
+          "cwe": ["CWE-502: Deserialization of Untrusted Data"],
+          "references": ["https://docs.python.org/3/library/pickle.html"],
+          "category": "security",
+          "technology": ["python"],
+          "cwe2022-top25": true,
+          "cwe2021-top25": true,
+          "subcategory": ["audit"],
+          "likelihood": "LOW",
+          "impact": "MEDIUM",
+          "confidence": "LOW",
+          "license": "Semgrep Rules License v1.0. For more details, visit semgrep.dev/legal/rules-license",
+          "vulnerability_class": ["Insecure Deserialization "],
+          "source": "https://semgrep.dev/r/python.lang.security.deserialization.pickle.avoid-pickle",
+          "shortlink": "https://sg.run/OPwB"
+        },
+        "severity": "WARNING",
+        "fingerprint": "requires login",
+        "lines": "requires login",
+        "validation_state": "NO_VALIDATOR",
+        "engine_kind": "OSS"
+      }
+    },
+    {
+      "check_id": "python.lang.security.audit.dynamic-urllib-use-detected.dynamic-urllib-use-detected",
+      "path": "torre/torre-llm/evals/fortaleza_api.py",
+      "start": { "line": 8, "col": 10, "offset": 315 },
+      "end": { "line": 8, "col": 54, "offset": 359 },
+      "extra": {
+        "message": "Detected a dynamic value being used with urllib. urllib supports 'file://' schemes, so a dynamic value controlled by a malicious actor may allow them to read arbitrary files. Audit uses of urllib calls to ensure user data cannot control the URLs, or consider using the 'requests' library instead.",
+        "metadata": {
+          "cwe": [
+            "CWE-939: Improper Authorization in Handler for Custom URL Scheme"
+          ],
+          "owasp": "A01:2017 - Injection",
+          "source-rule-url": "https://github.com/PyCQA/bandit/blob/b1411bfb43795d3ffd268bef17a839dee954c2b1/bandit/blacklists/calls.py#L163",
+          "bandit-code": "B310",
+          "asvs": {
+            "control_id": "5.2.4 Dynamic Code Execution Features",
+            "control_url": "https://github.com/OWASP/ASVS/blob/master/4.0/en/0x13-V5-Validation-Sanitization-Encoding.md#v52-sanitization-and-sandboxing-requirements",
+            "section": "V5: Validation, Sanitization and Encoding Verification Requirements",
+            "version": "4"
+          },
+          "category": "security",
+          "technology": ["python"],
+          "references": ["https://cwe.mitre.org/data/definitions/939.html"],
+          "subcategory": ["audit"],
+          "likelihood": "LOW",
+          "impact": "LOW",
+          "confidence": "LOW",
+          "license": "Semgrep Rules License v1.0. For more details, visit semgrep.dev/legal/rules-license",
+          "vulnerability_class": ["Improper Authorization"],
+          "source": "https://semgrep.dev/r/python.lang.security.audit.dynamic-urllib-use-detected.dynamic-urllib-use-detected",
+          "shortlink": "https://sg.run/dKZZ"
+        },
+        "severity": "WARNING",
+        "fingerprint": "requires login",
+        "lines": "requires login",
+        "validation_state": "NO_VALIDATOR",
+        "engine_kind": "OSS"
+      }
+    },
+    {
+      "check_id": "python.lang.security.audit.dynamic-urllib-use-detected.dynamic-urllib-use-detected",
+      "path": "torre/torre-llm/evals/providers.py",
+      "start": { "line": 36, "col": 10, "offset": 1424 },
+      "end": { "line": 36, "col": 50, "offset": 1464 },
+      "extra": {
+        "message": "Detected a dynamic value being used with urllib. urllib supports 'file://' schemes, so a dynamic value controlled by a malicious actor may allow them to read arbitrary files. Audit uses of urllib calls to ensure user data cannot control the URLs, or consider using the 'requests' library instead.",
+        "metadata": {
+          "cwe": [
+            "CWE-939: Improper Authorization in Handler for Custom URL Scheme"
+          ],
+          "owasp": "A01:2017 - Injection",
+          "source-rule-url": "https://github.com/PyCQA/bandit/blob/b1411bfb43795d3ffd268bef17a839dee954c2b1/bandit/blacklists/calls.py#L163",
+          "bandit-code": "B310",
+          "asvs": {
+            "control_id": "5.2.4 Dynamic Code Execution Features",
+            "control_url": "https://github.com/OWASP/ASVS/blob/master/4.0/en/0x13-V5-Validation-Sanitization-Encoding.md#v52-sanitization-and-sandboxing-requirements",
+            "section": "V5: Validation, Sanitization and Encoding Verification Requirements",
+            "version": "4"
+          },
+          "category": "security",
+          "technology": ["python"],
+          "references": ["https://cwe.mitre.org/data/definitions/939.html"],
+          "subcategory": ["audit"],
+          "likelihood": "LOW",
+          "impact": "LOW",
+          "confidence": "LOW",
+          "license": "Semgrep Rules License v1.0. For more details, visit semgrep.dev/legal/rules-license",
+          "vulnerability_class": ["Improper Authorization"],
+          "source": "https://semgrep.dev/r/python.lang.security.audit.dynamic-urllib-use-detected.dynamic-urllib-use-detected",
+          "shortlink": "https://sg.run/dKZZ"
+        },
+        "severity": "WARNING",
+        "fingerprint": "requires login",
+        "lines": "requires login",
+        "validation_state": "NO_VALIDATOR",
+        "engine_kind": "OSS"
+      }
+    },
+    {
+      "check_id": "python.lang.security.audit.dynamic-urllib-use-detected.dynamic-urllib-use-detected",
+      "path": "torre/torre-llm/evals/providers.py",
+      "start": { "line": 59, "col": 10, "offset": 2557 },
+      "end": { "line": 59, "col": 50, "offset": 2597 },
+      "extra": {
+        "message": "Detected a dynamic value being used with urllib. urllib supports 'file://' schemes, so a dynamic value controlled by a malicious actor may allow them to read arbitrary files. Audit uses of urllib calls to ensure user data cannot control the URLs, or consider using the 'requests' library instead.",
+        "metadata": {
+          "cwe": [
+            "CWE-939: Improper Authorization in Handler for Custom URL Scheme"
+          ],
+          "owasp": "A01:2017 - Injection",
+          "source-rule-url": "https://github.com/PyCQA/bandit/blob/b1411bfb43795d3ffd268bef17a839dee954c2b1/bandit/blacklists/calls.py#L163",
+          "bandit-code": "B310",
+          "asvs": {
+            "control_id": "5.2.4 Dynamic Code Execution Features",
+            "control_url": "https://github.com/OWASP/ASVS/blob/master/4.0/en/0x13-V5-Validation-Sanitization-Encoding.md#v52-sanitization-and-sandboxing-requirements",
+            "section": "V5: Validation, Sanitization and Encoding Verification Requirements",
+            "version": "4"
+          },
+          "category": "security",
+          "technology": ["python"],
+          "references": ["https://cwe.mitre.org/data/definitions/939.html"],
+          "subcategory": ["audit"],
+          "likelihood": "LOW",
+          "impact": "LOW",
+          "confidence": "LOW",
+          "license": "Semgrep Rules License v1.0. For more details, visit semgrep.dev/legal/rules-license",
+          "vulnerability_class": ["Improper Authorization"],
+          "source": "https://semgrep.dev/r/python.lang.security.audit.dynamic-urllib-use-detected.dynamic-urllib-use-detected",
+          "shortlink": "https://sg.run/dKZZ"
+        },
+        "severity": "WARNING",
+        "fingerprint": "requires login",
+        "lines": "requires login",
+        "validation_state": "NO_VALIDATOR",
+        "engine_kind": "OSS"
+      }
+    },
+    {
+      "check_id": "python.lang.security.audit.dynamic-urllib-use-detected.dynamic-urllib-use-detected",
+      "path": "torre/torre-llm/llm/backends/openai_compat.py",
+      "start": { "line": 58, "col": 14, "offset": 2556 },
+      "end": { "line": 58, "col": 54, "offset": 2596 },
+      "extra": {
+        "message": "Detected a dynamic value being used with urllib. urllib supports 'file://' schemes, so a dynamic value controlled by a malicious actor may allow them to read arbitrary files. Audit uses of urllib calls to ensure user data cannot control the URLs, or consider using the 'requests' library instead.",
+        "metadata": {
+          "cwe": [
+            "CWE-939: Improper Authorization in Handler for Custom URL Scheme"
+          ],
+          "owasp": "A01:2017 - Injection",
+          "source-rule-url": "https://github.com/PyCQA/bandit/blob/b1411bfb43795d3ffd268bef17a839dee954c2b1/bandit/blacklists/calls.py#L163",
+          "bandit-code": "B310",
+          "asvs": {
+            "control_id": "5.2.4 Dynamic Code Execution Features",
+            "control_url": "https://github.com/OWASP/ASVS/blob/master/4.0/en/0x13-V5-Validation-Sanitization-Encoding.md#v52-sanitization-and-sandboxing-requirements",
+            "section": "V5: Validation, Sanitization and Encoding Verification Requirements",
+            "version": "4"
+          },
+          "category": "security",
+          "technology": ["python"],
+          "references": ["https://cwe.mitre.org/data/definitions/939.html"],
+          "subcategory": ["audit"],
+          "likelihood": "LOW",
+          "impact": "LOW",
+          "confidence": "LOW",
+          "license": "Semgrep Rules License v1.0. For more details, visit semgrep.dev/legal/rules-license",
+          "vulnerability_class": ["Improper Authorization"],
+          "source": "https://semgrep.dev/r/python.lang.security.audit.dynamic-urllib-use-detected.dynamic-urllib-use-detected",
+          "shortlink": "https://sg.run/dKZZ"
+        },
+        "severity": "WARNING",
+        "fingerprint": "requires login",
+        "lines": "requires login",
+        "validation_state": "NO_VALIDATOR",
+        "engine_kind": "OSS"
+      }
+    },
+    {
+      "check_id": "python.lang.security.audit.dynamic-urllib-use-detected.dynamic-urllib-use-detected",
+      "path": "torre/torre-llm/llm/cli.py",
+      "start": { "line": 172, "col": 14, "offset": 5742 },
+      "end": { "line": 172, "col": 51, "offset": 5779 },
+      "extra": {
+        "message": "Detected a dynamic value being used with urllib. urllib supports 'file://' schemes, so a dynamic value controlled by a malicious actor may allow them to read arbitrary files. Audit uses of urllib calls to ensure user data cannot control the URLs, or consider using the 'requests' library instead.",
+        "metadata": {
+          "cwe": [
+            "CWE-939: Improper Authorization in Handler for Custom URL Scheme"
+          ],
+          "owasp": "A01:2017 - Injection",
+          "source-rule-url": "https://github.com/PyCQA/bandit/blob/b1411bfb43795d3ffd268bef17a839dee954c2b1/bandit/blacklists/calls.py#L163",
+          "bandit-code": "B310",
+          "asvs": {
+            "control_id": "5.2.4 Dynamic Code Execution Features",
+            "control_url": "https://github.com/OWASP/ASVS/blob/master/4.0/en/0x13-V5-Validation-Sanitization-Encoding.md#v52-sanitization-and-sandboxing-requirements",
+            "section": "V5: Validation, Sanitization and Encoding Verification Requirements",
+            "version": "4"
+          },
+          "category": "security",
+          "technology": ["python"],
+          "references": ["https://cwe.mitre.org/data/definitions/939.html"],
+          "subcategory": ["audit"],
+          "likelihood": "LOW",
+          "impact": "LOW",
+          "confidence": "LOW",
+          "license": "Semgrep Rules License v1.0. For more details, visit semgrep.dev/legal/rules-license",
+          "vulnerability_class": ["Improper Authorization"],
+          "source": "https://semgrep.dev/r/python.lang.security.audit.dynamic-urllib-use-detected.dynamic-urllib-use-detected",
+          "shortlink": "https://sg.run/dKZZ"
+        },
+        "severity": "WARNING",
+        "fingerprint": "requires login",
+        "lines": "requires login",
+        "validation_state": "NO_VALIDATOR",
+        "engine_kind": "OSS"
+      }
+    },
+    {
+      "check_id": "python.lang.security.audit.dynamic-urllib-use-detected.dynamic-urllib-use-detected",
+      "path": "torre/torre-llm/llm/cli.py",
+      "start": { "line": 238, "col": 9, "offset": 8474 },
+      "end": { "line": 238, "col": 32, "offset": 8497 },
+      "extra": {
+        "message": "Detected a dynamic value being used with urllib. urllib supports 'file://' schemes, so a dynamic value controlled by a malicious actor may allow them to read arbitrary files. Audit uses of urllib calls to ensure user data cannot control the URLs, or consider using the 'requests' library instead.",
+        "metadata": {
+          "cwe": [
+            "CWE-939: Improper Authorization in Handler for Custom URL Scheme"
+          ],
+          "owasp": "A01:2017 - Injection",
+          "source-rule-url": "https://github.com/PyCQA/bandit/blob/b1411bfb43795d3ffd268bef17a839dee954c2b1/bandit/blacklists/calls.py#L163",
+          "bandit-code": "B310",
+          "asvs": {
+            "control_id": "5.2.4 Dynamic Code Execution Features",
+            "control_url": "https://github.com/OWASP/ASVS/blob/master/4.0/en/0x13-V5-Validation-Sanitization-Encoding.md#v52-sanitization-and-sandboxing-requirements",
+            "section": "V5: Validation, Sanitization and Encoding Verification Requirements",
+            "version": "4"
+          },
+          "category": "security",
+          "technology": ["python"],
+          "references": ["https://cwe.mitre.org/data/definitions/939.html"],
+          "subcategory": ["audit"],
+          "likelihood": "LOW",
+          "impact": "LOW",
+          "confidence": "LOW",
+          "license": "Semgrep Rules License v1.0. For more details, visit semgrep.dev/legal/rules-license",
+          "vulnerability_class": ["Improper Authorization"],
+          "source": "https://semgrep.dev/r/python.lang.security.audit.dynamic-urllib-use-detected.dynamic-urllib-use-detected",
+          "shortlink": "https://sg.run/dKZZ"
+        },
+        "severity": "WARNING",
+        "fingerprint": "requires login",
+        "lines": "requires login",
+        "validation_state": "NO_VALIDATOR",
+        "engine_kind": "OSS"
+      }
+    },
+    {
+      "check_id": "python.lang.security.audit.dynamic-urllib-use-detected.dynamic-urllib-use-detected",
+      "path": "torre/torre-llm/llm/cli.py",
+      "start": { "line": 259, "col": 9, "offset": 9316 },
+      "end": { "line": 259, "col": 32, "offset": 9339 },
+      "extra": {
+        "message": "Detected a dynamic value being used with urllib. urllib supports 'file://' schemes, so a dynamic value controlled by a malicious actor may allow them to read arbitrary files. Audit uses of urllib calls to ensure user data cannot control the URLs, or consider using the 'requests' library instead.",
+        "metadata": {
+          "cwe": [
+            "CWE-939: Improper Authorization in Handler for Custom URL Scheme"
+          ],
+          "owasp": "A01:2017 - Injection",
+          "source-rule-url": "https://github.com/PyCQA/bandit/blob/b1411bfb43795d3ffd268bef17a839dee954c2b1/bandit/blacklists/calls.py#L163",
+          "bandit-code": "B310",
+          "asvs": {
+            "control_id": "5.2.4 Dynamic Code Execution Features",
+            "control_url": "https://github.com/OWASP/ASVS/blob/master/4.0/en/0x13-V5-Validation-Sanitization-Encoding.md#v52-sanitization-and-sandboxing-requirements",
+            "section": "V5: Validation, Sanitization and Encoding Verification Requirements",
+            "version": "4"
+          },
+          "category": "security",
+          "technology": ["python"],
+          "references": ["https://cwe.mitre.org/data/definitions/939.html"],
+          "subcategory": ["audit"],
+          "likelihood": "LOW",
+          "impact": "LOW",
+          "confidence": "LOW",
+          "license": "Semgrep Rules License v1.0. For more details, visit semgrep.dev/legal/rules-license",
+          "vulnerability_class": ["Improper Authorization"],
+          "source": "https://semgrep.dev/r/python.lang.security.audit.dynamic-urllib-use-detected.dynamic-urllib-use-detected",
+          "shortlink": "https://sg.run/dKZZ"
+        },
+        "severity": "WARNING",
+        "fingerprint": "requires login",
+        "lines": "requires login",
+        "validation_state": "NO_VALIDATOR",
+        "engine_kind": "OSS"
+      }
+    },
+    {
+      "check_id": "python.lang.security.audit.dynamic-urllib-use-detected.dynamic-urllib-use-detected",
+      "path": "torre/torre-llm/llm/cli.py",
+      "start": { "line": 280, "col": 14, "offset": 10146 },
+      "end": { "line": 280, "col": 38, "offset": 10170 },
+      "extra": {
+        "message": "Detected a dynamic value being used with urllib. urllib supports 'file://' schemes, so a dynamic value controlled by a malicious actor may allow them to read arbitrary files. Audit uses of urllib calls to ensure user data cannot control the URLs, or consider using the 'requests' library instead.",
+        "metadata": {
+          "cwe": [
+            "CWE-939: Improper Authorization in Handler for Custom URL Scheme"
+          ],
+          "owasp": "A01:2017 - Injection",
+          "source-rule-url": "https://github.com/PyCQA/bandit/blob/b1411bfb43795d3ffd268bef17a839dee954c2b1/bandit/blacklists/calls.py#L163",
+          "bandit-code": "B310",
+          "asvs": {
+            "control_id": "5.2.4 Dynamic Code Execution Features",
+            "control_url": "https://github.com/OWASP/ASVS/blob/master/4.0/en/0x13-V5-Validation-Sanitization-Encoding.md#v52-sanitization-and-sandboxing-requirements",
+            "section": "V5: Validation, Sanitization and Encoding Verification Requirements",
+            "version": "4"
+          },
+          "category": "security",
+          "technology": ["python"],
+          "references": ["https://cwe.mitre.org/data/definitions/939.html"],
+          "subcategory": ["audit"],
+          "likelihood": "LOW",
+          "impact": "LOW",
+          "confidence": "LOW",
+          "license": "Semgrep Rules License v1.0. For more details, visit semgrep.dev/legal/rules-license",
+          "vulnerability_class": ["Improper Authorization"],
+          "source": "https://semgrep.dev/r/python.lang.security.audit.dynamic-urllib-use-detected.dynamic-urllib-use-detected",
+          "shortlink": "https://sg.run/dKZZ"
+        },
+        "severity": "WARNING",
+        "fingerprint": "requires login",
+        "lines": "requires login",
+        "validation_state": "NO_VALIDATOR",
+        "engine_kind": "OSS"
+      }
+    },
+    {
+      "check_id": "python.lang.security.audit.dynamic-urllib-use-detected.dynamic-urllib-use-detected",
+      "path": "torre/torre-llm/llm/cli.py",
+      "start": { "line": 321, "col": 9, "offset": 11974 },
+      "end": { "line": 321, "col": 32, "offset": 11997 },
+      "extra": {
+        "message": "Detected a dynamic value being used with urllib. urllib supports 'file://' schemes, so a dynamic value controlled by a malicious actor may allow them to read arbitrary files. Audit uses of urllib calls to ensure user data cannot control the URLs, or consider using the 'requests' library instead.",
+        "metadata": {
+          "cwe": [
+            "CWE-939: Improper Authorization in Handler for Custom URL Scheme"
+          ],
+          "owasp": "A01:2017 - Injection",
+          "source-rule-url": "https://github.com/PyCQA/bandit/blob/b1411bfb43795d3ffd268bef17a839dee954c2b1/bandit/blacklists/calls.py#L163",
+          "bandit-code": "B310",
+          "asvs": {
+            "control_id": "5.2.4 Dynamic Code Execution Features",
+            "control_url": "https://github.com/OWASP/ASVS/blob/master/4.0/en/0x13-V5-Validation-Sanitization-Encoding.md#v52-sanitization-and-sandboxing-requirements",
+            "section": "V5: Validation, Sanitization and Encoding Verification Requirements",
+            "version": "4"
+          },
+          "category": "security",
+          "technology": ["python"],
+          "references": ["https://cwe.mitre.org/data/definitions/939.html"],
+          "subcategory": ["audit"],
+          "likelihood": "LOW",
+          "impact": "LOW",
+          "confidence": "LOW",
+          "license": "Semgrep Rules License v1.0. For more details, visit semgrep.dev/legal/rules-license",
+          "vulnerability_class": ["Improper Authorization"],
+          "source": "https://semgrep.dev/r/python.lang.security.audit.dynamic-urllib-use-detected.dynamic-urllib-use-detected",
+          "shortlink": "https://sg.run/dKZZ"
+        },
+        "severity": "WARNING",
+        "fingerprint": "requires login",
+        "lines": "requires login",
+        "validation_state": "NO_VALIDATOR",
+        "engine_kind": "OSS"
+      }
+    },
+    {
+      "check_id": "python.lang.security.insecure-hash-algorithms.insecure-hash-algorithm-sha1",
+      "path": "torre/torre-llm/llm/memory/episodic.py",
+      "start": { "line": 43, "col": 12, "offset": 1520 },
+      "end": { "line": 43, "col": 39, "offset": 1547 },
+      "extra": {
+        "message": "Detected SHA1 hash algorithm which is considered insecure. SHA1 is not collision resistant and is therefore not suitable as a cryptographic signature. Use SHA256 or SHA3 instead.",
+        "fix": "hashlib.sha256(root.encode())",
+        "metadata": {
+          "source-rule-url": "https://github.com/PyCQA/bandit/blob/d5f8fa0d89d7b11442fc6ec80ca42953974354c8/bandit/blacklists/calls.py#L59",
+          "cwe": ["CWE-327: Use of a Broken or Risky Cryptographic Algorithm"],
+          "owasp": [
+            "A03:2017 - Sensitive Data Exposure",
+            "A02:2021 - Cryptographic Failures"
+          ],
+          "bandit-code": "B303",
+          "asvs": {
+            "control_id": "6.2.2 Insecure Custom Algorithm",
+            "control_url": "https://github.com/OWASP/ASVS/blob/master/4.0/en/0x14-V6-Cryptography.md#v62-algorithms",
+            "section": "V6 Stored Cryptography Verification Requirements",
+            "version": "4"
+          },
+          "references": [
+            "https://www.schneier.com/blog/archives/2012/10/when_will_we_se.html",
+            "https://www.trendmicro.com/vinfo/us/security/news/vulnerabilities-and-exploits/sha-1-collision-signals-the-end-of-the-algorithm-s-viability",
+            "http://2012.sharcs.org/slides/stevens.pdf",
+            "https://pycryptodome.readthedocs.io/en/latest/src/hash/sha3_256.html"
+          ],
+          "category": "security",
+          "technology": ["python"],
+          "subcategory": ["vuln"],
+          "likelihood": "LOW",
+          "impact": "MEDIUM",
+          "confidence": "MEDIUM",
+          "license": "Semgrep Rules License v1.0. For more details, visit semgrep.dev/legal/rules-license",
+          "vulnerability_class": ["Cryptographic Issues"],
+          "source": "https://semgrep.dev/r/python.lang.security.insecure-hash-algorithms.insecure-hash-algorithm-sha1",
+          "shortlink": "https://sg.run/ydYx"
+        },
+        "severity": "WARNING",
+        "fingerprint": "requires login",
+        "lines": "requires login",
+        "validation_state": "NO_VALIDATOR",
+        "engine_kind": "OSS"
+      }
+    },
+    {
+      "check_id": "python.lang.security.audit.insecure-file-permissions.insecure-file-permissions",
+      "path": "torre/torre-llm/llm/ops/sandbox.py",
+      "start": { "line": 42, "col": 9, "offset": 1611 },
+      "end": { "line": 42, "col": 27, "offset": 1629 },
+      "extra": {
+        "message": "These permissions `0o755` are widely permissive and grant access to more people than may be necessary. A good default is `0o644` which gives read and write access to yourself and read access to everyone else.",
+        "metadata": {
+          "category": "security",
+          "owasp": ["A01:2021 - Broken Access Control"],
+          "cwe": ["CWE-276: Incorrect Default Permissions"],
+          "technology": ["python"],
+          "references": [
+            "https://owasp.org/Top10/A01_2021-Broken_Access_Control"
+          ],
+          "cwe2022-top25": true,
+          "cwe2021-top25": true,
+          "subcategory": ["vuln"],
+          "likelihood": "LOW",
+          "impact": "MEDIUM",
+          "confidence": "MEDIUM",
+          "license": "Semgrep Rules License v1.0. For more details, visit semgrep.dev/legal/rules-license",
+          "vulnerability_class": ["Improper Authorization"],
+          "source": "https://semgrep.dev/r/python.lang.security.audit.insecure-file-permissions.insecure-file-permissions",
+          "shortlink": "https://sg.run/AXY4"
+        },
+        "severity": "WARNING",
+        "fingerprint": "requires login",
+        "lines": "requires login",
+        "validation_state": "NO_VALIDATOR",
+        "engine_kind": "OSS"
+      }
+    },
+    {
+      "check_id": "python.lang.security.audit.dynamic-urllib-use-detected.dynamic-urllib-use-detected",
+      "path": "torre/torre-llm/llm/rerank/client.py",
+      "start": { "line": 23, "col": 10, "offset": 577 },
+      "end": { "line": 23, "col": 54, "offset": 621 },
+      "extra": {
+        "message": "Detected a dynamic value being used with urllib. urllib supports 'file://' schemes, so a dynamic value controlled by a malicious actor may allow them to read arbitrary files. Audit uses of urllib calls to ensure user data cannot control the URLs, or consider using the 'requests' library instead.",
+        "metadata": {
+          "cwe": [
+            "CWE-939: Improper Authorization in Handler for Custom URL Scheme"
+          ],
+          "owasp": "A01:2017 - Injection",
+          "source-rule-url": "https://github.com/PyCQA/bandit/blob/b1411bfb43795d3ffd268bef17a839dee954c2b1/bandit/blacklists/calls.py#L163",
+          "bandit-code": "B310",
+          "asvs": {
+            "control_id": "5.2.4 Dynamic Code Execution Features",
+            "control_url": "https://github.com/OWASP/ASVS/blob/master/4.0/en/0x13-V5-Validation-Sanitization-Encoding.md#v52-sanitization-and-sandboxing-requirements",
+            "section": "V5: Validation, Sanitization and Encoding Verification Requirements",
+            "version": "4"
+          },
+          "category": "security",
+          "technology": ["python"],
+          "references": ["https://cwe.mitre.org/data/definitions/939.html"],
+          "subcategory": ["audit"],
+          "likelihood": "LOW",
+          "impact": "LOW",
+          "confidence": "LOW",
+          "license": "Semgrep Rules License v1.0. For more details, visit semgrep.dev/legal/rules-license",
+          "vulnerability_class": ["Improper Authorization"],
+          "source": "https://semgrep.dev/r/python.lang.security.audit.dynamic-urllib-use-detected.dynamic-urllib-use-detected",
+          "shortlink": "https://sg.run/dKZZ"
+        },
+        "severity": "WARNING",
+        "fingerprint": "requires login",
+        "lines": "requires login",
+        "validation_state": "NO_VALIDATOR",
+        "engine_kind": "OSS"
+      }
+    },
+    {
+      "check_id": "python.fastapi.security.wildcard-cors.wildcard-cors",
+      "path": "torre/torre-llm/llm/server.py",
+      "start": { "line": 361, "col": 31, "offset": 15523 },
+      "end": { "line": 361, "col": 36, "offset": 15528 },
+      "extra": {
+        "message": "CORS policy allows any origin (using wildcard '*'). This is insecure and should be avoided.",
+        "metadata": {
+          "cwe": [
+            "CWE-942: Permissive Cross-domain Policy with Untrusted Domains"
+          ],
+          "owasp": ["A05:2021 - Security Misconfiguration"],
+          "category": "security",
+          "technology": ["python", "fastapi"],
+          "references": [
+            "https://owasp.org/Top10/A05_2021-Security_Misconfiguration",
+            "https://cwe.mitre.org/data/definitions/942.html"
+          ],
+          "likelihood": "HIGH",
+          "impact": "LOW",
+          "confidence": "MEDIUM",
+          "vulnerability_class": ["Configuration"],
+          "subcategory": ["vuln"],
+          "license": "Semgrep Rules License v1.0. For more details, visit semgrep.dev/legal/rules-license",
+          "source": "https://semgrep.dev/r/python.fastapi.security.wildcard-cors.wildcard-cors",
+          "shortlink": "https://sg.run/KxApY"
+        },
+        "severity": "WARNING",
+        "fingerprint": "requires login",
+        "lines": "requires login",
+        "validation_state": "NO_VALIDATOR",
+        "engine_kind": "OSS"
+      }
+    },
+    {
+      "check_id": "yaml.docker-compose.security.no-new-privileges.no-new-privileges",
+      "path": "torre/torre-llm/metrics/docker-compose.yml",
+      "start": { "line": 3, "col": 3, "offset": 27 },
+      "end": { "line": 3, "col": 11, "offset": 35 },
+      "extra": {
+        "message": "Service 'exporter' allows for privilege escalation via setuid or setgid binaries. Add 'no-new-privileges:true' in 'security_opt' to prevent this.",
+        "metadata": {
+          "cwe": [
+            "CWE-732: Incorrect Permission Assignment for Critical Resource"
+          ],
+          "owasp": [
+            "A05:2021 - Security Misconfiguration",
+            "A06:2017 - Security Misconfiguration"
+          ],
+          "references": [
+            "https://raesene.github.io/blog/2019/06/01/docker-capabilities-and-no-new-privs/",
+            "https://www.kernel.org/doc/Documentation/prctl/no_new_privs.txt",
+            "https://cheatsheetseries.owasp.org/cheatsheets/Docker_Security_Cheat_Sheet.html#rule-4-add-no-new-privileges-flag"
+          ],
+          "category": "security",
+          "technology": ["docker-compose"],
+          "cwe2021-top25": true,
+          "subcategory": ["audit"],
+          "likelihood": "LOW",
+          "impact": "HIGH",
+          "confidence": "LOW",
+          "license": "Semgrep Rules License v1.0. For more details, visit semgrep.dev/legal/rules-license",
+          "vulnerability_class": ["Improper Authorization"],
+          "source": "https://semgrep.dev/r/yaml.docker-compose.security.no-new-privileges.no-new-privileges",
+          "shortlink": "https://sg.run/0n8q"
+        },
+        "severity": "WARNING",
+        "fingerprint": "requires login",
+        "lines": "requires login",
+        "validation_state": "NO_VALIDATOR",
+        "engine_kind": "OSS"
+      }
+    },
+    {
+      "check_id": "yaml.docker-compose.security.writable-filesystem-service.writable-filesystem-service",
+      "path": "torre/torre-llm/metrics/docker-compose.yml",
+      "start": { "line": 3, "col": 3, "offset": 27 },
+      "end": { "line": 3, "col": 11, "offset": 35 },
+      "extra": {
+        "message": "Service 'exporter' is running with a writable root filesystem. This may allow malicious applications to download and run additional payloads, or modify container files. If an application inside a container has to save something temporarily consider using a tmpfs. Add 'read_only: true' to this service to prevent this.",
+        "metadata": {
+          "cwe": [
+            "CWE-732: Incorrect Permission Assignment for Critical Resource"
+          ],
+          "owasp": [
+            "A05:2021 - Security Misconfiguration",
+            "A06:2017 - Security Misconfiguration"
+          ],
+          "references": [
+            "https://docs.docker.com/compose/compose-file/compose-file-v3/#domainname-hostname-ipc-mac_address-privileged-read_only-shm_size-stdin_open-tty-user-working_dir",
+            "https://blog.atomist.com/security-of-docker-kubernetes/",
+            "https://cheatsheetseries.owasp.org/cheatsheets/Docker_Security_Cheat_Sheet.html#rule-8-set-filesystem-and-volumes-to-read-only"
+          ],
+          "category": "security",
+          "technology": ["docker-compose"],
+          "cwe2021-top25": true,
+          "subcategory": ["audit"],
+          "likelihood": "LOW",
+          "impact": "HIGH",
+          "confidence": "LOW",
+          "license": "Semgrep Rules License v1.0. For more details, visit semgrep.dev/legal/rules-license",
+          "vulnerability_class": ["Improper Authorization"],
+          "source": "https://semgrep.dev/r/yaml.docker-compose.security.writable-filesystem-service.writable-filesystem-service",
+          "shortlink": "https://sg.run/e4JE"
+        },
+        "severity": "WARNING",
+        "fingerprint": "requires login",
+        "lines": "requires login",
+        "validation_state": "NO_VALIDATOR",
+        "engine_kind": "OSS"
+      }
+    },
+    {
+      "check_id": "yaml.docker-compose.security.no-new-privileges.no-new-privileges",
+      "path": "torre/torre-llm/metrics/docker-compose.yml",
+      "start": { "line": 15, "col": 3, "offset": 295 },
+      "end": { "line": 15, "col": 13, "offset": 305 },
+      "extra": {
+        "message": "Service 'prometheus' allows for privilege escalation via setuid or setgid binaries. Add 'no-new-privileges:true' in 'security_opt' to prevent this.",
+        "metadata": {
+          "cwe": [
+            "CWE-732: Incorrect Permission Assignment for Critical Resource"
+          ],
+          "owasp": [
+            "A05:2021 - Security Misconfiguration",
+            "A06:2017 - Security Misconfiguration"
+          ],
+          "references": [
+            "https://raesene.github.io/blog/2019/06/01/docker-capabilities-and-no-new-privs/",
+            "https://www.kernel.org/doc/Documentation/prctl/no_new_privs.txt",
+            "https://cheatsheetseries.owasp.org/cheatsheets/Docker_Security_Cheat_Sheet.html#rule-4-add-no-new-privileges-flag"
+          ],
+          "category": "security",
+          "technology": ["docker-compose"],
+          "cwe2021-top25": true,
+          "subcategory": ["audit"],
+          "likelihood": "LOW",
+          "impact": "HIGH",
+          "confidence": "LOW",
+          "license": "Semgrep Rules License v1.0. For more details, visit semgrep.dev/legal/rules-license",
+          "vulnerability_class": ["Improper Authorization"],
+          "source": "https://semgrep.dev/r/yaml.docker-compose.security.no-new-privileges.no-new-privileges",
+          "shortlink": "https://sg.run/0n8q"
+        },
+        "severity": "WARNING",
+        "fingerprint": "requires login",
+        "lines": "requires login",
+        "validation_state": "NO_VALIDATOR",
+        "engine_kind": "OSS"
+      }
+    },
+    {
+      "check_id": "yaml.docker-compose.security.writable-filesystem-service.writable-filesystem-service",
+      "path": "torre/torre-llm/metrics/docker-compose.yml",
+      "start": { "line": 15, "col": 3, "offset": 295 },
+      "end": { "line": 15, "col": 13, "offset": 305 },
+      "extra": {
+        "message": "Service 'prometheus' is running with a writable root filesystem. This may allow malicious applications to download and run additional payloads, or modify container files. If an application inside a container has to save something temporarily consider using a tmpfs. Add 'read_only: true' to this service to prevent this.",
+        "metadata": {
+          "cwe": [
+            "CWE-732: Incorrect Permission Assignment for Critical Resource"
+          ],
+          "owasp": [
+            "A05:2021 - Security Misconfiguration",
+            "A06:2017 - Security Misconfiguration"
+          ],
+          "references": [
+            "https://docs.docker.com/compose/compose-file/compose-file-v3/#domainname-hostname-ipc-mac_address-privileged-read_only-shm_size-stdin_open-tty-user-working_dir",
+            "https://blog.atomist.com/security-of-docker-kubernetes/",
+            "https://cheatsheetseries.owasp.org/cheatsheets/Docker_Security_Cheat_Sheet.html#rule-8-set-filesystem-and-volumes-to-read-only"
+          ],
+          "category": "security",
+          "technology": ["docker-compose"],
+          "cwe2021-top25": true,
+          "subcategory": ["audit"],
+          "likelihood": "LOW",
+          "impact": "HIGH",
+          "confidence": "LOW",
+          "license": "Semgrep Rules License v1.0. For more details, visit semgrep.dev/legal/rules-license",
+          "vulnerability_class": ["Improper Authorization"],
+          "source": "https://semgrep.dev/r/yaml.docker-compose.security.writable-filesystem-service.writable-filesystem-service",
+          "shortlink": "https://sg.run/e4JE"
+        },
+        "severity": "WARNING",
+        "fingerprint": "requires login",
+        "lines": "requires login",
+        "validation_state": "NO_VALIDATOR",
+        "engine_kind": "OSS"
+      }
+    },
+    {
+      "check_id": "yaml.docker-compose.security.no-new-privileges.no-new-privileges",
+      "path": "torre/torre-llm/metrics/docker-compose.yml",
+      "start": { "line": 23, "col": 3, "offset": 491 },
+      "end": { "line": 23, "col": 10, "offset": 498 },
+      "extra": {
+        "message": "Service 'grafana' allows for privilege escalation via setuid or setgid binaries. Add 'no-new-privileges:true' in 'security_opt' to prevent this.",
+        "metadata": {
+          "cwe": [
+            "CWE-732: Incorrect Permission Assignment for Critical Resource"
+          ],
+          "owasp": [
+            "A05:2021 - Security Misconfiguration",
+            "A06:2017 - Security Misconfiguration"
+          ],
+          "references": [
+            "https://raesene.github.io/blog/2019/06/01/docker-capabilities-and-no-new-privs/",
+            "https://www.kernel.org/doc/Documentation/prctl/no_new_privs.txt",
+            "https://cheatsheetseries.owasp.org/cheatsheets/Docker_Security_Cheat_Sheet.html#rule-4-add-no-new-privileges-flag"
+          ],
+          "category": "security",
+          "technology": ["docker-compose"],
+          "cwe2021-top25": true,
+          "subcategory": ["audit"],
+          "likelihood": "LOW",
+          "impact": "HIGH",
+          "confidence": "LOW",
+          "license": "Semgrep Rules License v1.0. For more details, visit semgrep.dev/legal/rules-license",
+          "vulnerability_class": ["Improper Authorization"],
+          "source": "https://semgrep.dev/r/yaml.docker-compose.security.no-new-privileges.no-new-privileges",
+          "shortlink": "https://sg.run/0n8q"
+        },
+        "severity": "WARNING",
+        "fingerprint": "requires login",
+        "lines": "requires login",
+        "validation_state": "NO_VALIDATOR",
+        "engine_kind": "OSS"
+      }
+    },
+    {
+      "check_id": "yaml.docker-compose.security.writable-filesystem-service.writable-filesystem-service",
+      "path": "torre/torre-llm/metrics/docker-compose.yml",
+      "start": { "line": 23, "col": 3, "offset": 491 },
+      "end": { "line": 23, "col": 10, "offset": 498 },
+      "extra": {
+        "message": "Service 'grafana' is running with a writable root filesystem. This may allow malicious applications to download and run additional payloads, or modify container files. If an application inside a container has to save something temporarily consider using a tmpfs. Add 'read_only: true' to this service to prevent this.",
+        "metadata": {
+          "cwe": [
+            "CWE-732: Incorrect Permission Assignment for Critical Resource"
+          ],
+          "owasp": [
+            "A05:2021 - Security Misconfiguration",
+            "A06:2017 - Security Misconfiguration"
+          ],
+          "references": [
+            "https://docs.docker.com/compose/compose-file/compose-file-v3/#domainname-hostname-ipc-mac_address-privileged-read_only-shm_size-stdin_open-tty-user-working_dir",
+            "https://blog.atomist.com/security-of-docker-kubernetes/",
+            "https://cheatsheetseries.owasp.org/cheatsheets/Docker_Security_Cheat_Sheet.html#rule-8-set-filesystem-and-volumes-to-read-only"
+          ],
+          "category": "security",
+          "technology": ["docker-compose"],
+          "cwe2021-top25": true,
+          "subcategory": ["audit"],
+          "likelihood": "LOW",
+          "impact": "HIGH",
+          "confidence": "LOW",
+          "license": "Semgrep Rules License v1.0. For more details, visit semgrep.dev/legal/rules-license",
+          "vulnerability_class": ["Improper Authorization"],
+          "source": "https://semgrep.dev/r/yaml.docker-compose.security.writable-filesystem-service.writable-filesystem-service",
+          "shortlink": "https://sg.run/e4JE"
+        },
+        "severity": "WARNING",
+        "fingerprint": "requires login",
+        "lines": "requires login",
+        "validation_state": "NO_VALIDATOR",
+        "engine_kind": "OSS"
+      }
+    },
+    {
+      "check_id": "dockerfile.security.missing-user.missing-user",
+      "path": "torre/torre-llm/metrics/exporter/Dockerfile",
+      "start": { "line": 11, "col": 1, "offset": 268 },
+      "end": { "line": 11, "col": 34, "offset": 301 },
+      "extra": {
+        "message": "By not specifying a USER, a program in the container may run as 'root'. This is a security hazard. If an attacker can control a process running as root, they may have control over the container. Ensure that the last USER in a Dockerfile is a USER other than 'root'.",
+        "fix": "USER non-root\nCMD [\"python\",\"/app/exporter.py\"]",
+        "metadata": {
+          "cwe": ["CWE-250: Execution with Unnecessary Privileges"],
+          "category": "security",
+          "technology": ["dockerfile"],
+          "confidence": "MEDIUM",
+          "owasp": ["A04:2021 - Insecure Design"],
+          "references": ["https://owasp.org/Top10/A04_2021-Insecure_Design"],
+          "subcategory": ["audit"],
+          "likelihood": "LOW",
+          "impact": "MEDIUM",
+          "license": "Semgrep Rules License v1.0. For more details, visit semgrep.dev/legal/rules-license",
+          "vulnerability_class": ["Improper Authorization"],
+          "source": "https://semgrep.dev/r/dockerfile.security.missing-user.missing-user",
+          "shortlink": "https://sg.run/Gbvn"
+        },
+        "severity": "ERROR",
+        "fingerprint": "requires login",
+        "lines": "requires login",
+        "validation_state": "NO_VALIDATOR",
+        "engine_kind": "OSS"
+      }
+    },
+    {
+      "check_id": "python.fastapi.security.wildcard-cors.wildcard-cors",
+      "path": "torre/torre-llm/simple_api.py",
+      "start": { "line": 16, "col": 19, "offset": 310 },
+      "end": { "line": 16, "col": 24, "offset": 315 },
+      "extra": {
+        "message": "CORS policy allows any origin (using wildcard '*'). This is insecure and should be avoided.",
+        "metadata": {
+          "cwe": [
+            "CWE-942: Permissive Cross-domain Policy with Untrusted Domains"
+          ],
+          "owasp": ["A05:2021 - Security Misconfiguration"],
+          "category": "security",
+          "technology": ["python", "fastapi"],
+          "references": [
+            "https://owasp.org/Top10/A05_2021-Security_Misconfiguration",
+            "https://cwe.mitre.org/data/definitions/942.html"
+          ],
+          "likelihood": "HIGH",
+          "impact": "LOW",
+          "confidence": "MEDIUM",
+          "vulnerability_class": ["Configuration"],
+          "subcategory": ["vuln"],
+          "license": "Semgrep Rules License v1.0. For more details, visit semgrep.dev/legal/rules-license",
+          "source": "https://semgrep.dev/r/python.fastapi.security.wildcard-cors.wildcard-cors",
+          "shortlink": "https://sg.run/KxApY"
+        },
+        "severity": "WARNING",
+        "fingerprint": "requires login",
+        "lines": "requires login",
+        "validation_state": "NO_VALIDATOR",
+        "engine_kind": "OSS"
+      }
+    },
+    {
+      "check_id": "typescript.react.security.react-insecure-request.react-insecure-request",
+      "path": "torre/torre-llm/src/MetricsTest.tsx",
+      "start": { "line": 13, "col": 1, "offset": 351 },
+      "end": { "line": 13, "col": 38, "offset": 388 },
+      "extra": {
+        "message": "Unencrypted request over HTTP detected.",
+        "metadata": {
+          "vulnerability": "Insecure Transport",
+          "owasp": [
+            "A03:2017 - Sensitive Data Exposure",
+            "A02:2021 - Cryptographic Failures"
+          ],
+          "cwe": ["CWE-319: Cleartext Transmission of Sensitive Information"],
+          "references": ["https://www.npmjs.com/package/axios"],
+          "category": "security",
+          "technology": ["react"],
+          "subcategory": ["vuln"],
+          "likelihood": "LOW",
+          "impact": "MEDIUM",
+          "confidence": "MEDIUM",
+          "license": "Semgrep Rules License v1.0. For more details, visit semgrep.dev/legal/rules-license",
+          "vulnerability_class": ["Mishandled Sensitive Information"],
+          "source": "https://semgrep.dev/r/typescript.react.security.react-insecure-request.react-insecure-request",
+          "shortlink": "https://sg.run/1n0b"
+        },
+        "severity": "ERROR",
+        "fingerprint": "requires login",
+        "lines": "requires login",
+        "validation_state": "NO_VALIDATOR",
+        "engine_kind": "OSS"
+      }
+    },
+    {
+      "check_id": "python.lang.security.audit.subprocess-shell-true.subprocess-shell-true",
+      "path": "torre/torre-llm/tools/fixer/metrics_wrapper.py",
+      "start": { "line": 12, "col": 24, "offset": 328 },
+      "end": { "line": 12, "col": 28, "offset": 332 },
+      "extra": {
+        "message": "Found 'subprocess' function 'run' with 'shell=True'. This is dangerous because this call will spawn the command using a shell process. Doing so propagates current shell settings and variables, which makes it much easier for a malicious actor to execute commands. Use 'shell=False' instead.",
+        "fix": "False",
+        "metadata": {
+          "source-rule-url": "https://bandit.readthedocs.io/en/latest/plugins/b602_subprocess_popen_with_shell_equals_true.html",
+          "owasp": ["A01:2017 - Injection", "A03:2021 - Injection"],
+          "cwe": [
+            "CWE-78: Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection')"
+          ],
+          "references": [
+            "https://stackoverflow.com/questions/3172470/actual-meaning-of-shell-true-in-subprocess",
+            "https://docs.python.org/3/library/subprocess.html"
+          ],
+          "category": "security",
+          "technology": ["python"],
+          "cwe2022-top25": true,
+          "cwe2021-top25": true,
+          "subcategory": ["secure default"],
+          "likelihood": "HIGH",
+          "impact": "LOW",
+          "confidence": "MEDIUM",
+          "license": "Semgrep Rules License v1.0. For more details, visit semgrep.dev/legal/rules-license",
+          "vulnerability_class": ["Command Injection"],
+          "source": "https://semgrep.dev/r/python.lang.security.audit.subprocess-shell-true.subprocess-shell-true",
+          "shortlink": "https://sg.run/J92w"
+        },
+        "severity": "ERROR",
+        "fingerprint": "requires login",
+        "lines": "requires login",
+        "validation_state": "NO_VALIDATOR",
+        "engine_kind": "OSS"
+      }
+    },
+    {
+      "check_id": "javascript.lang.security.audit.path-traversal.path-join-resolve-traversal.path-join-resolve-traversal",
+      "path": "torre/torre-llm/tools/fixer/tsserver_fix.ts",
+      "start": { "line": 10, "col": 28, "offset": 331 },
+      "end": { "line": 10, "col": 29, "offset": 332 },
+      "extra": {
+        "message": "Detected possible user input going into a `path.join` or `path.resolve` function. This could possibly lead to a path traversal vulnerability,  where the attacker can access arbitrary files stored in the file system. Instead, be sure to sanitize or validate user input first.",
+        "metadata": {
+          "owasp": [
+            "A05:2017 - Broken Access Control",
+            "A01:2021 - Broken Access Control"
+          ],
+          "cwe": [
+            "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
+          ],
+          "category": "security",
+          "references": [
+            "https://owasp.org/www-community/attacks/Path_Traversal"
+          ],
+          "technology": ["javascript", "node.js"],
+          "cwe2022-top25": true,
+          "cwe2021-top25": true,
+          "subcategory": ["vuln"],
+          "likelihood": "HIGH",
+          "impact": "MEDIUM",
+          "confidence": "LOW",
+          "license": "Semgrep Rules License v1.0. For more details, visit semgrep.dev/legal/rules-license",
+          "vulnerability_class": ["Path Traversal"],
+          "source": "https://semgrep.dev/r/javascript.lang.security.audit.path-traversal.path-join-resolve-traversal.path-join-resolve-traversal",
+          "shortlink": "https://sg.run/OPqk"
+        },
+        "severity": "WARNING",
+        "fingerprint": "requires login",
+        "lines": "requires login",
+        "validation_state": "NO_VALIDATOR",
+        "engine_kind": "OSS"
+      }
+    },
+    {
+      "check_id": "python.lang.security.audit.non-literal-import.non-literal-import",
+      "path": "torre/torre-llm/tools/testgen/hypothesis_skeleton.py",
+      "start": { "line": 5, "col": 7, "offset": 215 },
+      "end": { "line": 5, "col": 35, "offset": 243 },
+      "extra": {
+        "message": "Untrusted user input in `importlib.import_module()` function allows an attacker to load arbitrary code. Avoid dynamic values in `importlib.import_module()` or use a whitelist to prevent running untrusted code.",
+        "metadata": {
+          "owasp": ["A01:2021 - Broken Access Control"],
+          "cwe": ["CWE-706: Use of Incorrectly-Resolved Name or Reference"],
+          "category": "security",
+          "technology": ["python"],
+          "references": [
+            "https://owasp.org/Top10/A01_2021-Broken_Access_Control"
+          ],
+          "subcategory": ["audit"],
+          "likelihood": "LOW",
+          "impact": "MEDIUM",
+          "confidence": "LOW",
+          "license": "Semgrep Rules License v1.0. For more details, visit semgrep.dev/legal/rules-license",
+          "vulnerability_class": ["Improper Authorization"],
+          "source": "https://semgrep.dev/r/python.lang.security.audit.non-literal-import.non-literal-import",
+          "shortlink": "https://sg.run/y6Jk"
+        },
+        "severity": "WARNING",
+        "fingerprint": "requires login",
+        "lines": "requires login",
+        "validation_state": "NO_VALIDATOR",
+        "engine_kind": "OSS"
+      }
+    },
+    {
+      "check_id": "problem-based-packs.insecure-transport.js-node.using-http-server.using-http-server",
+      "path": "torre/torre-llm/torre-extension/extension.js",
+      "start": { "line": 33, "col": 25, "offset": 1144 },
+      "end": { "line": 33, "col": 29, "offset": 1148 },
+      "extra": {
+        "message": "Checks for any usage of http servers instead of https servers. Encourages the usage of https protocol instead of http, which does not have TLS and is therefore unencrypted. Using http can lead to man-in-the-middle attacks in which the attacker is able to read sensitive information.",
+        "metadata": {
+          "likelihood": "LOW",
+          "impact": "MEDIUM",
+          "confidence": "LOW",
+          "category": "security",
+          "cwe": "CWE-319: Cleartext Transmission of Sensitive Information",
+          "owasp": [
+            "A02:2021 - Cryptographic Failures",
+            "A03:2017 - Sensitive Data Exposure"
+          ],
+          "references": [
+            "https://nodejs.org/api/http.html#http_class_http_agent",
+            "https://groups.google.com/g/rubyonrails-security/c/NCCsca7TEtY"
+          ],
+          "subcategory": ["audit"],
+          "technology": ["node.js"],
+          "vulnerability": "Insecure Transport",
+          "license": "Semgrep Rules License v1.0. For more details, visit semgrep.dev/legal/rules-license",
+          "vulnerability_class": ["Mishandled Sensitive Information"],
+          "source": "https://semgrep.dev/r/problem-based-packs.insecure-transport.js-node.using-http-server.using-http-server",
+          "shortlink": "https://sg.run/x1zL"
+        },
+        "severity": "WARNING",
+        "fingerprint": "requires login",
+        "lines": "requires login",
+        "validation_state": "NO_VALIDATOR",
+        "engine_kind": "OSS"
+      }
+    },
+    {
+      "check_id": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
+      "path": "torre/torre-llm/torre-extension/extension.js",
+      "start": { "line": 72, "col": 27, "offset": 2599 },
+      "end": { "line": 72, "col": 56, "offset": 2628 },
+      "extra": {
+        "message": "Detected string concatenation with a non-literal variable in a util.format / console.log function. If an attacker injects a format specifier in the string, it will forge the log message. Try to use constant values for the format string.",
+        "metadata": {
+          "cwe": ["CWE-134: Use of Externally-Controlled Format String"],
+          "owasp": ["A01:2021 - Broken Access Control"],
+          "category": "security",
+          "technology": ["javascript"],
+          "subcategory": ["audit"],
+          "likelihood": "MEDIUM",
+          "impact": "LOW",
+          "confidence": "LOW",
+          "references": ["https://cwe.mitre.org/data/definitions/134.html"],
+          "license": "Semgrep Rules License v1.0. For more details, visit semgrep.dev/legal/rules-license",
+          "vulnerability_class": ["Improper Validation"],
+          "source": "https://semgrep.dev/r/javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
+          "shortlink": "https://sg.run/7Y5R"
+        },
+        "severity": "INFO",
+        "fingerprint": "requires login",
+        "lines": "requires login",
+        "validation_state": "NO_VALIDATOR",
+        "engine_kind": "OSS"
+      }
+    },
+    {
+      "check_id": "problem-based-packs.insecure-transport.js-node.using-http-server.using-http-server",
+      "path": "torre/torre-llm/torre-extension/extension_advanced.js",
+      "start": { "line": 33, "col": 25, "offset": 1144 },
+      "end": { "line": 33, "col": 29, "offset": 1148 },
+      "extra": {
+        "message": "Checks for any usage of http servers instead of https servers. Encourages the usage of https protocol instead of http, which does not have TLS and is therefore unencrypted. Using http can lead to man-in-the-middle attacks in which the attacker is able to read sensitive information.",
+        "metadata": {
+          "likelihood": "LOW",
+          "impact": "MEDIUM",
+          "confidence": "LOW",
+          "category": "security",
+          "cwe": "CWE-319: Cleartext Transmission of Sensitive Information",
+          "owasp": [
+            "A02:2021 - Cryptographic Failures",
+            "A03:2017 - Sensitive Data Exposure"
+          ],
+          "references": [
+            "https://nodejs.org/api/http.html#http_class_http_agent",
+            "https://groups.google.com/g/rubyonrails-security/c/NCCsca7TEtY"
+          ],
+          "subcategory": ["audit"],
+          "technology": ["node.js"],
+          "vulnerability": "Insecure Transport",
+          "license": "Semgrep Rules License v1.0. For more details, visit semgrep.dev/legal/rules-license",
+          "vulnerability_class": ["Mishandled Sensitive Information"],
+          "source": "https://semgrep.dev/r/problem-based-packs.insecure-transport.js-node.using-http-server.using-http-server",
+          "shortlink": "https://sg.run/x1zL"
+        },
+        "severity": "WARNING",
+        "fingerprint": "requires login",
+        "lines": "requires login",
+        "validation_state": "NO_VALIDATOR",
+        "engine_kind": "OSS"
+      }
+    },
+    {
+      "check_id": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
+      "path": "torre/torre-llm/torre-extension/extension_advanced.js",
+      "start": { "line": 72, "col": 27, "offset": 2599 },
+      "end": { "line": 72, "col": 56, "offset": 2628 },
+      "extra": {
+        "message": "Detected string concatenation with a non-literal variable in a util.format / console.log function. If an attacker injects a format specifier in the string, it will forge the log message. Try to use constant values for the format string.",
+        "metadata": {
+          "cwe": ["CWE-134: Use of Externally-Controlled Format String"],
+          "owasp": ["A01:2021 - Broken Access Control"],
+          "category": "security",
+          "technology": ["javascript"],
+          "subcategory": ["audit"],
+          "likelihood": "MEDIUM",
+          "impact": "LOW",
+          "confidence": "LOW",
+          "references": ["https://cwe.mitre.org/data/definitions/134.html"],
+          "license": "Semgrep Rules License v1.0. For more details, visit semgrep.dev/legal/rules-license",
+          "vulnerability_class": ["Improper Validation"],
+          "source": "https://semgrep.dev/r/javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
+          "shortlink": "https://sg.run/7Y5R"
+        },
+        "severity": "INFO",
+        "fingerprint": "requires login",
+        "lines": "requires login",
+        "validation_state": "NO_VALIDATOR",
+        "engine_kind": "OSS"
+      }
+    }
+  ],
+  "errors": [
+    {
+      "code": 3,
+      "level": "warn",
+      "type": "Syntax error",
+      "message": "Syntax error at line torre/torre-llm/test_vanguard_vs_commercial_7000.py:435:\n `{` was unexpected",
+      "path": "torre/torre-llm/test_vanguard_vs_commercial_7000.py"
+    },
+    {
+      "code": 3,
+      "level": "warn",
+      "type": "Syntax error",
+      "message": "Syntax error at line torre/torre-llm/test_rigoroso_comparativo.py:97:\n missing element",
+      "path": "torre/torre-llm/test_rigoroso_comparativo.py"
+    },
+    {
+      "code": 2,
+      "level": "warn",
+      "type": "Other syntax error",
+      "message": "Other syntax error at line torre/pins/estado_maior_torre.yaml:32:\n (approximate error location; error nearby after) error calling parser: could not find expected ':' character 0 position 0 returned: 0",
+      "path": "torre/pins/estado_maior_torre.yaml"
+    },
+    {
+      "code": 2,
+      "level": "warn",
+      "type": "Other syntax error",
+      "message": "Other syntax error at line torre/torre-llm/.github/workflows/codeql.yml:19:\n (approximate error location; error nearby after) error calling parser: did not find expected ',' or '}' character 0 position 0 returned: 0",
+      "path": "torre/torre-llm/.github/workflows/codeql.yml"
+    },
+    {
+      "code": 2,
+      "level": "warn",
+      "type": "Other syntax error",
+      "message": "Other syntax error at line torre/pins/engenheiro_torre.yaml:41:\n (approximate error location; error nearby after) error calling parser: did not find expected key character 0 position 0 returned: 0",
+      "path": "torre/pins/engenheiro_torre.yaml"
+    },
+    {
+      "code": 3,
+      "level": "warn",
+      "type": [
+        "PartialParsing",
+        [
+          {
+            "path": "torre/torre-llm/.github/workflows/pr-gate.yml",
+            "start": { "line": 21, "col": 39, "offset": 508 },
+            "end": { "line": 21, "col": 42, "offset": 511 }
+          }
+        ]
+      ],
+      "message": "Syntax error at line torre/torre-llm/.github/workflows/pr-gate.yml:21:\n When parsing a snippet as Bash for metavariable-pattern in rule 'yaml.github-actions.security.curl-eval.curl-eval', `${{` was unexpected",
+      "path": "torre/torre-llm/.github/workflows/pr-gate.yml",
+      "spans": [
+        {
+          "file": "torre/torre-llm/.github/workflows/pr-gate.yml",
+          "start": { "line": 21, "col": 39, "offset": 508 },
+          "end": { "line": 21, "col": 42, "offset": 511 }
+        }
+      ]
+    }
+  ],
+  "paths": {
+    "scanned": [
+      "torre/.torre/cache/fixture_ts_minimal.pkl",
+      "torre/.torre/code_index.json",
+      "torre/.torre/evals/bakeoff-20250824-104830.json",
+      "torre/.torre/evals/bakeoff-20250824-104830.md",
+      "torre/.torre/evals/bakeoff-20250824-104837.json",
+      "torre/.torre/evals/bakeoff-20250824-104837.md",
+      "torre/.torre/evals/bakeoff-20250824-105156.json",
+      "torre/.torre/evals/bakeoff-20250824-105156.md",
+      "torre/.torre/evals/bakeoff-20250824-105207.json",
+      "torre/.torre/evals/bakeoff-20250824-105207.md",
+      "torre/.torre/evals/bakeoff-20250824-105231.json",
+      "torre/.torre/evals/bakeoff-20250824-105231.md",
+      "torre/.torre/evals/bakeoff-20250824-105305.json",
+      "torre/.torre/evals/bakeoff-20250824-105305.md",
+      "torre/.torre/evals/bakeoff-20250824-105315.json",
+      "torre/.torre/evals/bakeoff-20250824-105315.md",
+      "torre/.torre/evals/bakeoff-20250824-105341.json",
+      "torre/.torre/evals/bakeoff-20250824-105341.md",
+      "torre/.torre/evals/bakeoff-20250824-105358.json",
+      "torre/.torre/evals/bakeoff-20250824-105358.md",
+      "torre/.torre/evals/bakeoff-20250824-105519.json",
+      "torre/.torre/evals/bakeoff-20250824-105519.md",
+      "torre/.torre/evals/bakeoff-20250824-105622.json",
+      "torre/.torre/evals/bakeoff-20250824-105622.md",
+      "torre/.torre/evals/bakeoff-20250824-105717.json",
+      "torre/.torre/evals/bakeoff-20250824-105717.md",
+      "torre/.torre/evals/bakeoff-20250824-105852.json",
+      "torre/.torre/evals/bakeoff-20250824-105852.md",
+      "torre/.torre/evals/bakeoff-20250824-105920.json",
+      "torre/.torre/evals/bakeoff-20250824-105920.md",
+      "torre/.torre/evals/bakeoff-20250824-110018.json",
+      "torre/.torre/evals/bakeoff-20250824-110018.md",
+      "torre/.torre/evals/bakeoff-20250824-110938.json",
+      "torre/.torre/evals/bakeoff-20250824-110938.md",
+      "torre/.torre/evals/bakeoff-20250824-113255.json",
+      "torre/.torre/evals/bakeoff-20250824-113255.md",
+      "torre/.torre/evals/bakeoff-20250824-113316.json",
+      "torre/.torre/evals/bakeoff-20250824-113316.md",
+      "torre/.torre/evals/bakeoff-20250824-113336.json",
+      "torre/.torre/evals/bakeoff-20250824-113336.md",
+      "torre/.torre/evals/bakeoff-20250824-125243.json",
+      "torre/.torre/evals/bakeoff-20250824-125243.md",
+      "torre/.torre/evals/bakeoff-20250824-125248.json",
+      "torre/.torre/evals/bakeoff-20250824-125248.md",
+      "torre/.torre/evals/bakeoff-20250824-125313.json",
+      "torre/.torre/evals/bakeoff-20250824-125313.md",
+      "torre/.torre/evals/bakeoff-20250824-130423.json",
+      "torre/.torre/evals/bakeoff-20250824-130423.md",
+      "torre/.torre/evals/bakeoff-20250824-130521.json",
+      "torre/.torre/evals/bakeoff-20250824-130521.md",
+      "torre/.torre/evals/bakeoff-20250824-152059.json",
+      "torre/.torre/evals/bakeoff-20250824-152059.md",
+      "torre/.torre/evals/bakeoff-20250824-152618.json",
+      "torre/.torre/evals/bakeoff-20250824-152618.md",
+      "torre/.torre/evals/bakeoff-20250824-164959.json",
+      "torre/.torre/evals/bakeoff-20250824-164959.md",
+      "torre/.torre/evals/bakeoff-20250824-174505.json",
+      "torre/.torre/evals/bakeoff-20250824-174505.md",
+      "torre/.torre/evals/bakeoff-20250824-175405.json",
+      "torre/.torre/evals/bakeoff-20250824-175405.md",
+      "torre/.torre/evals/bakeoff-20250824-181349.json",
+      "torre/.torre/evals/bakeoff-20250824-181349.md",
+      "torre/.torre/evals/bakeoff-20250824-183155.json",
+      "torre/.torre/evals/bakeoff-20250824-183155.md",
+      "torre/.torre/outbox/patch-apply-20250823-144823.diff",
+      "torre/.torre/outbox/patch-apply-20250823-144836.diff",
+      "torre/.torre/outbox/patch-apply-20250823-145404.diff",
+      "torre/.torre/outbox/patch-apply-20250823-145608.diff",
+      "torre/.torre/outbox/patch-apply-20250823-145722.diff",
+      "torre/.torre/outbox/patch-apply-20250823-150936.diff",
+      "torre/.torre/outbox/patch-apply-20250823-150944.diff",
+      "torre/.torre/outbox/patch-apply-20250823-151002.diff",
+      "torre/.torre/outbox/patch-apply-20250823-152608.diff",
+      "torre/.torre/outbox/patch-apply-20250823-160508.diff",
+      "torre/.torre/outbox/patch-apply-20250823-160511.diff",
+      "torre/.torre/outbox/patch-apply-20250823-161751.diff",
+      "torre/.torre/outbox/patch-apply-20250823-162841.diff",
+      "torre/.torre/outbox/patch-apply-20250823-162844.diff",
+      "torre/.torre/outbox/patch-apply-20250823-181711.diff",
+      "torre/.torre/outbox/patch-dry_run-20250823-144823.diff",
+      "torre/.torre/outbox/patch-dry_run-20250823-144836.diff",
+      "torre/.torre/outbox/patch-dry_run-20250823-145404.diff",
+      "torre/.torre/outbox/patch-dry_run-20250823-145608.diff",
+      "torre/.torre/outbox/patch-dry_run-20250823-145722.diff",
+      "torre/.torre/outbox/patch-dry_run-20250823-150936.diff",
+      "torre/.torre/outbox/patch-dry_run-20250823-150944.diff",
+      "torre/.torre/outbox/patch-dry_run-20250823-151002.diff",
+      "torre/.torre/outbox/patch-dry_run-20250823-152608.diff",
+      "torre/.torre/outbox/patch-dry_run-20250823-160508.diff",
+      "torre/.torre/outbox/patch-dry_run-20250823-160511.diff",
+      "torre/.torre/outbox/patch-dry_run-20250823-161751.diff",
+      "torre/.torre/outbox/patch-dry_run-20250823-162841.diff",
+      "torre/.torre/outbox/patch-dry_run-20250823-162844.diff",
+      "torre/.torre/outbox/patch-dry_run-20250823-181711.diff",
+      "torre/.torre/outbox/patch-validate-20250823-144823.diff",
+      "torre/.torre/outbox/patch-validate-20250823-144836.diff",
+      "torre/.torre/outbox/patch-validate-20250823-145404.diff",
+      "torre/.torre/outbox/patch-validate-20250823-145608.diff",
+      "torre/.torre/outbox/patch-validate-20250823-145722.diff",
+      "torre/.torre/outbox/patch-validate-20250823-150936.diff",
+      "torre/.torre/outbox/patch-validate-20250823-150944.diff",
+      "torre/.torre/outbox/patch-validate-20250823-151002.diff",
+      "torre/.torre/outbox/patch-validate-20250823-152608.diff",
+      "torre/.torre/outbox/patch-validate-20250823-160508.diff",
+      "torre/.torre/outbox/patch-validate-20250823-160511.diff",
+      "torre/.torre/outbox/patch-validate-20250823-161751.diff",
+      "torre/.torre/outbox/patch-validate-20250823-162841.diff",
+      "torre/.torre/outbox/patch-validate-20250823-162844.diff",
+      "torre/.torre/outbox/patch-validate-20250823-181711.diff",
+      "torre/.torre/pipeline_state.json",
+      "torre/Makefile",
+      "torre/README.md",
+      "torre/ab_selection_patch.diff",
+      "torre/action.md",
+      "torre/advice_patch.diff",
+      "torre/apps/fortaleza-ui/src/api/strategos.ts",
+      "torre/apps/torre-ui/src/api/memory.ts",
+      "torre/apps/torre-ui/src/api/strategos.ts",
+      "torre/apps/torre-ui/src/api/traces.ts",
+      "torre/apps/torre-ui/src/api/vanguard.ts",
+      "torre/apps/torre-ui/src/components/charts/Sparkline.tsx",
+      "torre/apps/torre-ui/src/components/layout/LeftSidebar.tsx",
+      "torre/apps/torre-ui/src/components/memory/MemoryPanel.tsx",
+      "torre/apps/torre-ui/src/components/strategos/StrategosBadge.tsx",
+      "torre/apps/torre-ui/src/components/strategos/StrategosPanel.tsx",
+      "torre/apps/torre-ui/src/components/strategos/TraceBadge.tsx",
+      "torre/apps/torre-ui/src/components/vanguard/VanguardWidget.tsx",
+      "torre/apps/torre-ui/src/i18n/_do_not_translate.yaml",
+      "torre/aristotelian_patch.diff",
+      "torre/ast_codemods_patch.diff",
+      "torre/atelie/.deny-hooks",
+      "torre/autofix_patch.diff",
+      "torre/blocos-partidos_rgpd.md",
+      "torre/cli/bridge_spec.md",
+      "torre/cli/create_checkpoint.py",
+      "torre/cli/eval.py",
+      "torre/cli/generate_report.py",
+      "torre/cli/torre_bridge.py",
+      "torre/cli/train.py",
+      "torre/cli/update_status.py",
+      "torre/cli/validate_dataset.py",
+      "torre/core/orquestrador/cli.py",
+      "torre/curriculum/PLAN.md",
+      "torre/data/SOURCES.md",
+      "torre/models/ARCHITECTURE.md",
+      "torre/offline_patch.diff",
+      "torre/orquestrador/Makefile",
+      "torre/orquestrador/PIN_ENGENHEIRO.yaml",
+      "torre/orquestrador/PIN_ESTADO_MAIOR.md",
+      "torre/orquestrador/PIN_ESTADO_MAIOR.yaml",
+      "torre/orquestrador/README.md",
+      "torre/orquestrador/battery_consolidator.py",
+      "torre/orquestrador/battery_reporter.py",
+      "torre/orquestrador/battery_runner.py",
+      "torre/orquestrador/cli.py",
+      "torre/orquestrador/corrigir_multilang.py",
+      "torre/orquestrador/corrigir_multilang_final.py",
+      "torre/orquestrador/exec_cap04.py",
+      "torre/orquestrador/exec_cap05.py",
+      "torre/orquestrador/exec_cap06.py",
+      "torre/orquestrador/exec_cap07.py",
+      "torre/orquestrador/exec_cap08.py",
+      "torre/orquestrador/exec_fase0.py",
+      "torre/orquestrador/exec_mg1.py",
+      "torre/orquestrador/exec_mg2.py",
+      "torre/orquestrador/mini_pin_validations.py",
+      "torre/orquestrador/profile_multilang.py",
+      "torre/orquestrador/treino_G1.py",
+      "torre/orquestrador/treino_G2.py",
+      "torre/orquestrador/treino_G3.py",
+      "torre/pasta sem nome/CURSOR_CONFIG_QUICK.md",
+      "torre/pasta sem nome/Modelfile",
+      "torre/pasta sem nome/PATCH_CURSOR_TORRE.md",
+      "torre/pasta sem nome/cursor_custom_model_example.json",
+      "torre/pasta sem nome/setup_ollama_torre.sh",
+      "torre/pins/_deprecated/ENGINEER_PIN_v3_CORE.md",
+      "torre/pins/_deprecated/README_PIN_v2_TORRE.md",
+      "torre/pins/engenheiro_torre.yaml",
+      "torre/pins/estado_maior_torre.yaml",
+      "torre/pipeline/capitulos/CAP-01.yaml",
+      "torre/pipeline/capitulos/CAP-02.yaml",
+      "torre/pipeline/capitulos/CAP-03.yaml",
+      "torre/pipeline/capitulos/CAP-04.yaml",
+      "torre/pipeline/capitulos/CAP-05.yaml",
+      "torre/pipeline/superpipeline.yaml",
+      "torre/pipeline.md",
+      "torre/pipeline_linguas.md",
+      "torre/quality_patch.diff",
+      "torre/rag_patch.diff",
+      "torre/reflexiva/README.md",
+      "torre/reflexiva/pesquisar.py",
+      "torre/reflexiva/pesquisas/pesquisa_20251102_210053.yaml",
+      "torre/reflexiva/sinteses/sintese_20251102_210053.md",
+      "torre/relatorio.md",
+      "torre/relatorios/autoexec_log_torre.md",
+      "torre/relatorios/checkpoints.json",
+      "torre/relatorios/torre_riscos_eliminados.md",
+      "torre/relatorios/treino_G1_log.md",
+      "torre/relatorios/treino_G1_metrics.json",
+      "torre/relatorios/treino_G2_log.md",
+      "torre/relatorios/treino_G2_metrics.json",
+      "torre/relatorios/treino_G3_log.md",
+      "torre/relatorios/treino_G3_metrics.json",
+      "torre/reports/EVAL_CRITERIA.md",
+      "torre/reports/train_summary.md",
+      "torre/settings_patch.diff",
+      "torre/src/components/SettingsPage.tsx",
+      "torre/src/components/TestComponent.tsx",
+      "torre/teste_torre_fa.html",
+      "torre/torre-llm/.eslintrc.cjs",
+      "torre/torre-llm/.github/workflows/codeql.yml",
+      "torre/torre-llm/.github/workflows/pr-gate.yml",
+      "torre/torre-llm/.metrics",
+      "torre/torre-llm/.torre/audit/audit-20250825-111840.json",
+      "torre/torre-llm/.torre/audit/audit-20250825-112458.json",
+      "torre/torre-llm/.torre/audit/audit-20250825-121832.json",
+      "torre/torre-llm/.torre/audit/audit-20250825-122906.json",
+      "torre/torre-llm/.torre/audit/audit-20250825-134149.json",
+      "torre/torre-llm/.torre/audit/audit-20250825-135348.json",
+      "torre/torre-llm/.torre/audit/audit-20250825-135759.json",
+      "torre/torre-llm/.torre/audit/audit-20250825-151714.json",
+      "torre/torre-llm/.torre/cache/fixture_ts_minimal.pkl",
+      "torre/torre-llm/.torre/chat_config.json",
+      "torre/torre-llm/.torre/episodes/episodes_2025-08-24.jsonl",
+      "torre/torre-llm/.torre/episodes/episodes_2025-08-25.jsonl",
+      "torre/torre-llm/.torre/golden/golden-20250826-075123.json",
+      "torre/torre-llm/.torre/golden/golden-20250826-075314.json",
+      "torre/torre-llm/.torre/kpis/daily.csv",
+      "torre/torre-llm/.torre/kpis/kpis-20250826.json",
+      "torre/torre-llm/.torre/learning/episode_1756120108.json",
+      "torre/torre-llm/.torre/learning/episode_1756120719.json",
+      "torre/torre-llm/.torre/learning/episode_1756121098.json",
+      "torre/torre-llm/.torre/learning/episode_1756121104.json",
+      "torre/torre-llm/.torre/learning/episode_1756124306.json",
+      "torre/torre-llm/.torre/learning/episode_1756124312.json",
+      "torre/torre-llm/.torre/learning/episode_1756124939.json",
+      "torre/torre-llm/.torre/learning/episode_1756124945.json",
+      "torre/torre-llm/.torre/learning/episode_1756129308.json",
+      "torre/torre-llm/.torre/learning/episode_1756129313.json",
+      "torre/torre-llm/.torre/learning/episode_1756130024.json",
+      "torre/torre-llm/.torre/learning/episode_1756130028.json",
+      "torre/torre-llm/.torre/learning/episode_1756130269.json",
+      "torre/torre-llm/.torre/learning/episode_1756130279.json",
+      "torre/torre-llm/.torre/learning/episode_1756135028.json",
+      "torre/torre-llm/.torre/learning/episode_1756135033.json",
+      "torre/torre-llm/.torre/learning/lessons.json",
+      "torre/torre-llm/.torre/lessons/lessons.sqlite",
+      "torre/torre-llm/.torre/memory/episodes.jsonl",
+      "torre/torre-llm/.torre/memory/meta.json",
+      "torre/torre-llm/.torre/memory/patterns.json",
+      "torre/torre-llm/.torre/memory/rules.json",
+      "torre/torre-llm/.torre/metrics/snapshot_1756037057.json",
+      "torre/torre-llm/.torre/metrics/snapshot_1756037116.json",
+      "torre/torre-llm/.torre/metrics/snapshot_1756120108.json",
+      "torre/torre-llm/.torre/metrics/snapshot_1756120719.json",
+      "torre/torre-llm/.torre/metrics/snapshot_1756121098.json",
+      "torre/torre-llm/.torre/metrics/snapshot_1756121110.json",
+      "torre/torre-llm/.torre/metrics/snapshot_1756124312.json",
+      "torre/torre-llm/.torre/metrics/snapshot_1756124945.json",
+      "torre/torre-llm/.torre/metrics/snapshot_1756129308.json",
+      "torre/torre-llm/.torre/metrics/snapshot_1756130028.json",
+      "torre/torre-llm/.torre/metrics/snapshot_1756130279.json",
+      "torre/torre-llm/.torre/metrics/snapshot_1756135033.json",
+      "torre/torre-llm/.torre/out/pipeline_efficacy_test.json",
+      "torre/torre-llm/.torre/torre_chat_config.json",
+      "torre/torre-llm/.torre/trace/trace-20241201.jsonl",
+      "torre/torre-llm/ADVICE.md",
+      "torre/torre-llm/BADGE_COUNTER_SUMMARY.md",
+      "torre/torre-llm/BADGE_FLAGS_SUMMARY.md",
+      "torre/torre-llm/CLI_BADGE_PATCH_SUMMARY.md",
+      "torre/torre-llm/COMO_ADICIONAR_TORRE.md",
+      "torre/torre-llm/COMO_VERIFICAR_USO.md",
+      "torre/torre-llm/CONFIGURACAO_CONCLUIDA.md",
+      "torre/torre-llm/CORRECAO_ERROS_SUMMARY.md",
+      "torre/torre-llm/CURSOR_CONFIG_QUICK.md",
+      "torre/torre-llm/CURSOR_CONFIG_QUICK_ORIGINAL.md",
+      "torre/torre-llm/GRAFANA_METRICS_IMPLEMENTATION.md",
+      "torre/torre-llm/GUIA_CURSOR_TORRE.md",
+      "torre/torre-llm/GUIA_FINAL_TORRE.md",
+      "torre/torre-llm/GUIA_TORRE_CHAT.md",
+      "torre/torre-llm/GUIA_USO_TORRE.md",
+      "torre/torre-llm/INTEGRACAO_FORTALEZA.md",
+      "torre/torre-llm/INTEGRACAO_PLATAFORMA_TORRE.md",
+      "torre/torre-llm/MEMORY_POLICY.md",
+      "torre/torre-llm/METRICS_IMPLEMENTATION.md",
+      "torre/torre-llm/Makefile",
+      "torre/torre-llm/Modelfile",
+      "torre/torre-llm/PATCH_CURSOR_TORRE.md",
+      "torre/torre-llm/PATCH_CURSOR_TORRE_ORIGINAL.md",
+      "torre/torre-llm/PATCH_INTEGRACAO_FORTALEZA.diff",
+      "torre/torre-llm/PHASE18_SUMMARY.md",
+      "torre/torre-llm/PHASE19_FINAL.md",
+      "torre/torre-llm/PHASE19_SUMMARY.md",
+      "torre/torre-llm/PHASE20_SUMMARY.md",
+      "torre/torre-llm/PIPELINE_CORRECAO_ERROS.md",
+      "torre/torre-llm/PIPELINE_IMPLEMENTATION_FINAL.md",
+      "torre/torre-llm/README.md",
+      "torre/torre-llm/README_CURSOR_SETUP.md",
+      "torre/torre-llm/RESUMO_EXECUTIVO_INTEGRACAO.md",
+      "torre/torre-llm/SETUP_SUMMARY.md",
+      "torre/torre-llm/TESTE_COMPARATIVO_FINAL.md",
+      "torre/torre-llm/__init__.py",
+      "torre/torre-llm/adapters/__init__.py",
+      "torre/torre-llm/adapters/run_build.py",
+      "torre/torre-llm/adapters/run_lint.py",
+      "torre/torre-llm/adapters/run_tests.py",
+      "torre/torre-llm/analyze_metrics.py",
+      "torre/torre-llm/api_server.py",
+      "torre/torre-llm/apps/fortaleza-ui/src/api/kpis.ts",
+      "torre/torre-llm/apps/fortaleza-ui/src/components/kpis/KpiBadge.tsx",
+      "torre/torre-llm/biome.json",
+      "torre/torre-llm/bootstrap_fixer_pipeline.sh",
+      "torre/torre-llm/build_extension.sh",
+      "torre/torre-llm/cli_fixer_integration.patch",
+      "torre/torre-llm/cli_fixer_integration_minimal.patch",
+      "torre/torre-llm/client.py",
+      "torre/torre-llm/code_index.py",
+      "torre/torre-llm/codemods/ts/apply_codemods.mjs",
+      "torre/torre-llm/configs/engineer.contract.yaml",
+      "torre/torre-llm/configs/models.decode.yaml",
+      "torre/torre-llm/cursor-extension/extension.js",
+      "torre/torre-llm/cursor-extension/package.json",
+      "torre/torre-llm/cursor-torre-integration.js",
+      "torre/torre-llm/cursor_custom_model_example.json",
+      "torre/torre-llm/demo_fix_test.ts",
+      "torre/torre-llm/demo_phase18.py",
+      "torre/torre-llm/demo_test_profiles.py",
+      "torre/torre-llm/docs/AB_SELECTION.md",
+      "torre/torre-llm/docs/AST_CODEMODS_V1.md",
+      "torre/torre-llm/docs/ENGINEER_DEFINITIONS.md",
+      "torre/torre-llm/docs/QUALITY_GATES.md",
+      "torre/torre-llm/docs/TORRE_SPEC.md",
+      "torre/torre-llm/docs/report.md",
+      "torre/torre-llm/docs/tactic.md",
+      "torre/torre-llm/docs/torre.contract.json",
+      "torre/torre-llm/eslint.config.js",
+      "torre/torre-llm/evals/README.md",
+      "torre/torre-llm/evals/__init__.py",
+      "torre/torre-llm/evals/audit_all.py",
+      "torre/torre-llm/evals/audit_phase13_14.md",
+      "torre/torre-llm/evals/audit_report.md",
+      "torre/torre-llm/evals/cache_manager.py",
+      "torre/torre-llm/evals/codemods/__init__.py",
+      "torre/torre-llm/evals/codemods/ts_ambient_kits.py",
+      "torre/torre-llm/evals/codemods/ts_imports.py",
+      "torre/torre-llm/evals/codemods/ts_module_decl.py",
+      "torre/torre-llm/evals/datasets/bakeoff.sample.jsonl",
+      "torre/torre-llm/evals/datasets/strategic.sample.jsonl",
+      "torre/torre-llm/evals/fixtures/ts_minimal/src/components/A.tsx",
+      "torre/torre-llm/evals/fixtures/ts_minimal/src/components/B.tsx",
+      "torre/torre-llm/evals/fixtures/ts_minimal/src/utils/helpers.ts",
+      "torre/torre-llm/evals/fortaleza_api.py",
+      "torre/torre-llm/evals/golden/cases/01_ts2304_missing_symbol.json",
+      "torre/torre-llm/evals/golden/cases/02_ts2307_missing_css.json",
+      "torre/torre-llm/evals/golden/cases/03_fastapi_import.json",
+      "torre/torre-llm/evals/golden/run_golden.py",
+      "torre/torre-llm/evals/kpis/export_kpis.py",
+      "torre/torre-llm/evals/learning_system.py",
+      "torre/torre-llm/evals/log_optimizer.py",
+      "torre/torre-llm/evals/metrics_dashboard.py",
+      "torre/torre-llm/evals/omni_context.py",
+      "torre/torre-llm/evals/prompt_optimizer.py",
+      "torre/torre-llm/evals/providers.py",
+      "torre/torre-llm/evals/redteam/run_redteam.py",
+      "torre/torre-llm/evals/redteam/seeds.json",
+      "torre/torre-llm/evals/run_bakeoff.py",
+      "torre/torre-llm/evals/senior_engineer.py",
+      "torre/torre-llm/evals/strategic_suite.py",
+      "torre/torre-llm/evals/strategos.py",
+      "torre/torre-llm/evals/strategos_v2.py",
+      "torre/torre-llm/evals/test_comparativo.py",
+      "torre/torre-llm/evals/test_dinamico.py",
+      "torre/torre-llm/evals/test_honesto.py",
+      "torre/torre-llm/evals/test_phase1.py",
+      "torre/torre-llm/evals/test_phase10.py",
+      "torre/torre-llm/evals/test_phase11.py",
+      "torre/torre-llm/evals/test_phase14.py",
+      "torre/torre-llm/evals/test_phase14_final.py",
+      "torre/torre-llm/evals/test_phase14_ui.py",
+      "torre/torre-llm/evals/test_phase15.py",
+      "torre/torre-llm/evals/test_phase15_final.py",
+      "torre/torre-llm/evals/test_phase15_ui.py",
+      "torre/torre-llm/evals/test_phase16.py",
+      "torre/torre-llm/evals/test_phase16_basic.py",
+      "torre/torre-llm/evals/test_phase16_schemas.py",
+      "torre/torre-llm/evals/test_phase17.py",
+      "torre/torre-llm/evals/test_phase18_smoke.py",
+      "torre/torre-llm/evals/test_phase2.py",
+      "torre/torre-llm/evals/test_phase6.py",
+      "torre/torre-llm/evals/test_phase7.py",
+      "torre/torre-llm/evals/test_phase8.py",
+      "torre/torre-llm/evals/test_phase9.py",
+      "torre/torre-llm/evals/test_security_patch.py",
+      "torre/torre-llm/evals/test_sensitive_endpoints.py",
+      "torre/torre-llm/evals/test_strategos_badge.py",
+      "torre/torre-llm/evals/test_strategos_hover.py",
+      "torre/torre-llm/evals/util_diff.py",
+      "torre/torre-llm/evals/util_project.py",
+      "torre/torre-llm/evidence.py",
+      "torre/torre-llm/examples/smoke_cli.json",
+      "torre/torre-llm/examples/smoke_cli.sh",
+      "torre/torre-llm/extensions/vscode/.vscodeignore",
+      "torre/torre-llm/extensions/vscode/README.md",
+      "torre/torre-llm/extensions/vscode/package.json",
+      "torre/torre-llm/extensions/vscode/src/extension.ts",
+      "torre/torre-llm/extensions/vscode/src/patch.ts",
+      "torre/torre-llm/extensions/vscode/tsconfig.json",
+      "torre/torre-llm/install_and_setup_torre.sh",
+      "torre/torre-llm/install_cursor_integration.sh",
+      "torre/torre-llm/install_extension.sh",
+      "torre/torre-llm/install_torre_extension.sh",
+      "torre/torre-llm/install_torre_models_manual.md",
+      "torre/torre-llm/jest.config.js",
+      "torre/torre-llm/llm/README.md",
+      "torre/torre-llm/llm/__init__.py",
+      "torre/torre-llm/llm/autonomy/autonomy_orchestrator.py",
+      "torre/torre-llm/llm/autonomy/circuit_breaker.py",
+      "torre/torre-llm/llm/autonomy/deterministic_brain.py",
+      "torre/torre-llm/llm/autonomy/post_processor.py",
+      "torre/torre-llm/llm/backends/__init__.py",
+      "torre/torre-llm/llm/backends/openai_compat.py",
+      "torre/torre-llm/llm/bridge.py",
+      "torre/torre-llm/llm/cli.py",
+      "torre/torre-llm/llm/collective/pattern_bank.py",
+      "torre/torre-llm/llm/contracts/input.schema.json",
+      "torre/torre-llm/llm/contracts/output.schema.json",
+      "torre/torre-llm/llm/decoder.py",
+      "torre/torre-llm/llm/emit.py",
+      "torre/torre-llm/llm/engine.py",
+      "torre/torre-llm/llm/execution/reranker.py",
+      "torre/torre-llm/llm/forensics/impact_analyzer.py",
+      "torre/torre-llm/llm/guard/secret_scan.py",
+      "torre/torre-llm/llm/guardrails/advanced.py",
+      "torre/torre-llm/llm/guardrails/ast_analyzer.py",
+      "torre/torre-llm/llm/guardrails/calibration.py",
+      "torre/torre-llm/llm/guardrails/sca_scanner.py",
+      "torre/torre-llm/llm/innovation/vanguard_experiments.py",
+      "torre/torre-llm/llm/memory/episodic.py",
+      "torre/torre-llm/llm/meta_learning/bandit_orchestrator.py",
+      "torre/torre-llm/llm/meta_learning/episodic_store.py",
+      "torre/torre-llm/llm/meta_learning/lesson_engine.py",
+      "torre/torre-llm/llm/meta_learning/meta_learning_orchestrator.py",
+      "torre/torre-llm/llm/ops/guard_apply.py",
+      "torre/torre-llm/llm/ops/sandbox.py",
+      "torre/torre-llm/llm/optimization/auto_optimizer.py",
+      "torre/torre-llm/llm/optimization/cost_optimizer.py",
+      "torre/torre-llm/llm/postprocess.py",
+      "torre/torre-llm/llm/prediction/risk_predictor.py",
+      "torre/torre-llm/llm/prompt.py",
+      "torre/torre-llm/llm/providers/__init__.py",
+      "torre/torre-llm/llm/providers/adapters/__init__.py",
+      "torre/torre-llm/llm/providers/adapters/anthropic.py",
+      "torre/torre-llm/llm/providers/adapters/google.py",
+      "torre/torre-llm/llm/providers/adapters/local.py",
+      "torre/torre-llm/llm/providers/adapters/openai.py",
+      "torre/torre-llm/llm/providers/adapters/smart_fix.py",
+      "torre/torre-llm/llm/providers/adapters/vanguard_fix.py",
+      "torre/torre-llm/llm/providers/base.py",
+      "torre/torre-llm/llm/providers/policy.py",
+      "torre/torre-llm/llm/providers/router.py",
+      "torre/torre-llm/llm/rag/CANON.md",
+      "torre/torre-llm/llm/rag/canon.py",
+      "torre/torre-llm/llm/rag/loader.py",
+      "torre/torre-llm/llm/reporting/explain.py",
+      "torre/torre-llm/llm/rerank/client.py",
+      "torre/torre-llm/llm/rerank/execution_reranker.py",
+      "torre/torre-llm/llm/research/admin_gate.py",
+      "torre/torre-llm/llm/research/vanguard_brief.py",
+      "torre/torre-llm/llm/research/vanguard_policy.py",
+      "torre/torre-llm/llm/research/vanguard_radar.py",
+      "torre/torre-llm/llm/reverse/__init__.py",
+      "torre/torre-llm/llm/reverse/codemap.py",
+      "torre/torre-llm/llm/reverse/coupling_sentinel.py",
+      "torre/torre-llm/llm/reverse/hotspot_miner.py",
+      "torre/torre-llm/llm/reverse/refactor_advisor.py",
+      "torre/torre-llm/llm/server.py",
+      "torre/torre-llm/llm/simulation/preflight_simulator.py",
+      "torre/torre-llm/llm/strategos/scorer_v2.py",
+      "torre/torre-llm/load_torre_models.sh",
+      "torre/torre-llm/logic/__init__.py",
+      "torre/torre-llm/logic/aristotelian.py",
+      "torre/torre-llm/metrics/docker-compose.yml",
+      "torre/torre-llm/metrics/exporter/Dockerfile",
+      "torre/torre-llm/metrics/exporter/exporter.py",
+      "torre/torre-llm/metrics/exporter/requirements.txt",
+      "torre/torre-llm/metrics/grafana/dashboards/fortaleza_fixer.json",
+      "torre/torre-llm/metrics/grafana/provisioning/dashboards/dashboard.yml",
+      "torre/torre-llm/metrics/grafana/provisioning/datasources/datasource.yml",
+      "torre/torre-llm/metrics/prometheus/prometheus.yml",
+      "torre/torre-llm/orchestrator.py",
+      "torre/torre-llm/package.json",
+      "torre/torre-llm/parsers/__init__.py",
+      "torre/torre-llm/parsers/error_patterns.py",
+      "torre/torre-llm/reload_extension.sh",
+      "torre/torre-llm/run_action.py",
+      "torre/torre-llm/run_offline.py",
+      "torre/torre-llm/sanity_check_phase17.py",
+      "torre/torre-llm/schemas/tools.json",
+      "torre/torre-llm/setup_ollama_torre.sh",
+      "torre/torre-llm/setup_torre_pipeline.sh",
+      "torre/torre-llm/simple_api.py",
+      "torre/torre-llm/src/App.tsx",
+      "torre/torre-llm/src/MetricsTest.tsx",
+      "torre/torre-llm/src/TestComponent.tsx",
+      "torre/torre-llm/start_api.sh",
+      "torre/torre-llm/start_chat.sh",
+      "torre/torre-llm/stop_api.sh",
+      "torre/torre-llm/strategies/__init__.py",
+      "torre/torre-llm/strategies/ab_select.py",
+      "torre/torre-llm/strategies/autofix_base_shim.py",
+      "torre/torre-llm/strategies/playbook_simple.py",
+      "torre/torre-llm/strategies/ts_codemods.py",
+      "torre/torre-llm/stryker.conf.json",
+      "torre/torre-llm/test_badge_counter_manual.py",
+      "torre/torre-llm/test_badge_flags_manual.py",
+      "torre/torre-llm/test_chat_demo.py",
+      "torre/torre-llm/test_cli_badge_patch.py",
+      "torre/torre-llm/test_comparativo_atualizado.py",
+      "torre/torre-llm/test_cursor_integration.py",
+      "torre/torre-llm/test_extension.sh",
+      "torre/torre-llm/test_file_with_error.js",
+      "torre/torre-llm/test_integration.py",
+      "torre/torre-llm/test_integration.sh",
+      "torre/torre-llm/test_memory_endpoint.py",
+      "torre/torre-llm/test_memory_promote.py",
+      "torre/torre-llm/test_phase19_smoke.py",
+      "torre/torre-llm/test_phase20_manual.py",
+      "torre/torre-llm/test_pipeline_efficacy.py",
+      "torre/torre-llm/test_rigoroso_comparativo.py",
+      "torre/torre-llm/test_rigoroso_justo.py",
+      "torre/torre-llm/test_smart_fix.py",
+      "torre/torre-llm/test_vanguard_96_percent.py",
+      "torre/torre-llm/test_vanguard_demo_quick.py",
+      "torre/torre-llm/test_vanguard_simple.py",
+      "torre/torre-llm/test_vanguard_vs_commercial_7000.py",
+      "torre/torre-llm/test_vantagens_torre.py",
+      "torre/torre-llm/tools/api/schemathesis_run.py",
+      "torre/torre-llm/tools/apr/run_apr.py",
+      "torre/torre-llm/tools/codemods/registry.json",
+      "torre/torre-llm/tools/codemods/tsmods.ts",
+      "torre/torre-llm/tools/fixer/metrics_wrapper.py",
+      "torre/torre-llm/tools/fixer/tsserver_fix.ts",
+      "torre/torre-llm/tools/getafix/miner.py",
+      "torre/torre-llm/tools/impact/select_tests.py",
+      "torre/torre-llm/tools/semgrep/python-fastapi.yml",
+      "torre/torre-llm/tools/semgrep/ts-react.yml",
+      "torre/torre-llm/tools/static/infer/run.sh",
+      "torre/torre-llm/tools/static/pysa/run.sh",
+      "torre/torre-llm/tools/testgen/fastcheck.template.ts",
+      "torre/torre-llm/tools/testgen/hypothesis_skeleton.py",
+      "torre/torre-llm/torre-extension/README.md",
+      "torre/torre-llm/torre-extension/extension.js",
+      "torre/torre-llm/torre-extension/extension_advanced.js",
+      "torre/torre-llm/torre-extension/package.json",
+      "torre/torre-llm/torre_chat.py",
+      "torre/torre-llm/training/README.md",
+      "torre/torre-llm/training/datasets/anti_patterns/examples.jsonl",
+      "torre/torre-llm/training/datasets/code/examples.jsonl",
+      "torre/torre-llm/training/schemas/anti_pattern.schema.json",
+      "torre/torre-llm/training/schemas/card.schema.yaml",
+      "torre/torre-llm/training/schemas/episode.schema.json",
+      "torre/torre-llm/training/templates/anti_pattern.jsonl",
+      "torre/torre-llm/training/templates/episode.jsonl",
+      "torre/torre-llm/tsconfig.json",
+      "torre/torre-llm/utils/__init__.py",
+      "torre/torre-llm/utils/decode.py",
+      "torre/torre-llm/utils/diff_utils.py",
+      "torre/torre-llm/vanguard_demo_results.json",
+      "torre/torre_models_fa.js",
+      "torre/treino.md"
+    ]
+  },
+  "time": {
+    "rules": [],
+    "rules_parse_time": 0.9200680255889893,
+    "profiling_times": {
+      "config_time": 1.8991711139678955,
+      "core_time": 4.687963008880615,
+      "ignores_time": 0.0009369850158691406,
+      "total_time": 6.588821172714233
+    },
+    "parsing_time": {
+      "total_time": 0.0,
+      "per_file_time": { "mean": 0.0, "std_dev": 0.0 },
+      "very_slow_stats": { "time_ratio": 0.0, "count_ratio": 0.0 },
+      "very_slow_files": []
+    },
+    "scanning_time": {
+      "total_time": 22.12127447128296,
+      "per_file_time": {
+        "mean": 0.01450575375166098,
+        "std_dev": 0.002545769709557939
+      },
+      "very_slow_stats": { "time_ratio": 0.0, "count_ratio": 0.0 },
+      "very_slow_files": []
+    },
+    "matching_time": {
+      "total_time": 0.0,
+      "per_file_and_rule_time": { "mean": 0.0, "std_dev": 0.0 },
+      "very_slow_stats": { "time_ratio": 0.0, "count_ratio": 0.0 },
+      "very_slow_rules_on_files": []
+    },
+    "tainting_time": {
+      "total_time": 0.0,
+      "per_def_and_rule_time": { "mean": 0.0, "std_dev": 0.0 },
+      "very_slow_stats": { "time_ratio": 0.0, "count_ratio": 0.0 },
+      "very_slow_rules_on_defs": []
+    },
+    "fixpoint_timeouts": [
+      {
+        "error_type": "Fixpoint timeout",
+        "severity": "warn",
+        "message": "Fixpoint timeout while performing taint analysis at torre/torre-llm/evals/test_honesto.py:13:4 [rules: 1, first: python.boto3.security.hardcoded-token.hardcoded-token]",
+        "location": {
+          "path": "torre/torre-llm/evals/test_honesto.py",
+          "start": { "line": 13, "col": 5, "offset": 271 },
+          "end": { "line": 13, "col": 17, "offset": 283 }
+        }
+      },
+      {
+        "error_type": "Fixpoint timeout",
+        "severity": "warn",
+        "message": "Fixpoint timeout while performing taint analysis at torre/torre-llm/test_vanguard_96_percent.py:14:4 [rules: 1, first: python.boto3.security.hardcoded-token.hardcoded-token]",
+        "location": {
+          "path": "torre/torre-llm/test_vanguard_96_percent.py",
+          "start": { "line": 14, "col": 5, "offset": 268 },
+          "end": { "line": 14, "col": 29, "offset": 292 }
+        }
+      }
+    ],
+    "prefiltering": {
+      "project_level_time": 0.0,
+      "file_level_time": 0.0,
+      "rules_with_project_prefilters_ratio": 0.0,
+      "rules_with_file_prefilters_ratio": 0.9801324503311258,
+      "rules_selected_ratio": 0.041714523105495956,
+      "rules_matched_ratio": 0.041714523105495956
+    },
+    "targets": [],
+    "total_bytes": 0,
+    "max_memory_bytes": 1128612544
+  },
+  "engine_requested": "OSS",
+  "skipped_rules": []
+}

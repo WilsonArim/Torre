@@ -1,0 +1,78 @@
+name: Gatekeeper Guard (PR/CI)
+
+on:
+  pull_request:
+    branches: [main, master]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+jobs:
+  gatekeeper-guard:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+
+      - name: Run Gatekeeper Preflight
+        run: |
+          python3 core/orquestrador/gatekeeper_cli.py preflight || {
+            echo "❌ Gatekeeper Preflight falhou" >&2
+            exit 1
+          }
+
+      - name: Run SOP Validation
+        run: |
+          if [ ! -f "core/scripts/validator.py" ]; then
+            echo "ERRO CRÍTICO: core/scripts/validator.py não encontrado" >&2
+            exit 1
+          fi
+          python3 core/scripts/validator.py || {
+            echo "❌ SOP validation falhou" >&2
+            exit 1
+          }
+
+      - name: Run Gatekeeper
+        run: |
+          make -C core/orquestrador gatekeeper_run || {
+            echo "❌ Gatekeeper falhou" >&2
+            exit 1
+          }
+
+      - name: Check Gatekeeper Decision
+        run: |
+          if [ -f "relatorios/parecer_gatekeeper.md" ]; then
+            if grep -q "❌ BLOCKED" relatorios/parecer_gatekeeper.md; then
+              echo "❌ Gatekeeper bloqueou o merge" >&2
+              echo "Verifique relatorios/parecer_gatekeeper.md para detalhes" >&2
+              exit 1
+            elif grep -q "✅ PASS" relatorios/parecer_gatekeeper.md; then
+              echo "✅ Gatekeeper aprovou o merge"
+            else
+              echo "⚠️  Status do Gatekeeper não determinado" >&2
+              exit 1
+            fi
+          else
+            echo "⚠️  Parecer do Gatekeeper não encontrado" >&2
+            exit 1
+          fi
+
+      - name: Upload Gatekeeper reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gatekeeper-guard-reports
+          path: |
+            relatorios/parecer_gatekeeper.md
+            relatorios/para_estado_maior/preflight_report.md
+            relatorios/para_estado_maior/gatekeeper.out.json

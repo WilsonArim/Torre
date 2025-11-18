@@ -5,11 +5,13 @@ Sistema de hash/checksum automático de artefactos, pipelines e leis para garant
 ## Uso
 
 ### Verificar um artefacto específico:
+
 ```bash
 python3 core/fingerprint_conformidade/verificar.py core/sop/constituição.yaml
 ```
 
 ### Verificar todos os artefactos:
+
 ```bash
 python3 core/fingerprint_conformidade/verificar.py --todos
 ```

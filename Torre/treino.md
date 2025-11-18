@@ -1,6 +1,7 @@
 # Treino da LLM-Engenheira — Relatórios de Ciclos
 
 ## Visão Geral
+
 Este arquivo contém todos os relatórios de ciclos da LLM-Engenheira, servindo como dados de treino para melhorar a capacidade de geração de patches e correções automáticas.
 
 ---
@@ -8,7 +9,8 @@ Este arquivo contém todos os relatórios de ciclos da LLM-Engenheira, servindo 
 ## Ciclo 1: PoC Inicial da LLM-Engenheira
 
 ### tactic.md
-```
+
+````
 ---
 pipeline: feature
 stage: 1
@@ -29,9 +31,10 @@ repo_root: "."
 fallback_strategy: "Se bloqueado → MISSING:<item> e parar"
 notes: ["Ciclo 0: esqueleto funcional; ciclos seguintes adicionam estratégias reais"]
 ---
-```
+````
 
 ### report.md
+
 ```
 ---
 pipeline: feature
@@ -71,7 +74,8 @@ metrics:
 ## Ciclo 2: Correção do ReferenceError "base is not defined"
 
 ### tactic.md
-```
+
+````
 ---
 pipeline: quality
 stage: 1
@@ -92,9 +96,10 @@ repo_root: "."
 fallback_strategy: "Se bloqueado → MISSING:<item> e parar"
 notes: ["Shim seguro com fallbacks para diferentes ambientes"]
 ---
-```
+````
 
 ### report.md
+
 ```
 ---
 pipeline: quality
@@ -130,7 +135,8 @@ metrics:
 ## Ciclo 3: Modo Offline (sem API)
 
 ### tactic.md
-```
+
+````
 ---
 pipeline: feature
 stage: 2
@@ -151,9 +157,10 @@ repo_root: "."
 fallback_strategy: "Se bloqueado → MISSING:<item> e parar"
 notes: ["Monkeypatch das funções de API; simulação completa do fluxo"]
 ---
-```
+````
 
 ### report.md
+
 ```
 ---
 pipeline: feature
@@ -191,7 +198,8 @@ metrics:
 ## Ciclo 4: ADVICE.md Automático
 
 ### tactic.md
-```
+
+````
 ---
 pipeline: feature
 stage: 3
@@ -212,9 +220,10 @@ repo_root: "."
 fallback_strategy: "Se bloqueado → MISSING:<item> e parar"
 notes: ["Foco em parser leve (regex); sem editar código do produto neste ciclo"]
 ---
-```
+````
 
 ### report.md
+
 ```
 ---
 pipeline: feature
@@ -249,7 +258,8 @@ metrics:
 ## Ciclo 5: Auto-fix do Shim "base"
 
 ### tactic.md
-```
+
+````
 ---
 pipeline: feature
 stage: 4
@@ -270,9 +280,10 @@ repo_root: "."
 fallback_strategy: "Se bloqueado → MISSING:<item> e parar"
 notes: ["Preferência por src/components/SettingsPage.tsx; fallback: primeiro *.tsx com uso de `base` sem shim"]
 ---
-```
+````
 
 ### report.md
+
 ```
 ---
 pipeline: feature
@@ -309,7 +320,8 @@ metrics:
 ## Ciclo 6: RAG-of-Code Mínimo
 
 ### tactic.md
-```
+
+````
 ---
 pipeline: feature
 stage: 6
@@ -330,9 +342,10 @@ repo_root: "."
 fallback_strategy: "Se bloqueado → MISSING:<item> e parar"
 notes: ["Indexação leve (regex) a .ts/.tsx/.js/.jsx; ignorar node_modules, build, venv"]
 ---
-```
+````
 
 ### report.md
+
 ```
 ---
 pipeline: feature
@@ -367,7 +380,8 @@ metrics:
 ## Ciclo 7: Guardrails Aristotélicos
 
 ### tactic.md
-```
+
+````
 ---
 pipeline: audit
 stage: 1
@@ -388,9 +402,10 @@ repo_root: "."
 fallback_strategy: "Se bloqueado → MISSING:<item> e parar"
 notes: ["Rigor em runtime: contratos simples e verificáveis; idempotente"]
 ---
-```
+````
 
 ### report.md
+
 ```
 ---
 pipeline: audit
@@ -426,7 +441,8 @@ metrics:
 ## Ciclo 8: AST Codemods v1 (TypeScript)
 
 ### tactic.md
-```
+
+````
 ---
 pipeline: feature
 stage: 5
@@ -447,9 +463,10 @@ repo_root: "."
 fallback_strategy: "Se bloqueado → MISSING:<item> e parar"
 notes: ["Node+ts-morph opcional; fallback Python sempre seguro e reversível"]
 ---
-```
+````
 
 ### report.md
+
 ```
 ---
 pipeline: feature
@@ -485,7 +502,8 @@ metrics:
 ## Ciclo 9: A/B + Score
 
 ### tactic.md
-```
+
+````
 ---
 pipeline: feature
 stage: 6
@@ -506,9 +524,10 @@ repo_root: "."
 fallback_strategy: "Se bloqueado → MISSING:<item> e parar"
 notes: ["Score v1=f(difflines) offline; quando online passa a usar métricas pós-validate/dry_run"]
 ---
-```
+````
 
 ### report.md
+
 ```
 ---
 pipeline: feature
@@ -545,54 +564,63 @@ metrics:
 ## Ciclos Completados (Continuation)
 
 ### Ciclo 10: Perfis de Decodificação (PATCH/PATCH_B)
+
 - **tactic.md**: Adicionar perfis de decodificação e expor seleção no orquestrador
 - **report.md**: Perfis PATCH/PATCH_B adicionados e integrados; métricas expostas
 - **Alterações**: `configs/models.decode.yaml`, `utils/decode.py`, `orchestrator.py`
 - **Resultados**: Base para ligar o gerador LLM com perfis consistentes
 
 ### Ciclo 11: Canonização do Engenheiro
+
 - **tactic.md**: Canonizar definições do Engenheiro-executor e ativar enforcement
 - **report.md**: Definições formalizadas (doc + contrato YAML) e enforcement ativado
 - **Alterações**: `configs/engineer.contract.yaml`, `docs/ENGINEER_DEFINITIONS.md`, `run_action.py`
 - **Resultados**: Bloqueio explícito a escrita de action.md; hard-deny de paths sensíveis
 
 ### Ciclo 12: Núcleo da LLM (Engine + Backend)
+
 - **tactic.md**: Entregar o núcleo da LLM com engine + backend compatível
 - **report.md**: Núcleo da LLM entregue com decoding profiles, prompts, backend OpenAI-compat
 - **Alterações**: `llm/*` (engine, decoder, prompt, postprocess, backends, server)
 - **Resultados**: Engine produz `{diff, metrics}` com diffs extraídos e validados
 
 ### Ciclo 13: Endurecimento da LLM (CLI + Testes)
+
 - **tactic.md**: Endurecer o núcleo da LLM com CLI oficial e testes
 - **report.md**: Adicionada CLI da LLM e suíte mínima de testes com backend mockado
 - **Alterações**: `llm/cli.py`, `tests/test_postprocess.py`, `tests/test_engine_ab.py`
 - **Resultados**: Ready para ligar ao gateway; contrato estabilizado e testado
 
 ### Ciclo 14: SMOKE Mode (Offline)
+
 - **tactic.md**: Adicionar 'SMOKE mode' à LLM + exemplos para testar sem rede
 - **report.md**: Adicionado SMOKE mode controlado por env `LLM_SMOKE=1`
 - **Alterações**: `llm/backends/openai_compat.py`, `llm/README.md`, `examples/`
 - **Resultados**: Backend retorna patch determinístico quando `LLM_SMOKE=1`
 
 ### Ciclo 15: Protocolo Vanguarda (Emit)
+
 - **tactic.md**: Fornecer saída no Protocolo Vanguarda via CLI dedicada
 - **report.md**: Criada CLI `llm.emit` que devolve exatamente `<patch-info> + ```diff````
 - **Alterações**: `llm/emit.py`, `llm/bridge.py`, `llm/README.md`
 - **Resultados**: Integração final simplificada; patch pronto para `git apply`
 
 ### Ciclo 16: Treino/Afinação (70/20/10)
+
 - **tactic.md**: Preparar treino/afinação com dados verificáveis e RAG
 - **report.md**: Estrutura de treino criada com schemas, exemplos e CANON
 - **Alterações**: `training/`, `llm/rag/CANON.md`, `llm/rag/loader.py`
 - **Resultados**: Base para aprendizagem code-first e referência aos mestres
 
 ### Ciclo 17: Pipeline Estratégica - Fase 0 (Baseline & Telemetria)
+
 - **pipeline.md**: Pipeline estratégica com contra-análise do ChatGPT
 - **relatorio.md**: Sistema de relatórios e tracking de progresso
 - **Alterações**: `pipeline.md`, `relatorio.md`, `evals/util_project.py`
 - **Resultados**: Baseline estabelecido (Nossa LLM: 96.85, Claude: 97.5), detector de duplicação corrigido
 
 ### Ciclo 18: Pipeline Estratégica - Fase 1 (Fundação 2×)
+
 - **omni_context.py**: Sistema de análise de contexto global (100% cobertura, 100% imports)
 - **strategos.py**: Estratégia básica com ordem de ataque por risco (build→types→tests→style)
 - **metrics_dashboard.py**: Painel de métricas com tracking completo
@@ -603,6 +631,7 @@ metrics:
 - **Resultados**: Fundação sólida implementada, Score S: 96.95, TTG otimizado: 51ms (↓32%), todos os testes passaram
 
 ### Ciclo 19: Pipeline Estratégica - Fase 2 (Inteligência Estratégica 4×)
+
 - **strategos_v2.py**: Strategos avançado com impacto × risco × custo e awareness de módulos
 - **learning_system.py**: Sistema de aprendizagem persistente (episodes→lessons, repetição de erro ↓)
 - **senior_engineer.py**: Engenheiro sénior com refactors guiados e no-regress
@@ -610,6 +639,7 @@ metrics:
 - **Resultados**: Inteligência estratégica implementada, Score S: 96.5, todos os gates atingidos (success_rate 100%, regressões 0%, human_interventions 0%)
 
 ### Ciclo 20: Pipeline Estratégica - Fase 3 (Filosofia & Qualidade 6×)
+
 - **advanced.py**: Guardrails avançados (segurança, arquitetura, performance, duplicação)
 - **explain.py**: Sistema de justificativa automática (report com provas)
 - **QUALITY_GATES.md**: Documentação dos quality gates
@@ -620,6 +650,7 @@ metrics:
 - **Resultados**: Filosofia & qualidade endurecida, Score S: 96.85, todos os gates atingidos (violations 0, diff_size 1 linha, TTG 66ms)
 
 ### Ciclo 21: Pipeline Estratégica - Fase 4 (Predição & Inovação 8×)
+
 - **risk_predictor.py**: Risk Predictor v1 (predição de risco 0-100)
 - **preflight_simulator.py**: Preflight Impact Simulator (simulação pré-apply)
 - **vanguard_radar.py**: Vanguard Radar (pesquisa dirigida + admin gate)
@@ -627,6 +658,7 @@ metrics:
 - **Resultados**: Predição & inovação implementada, Score S: 96.8, todos os gates atingidos (success_rate 100%, incident_prevented 100%, TTG 68ms)
 
 ### Ciclo 22: Pipeline Estratégica - Fase 5 (Turbo I&D 10×)
+
 - **pattern_bank.py**: Pattern Bank (inteligência coletiva sem PII)
 - **auto_optimizer.py**: Auto-Otimizador (políticas de decode + reranker)
 - **vanguard_experiments.py**: Vanguard Experiments (test synthesis + adversarial fuzz + proof hints)
@@ -636,6 +668,7 @@ metrics:
 ## Próximos Ciclos Planeados
 
 ### **Ciclos Completados (28/40):**
+
 - Ciclo 18: ~45m (Pipeline Estratégica - Fase 1)
 - Ciclo 19: ~60m (Pipeline Estratégica - Fase 2)
 - Ciclo 20: ~75m (Pipeline Estratégica - Fase 3 + Endurecimento)
@@ -649,6 +682,7 @@ metrics:
 - Ciclo 28: ~75m (Pipeline Estratégica - Fase 11)
 
 ### **Ciclos Pendentes (29-40):**
+
 - Ciclo 29: ~90m (Pipeline Estratégica - Fase 12)
 - Ciclo 25: ~90m (Pipeline Estratégica - Fase 8)
 - Ciclo 26: ~90m (Pipeline Estratégica - Fase 9)
@@ -667,22 +701,26 @@ metrics:
 ## Padrões de Treino Identificados
 
 ### 1. Estrutura de Relatórios
+
 - **tactic.md**: Objetivo claro, constraints, aceitação, contexto
 - **report.md**: Status, resumo, alterações, resultados, métricas
 
 ### 2. Padrões de Aceitação
+
 - Sempre incluir métricas quantificáveis
 - Testes smoke obrigatórios
 - Idempotência como requisito
 - Guardrails de segurança
 
 ### 3. Padrões de Implementação
+
 - Mudanças mínimas e cirúrgicas
 - UM único diff por ciclo
 - Fallback strategies para robustez
 - Documentação sempre atualizada
 
 ### 4. Padrões de Validação
+
 - Runner offline para testes
 - Métricas JSON estruturadas
 - Verificação de guardrails
@@ -693,6 +731,7 @@ metrics:
 ## Métricas de Performance
 
 ### Tempo de Execução por Ciclo
+
 - Ciclo 1: ~18m (PoC inicial)
 - Ciclo 2: ~12m (correção simples)
 - Ciclo 3: ~15m (modo offline)
@@ -717,6 +756,7 @@ metrics:
 - Ciclo 22: ~75m (Pipeline Estratégica - Fase 5)
 
 ### Tamanho de Diffs por Ciclo
+
 - Ciclo 1: ±150 linhas
 - Ciclo 2: ±8 linhas
 - Ciclo 3: ±120 linhas
@@ -745,6 +785,7 @@ metrics:
 - Ciclo 26: ±3 ficheiros
 
 ### Taxa de Sucesso
+
 - Todos os ciclos: 100% (20/20)
 - Aplicação limpa: 100% quando aplicável
 - Segurança: 100% (sem violações de guardrails)

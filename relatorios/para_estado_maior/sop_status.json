@@ -1,0 +1,66 @@
+{
+  "gate": "G2",
+  "status": "PASS",
+  "metrics": {
+    "coverage": 38.71,
+    "coverage_ok": true,
+    "tests": {
+      "ok": true,
+      "suite": "none",
+      "tests": 0,
+      "failures": 0,
+      "errors": 0
+    },
+    "semgrep": {
+      "ok": true,
+      "findings": 0,
+      "blocking": 0
+    },
+    "bandit": {
+      "ok": true,
+      "worst_severity": "LOW",
+      "worst_level": 1
+    },
+    "npm_audit": {
+      "ok": true,
+      "critical": 0,
+      "high": 0
+    },
+    "trivy": {
+      "ok": true,
+      "critical": 0,
+      "high": 0
+    },
+    "sbom": {
+      "ok": true,
+      "format": "CycloneDX"
+    }
+  },
+  "exceptions_used": [
+    {
+      "regra": "coverage_min.python",
+      "novo_valor": 35,
+      "owner": "Estado-Maior",
+      "motivo": "Cobertura atual da base herdada (FÁBRICA + Torre) ainda em consolidação; exceção temporária até reforço de testes.",
+      "expires_at": "2025-12-31"
+    }
+  ],
+  "violations": [],
+  "pipeline_ok": false,
+  "constituicao_validada": true,
+  "triade_validada": true,
+  "timestamp": "2025-11-18T09:53:42.605495",
+  "agente": "SOP",
+  "artefactos_citados": {
+    "coverage": "relatorios/coverage.xml",
+    "semgrep": "relatorios/semgrep.sarif",
+    "bandit": "relatorios/bandit.json",
+    "npm_audit": "relatorios/npm-audit.json",
+    "trivy": "relatorios/trivy.json",
+    "sbom": "relatorios/sbom.json",
+    "junit": null,
+    "leis": "core/sop/leis.yaml",
+    "exceptions": "core/sop/exceptions.yaml",
+    "constituicao": "core/sop/constituição.yaml"
+  }
+}

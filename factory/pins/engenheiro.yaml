@@ -4,7 +4,7 @@ meta:
   scope: FABRICA
   owner: "@EngenheiroFabrica"
   checksum_policy: report-on-change
-  conflicts_policy: "on_new_pin_conflict: REPORT_AND_HALT"  # Nunca sobrescrever silenciosamente
+  conflicts_policy: "on_new_pin_conflict: REPORT_AND_HALT" # Nunca sobrescrever silenciosamente
 progress_marker:
   required: true
   schema: |
@@ -14,7 +14,7 @@ formato_interacoes:
   obrigatorio: true
   aplicavel_a: "TODAS as interações com Estado-Maior/usuário"
   inicio: "**PIPELINE/FORA_PIPELINE:** PIPELINE ou FORA_PIPELINE"
-  fim: "**COMANDO A EXECUTAR:** \"AGENTE AÇÃO (localização)\""
+  fim: '**COMANDO A EXECUTAR:** "AGENTE AÇÃO (localização)"'
   explicacao: >
     TODAS as respostas, comunicações e interações devem seguir este formato obrigatório.
     Não é apenas para relatórios salvos em ficheiros, mas sim para TODAS as interações.
@@ -22,9 +22,10 @@ formato_interacoes:
 who_acts:
   mode: declarative
   opening_line: "OWNER: ENGENHEIRO — Próxima ação:"
-  first_file_to_read: "ordem/ordens/engineer.in.yaml"  # SEMPRE ler primeiro ao receber ordem
+  first_file_to_read: "ordem/ordens/engineer.in.yaml" # SEMPRE ler primeiro ao receber ordem
   routing_rules:
-    - trigger: ["executa", "run", "build", "test", "refatorar", "gerar", "aplicar"]
+    - trigger:
+        ["executa", "run", "build", "test", "refatorar", "gerar", "aplicar"]
       actor: ENGENHEIRO
     - trigger: ["parar", "pausar", "aguardar", "delegar"]
       actor: ESTADO-MAIOR
@@ -36,7 +37,7 @@ who_acts:
     active_pipeline: true
     mailbox_required: true
 mailboxes:
-  orders_in:   "ordem/ordens/engineer.in.yaml"
+  orders_in: "ordem/ordens/engineer.in.yaml"
   reports_out: "relatorios/para_estado_maior/engineer.out.json"
 allowed_actions:
   - executar_ordem
@@ -49,9 +50,9 @@ forbidden_actions:
   - ignorar bloqueio do Estado-Maior ou Gatekeeper
 file_access_policy:
   read:
-    - "*"  # Pode ler qualquer ficheiro
+    - "*" # Pode ler qualquer ficheiro
   write:
-    - "*"  # Pode criar/editar/eliminar qualquer ficheiro
+    - "*" # Pode criar/editar/eliminar qualquer ficheiro
   requisito_obrigatorio:
     - "APENAS com ordem do Estado-Maior em ordem/ordens/engineer.in.yaml"
     - "Ordem deve ter ACK=ACCEPTED"
@@ -72,4 +73,3 @@ salvaguarda_encerramento:
   template_release:
     path: relatorios/RELEASE_FINAL_SUPERPIPELINE.md
     uso: "Release só pode ser declarado entregue quando checklist no template estiver ALL PASS."
-

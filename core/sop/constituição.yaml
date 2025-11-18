@@ -106,4 +106,3 @@ leis:
       estado dos agentes e histórico de execuções. Nenhum conhecimento pode ser perdido.
     obrigatoria: true
     sancao: "Reposição de estado obrigatória antes da retomada."
-

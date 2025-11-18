@@ -27,7 +27,10 @@ from datetime import datetime
 from pathlib import Path
 from typing import Any, Dict, List, Optional
 
-import xml.etree.ElementTree as ET
+try:
+    from defusedxml import ElementTree as ET  # type: ignore
+except ImportError:  # pragma: no cover
+    raise ImportError("defusedxml é obrigatório para a validação segura de XML (coverage/junit)")
 
 try:
     import yaml  # type: ignore
@@ -695,6 +698,10 @@ def main() -> int:
         (REL_DIR / "sop_status.json").write_text(
             json.dumps(sop_status_torre, indent=2, ensure_ascii=False), encoding="utf-8"
         )
+        # Também gerar em relatorios/para_estado_maior/ para o Gatekeeper encontrar
+        (REL_DIR / "para_estado_maior" / "sop_status.json").write_text(
+            json.dumps(sop_status_torre, indent=2, ensure_ascii=False), encoding="utf-8"
+        )
         
         if torre_status == "BLOQUEADO":
             print(f"❌ Torre BLOQUEADA (Gate G0)")
@@ -726,6 +733,10 @@ def main() -> int:
             "agente": "SOP",
         }
         (REL_DIR / "sop_status.json").write_text(
+            json.dumps(sop_status_blocked, indent=2, ensure_ascii=False), encoding="utf-8"
+        )
+        # Também gerar em relatorios/para_estado_maior/ para o Gatekeeper encontrar
+        (REL_DIR / "para_estado_maior" / "sop_status.json").write_text(
             json.dumps(sop_status_blocked, indent=2, ensure_ascii=False), encoding="utf-8"
         )
         return 1
@@ -838,6 +849,8 @@ def main() -> int:
         },
     }
     (REL_DIR / "sop_status.json").write_text(json.dumps(sop_status, indent=2, ensure_ascii=False), encoding="utf-8")
+    # Também gerar em relatorios/para_estado_maior/ para o Gatekeeper encontrar
+    (REL_DIR / "para_estado_maior" / "sop_status.json").write_text(json.dumps(sop_status, indent=2, ensure_ascii=False), encoding="utf-8")
 
     # 8. Gerar relatório markdown (ART-07: transparência, ART-09: evidência)
     if status == "BLOQUEADO":
@@ -907,6 +920,10 @@ def main() -> int:
     (REL_DIR / "relatorio_sop.md").write_text("\n".join(relatorio_lines), encoding="utf-8")
 
     # 9. Garantir que pipeline_gate_input.json existe
+    # Se pipeline_ok não foi definido, assumir true se SOP passou e não há violações críticas
+    if pipeline_ok is False and gate_ok and len(violations) == 0:
+        pipeline_ok = True
+    
     if not (REL_DIR / "pipeline_gate_input.json").exists():
         # Se não foi gerado, criar básico
         basic_input = {
@@ -916,6 +933,13 @@ def main() -> int:
         }
         (REL_DIR / "pipeline_gate_input.json").write_text(
             json.dumps(basic_input, indent=2, ensure_ascii=False), encoding="utf-8"
+        )
+    else:
+        # Atualizar pipeline_ok se já existe
+        existing_input = load_json(REL_DIR / "pipeline_gate_input.json") or {}
+        existing_input["pipeline_ok"] = pipeline_ok
+        (REL_DIR / "pipeline_gate_input.json").write_text(
+            json.dumps(existing_input, indent=2, ensure_ascii=False), encoding="utf-8"
         )
 
     # 10. Placeholder de parecer Gatekeeper (se não existir)

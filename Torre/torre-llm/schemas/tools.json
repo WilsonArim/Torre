@@ -10,8 +10,14 @@
       "input_schema": {
         "type": "object",
         "properties": {
-          "cmd": { "type": "string", "description": "Comando de teste, ex.: `pytest -q`" },
-          "workdir": { "type": "string", "description": "Diretório onde executar" },
+          "cmd": {
+            "type": "string",
+            "description": "Comando de teste, ex.: `pytest -q`"
+          },
+          "workdir": {
+            "type": "string",
+            "description": "Diretório onde executar"
+          },
           "timeout_sec": { "type": "integer", "minimum": 1 }
         },
         "required": ["cmd"]
@@ -34,7 +40,10 @@
       "input_schema": {
         "type": "object",
         "properties": {
-          "cmd": { "type": "string", "description": "Comando de lint, ex.: `eslint .` ou `ruff .`" },
+          "cmd": {
+            "type": "string",
+            "description": "Comando de lint, ex.: `eslint .` ou `ruff .`"
+          },
           "workdir": { "type": "string" },
           "timeout_sec": { "type": "integer", "minimum": 1 }
         },
@@ -59,7 +68,10 @@
       "input_schema": {
         "type": "object",
         "properties": {
-          "cmd": { "type": "string", "description": "Comando de build, ex.: `npm run build`" },
+          "cmd": {
+            "type": "string",
+            "description": "Comando de build, ex.: `npm run build`"
+          },
           "workdir": { "type": "string" },
           "timeout_sec": { "type": "integer", "minimum": 1 }
         },

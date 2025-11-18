@@ -2,10 +2,20 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "Fortaleza Episode (logs → patch → tests)",
   "type": "object",
-  "required": ["id", "domain", "logs", "files_before", "patch_unified", "outcome"],
+  "required": [
+    "id",
+    "domain",
+    "logs",
+    "files_before",
+    "patch_unified",
+    "outcome"
+  ],
   "properties": {
     "id": { "type": "string" },
-    "domain": { "type": "string", "enum": ["programming", "problem_solving", "forensic_audit"] },
+    "domain": {
+      "type": "string",
+      "enum": ["programming", "problem_solving", "forensic_audit"]
+    },
     "logs": {
       "type": "object",
       "properties": {
@@ -21,7 +31,10 @@
       "additionalProperties": { "type": "string" },
       "description": "amostra pequena dos ficheiros tocados"
     },
-    "patch_unified": { "type": "string", "description": "UM diff unificado (git apply)" },
+    "patch_unified": {
+      "type": "string",
+      "description": "UM diff unificado (git apply)"
+    },
     "tests_added": {
       "oneOf": [
         { "type": "object", "additionalProperties": { "type": "string" } },
@@ -39,7 +52,11 @@
       },
       "additionalProperties": false
     },
-    "lenses_applied": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+    "lenses_applied": {
+      "type": "array",
+      "items": { "type": "string" },
+      "minItems": 1
+    },
     "notes": { "type": "string" }
   },
   "additionalProperties": false

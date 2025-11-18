@@ -27,6 +27,7 @@
 ### Análise da Falha
 
 **O que aconteceu:**
+
 1. SOP identificou falsos positivos do Gitleaks
 2. SOP recomendou criar `.gitleaksignore`
 3. Engenheiro criou `.gitleaksignore`
@@ -34,11 +35,13 @@
 5. ❌ **FALHA CRÍTICA:** Não foi criado `.gitleaks.toml` inicialmente (formato preferido pelo Gitleaks)
 
 **Responsabilidade:**
+
 - SOP: ❌ Não verificou configuração do workflow do Gitleaks
 - SOP: ❌ Não garantiu que `.gitleaksignore` seria respeitado
 - SOP: ❌ Não criou `.gitleaks.toml` inicialmente
 
 **Lição Aprendida:**
+
 - ✅ Sempre verificar como ferramentas de segurança consomem configurações
 - ✅ Testar configurações antes de considerar resolvidas
 - ✅ Validar que allowlists/ignores estão funcionando após implementação
@@ -55,6 +58,7 @@
 **Configuração Verificada:**
 
 #### Allowlist de Paths
+
 ```toml
 [allowlist]
 paths = [
@@ -67,6 +71,7 @@ paths = [
 ```
 
 **Validação:**
+
 - ✅ Arquivos de documentação incluídos
 - ✅ Arquivos de teste incluídos (`test_phase*.py`)
 - ✅ Arquivos de sanity check incluídos
@@ -74,6 +79,7 @@ paths = [
 - ✅ Padrões de regex corretos
 
 #### Allowlist de Commits (Padrões)
+
 ```toml
 commits = [
   'sk-1234567890.*',
@@ -83,11 +89,13 @@ commits = [
 ```
 
 **Validação:**
+
 - ✅ Padrões de mocks claramente falsos incluídos
 - ✅ Placeholders incluídos
 - ✅ Strings de exemplo incluídas
 
 #### Regras Customizadas
+
 ```toml
 [[rules]]
 id = "generic-api-key"
@@ -99,11 +107,13 @@ entropy = 3.5  # Aumentado para reduzir falsos positivos
 ```
 
 **Validação:**
+
 - ✅ Entropia aumentada para reduzir falsos positivos
 - ✅ Regras customizadas definidas adequadamente
 - ✅ Tags apropriadas (`key`, `api`, `token`, `auth`)
 
 **Conformidade:**
+
 - ✅ ART-04: Configuração rastreável e verificável
 - ✅ ART-07: Configuração transparente e documentada
 - ✅ ART-09: Allowlist explícita e citada
@@ -117,6 +127,7 @@ entropy = 3.5  # Aumentado para reduzir falsos positivos
 **Localização:** `.github/workflows/fabrica-ci.yml` linhas 99-111
 
 **Configuração Verificada:**
+
 ```yaml
 - name: Run Gitleaks
   uses: gitleaks/gitleaks-action@v2
@@ -132,12 +143,14 @@ entropy = 3.5  # Aumentado para reduzir falsos positivos
 ```
 
 **Validação:**
+
 - ✅ `config-path: .gitleaks.toml` — Usa configuração customizada
 - ✅ `exit-code: 1` — Falha adequadamente se detectar segredos
 - ✅ `verbose: true` — Debug habilitado para diagnóstico
 - ✅ `no-git: false` — Usa histórico git (correto)
 
 **Conformidade:**
+
 - ✅ ART-04: Workflow usa configuração adequada
 - ✅ ART-07: Configuração transparente e verificável
 - ✅ ART-09: Evidências de execução serão confiáveis
@@ -151,6 +164,7 @@ entropy = 3.5  # Aumentado para reduzir falsos positivos
 **Localização:** `.gitignore` linhas 48-52
 
 **Configuração Verificada:**
+
 ```
 .env
 .env.local
@@ -160,6 +174,7 @@ entropy = 3.5  # Aumentado para reduzir falsos positivos
 ```
 
 **Validação:**
+
 - ✅ `.env` está no `.gitignore`
 - ✅ Variantes de `.env` estão no `.gitignore`
 - ✅ Nenhum arquivo `.env` real encontrado no repositório (apenas `.env.example`)
@@ -171,16 +186,19 @@ entropy = 3.5  # Aumentado para reduzir falsos positivos
 ## 📊 VALIDAÇÃO TÉCNICA
 
 ### Sintaxe TOML
+
 - ✅ `.gitleaks.toml` — Sintaxe válida
 - ✅ Padrões de regex corretos
 - ✅ Estrutura de configuração adequada
 
 ### Compatibilidade
+
 - ✅ Formato `.gitleaks.toml` é o preferido pelo Gitleaks
 - ✅ Workflow configurado para usar `.gitleaks.toml`
 - ✅ Allowlist implementada corretamente
 
 ### Cobertura de Falsos Positivos
+
 - ✅ Todos os 5 falsos positivos identificados estão cobertos:
   - `PHASE19_SUMMARY.md` → Allowlist de paths
   - `test_phase10.py` → Allowlist de paths (regex)
@@ -195,21 +213,27 @@ entropy = 3.5  # Aumentado para reduzir falsos positivos
 ## ⚖️ CONFORMIDADE CONSTITUCIONAL
 
 ### ART-04 (Verificabilidade)
+
 ✅ **CONFORME** (após correções)
+
 - Configuração do Gitleaks é rastreável (`.gitleaks.toml`)
 - Workflow usa configuração adequada
 - Allowlist explícita e verificável
 - ⚠️ **FALHA ANTERIOR:** Não foi verificada configuração inicialmente
 
 ### ART-07 (Transparência)
+
 ✅ **CONFORME** (após correções)
+
 - Configuração transparente e documentada
 - Falha reconhecida e corrigida
 - Correções aplicadas com clareza
 - ⚠️ **FALHA ANTERIOR:** Transparência incompleta na auditoria inicial
 
 ### ART-09 (Evidência)
+
 ✅ **CONFORME** (após correções)
+
 - Evidências de configuração são citadas
 - Falsos positivos serão adequadamente ignorados
 - Apenas segredos reais serão detectados
@@ -237,12 +261,14 @@ entropy = 3.5  # Aumentado para reduzir falsos positivos
 ## 📈 IMPACTO DAS CORREÇÕES
 
 ### Antes das Correções
+
 - ❌ Gitleaks não usava configuração adequada
 - ❌ Falsos positivos bloqueavam workflow
 - ❌ Workflow não estava configurado para usar `.gitleaks.toml`
 - ❌ Falha crítica não foi detectada na auditoria inicial
 
 ### Depois das Correções
+
 - ✅ Gitleaks usa `.gitleaks.toml` adequadamente
 - ✅ Falsos positivos serão ignorados
 - ✅ Workflow configurado corretamente
@@ -259,6 +285,7 @@ entropy = 3.5  # Aumentado para reduzir falsos positivos
 **Ação Executada:** Verificação de segredos reais hardcoded em arquivos
 
 **Resultado:**
+
 - ✅ Nenhum segredo real encontrado hardcoded
 - ✅ Padrões encontrados são apenas:
   - Padrões de regex para detecção de segredos (em funções de scanning)
@@ -277,6 +304,7 @@ entropy = 3.5  # Aumentado para reduzir falsos positivos
 **Ação:** Monitorar execução do workflow `fabrica-ci.yml` job `security`
 
 **Critérios de Sucesso:**
+
 - ✅ Gitleaks não detecta mais os 5 falsos positivos identificados
 - ✅ Workflow passa no job `security`
 - ✅ Apenas segredos reais são detectados (se existirem)
@@ -296,12 +324,14 @@ entropy = 3.5  # Aumentado para reduzir falsos positivos
 **Recomendação:** ✅ **APROVAR** configuração corrigida e monitorar próxima execução
 
 **Próximos Passos:**
+
 1. ✅ Configuração validada e aprovada
 2. ⏭️ Executar auditoria completa de segredos hardcoded
 3. ⏭️ Monitorar próxima execução do workflow para confirmar comportamento
 4. ⏭️ Validar que Gitleaks não detecta mais falsos positivos
 
 **Falha Crítica Reconhecida:**
+
 - ❌ SOP não verificou configuração do workflow do Gitleaks na auditoria inicial
 - ❌ SOP não garantiu que configuração seria respeitada
 - ✅ Falha foi reconhecida e corrigida
@@ -310,6 +340,7 @@ entropy = 3.5  # Aumentado para reduzir falsos positivos
 ---
 
 **Artefactos Citados:**
+
 - `.gitleaks.toml` (criado e validado)
 - `.github/workflows/fabrica-ci.yml` (atualizado e validado)
 - `.gitignore` (verificado)
@@ -325,4 +356,3 @@ entropy = 3.5  # Aumentado para reduzir falsos positivos
 ---
 
 **COMANDO A EXECUTAR:** "ESTADO-MAIOR CONFIRMAR APROVAÇÃO DA CONFIGURAÇÃO DO GITLEAKS E AUTORIZAR EXECUÇÃO DO WORKFLOW PARA VALIDAÇÃO. ENGENHEIRO EXECUTAR AUDITORIA COMPLETA DE SEGREDOS HARDCODED NO REPOSITÓRIO."
-

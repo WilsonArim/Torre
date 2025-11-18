@@ -1,14 +1,17 @@
 # Fortaleza LLM — Núcleo (engine/backends)
 
 ## O que é
+
 Camada mínima para gerar **UM** `diff` unificado a partir de logs/files, com:
+
 - perfis de decodificação (PATCH / PATCH_B) → A/B,
 - prompts engineer-only,
-- extração `<patch-info>` + ```diff``` e **validação**,
+- extração `<patch-info>` + `diff` e **validação**,
 - backend **OpenAI-compat** (vLLM/Together/OpenRouter/…).
 
 ## Execução local (servidor opcional)
-```bash
+
+````bash
 export OPENAI_BASE="https://api.openai.com/v1"
 export OPENAI_API_KEY="sk-..."
 export OPENAI_MODEL="qwen2.5-coder-7b-instruct"  # ou outro
@@ -34,13 +37,15 @@ python -m fortaleza-llm.llm.cli < fortaleza-llm/examples/smoke_cli.json | jq .
 
 # 3) Desativar quando for usar backend real
 unset LLM_SMOKE
-```
+````
 
 ## Integração
+
 - **Gateway/Worker** (fora deste patch) deve apenas chamar `POST /run`
   e encaminhar `{diff, metrics}` para o resto da pipeline.
 
 ## Emit patch (Protocolo Vanguarda)
+
 Quando precisares **exatamente** de `<patch-info> + ```diff```` (sem JSON):
 
 ```bash
@@ -57,10 +62,12 @@ python -m fortaleza-llm.llm.emit < fortaleza-llm/examples/smoke_cli.json
 ```
 
 ## Ambiente
+
 - `LLM_BACKEND=openai_compat` (default)
 - `OPENAI_BASE`, `OPENAI_API_KEY`, `OPENAI_MODEL`
 - `REPO_ROOT=.` (para ler configs e prompts)
 
 ## Notas
+
 - Se `engineer.system.md` não existir, um **fallback seguro** é usado.
 - Se `models.decode.yaml` não existir, perfis PATCH/PATCH_B **defaults** são usados.

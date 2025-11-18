@@ -1,63 +1,446 @@
-- order_id: "cap08-2025-11-02T22-30-00"
+- order_id: validador-pre-commit-2025-11-02T23-00-00
   version: 1
-  from_role: "ESTADO-MAIOR-TORRE"
-  to_role: "ENGENHEIRO-TORRE"
-  project: "TORRE"
-  gate: "G7"
+  from_role: ESTADO-MAIOR
+  to_role: ENGENHEIRO
+  project: FÁBRICA
+  gate: FORA_PIPELINE
+  created_at: "2025-11-02T23:00:00Z"
+  objective:
+    Implementar/Atualizar validador pré-commit que imita workflows GitHub
+    e bloqueia commit/push se falhar
+  steps:
+    - Verificar se tools/pre_commit_validator.py existe e está atualizado com os mesmos
+      checks dos workflows GitHub
+    - Se necessário, atualizar validador para incluir todos os checks atuais dos workflows
+      (SBOM, security, SOP, Gatekeeper, etc.)
+    - Instalar/atualizar git hook pre-commit em .git/hooks/pre-commit que chama o validador
+      automaticamente
+    - Adicionar target 'validate' ao Makefile (core/orquestrador/Makefile) para execução
+      manual
+    - Garantir que validador bloqueia commit com exit code 1 se qualquer check falhar
+    - Garantir que validador mostra erros claros e sugestões de correção
+    - Testar validador localmente e confirmar que bloqueia commits quando apropriado
+    - Atualizar documentação em tools/README_PRE_COMMIT_VALIDATOR.md se necessário
+  deliverables:
+    - path: tools/pre_commit_validator.py
+      type: python
+      description: Script principal de validação pré-commit
+    - path: .git/hooks/pre-commit
+      type: bash
+      description: Git hook que executa validador automaticamente
+    - path: core/orquestrador/Makefile
+      type: makefile
+      description: Target 'validate' adicionado para execução manual
+    - path: relatorios/para_estado_maior/implementacao_validador_pre_commit_engenheiro.md
+      type: markdown
+      description: Relatório de implementação
+  success_criteria:
+    - Validador executa os mesmos checks dos workflows GitHub (SBOM, security, SOP,
+      Gatekeeper, etc.)
+    - Git hook pre-commit bloqueia commit se validação falhar
+    - Target 'make validate' permite execução manual do validador
+    - Validador mostra erros claros e sugestões de correção
+    - Documentação atualizada e clara
+  ack:
+    by: ""
+    at: ""
+    status: PENDING
+  status: OPEN
+- order_id: engenheiro-implementar-funcoes-gatekeeper-2025-11-02
+  version: 1
+  from_role: ESTADO-MAIOR
+  to_role: ENGENHEIRO
+  project: FABRICA
+  module: GOVERNANCA
+  gate: FORA_PIPELINE
+  urgency: alta
   created_at: "2025-11-02T22:30:00Z"
-  objective: "PIPELINE - Executa CAP-08 (CI/CD & Autodiagnóstico) (8/8)"
+  expires_at: "2025-11-16T23:59:59Z"
+  context_refs:
+    - relatorios/para_estado_maior/decisao_estado_maior_funcoes_gatekeeper.md
+    - relatorios/para_estado_maior/parecer_gatekeeper_funcoes_adicionais_sop.md
+    - factory/pins/gatekeeper.yaml
+    - core/orquestrador/gatekeeper_cli.py
+  objective:
+    Implementar 5 funções aprovadas para o Gatekeeper + alternativa para
+    Auto-Fix (Gatekeeper → Ordem → Engenheiro), conforme decisão do Estado-Maior.
+  constraints:
+    - Respeitar doutrina de acesso a ficheiros — Gatekeeper não pode modificar código-fonte
+    - Todas as funções devem ser rastreáveis e auditáveis (ART-04, ART-09)
+    - "Alternativa Auto-Fix: Gatekeeper gera ordem, Engenheiro aplica correção"
   steps:
-    - "Automatizar pipeline de CI/CD para executar todos os módulos/testes ao push e pr."
-    - "Implementar autodiagnóstico contínuo: healthchecks, rotinas de integridade, monitoramento automático de disponibilidade."
-    - "Registrar logs de execuções, execuções agendadas e incidentes automáticos detectados."
-    - "Emitir relatório consolidado de CI/CD, saúde do sistema e métricas de execução contínua."
-    - "Finalizar superpipeline emitindo mensagem de encerramento '8/8 — SUPERPIPELINE FINALIZADA' no relatório/mailbox."
+    - type: command
+      command:
+        "Implementar Preflight Local (Pre-Commit): validar workflows YAML, actions
+        deprecadas, permissões GITHUB_TOKEN, scripts chamados, permissões de execução"
+      description: Criar função em gatekeeper_cli.py para validação pré-commit local
+    - type: command
+      command:
+        "Implementar Guard no PR/CI (GitHub): bloquear merge se houver policies
+        violadas"
+      description: Integrar validação no workflow GitHub Actions
+    - type: command
+      command:
+        "Implementar Vercel Guard (Pré-Deploy): smoke local com vercel pull +
+        vercel build (dry-run) + validação vercel.json"
+      description: Criar função para validação pré-deploy Vercel (dry-run apenas)
+    - type: command
+      command:
+        "Implementar Dependency Radar (Agendado): sinalizar actions/pacotes desatualizados
+        ou CVEs, abrir Issue/PR draft"
+      description:
+        Criar script agendado para análise de dependências e abertura de
+        Issues/PRs
+    - type: command
+      command:
+        "Implementar Post-Mortem (Falha): quando workflow falhar, gerar causa-raiz
+        e patch sugerido em relatório"
+      description:
+        Criar função para análise pós-falha e geração de relatório com patch
+        sugerido
+    - type: command
+      command:
+        "Implementar alternativa Auto-Fix: Gatekeeper gera ordem em engineer.in.yaml
+        com patch detalhado, Engenheiro aplica"
+      description:
+        Criar função para Gatekeeper gerar ordem com correção sugerida, Engenheiro
+        recebe e aplica
   deliverables:
-    - path: "relatorios/para_estado_maior/engineer.out.json"
-      type: "json"
-    - path: "relatorios/cicd_status_cap08.json"
-      type: "json"
-    - path: "relatorios/healthcheck_cap08.md"
-      type: "markdown"
-    - path: "relatorios/execucoes_agendadas_cap08.json"
-      type: "json"
+    - path: core/orquestrador/gatekeeper_cli.py
+      type: python
+      description: CLI do Gatekeeper atualizado com novas funções
+    - path: tools/gatekeeper/preflight.py
+      type: python
+      description: Script de preflight local (opcional, se separado)
+    - path: tools/gatekeeper/vercel_guard.py
+      type: python
+      description: Script de validação Vercel (opcional, se separado)
+    - path: tools/gatekeeper/dependency_radar.py
+      type: python
+      description: Script de análise de dependências (opcional, se separado)
+    - path: tools/gatekeeper/post_mortem.py
+      type: python
+      description: Script de análise pós-falha (opcional, se separado)
+    - path: .github/workflows/gatekeeper-guard.yml
+      type: yaml
+      description: Workflow GitHub Actions para Guard no PR/CI
+    - path: relatorios/para_estado_maior/engineer.out.json
+      type: json
+      description: Relatório de implementação das funções
   success_criteria:
-    - "Processos de CI/CD confirmados e logs disponíveis"
-    - "Saúde do sistema (healthcheck): OK"
-    - "Dados auditáveis e rastreáveis"
-    - "Mensagem '8/8 — SUPERPIPELINE FINALIZADA' registrada em relatório"
+    - Preflight Local valida workflows YAML, actions, permissões, scripts e permissões
+      de execução
+    - Guard no PR/CI bloqueia merge se policies violadas
+    - Vercel Guard executa smoke test local (dry-run) e valida vercel.json
+    - Dependency Radar sinaliza dependências desatualizadas/CVEs e abre Issues/PRs
+    - Post-Mortem gera relatório com causa-raiz e patch sugerido após falha
+    - "Alternativa Auto-Fix: Gatekeeper gera ordem, Engenheiro aplica correção"
+    - Todas as funções são rastreáveis e auditáveis
+  escalation:
+    owner: "@EstadoMaior"
+    when: Conflito com doutrina, violação constitucional ou impossibilidade técnica
+  checksum: ""
+  signature: ""
   ack:
-    by: "ENGENHEIRO-TORRE"
-    at: "2025-11-02T22:30:05Z"
-    status: "ACCEPTED"
-  status: "DONE"
-- order_id: "battery-stress-2025-11-02T22-22-00"
+    by: null
+    at: null
+    status: PENDING
+  status: OPEN
+- order_id: engenheiro-melhorias-gatekeeper-2025-11-02
   version: 1
-  from_role: "ESTADO-MAIOR-TORRE"
-  to_role: "ENGENHEIRO-TORRE"
-  project: "TORRE"
-  gate: "BATTERY_ALL"
-  created_at: "2025-11-02T22:22:00Z"
-  objective: "BATERIA DE TESTES - Executar stress/auditoria contínua conforme workflow torre-battery.yml"
+  from_role: ESTADO-MAIOR
+  to_role: ENGENHEIRO
+  project: FABRICA
+  module: GOVERNANCA
+  gate: FORA_PIPELINE
+  urgency: alta
+  created_at: "2025-11-02T23:40:00Z"
+  expires_at: "2025-11-16T23:59:59Z"
+  context_refs:
+    - relatorios/para_estado_maior/aprovacao_final_funcoes_gatekeeper_estado_maior.md
+    - relatorios/parecer_gatekeeper.md
+    - relatorios/para_estado_maior/validacao_funcoes_gatekeeper_sop.md
+    - core/orquestrador/gatekeeper_cli.py
+    - tools/gatekeeper/dependency_radar.py
+  objective:
+    Aplicar melhorias imediatas nas funções Vercel Guard (dry-run explícito)
+    e Dependency Radar (tratamento de erros), conforme recomendações aprovadas.
+  constraints:
+    - Respeitar doutrina de acesso a ficheiros — apenas modificar arquivos autorizados
+      ao Engenheiro
+    - Garantir rastreabilidade completa das alterações (ART-04, ART-09)
+    - "Manter separação de responsabilidades: Gatekeeper valida, Engenheiro executa
+      (ART-03)"
   steps:
-    - "Executar todos os blocos de testes (baseline, agents_tools, engineering, security, rag, load_chaos, finalization)"
-    - "Auto-correção até 3 tentativas por bloco/gate/falha"
-    - "Gerar e consolidar artefactos em artifacts/"
-    - "Publicar relatórios em artifacts/torre_battery_report.md e engineer.out.json"
-    - "Rastrear cada bloco/gate com status PASS/FAIL/RETRY"
+    - type: command
+      command: Refinar verificação de dry-run no Vercel Guard
+      description:
+        Atualizar cmd_vercel_guard em core/orquestrador/gatekeeper_cli.py
+        para confirmar explicitamente que vercel build executou em modo --dry-run e
+        registrar resultado no relatório.
+    - type: validation
+      command: Documentar verificação de dry-run
+      description:
+        Atualizar relatório vercel_guard_report.md ou equivalente com a nova
+        evidência de dry-run confirmado.
+    - type: command
+      command: Fortalecer tratamento de erros no Dependency Radar
+      description:
+        Atualizar tools/gatekeeper/dependency_radar.py para tratar exceções
+        de npm audit e pip-audit, registrar mensagens claras e continuar execução parcial.
+    - type: validation
+      command: Executar testes locais
+      description:
+        Rodar vercel-guard e dependency_radar simulando cenários de sucesso
+        e falha, registrando resultados no relatório do Engenheiro.
   deliverables:
-    - path: "artifacts/torre_battery_report.md"
-      type: "markdown"
-    - path: "artifacts/torre_battery_report.json"
-      type: "json"
-    - path: "relatorios/para_estado_maior/engineer.out.json"
-      type: "json"
+    - path: core/orquestrador/gatekeeper_cli.py
+      type: python
+      description: Função cmd_vercel_guard atualizada com verificação explícita de dry-run.
+    - path: relatorios/para_estado_maior/vercel_guard_report.md
+      type: markdown
+      description: Relatório atualizado com evidência da verificação de dry-run.
+    - path: tools/gatekeeper/dependency_radar.py
+      type: python
+      description: Script com tratamento robusto de erros para npm audit e pip-audit.
+    - path: relatorios/para_estado_maior/dependency_radar_run.md
+      type: markdown
+      description: Relatório de execução com resultados e erros tratados.
+    - path: relatorios/para_estado_maior/engineer.out.json
+      type: json
+      description: Atualização do relatório do Engenheiro com execução desta ordem.
   success_criteria:
-    - "Todos os blocos executados com sucesso"
-    - "Taxa de sucesso ≥95%"
-    - "Relatórios consolidados e rastreáveis"
+    - cmd_vercel_guard aborta ou alerta se vercel build não estiver em modo --dry-run.
+    - Relatório do Vercel Guard registra explicitamente o status do dry-run.
+    - Dependency Radar trata ausência ou falha de npm audit/pip-audit sem interromper
+      totalmente a execução.
+    - Relatórios do Engenheiro incluem evidências das execuções de teste (sucesso e
+      falha simulada).
+  escalation:
+    owner: "@EstadoMaior"
+    when:
+      Impossibilidade técnica de verificar dry-run ou de tratar erros sem violar
+      doutrina.
+  progresso_capitulo: 0/2
   ack:
-    by: "ENGENHEIRO-TORRE"
-    at: "2025-11-02T22:22:15Z"
+    by: ENGENHEIRO
+    at: "2025-11-07T14:44:43.524665+00:00"
+    status: ACCEPTED
+  status: OPEN
+- order_id: 8e57db79-e4f9-4f9e-847d-1b2db9d02111
+  version: 1
+  from_role: ESTADO-MAIOR
+  to_role: ENGENHEIRO
+  project: FABRICA
+  module: TORRE
+  gate: FORA_PIPELINE
+  urgency: alta
+  created_at: "2025-11-13T13:30:00Z"
+  expires_at: "2025-11-18T23:59:59Z"
+  context_refs:
+    - core/sop/doutrina.yaml
+    - core/orquestrador/file_access_guard.py
+    - ordem/ordens/gatekeeper.in.yaml
+    - relatorios/para_estado_maior/gatekeeper.out.json
+  objective:
+    Corrigir guardas de escrita do Gatekeeper e alinhar o passo Vercel ao
+    fluxo dry-run oficial.
+  constraints:
+    - "Respeitar doutrina: Gatekeeper só escreve relatórios markdown/json dentro de
+      relatorios/."
+    - Bloquear se guardas passarem a permitir escrita fora do escopo autorizado.
+    - "Registrar progresso_capitulo: 5/14 no relatório final da superpipeline."
+  steps:
+    - type: command
+      command:
+        Atualizar core/sop/doutrina.yaml garantindo permissão explícita para
+        relatorios/parecer_gatekeeper.md (markdown/json).
+      description: Reforçar a doutrina citando ART-07 (transparência).
+    - type: command
+      command:
+        Ajustar core/orquestrador/file_access_guard.py e validar com python3
+        core/orquestrador/gatekeeper_cli.py executa --dry-run.
+      description: Eliminar bloqueios falsos mantendo proteções constitucionais.
+    - type: command
+      command:
+        Atualizar ordem gatekeeper.in.yaml substituindo vercel build --yes por
+        python3 core/orquestrador/gatekeeper_cli.py vercel-guard.
+      description: Alinhar verificação ao wrapper oficial (dry-run read-only).
+    - type: command
+      command:
+        Gerar relatorio conclusivo em relatorios/correcoes_guard_gatekeeper.md
+        com progresso 5/14.
+      description: Documentar evidências, referências e hashes relevantes.
+  deliverables:
+    - path: core/sop/doutrina.yaml
+      type: code
+    - path: core/orquestrador/file_access_guard.py
+      type: code
+    - path: ordem/ordens/gatekeeper.in.yaml
+      type: code
+    - path: relatorios/correcoes_guard_gatekeeper.md
+      type: markdown
+  success_criteria:
+    - Dry-run (python3 core/orquestrador/gatekeeper_cli.py executa --dry-run) passa
+      sem bloqueio de escrita.
+    - Nova ordem do Gatekeeper utiliza python3 core/orquestrador/gatekeeper_cli.py vercel-guard
+      como etapa oficial.
+    - Relatório final documenta alterações, evidências e marca progresso 5/14.
+  escalation:
+    owner: "@EstadoMaior"
+    when: Guardas ficarem permissivos ou dry-run continuar bloqueado.
+  checksum: ""
+  signature: ""
+  ack:
+    by: null
+    at: null
+    status: PENDING
+  status: OPEN
+- order_id: b700cf2d-bf29-4311-8378-ff0598fb92fd
+  version: 1
+  from_role: ESTADO-MAIOR
+  to_role: ENGENHEIRO
+  project: FABRICA
+  module: TORRE
+  gate: FORA_PIPELINE
+  urgency: alta
+  created_at: "2025-11-14T10:50:00Z"
+  expires_at: "2025-11-21T23:59:59Z"
+  context_refs:
+    - relatorios/para_estado_maior/gatekeeper_7_testes_completo.md
+    - package.json
+    - core/orquestrador/config.yaml
+  objective:
+    "Executa (corrigir 3 testes falhados do Gatekeeper antes de push: YAML
+    syntax error, ESLint, Prettier)"
+  constraints:
+    - Bloquear push até todos os 3 testes passarem
+    - Validar se leaks do Gitleaks são falsos positivos antes de bloquear
+    - Manter conformidade com ART-04 (Verificabilidade) e ART-09 (Evidência)
+  steps:
+    - type: command
+      command:
+        "Corrigir erro de sintaxe YAML em core/orquestrador/config.yaml (linhas
+        2-4: substituir ';' por ':' para separar chave-valor)"
+      description:
+        Erro crítico bloqueia Prettier. YAML não aceita ponto e vírgula como
+        separador.
+    - type: command
+      command: npx prettier --write .
+      description: Corrigir formatação de 20 arquivos identificados pelo Prettier.
+    - type: command
+      command: npx eslint --fix .
+      description: Corrigir 18 erros ESLint automaticamente (TypeScript/React + extension.js).
+    - type: validation
+      command: Validar leaks do Gitleaks (848 detectados)
+      description:
+        Revisar relatório do Gitleaks e confirmar se são falsos positivos
+        (exemplos em documentação/testes) ou leaks reais. Atualizar .gitleaksignore
+        se necessário.
+    - type: command
+      command: npm run gatekeeper:eslint && npm run gatekeeper:prettier && npm run gatekeeper:gitleaks
+      description: Re-executar os 3 testes corrigidos para confirmar PASS antes de push.
+  deliverables:
+    - path: core/orquestrador/config.yaml
+      type: yaml
+      description: Sintaxe YAML corrigida
+    - path: relatorios/para_estado_maior/correcoes_gatekeeper_7_testes_engenheiro.md
+      type: markdown
+      description: Relatório de correções aplicadas
+    - path: relatorios/para_estado_maior/engineer.out.json
+      type: json
+      description: Atualização do relatório do Engenheiro
+  success_criteria:
+    - core/orquestrador/config.yaml sem erros de sintaxe YAML
+    - "ESLint: 0 erros (todos os 18 corrigidos)"
+    - "Prettier: 0 arquivos com formatação incorreta (todos os 20 corrigidos)"
+    - "Gitleaks: leaks validados (falsos positivos documentados ou leaks reais corrigidos)"
+    - Todos os 3 testes re-executados com PASS
+  escalation:
+    owner: "@EstadoMaior"
+    when:
+      Impossibilidade técnica de corrigir erros sem violar doutrina ou conflito
+      com outras dependências.
+  checksum: ""
+  signature: ""
+  ack:
+    by: ENGENHEIRO
+    at: "2025-11-14T11:55:00Z"
+    status: ACCEPTED
+  completed_at: "2025-11-14T11:56:00Z"
+  status: DONE
+- order_id: 9e479a8e-d38f-4180-926b-3629d63a66be
+  version: 1
+  from_role: ESTADO-MAIOR
+  to_role: ENGENHEIRO
+  project: FABRICA
+  module: TORRE
+  gate: FORA_PIPELINE
+  urgency: crítica
+  created_at: "2025-11-14T12:05:00Z"
+  expires_at: "2025-11-15T23:59:59Z"
+  context_refs:
+    - "relatorios/para_estado_maior/analise_falha_gatekeeper_zero_tolerancia_sop.md"
+    - "relatorios/para_estado_maior/correcoes_gatekeeper_7_testes_engenheiro.md"
+    - "core/sop/leis.yaml"
+    - "factory/pins/gatekeeper.yaml"
+  objective: "Executa (corrigir TODOS os 182 problemas de linting antes de push: 148 ESLint + 34 Prettier — política zero-tolerância)"
+  constraints:
+    - "POLÍTICA ZERO-TOLERÂNCIA: 0 problemas = APROVADO, 1+ problemas = BLOQUEADO (sem exceções)"
+    - "Nenhum problema é 'pequeno', 'não bloqueante' ou 'esperado' — todos devem ser corrigidos"
+    - "Bloquear push até TODOS os 182 problemas serem corrigidos"
+    - "Conformidade obrigatória com lint_ok do G2 (core/sop/leis.yaml)"
+    - "Manter conformidade com ART-01 (Integridade), ART-04 (Verificabilidade), ART-09 (Evidência)"
+  steps:
+    - type: command
+      command: "npx eslint --fix ."
+      description: "Corrigir automaticamente todos os 148 problemas ESLint corrigíveis."
+    - type: command
+      command: "npx prettier --write ."
+      description: "Corrigir automaticamente todos os 34 problemas Prettier."
+    - type: validation
+      command: "Verificar problemas restantes após auto-fix"
+      description: "Executar 'npm run gatekeeper:eslint' e 'npm run gatekeeper:prettier' para identificar problemas que não foram corrigidos automaticamente."
+    - type: command
+      command: "Corrigir manualmente problemas ESLint não corrigidos automaticamente"
+      description: "Para cada problema ESLint restante: corrigir código-fonte, adicionar configuração de ambiente apropriada (.eslintrc.js), ou adicionar exceções documentadas apenas se absolutamente necessário."
+    - type: command
+      command: "Corrigir manualmente problemas Prettier não corrigidos automaticamente"
+      description: "Para cada problema Prettier restante: corrigir sintaxe YAML, indentação, ou formatação conforme necessário."
+    - type: command
+      command: "npm run gatekeeper:eslint && npm run gatekeeper:prettier"
+      description: "Re-executar ambos os testes para confirmar 0 problemas (PASS total) antes de considerar push."
+  deliverables:
+    - {
+        path: ".eslintrc.js",
+        type: "config",
+        description: "Configuração ESLint atualizada para arquivos de extensão/teste (se necessário)",
+      }
+    - {
+        path: "relatorios/para_estado_maior/correcoes_182_problemas_linting_engenheiro.md",
+        type: "markdown",
+        description: "Relatório detalhado de todas as correções aplicadas (148 ESLint + 34 Prettier)",
+      }
+    - {
+        path: "relatorios/para_estado_maior/engineer.out.json",
+        type: "json",
+        description: "Atualização do relatório do Engenheiro",
+      }
+  success_criteria:
+    - "ESLint: 0 problemas (todos os 148 corrigidos)"
+    - "Prettier: 0 problemas (todos os 34 corrigidos)"
+    - "Total: 0 problemas de linting (182/182 corrigidos)"
+    - "npm run gatekeeper:eslint: PASS (0 problemas)"
+    - "npm run gatekeeper:prettier: PASS (0 problemas)"
+    - "Conformidade com lint_ok do G2 confirmada"
+  escalation:
+    owner: "@EstadoMaior"
+    when: "Impossibilidade técnica de corrigir algum problema sem violar doutrina ou criar dependências circulares."
+  checksum: ""
+  signature: ""
+  ack:
+    by: ENGENHEIRO
+    at: "2025-11-14T12:10:00Z"
     status: "ACCEPTED"
+  completed_at: "2025-11-14T13:30:00Z"
   status: "DONE"

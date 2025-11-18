@@ -29,7 +29,7 @@ acesso_ficheiros:
       O Engenheiro pode ler e escrever qualquer ficheiro, mas APENAS quando
       existe uma ordem válida do Estado-Maior com ACK=ACCEPTED.
       Sem ordem válida, nenhuma escrita é permitida.
-  
+
   estado_maior:
     ler: ["*"]
     escrever:
@@ -46,21 +46,21 @@ acesso_ficheiros:
       - "**/*.java"
       - "**/*.cpp"
       - "**/*.c"
-      - "core/**"  # Exceto relatórios
-      - "pipeline/**"  # Exceto relatórios
-      - "factory/pins/*.yaml"  # PINs são imutáveis pelo Estado-Maior
+      - "core/**" # Exceto relatórios
+      - "pipeline/**" # Exceto relatórios
+      - "factory/pins/*.yaml" # PINs são imutáveis pelo Estado-Maior
     explicacao: >
       O Estado-Maior pode ler qualquer ficheiro, mas apenas pode criar/editar/eliminar
       relatórios (markdown, yaml, json) e ordens (mailbox).
       Qualquer modificação de código-fonte ou configurações deve ser feita pelo Engenheiro.
-  
+
   sop:
     ler: ["*"]
     escrever:
       - "relatorios/**/*.md"
       - "relatorios/para_estado_maior/**"
     proibido:
-      - "**/*.py"  # Exceto relatorios/para_estado_maior/
+      - "**/*.py" # Exceto relatorios/para_estado_maior/
       - "**/*.js"
       - "**/*.ts"
       - "**/*.go"
@@ -68,19 +68,20 @@ acesso_ficheiros:
       - "**/*.java"
       - "**/*.cpp"
       - "**/*.c"
-      - "core/**"  # Exceto relatórios
-      - "pipeline/**"  # Exceto relatórios
+      - "core/**" # Exceto relatórios
+      - "pipeline/**" # Exceto relatórios
     explicacao: >
       O SOP pode ler qualquer ficheiro, mas apenas pode criar/editar/eliminar
       relatórios markdown e qualquer ficheiro dentro de relatorios/para_estado_maior/.
-  
+
   gatekeeper:
     ler: ["*"]
     escrever:
+      - "relatorios/parecer_gatekeeper.md"
       - "relatorios/**/*.md"
       - "relatorios/para_estado_maior/**"
     proibido:
-      - "**/*.py"  # Exceto relatorios/para_estado_maior/
+      - "**/*.py" # Exceto relatorios/para_estado_maior/
       - "**/*.js"
       - "**/*.ts"
       - "**/*.go"
@@ -88,29 +89,54 @@ acesso_ficheiros:
       - "**/*.java"
       - "**/*.cpp"
       - "**/*.c"
-      - "core/**"  # Exceto relatórios
-      - "pipeline/**"  # Exceto relatórios
+      - "core/**" # Exceto relatórios
+      - "pipeline/**" # Exceto relatórios
+    executar_comandos_externos:
+      permitido: true
+      condicoes:
+        - "APENAS para validação (dry-run, smoke tests, read-only)"
+        - "NUNCA modificar código-fonte ou configurações"
+        - "NUNCA modificar artefactos ou ficheiros do repositório"
+      exemplos_permitidos:
+        - "vercel build (dry-run, sem deploy)"
+        - "npm audit (read-only, apenas análise)"
+        - "git diff (read-only, apenas leitura)"
+        - "yaml-lint (validação sem modificação)"
+        - "shellcheck (validação sem modificação)"
+      exemplos_proibidos:
+        - "git commit (modifica repositório)"
+        - "npm install (modifica node_modules)"
+        - "make build (modifica artefactos)"
+        - "vercel deploy (modifica produção)"
+        - "git push (modifica remoto)"
+      explicacao: >
+        O Gatekeeper pode executar comandos externos APENAS para validação e análise.
+        Qualquer comando que modifique código-fonte, configurações, artefactos ou
+        o repositório é PROIBIDO. Comandos de validação (dry-run, read-only, smoke tests)
+        são permitidos para permitir validações técnicas sem violar a doutrina.
     explicacao: >
       O Gatekeeper pode ler qualquer ficheiro, mas apenas pode criar/editar/eliminar
       relatórios markdown e qualquer ficheiro dentro de relatorios/para_estado_maior/.
+      Pode executar comandos externos APENAS para validação (dry-run, read-only),
+      nunca para modificar código-fonte, configurações ou artefactos.
 
 formato_interacoes:
   obrigatorio: true
   aplicavel_a: "TODAS as interações de TODOS os agentes com o Estado-Maior/usuário"
   inclui_agentes_torre: true
   inicio: "**PIPELINE/FORA_PIPELINE:** PIPELINE ou FORA_PIPELINE"
-  fim: "**COMANDO A EXECUTAR:** \"AGENTE AÇÃO (localização)\""
+  fim: '**COMANDO A EXECUTAR:** "AGENTE AÇÃO (localização)"'
   explicacao: >
     TODAS as interações de TODOS os agentes (incluindo agentes da Torre) devem:
     1. Começar com identificação PIPELINE/FORA_PIPELINE
     2. Terminar com comando explícito a executar
-    
+
     Isso aplica-se a:
     - Relatórios em markdown
     - Respostas de texto dos agentes
     - Comunicações dos agentes
     - Qualquer interação entre agente e Estado-Maior/usuário
-    
+
     Não é apenas para relatórios salvos em ficheiros, mas sim para TODAS as interações.
   exemplos:
     - "ESTADO-MAIOR ANALISAR RELATÓRIO (relatorios/para_estado_maior/sop.out.json)"
@@ -132,4 +158,3 @@ violacoes:
   explicacao: >
     Qualquer violação desta doutrina deve resultar em bloqueio imediato da operação
     e registo da violação no log de violações.
-

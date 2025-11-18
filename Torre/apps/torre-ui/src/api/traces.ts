@@ -20,6 +20,13 @@ export async function getTraceBadge(): Promise<TraceBadge> {
   try {
     return JSON.parse(t);
   } catch {
-    return { trace_id: "", ts: "", endpoint: "", latency_ms: null, tokens_in_est: 0, tokens_out_est: 0 };
+    return {
+      trace_id: "",
+      ts: "",
+      endpoint: "",
+      latency_ms: null,
+      tokens_in_est: 0,
+      tokens_out_est: 0,
+    };
   }
 }

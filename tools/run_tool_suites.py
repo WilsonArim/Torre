@@ -5,10 +5,10 @@ Avalia capacidade da LLM de usar ferramentas corretamente
 """
 
 import argparse
-import json
-import time
 import random
 import subprocess
+import tempfile
+import time
 from datetime import datetime
 from pathlib import Path
 from typing import Dict, Any, List
@@ -97,14 +97,14 @@ def test_tool(tool_name: str, suite_name: str) -> Dict[str, Any]:
                 output = "Simulated execution"
         
         elif "file" in tool_name:
-            # Teste de operações de arquivo
-            test_file = Path("/tmp/torre_tool_test.txt")
+            # Teste de operações de arquivo usando diretório temporário seguro
             try:
-                test_file.write_text("test", encoding="utf-8")
-                content = test_file.read_text(encoding="utf-8")
-                test_file.unlink()
-                status = "PASS" if content == "test" else "FAIL"
-                output = "File operations OK"
+                with tempfile.TemporaryDirectory(prefix="torre_tool_") as tmp_dir:
+                    test_file = Path(tmp_dir) / "tool_test.txt"
+                    test_file.write_text("test", encoding="utf-8")
+                    content = test_file.read_text(encoding="utf-8")
+                    status = "PASS" if content == "test" else "FAIL"
+                    output = "File operations OK"
             except Exception as e:
                 status = "FAIL"
                 error = str(e)

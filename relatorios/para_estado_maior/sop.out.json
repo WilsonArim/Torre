@@ -1,0 +1,23 @@
+[
+  {
+    "report_id": "sop-20251106-161127",
+    "order_id": "sop-ajustar-doutrina-comandos-externos-2025-11-02",
+    "from_role": "SOP",
+    "to_role": "EstadoMaior",
+    "started_at": "2025-11-06T16:11:27.798786+00:00",
+    "finished_at": "2025-11-06T16:11:27.798822+00:00",
+    "status": "PASS",
+    "gate": "GERAL",
+    "violations": [],
+    "artefactos_citados": [
+      "core/sop/doutrina.yaml",
+      "relatorios/para_estado_maior/decisao_estado_maior_funcoes_gatekeeper.md",
+      "relatorios/para_estado_maior/parecer_gatekeeper_funcoes_adicionais_sop.md",
+      "relatorios/para_estado_maior/ajuste_doutrina_comandos_externos_sop.md"
+    ],
+    "constitution_ok": true,
+    "triade_ok": true,
+    "timestamp": "2025-11-06T16:11:27.798826+00:00",
+    "agente": "SOP-v3.0"
+  }
+]

@@ -1,0 +1,11 @@
+node_modules/
+venv/
+.vercel/
+dist/
+build/
+**/*.d.ts
+Torre/torre-llm/venv/
+Torre/torre-llm/node_modules/
+Torre/torre-llm/dist/
+Torre/torre-llm/venv/lib/python3.13/site-packages/
+

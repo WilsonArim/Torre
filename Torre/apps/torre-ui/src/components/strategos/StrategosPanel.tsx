@@ -1,11 +1,21 @@
 import React, { useEffect, useMemo, useState } from "react";
-import { getGraphSummary, getStrategosPlan, GraphSummary, StrategosPlan, PlanStep } from "../../api/strategos";
+import {
+  getGraphSummary,
+  getStrategosPlan,
+  GraphSummary,
+  StrategosPlan,
+  PlanStep,
+} from "../../api/strategos";
 
 export default function StrategosPanel() {
   const [summary, setSummary] = useState<GraphSummary | null>(null);
   const [plan, setPlan] = useState<StrategosPlan | null>(null);
-  const [logsText, setLogsText] = useState<string>('{"types":"TS2307: Cannot find module ./x.css","build":"vite build failed"}');
-  const [filesText, setFilesText] = useState<string>('{"src/App.tsx":"console.log(1)"}');
+  const [logsText, setLogsText] = useState<string>(
+    '{"types":"TS2307: Cannot find module ./x.css","build":"vite build failed"}',
+  );
+  const [filesText, setFilesText] = useState<string>(
+    '{"src/App.tsx":"console.log(1)"}',
+  );
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -34,21 +44,34 @@ export default function StrategosPanel() {
     }
   }
 
-  useEffect(() => { refreshSummary(); }, []);
+  useEffect(() => {
+    refreshSummary();
+  }, []);
 
-  const topSteps: PlanStep[] = useMemo(() => plan?.steps?.slice(0, 20) || [], [plan]);
+  const topSteps: PlanStep[] = useMemo(
+    () => plan?.steps?.slice(0, 20) || [],
+    [plan],
+  );
 
   return (
     <div className="space-y-4" aria-label="Painel Strategos v2">
       <div className="flex items-center gap-2">
-        <strong className="text-xs uppercase tracking-wide opacity-70">Strategos v2</strong>
+        <strong className="text-xs uppercase tracking-wide opacity-70">
+          Strategos v2
+        </strong>
         <div className="flex-1" />
-        <button onClick={refreshSummary} className="px-2 py-1 rounded border text-xs" title="Atualizar grafo">
+        <button
+          onClick={refreshSummary}
+          className="px-2 py-1 rounded border text-xs"
+          title="Atualizar grafo"
+        >
           Atualizar grafo
         </button>
       </div>
 
-      {error ? <div className="text-rose-600 dark:text-rose-300 text-xs">{error}</div> : null}
+      {error ? (
+        <div className="text-rose-600 dark:text-rose-300 text-xs">{error}</div>
+      ) : null}
 
       <section className="space-y-2">
         <div className="text-sm">
@@ -59,7 +82,10 @@ export default function StrategosPanel() {
               {summary.top?.length ? (
                 <ul className="mt-1 list-disc list-inside">
                   {summary.top.map((t) => (
-                    <li key={t.path} className="truncate"><span className="font-mono">{t.path}</span> — grau <b>{t.degree}</b></li>
+                    <li key={t.path} className="truncate">
+                      <span className="font-mono">{t.path}</span> — grau{" "}
+                      <b>{t.degree}</b>
+                    </li>
                   ))}
                 </ul>
               ) : null}
@@ -74,15 +100,33 @@ export default function StrategosPanel() {
         <div className="text-sm font-medium">Gerar plano</div>
         <div className="grid grid-cols-1 gap-2">
           <label className="text-xs opacity-70">Logs (JSON)</label>
-          <textarea value={logsText} onChange={(e) => setLogsText(e.target.value)} rows={4} className="w-full border rounded p-2 font-mono text-xs" />
+          <textarea
+            value={logsText}
+            onChange={(e) => setLogsText(e.target.value)}
+            rows={4}
+            className="w-full border rounded p-2 font-mono text-xs"
+          />
           <label className="text-xs opacity-70">Files (JSON)</label>
-          <textarea value={filesText} onChange={(e) => setFilesText(e.target.value)} rows={4} className="w-full border rounded p-2 font-mono text-xs" />
+          <textarea
+            value={filesText}
+            onChange={(e) => setFilesText(e.target.value)}
+            rows={4}
+            className="w-full border rounded p-2 font-mono text-xs"
+          />
         </div>
         <div className="flex items-center gap-2">
-          <button onClick={generatePlan} className="px-3 py-1 rounded border text-sm" aria-busy={loading}>
+          <button
+            onClick={generatePlan}
+            className="px-3 py-1 rounded border text-sm"
+            aria-busy={loading}
+          >
             {loading ? "A gerar…" : "Gerar plano"}
           </button>
-          {plan ? <span className="text-xs opacity-70">Modo: <b>{plan.mode}</b></span> : null}
+          {plan ? (
+            <span className="text-xs opacity-70">
+              Modo: <b>{plan.mode}</b>
+            </span>
+          ) : null}
         </div>
       </section>
 
@@ -105,7 +149,12 @@ export default function StrategosPanel() {
                 {topSteps.map((s, i) => (
                   <tr key={`${s.stage}-${s.target}-${i}`} className="border-t">
                     <td className="p-2">{labelStage(s.stage)}</td>
-                    <td className="p-2 font-mono truncate max-w-[320px]" title={s.target}>{s.target}</td>
+                    <td
+                      className="p-2 font-mono truncate max-w-[320px]"
+                      title={s.target}
+                    >
+                      {s.target}
+                    </td>
                     <td className="p-2 text-right">{fmt(s.score)}</td>
                     <td className="p-2 text-right">{fmt(s.impact)}</td>
                     <td className="p-2 text-right">{fmt(s.risk)}</td>
@@ -116,7 +165,8 @@ export default function StrategosPanel() {
             </table>
           </div>
           <div className="text-[11px] opacity-70">
-            Ordem canónica: <b>build → types → tests → style</b>. Scores incorporam impacto×risco×custo + boosts por logs.
+            Ordem canónica: <b>build → types → tests → style</b>. Scores
+            incorporam impacto×risco×custo + boosts por logs.
           </div>
         </section>
       ) : null}
@@ -131,10 +181,15 @@ function fmt(n: number) {
 
 function labelStage(s: PlanStep["stage"]) {
   switch (s) {
-    case "build": return "Build";
-    case "types": return "Types";
-    case "tests": return "Tests";
-    case "style": return "Style";
-    default: return s;
+    case "build":
+      return "Build";
+    case "types":
+      return "Types";
+    case "tests":
+      return "Tests";
+    case "style":
+      return "Style";
+    default:
+      return s;
   }
 }

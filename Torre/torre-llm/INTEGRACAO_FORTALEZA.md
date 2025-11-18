@@ -19,15 +19,17 @@ A Torre está **100% funcional** e pronta para ser integrada com a Fortaleza. To
 ## 🔧 CONFIGURAÇÃO TÉCNICA
 
 ### Endpoints Disponíveis
+
 - **Chat Completions:** `POST http://localhost:11434/v1/chat/completions`
 - **Models:** `GET http://localhost:11434/v1/models`
 - **Health Check:** `GET http://localhost:11434/api/tags`
 
 ### Parâmetros Suportados
+
 ```json
 {
   "model": "torre:latest",
-  "messages": [{"role": "user", "content": "..."}],
+  "messages": [{ "role": "user", "content": "..." }],
   "stream": false,
   "temperature": 0.7,
   "max_tokens": 2048,
@@ -39,20 +41,23 @@ A Torre está **100% funcional** e pronta para ser integrada com a Fortaleza. To
 ```
 
 ### Resposta Padrão
+
 ```json
 {
   "id": "chatcmpl-123",
   "object": "chat.completion",
   "created": 1756275757,
   "model": "torre:latest",
-  "choices": [{
-    "index": 0,
-    "message": {
-      "role": "assistant",
-      "content": "resposta da Torre"
-    },
-    "finish_reason": "stop"
-  }],
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "resposta da Torre"
+      },
+      "finish_reason": "stop"
+    }
+  ],
   "usage": {
     "prompt_tokens": 31,
     "completion_tokens": 48,
@@ -66,6 +71,7 @@ A Torre está **100% funcional** e pronta para ser integrada com a Fortaleza. To
 ## 🚀 INTEGRAÇÃO COM FORTALEZA
 
 ### 1. Variáveis de Ambiente
+
 ```bash
 TORRE_BASE=http://localhost:11434
 TORRE_MODEL=torre:latest
@@ -76,6 +82,7 @@ TORRE_MAX_TOKENS=2048
 ```
 
 ### 2. Adapter Configuration
+
 ```json
 {
   "name": "torre",
@@ -89,6 +96,7 @@ TORRE_MAX_TOKENS=2048
 ```
 
 ### 3. Health Check
+
 ```bash
 curl http://localhost:11434/api/tags
 # Deve retornar 200 com lista de modelos incluindo "torre:latest"
@@ -99,16 +107,19 @@ curl http://localhost:11434/api/tags
 ## 📁 ARQUIVOS CRIADOS
 
 ### Documentação
+
 - `docs/TORRE_SPEC.md` - Especificação completa da API
 - `docs/torre.contract.json` - Contrato JSON para integração
 - `INTEGRACAO_FORTALEZA.md` - Este documento
 
 ### Scripts
+
 - `test_integration.py` - Teste de validação da integração
 - `setup_ollama_torre.sh` - Script de configuração
 - `install_and_setup_torre.sh` - Instalação completa
 
 ### Configuração
+
 - `Modelfile` - Configuração do modelo Ollama
 - `.torre/chat_config.json` - Configuração do chat
 
@@ -120,7 +131,7 @@ curl http://localhost:11434/api/tags
 ✅ **Models Endpoint** - Modelo "torre:latest" disponível  
 ✅ **Chat Completion** - Geração de texto funcionando  
 ✅ **Streaming** - Resposta em tempo real funcionando  
-✅ **Performance** - 2.5s de latência, 65 tokens  
+✅ **Performance** - 2.5s de latência, 65 tokens
 
 ---
 
@@ -137,12 +148,14 @@ curl http://localhost:11434/api/tags
 ## 🛠️ TROUBLESHOOTING
 
 ### Problemas Comuns
+
 - **"Connection refused"** → `brew services start ollama`
 - **"Model not found"** → `ollama create torre -f Modelfile`
 - **"401 Unauthorized"** → Use API Key = "local"
 - **"Timeout"** → Aumente `TORRE_TIMEOUT_MS`
 
 ### Logs
+
 ```bash
 # Ver logs do Ollama
 brew services log ollama

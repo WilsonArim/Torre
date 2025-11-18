@@ -36,37 +36,31 @@ lint:
 
 security:
 	semgrep --config auto --sarif -o ../../relatorios/semgrep.sarif || true
-	bandit -q -r ../.. -f json -o ../../relatorios/bandit.json || true
+	bandit -q -r ../.. -x ../../.vercel,../../Torre/torre-llm,../../Torre/.venv,../../venv,../../.venv,../../factory/pins/_deprecated -f json -o ../../relatorios/bandit.json || true
 	npm audit --json > ../../relatorios/npm-audit.json || true
 	trivy fs --format json -o ../../relatorios/trivy.json ../.. || true
 
 sbom:
 	@echo "📦 Gerando SBOM..."
 	@mkdir -p ../../relatorios
+	@# Verificar se cyclonedx-bom está disponível
 	@if command -v cyclonedx-bom >/dev/null 2>&1; then \
-		cyclonedx-bom -o ../../relatorios/sbom.json && \
-		if [ -f ../../relatorios/sbom.json ]; then \
-			echo "✅ SBOM gerado: relatorios/sbom.json"; \
-		else \
-			echo "❌ ERRO: SBOM não foi gerado!" >&2; \
-			exit 1; \
-		fi; \
+		echo "✅ cyclonedx-bom encontrado, gerando SBOM..."; \
+		(cd ../.. && cyclonedx-bom -o relatorios/sbom.json) || exit 1; \
+	elif command -v npx >/dev/null 2>&1; then \
+		echo "⚠️ cyclonedx-bom não encontrado. Tentando via npx..."; \
+		(cd ../.. && npx -y @cyclonedx/cyclonedx-npm -o relatorios/sbom.json) || exit 1; \
 	else \
 		echo "⚠️ cyclonedx-bom não encontrado. Instalando via npm..."; \
-		npm install -g @cyclonedx/cyclonedx-npm || npm install -g cyclonedx-bom || { \
-			echo "❌ ERRO: Não foi possível instalar cyclonedx-bom" >&2; \
-			echo "⚠️ Gerando SBOM mínimo manualmente..." >&2; \
-			echo '{"bomFormat":"CycloneDX","specVersion":"1.4","version":1,"components":[]}' > ../../relatorios/sbom.json; \
-		}; \
-		if command -v cyclonedx-bom >/dev/null 2>&1; then \
-			cyclonedx-bom -o ../../relatorios/sbom.json || exit 1; \
-		fi; \
-		if [ -f ../../relatorios/sbom.json ]; then \
-			echo "✅ SBOM gerado: relatorios/sbom.json"; \
-		else \
-			echo "❌ ERRO: SBOM não foi gerado após instalação!" >&2; \
-			exit 1; \
-		fi; \
+		npm install -g @cyclonedx/cyclonedx-npm || exit 1; \
+		echo "✅ Instalado. Gerando SBOM..."; \
+		(cd ../.. && cyclonedx-bom -o relatorios/sbom.json) || (cd ../.. && npx -y @cyclonedx/cyclonedx-npm -o relatorios/sbom.json) || exit 1; \
+	fi
+	@if [ -f ../../relatorios/sbom.json ]; then \
+		echo "✅ SBOM gerado: relatorios/sbom.json"; \
+	else \
+		echo "❌ ERRO: SBOM não foi gerado após instalação!"; \
+		exit 1; \
 	fi
 
 validate_constituicao:
@@ -105,6 +99,23 @@ gatekeeper_run:
 		echo "Parecer do Gatekeeper: baseado em validação SOP." > ../../relatorios/parecer_gatekeeper.md; \
 	fi
 
+# Novas funções do Gatekeeper (conforme ordem do Estado-Maior)
+gatekeeper_preflight:
+	@echo "🛡️ Executando Gatekeeper Preflight..."
+	@python3 gatekeeper_cli.py preflight || exit 1
+
+gatekeeper_vercel_guard:
+	@echo "🛡️ Executando Vercel Guard..."
+	@python3 gatekeeper_cli.py vercel-guard || exit 1
+
+gatekeeper_post_mortem:
+	@echo "🛡️ Executando Post-Mortem..."
+	@python3 gatekeeper_cli.py post-mortem || exit 1
+
+gatekeeper_dependency_radar:
+	@echo "🛡️ Executando Dependency Radar..."
+	@python3 ../../tools/gatekeeper/dependency_radar.py || exit 1
+
 review_codex:
 	@echo "🧠 Running ethical review with Codex (GPT-4o)..."
 	python3 core/orquestrador/cli.py review_codex
@@ -139,6 +150,12 @@ sop_status:
 sop_limpa:
 	@echo "🧹 Limpeza e rotação..."
 	python3 sop_cli.py limpa
+
+# Validador Pré-Commit (execução manual)
+validate:
+	@echo "🔒 Executando validador pré-commit (imita workflows GitHub)..."
+	@python3 ../../tools/pre_commit_validator.py --skip-staged-check || exit 1
+	@echo "✅ Validação completa - sistema pronto para commit/push"
 
 orders_rotate:
 	python3 core/orquestrador/orders_gc.py

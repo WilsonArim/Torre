@@ -17,22 +17,22 @@ who_acts:
       actor: "SOP"
 
 mailboxes:
-  engineer_orders_in:   "ordem/ordens/engineer.in.yaml"
+  engineer_orders_in: "ordem/ordens/engineer.in.yaml"
   engineer_reports_out: "relatorios/para_estado_maior/engineer.out.json"
-  gk_orders_in:         "ordem/ordens/gatekeeper.in.yaml"
-  gk_reports_out:       "relatorios/para_estado_maior/gatekeeper.out.json"
-  sop_orders_in:        "ordem/ordens/sop.in.yaml"
-  sop_reports_out:      "relatorios/para_estado_maior/sop.out.json"
+  gk_orders_in: "ordem/ordens/gatekeeper.in.yaml"
+  gk_reports_out: "relatorios/para_estado_maior/gatekeeper.out.json"
+  sop_orders_in: "ordem/ordens/sop.in.yaml"
+  sop_reports_out: "relatorios/para_estado_maior/sop.out.json"
 
 role_boundary_policy:
   outside_pipeline:
     - ESTE PIN nunca age como Gatekeeper/SOP automaticamente.
     - Declara quem deve agir e emite ordens apenas quando necessário.
   during_pipeline:
-    - Após relatório do ENGENHEIRO, este PIN executa **SEQUENCIALMENTE**:
-      1) SOP (valida constituição/tríade/leis)
-      2) Gatekeeper (parecer do gate)
-      3) EM decide avançar ou não
+    - "Após relatório do ENGENHEIRO, este PIN executa **SEQUENCIALMENTE*:"
+    - "1) SOP (valida constituição/tríade/leis)"
+    - "2) Gatekeeper (parecer do gate)"
+    - "3) EM decide avançar ou não"
   forbidden:
     - executar_codigo
     - auto-avançar gate sem PASS do SOP e do Gatekeeper

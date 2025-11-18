@@ -5,12 +5,14 @@
 Implementamos **dois perfis de teste** para cobrir diferentes necessidades:
 
 ### 🔥 **Smoke (Rápido)**
+
 - **Arquivo**: `test_fastapi_simple.py`
 - **Objetivo**: Validação básica de infraestrutura
 - **Tolerância**: Aceita 200/422/503/429
 - **Uso**: Pre-push, CI rápido
 
 ### 📜 **Contrato (Estrito)**
+
 - **Arquivo**: `test_fastapi_contract.py`
 - **Objetivo**: Validação de contratos, auth, rate-limit
 - **Tolerância**: 200 apenas (com validações específicas)
@@ -63,12 +65,14 @@ expect_rate_limited(429)  # 429
 ## 📊 Cobertura
 
 ### Smoke Tests
+
 - ✅ Health check
 - ✅ Memory metrics
 - ✅ Traces badge (tolerante)
 - ✅ Rate limit básico
 
 ### Contract Tests
+
 - ✅ Auth validation (401/403/422)
 - ✅ Rate limiting (429)
 - ✅ Schema validation
@@ -78,28 +82,34 @@ expect_rate_limited(429)  # 429
 ## 🐛 Troubleshooting
 
 ### Erro 422 (Validation Error)
+
 - **Causa**: Validação de parâmetros antes da verificação de auth
 - **Solução**: Aceitar 422 como status válido em testes de auth
 
 ### Erro 503 (Service Unavailable)
+
 - **Causa**: Módulos opcionais indisponíveis
 - **Solução**: Testar condicionalmente se módulo está disponível
 
 ### Erro de Escopo (NameError)
+
 - **Causa**: Variáveis globais mal definidas
 - **Solução**: Usar `app.state` para estado global
 
 ## 🎯 Benefícios
 
 ### **Robustez**
+
 - Não quebra se módulos opcionais estiverem indisponíveis
 - Valida infraestrutura mesmo com dependências faltando
 
 ### **Diagnóstico**
+
 - Identifica problemas específicos de cada endpoint
 - Mostra quais módulos estão funcionando
 
 ### **Progresso**
+
 - Permite avançar mesmo com módulos faltando
 - Não bloqueia desenvolvimento
 

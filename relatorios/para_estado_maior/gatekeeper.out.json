@@ -1,0 +1,271 @@
+[
+  {
+    "order_id": "2aa1a1f9-2f8e-4f2d-9c2f-08f0f8e7f0e4",
+    "timestamp": "2025-11-13T16:15:00Z",
+    "status": "BLOCKED",
+    "decision": "SOP_STATUS_UNKNOWN",
+    "blocked_reason": "Parecer não pode ser APROVADO porque relatorio_sop.md/sop_status.json não foram regenerados; SOP status = UNKNOWN.",
+    "constraints_checked": [
+      "Preflight PASS",
+      "gatekeeper vercel-guard: PASS (warning informativo)",
+      "Artefatos obrigatórios coverage/sbom/pipeline_input: ✔️",
+      "SOP status PASS: ❌ UNKNOWN"
+    ],
+    "artifacts_analyzed": [
+      "relatorios/para_estado_maior/preflight_report.md",
+      "relatorios/para_estado_maior/vercel_guard_report.md",
+      "relatorios/coverage.xml",
+      "relatorios/pipeline_gate_input.json",
+      "relatorios/sbom.json"
+    ],
+    "sop_status": "UNKNOWN",
+    "production_authorization": {
+      "authorized": false,
+      "effective_immediately": false,
+      "conditions": [
+        "Regenerar relatorios/relatorio_sop.md e sop_status.json via make -C core/orquestrador sop",
+        "Reexecutar gatekeeper_prep e executa"
+      ]
+    },
+    "escalation": {
+      "owner": "@EstadoMaior",
+      "reason": "Sem SOP PASS não é possível liberar a Torre"
+    },
+    "progresso_capitulo": null,
+    "signature": "Gatekeeper (FÁBRICA 2.0)",
+    "emission_date": "2025-11-13T16:15:00Z"
+  },
+  {
+    "order_id": "9a89e87e-1f62-44e9-a56b-5912d937e355",
+    "report_id": "gk-2025-11-13T16:09:04.208447+00:00",
+    "version": 1,
+    "from_role": "GATEKEEPER",
+    "to_role": "ESTADO-MAIOR",
+    "timestamp": "2025-11-13T16:09:04.208455+00:00",
+    "decision": "BLOCKED",
+    "sop_status": "UNKNOWN",
+    "artefactos_presentes": [
+      "relatorios/pipeline_gate_input.json",
+      "relatorios/sbom.json",
+      "relatorios/coverage.xml",
+      "relatorios/parecer_gatekeeper.md"
+    ],
+    "artefactos_faltando": [],
+    "parecer_path": "relatorios/parecer_gatekeeper.md"
+  },
+  {
+    "order_id": "2aa1a1f9-2f8e-4f2d-9c2f-08f0f8e7f0e4",
+    "report_id": "gk-2025-11-13T16:14:56.979559+00:00",
+    "version": 1,
+    "from_role": "GATEKEEPER",
+    "to_role": "ESTADO-MAIOR",
+    "timestamp": "2025-11-13T16:14:56.979568+00:00",
+    "decision": "BLOCKED",
+    "sop_status": "UNKNOWN",
+    "artefactos_presentes": [
+      "relatorios/pipeline_gate_input.json",
+      "relatorios/sbom.json",
+      "relatorios/coverage.xml",
+      "relatorios/parecer_gatekeeper.md"
+    ],
+    "artefactos_faltando": [],
+    "parecer_path": "relatorios/parecer_gatekeeper.md"
+  },
+  {
+    "order_id": "6d3e4379-6f62-4d09-a8d8-3e4f4a0fdc8a",
+    "report_id": "gk-2025-11-13T16:32:36.274245+00:00",
+    "version": 1,
+    "from_role": "GATEKEEPER",
+    "to_role": "ESTADO-MAIOR",
+    "timestamp": "2025-11-13T16:32:36.274255+00:00",
+    "decision": "BLOCKED",
+    "sop_status": "UNKNOWN",
+    "artefactos_presentes": [
+      "relatorios/pipeline_gate_input.json",
+      "relatorios/sbom.json",
+      "relatorios/coverage.xml",
+      "relatorios/parecer_gatekeeper.md"
+    ],
+    "artefactos_faltando": [],
+    "parecer_path": "relatorios/parecer_gatekeeper.md"
+  },
+  {
+    "order_id": "ba7bf26e-7b26-446f-bc60-06bfa9bb6079",
+    "report_id": "gk-2025-11-14T10:32:36.822722+00:00",
+    "version": 1,
+    "from_role": "GATEKEEPER",
+    "to_role": "ESTADO-MAIOR",
+    "timestamp": "2025-11-14T10:32:36.822731+00:00",
+    "decision": "BLOCKED",
+    "sop_status": "UNKNOWN",
+    "artefactos_presentes": [
+      "relatorios/pipeline_gate_input.json",
+      "relatorios/sbom.json",
+      "relatorios/coverage.xml",
+      "relatorios/parecer_gatekeeper.md"
+    ],
+    "artefactos_faltando": [],
+    "parecer_path": "relatorios/parecer_gatekeeper.md"
+  },
+  {
+    "order_id": "gatekeeper-vercel-guard-revalidacao-2025-11-07",
+    "report_id": "gk-2025-11-14T10:33:10.721485+00:00",
+    "version": 1,
+    "from_role": "GATEKEEPER",
+    "to_role": "ESTADO-MAIOR",
+    "timestamp": "2025-11-14T10:33:10.721499+00:00",
+    "decision": "PASS",
+    "sop_status": "PASS",
+    "artefactos_presentes": [
+      "relatorios/pipeline_gate_input.json",
+      "relatorios/sbom.json",
+      "relatorios/coverage.xml",
+      "relatorios/parecer_gatekeeper.md"
+    ],
+    "artefactos_faltando": [],
+    "parecer_path": "relatorios/parecer_gatekeeper.md"
+  },
+  {
+    "order_id": "validacao-pre-commit-push-2025-11-14",
+    "report_id": "gk-2025-11-14T10:40:00+00:00",
+    "version": 1,
+    "from_role": "GATEKEEPER",
+    "to_role": "ESTADO-MAIOR",
+    "timestamp": "2025-11-14T10:40:00+00:00",
+    "decision": "WARN",
+    "sop_status": "PASS",
+    "preflight": "PASS",
+    "vercel_guard": "PASS",
+    "status_artefactos": "3/3 presentes",
+    "pipeline_ok": false,
+    "blocked_reason": "pipeline_ok: false impede push imediato",
+    "artefactos_presentes": [
+      "relatorios/pipeline_gate_input.json",
+      "relatorios/sbom.json",
+      "relatorios/coverage.xml",
+      "relatorios/sop_status.json",
+      "relatorios/parecer_gatekeeper.md"
+    ],
+    "artefactos_faltando": [],
+    "parecer_path": "relatorios/parecer_gatekeeper.md",
+    "production_authorization": {
+      "authorized": false,
+      "effective_immediately": false,
+      "conditions": ["Corrigir pipeline_ok: false", "Revalidar após correção"]
+    }
+  },
+  {
+    "order_id": "validacao-7-testes-gatekeeper-2025-11-14",
+    "report_id": "gk-2025-11-14T11:59:00+00:00",
+    "version": 1,
+    "from_role": "GATEKEEPER",
+    "to_role": "ESTADO-MAIOR",
+    "timestamp": "2025-11-14T11:59:00+00:00",
+    "decision": "BLOCKED",
+    "sop_status": "PASS",
+    "testes_executados": {
+      "eslint": "FAILED",
+      "prettier": "FAILED",
+      "semgrep": "PASS",
+      "gitleaks": "PASS",
+      "npm_audit": "PASS",
+      "pip_audit": "PASS",
+      "sentry": "PASS"
+    },
+    "testes_resultado": "5/7 PASS",
+    "problemas_detectados": {
+      "eslint": {
+        "total": 148,
+        "categorias": [
+          "@typescript-eslint/no-explicit-any",
+          "import/no-unresolved",
+          "no-undef",
+          "@typescript-eslint/no-unused-vars",
+          "no-empty"
+        ]
+      },
+      "prettier": {
+        "total": 34,
+        "erros_yaml_criticos": 3,
+        "arquivos_formatacao": 20
+      }
+    },
+    "politica_aplicada": "ZERO-TOLERANCIA",
+    "filosofia": "Avisos e erros pequenos hoje são tragédias amanhã",
+    "estado_maior_autorizacao": {
+      "push_autorizado": false,
+      "data_autorizacao": null,
+      "justificativa": "182 problemas não corrigidos (148 ESLint + 34 Prettier). Zero-tolerância aplicada."
+    },
+    "artefactos_presentes": [
+      "relatorios/parecer_gatekeeper.md",
+      "relatorios/para_estado_maior/gatekeeper_7_testes_completo.md",
+      "relatorios/para_estado_maior/analise_erros_codigo_gatekeeper.md"
+    ],
+    "artefactos_faltando": [],
+    "parecer_path": "relatorios/parecer_gatekeeper.md",
+    "production_authorization": {
+      "authorized": false,
+      "effective_immediately": false,
+      "conditions": [
+        "Corrigir TODOS os 148 problemas do ESLint (0 erros, 0 avisos)",
+        "Corrigir TODOS os 34 problemas do Prettier (0 erros, 0 avisos)",
+        "Rerrodar os 7 testes até obter 7/7 PASS com 0 erros e 0 avisos"
+      ]
+    }
+  },
+  {
+    "order_id": "validacao-final-7-testes-2025-11-14",
+    "report_id": "gk-2025-11-14T16:20:00+00:00",
+    "version": 1,
+    "from_role": "GATEKEEPER",
+    "to_role": "ESTADO-MAIOR",
+    "timestamp": "2025-11-14T16:20:00+00:00",
+    "decision": "APPROVED",
+    "sop_status": "PASS",
+    "testes_executados": {
+      "eslint": "PASS",
+      "prettier": "PASS",
+      "semgrep": "PASS",
+      "gitleaks": "PASS",
+      "npm_audit": "PASS",
+      "pip_audit": "PASS",
+      "sentry": "PASS"
+    },
+    "testes_resultado": "7/7 PASS",
+    "problemas_detectados": {
+      "eslint": 0,
+      "prettier": 0,
+      "semgrep": 0,
+      "gitleaks": 0,
+      "npm_audit": 0,
+      "pip_audit": 0,
+      "sentry": 0
+    },
+    "correcoes_aplicadas": {
+      "eslint": "148 problemas corrigidos (148 → 0)",
+      "prettier": "34 problemas corrigidos (34 → 0)",
+      "npm_audit": "1 vulnerabilidade corrigida (1 → 0)"
+    },
+    "total_problemas_corrigidos": 183,
+    "politica_aplicada": "ZERO-TOLERANCIA",
+    "filosofia": "Avisos e erros pequenos hoje são tragédias amanhã",
+    "estado_maior_autorizacao": {
+      "push_autorizado": true,
+      "data_autorizacao": "2025-11-14T16:20:00Z",
+      "justificativa": "7/7 testes PASS com 0 problemas. Zero-tolerância aplicada e validada."
+    },
+    "artefactos_presentes": [
+      "relatorios/parecer_gatekeeper.md",
+      "relatorios/para_estado_maior/correcoes_182_problemas_linting_engenheiro.md",
+      "relatorios/para_estado_maior/gatekeeper_7_testes_completo.md"
+    ],
+    "artefactos_faltando": [],
+    "parecer_path": "relatorios/parecer_gatekeeper.md",
+    "production_authorization": {
+      "authorized": true,
+      "effective_immediately": true,
+      "conditions": []
+    }
+  }
+]
